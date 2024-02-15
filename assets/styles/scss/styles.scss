@@ -1,9 +1,10 @@
 @import "reset";
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Jost&family=Raleway:wght@100&family=Roboto&display=swap');
 body, html {
   background: #080707;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-style: normal;
   min-height: 100vh;
   overflow-x: hidden;
@@ -23,6 +24,7 @@ body, html {
     display: flex;
     align-items: center;
     gap: 16px;
+    z-index: 1;
   }
 
   &-logotype {
@@ -53,6 +55,7 @@ body, html {
         font-size: 18px;
         font-weight: 400;
         line-height: 16px;
+        font-family: "Space Grotesk" , sans-serif;
 
         &.active {
           border-left: 1px solid rgba(255, 255, 255, 1);
@@ -87,13 +90,12 @@ body, html {
 }
 
 .btn-md {
-  padding: 12px 16px;
+  padding: 12px 24px;
   font-size: 14px;
   line-height: 16px;
 }
 
 .btn-header {
-  font-size: 18px;
   font-weight: 800;
 }
 
@@ -107,10 +109,42 @@ body, html {
   }
 }
 
+.btn-blue {
+  color: white;
+  background: #277DFF;
+
+  &:hover {
+    background: #579AFF;
+  }
+  &:active {
+    background: #1760CE;
+  }
+}
+
+.btn-gradient-icon{
+  display: flex;
+  padding: 16px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  border-radius: 9999px;
+  background: radial-gradient(821.99% 271.24% at -36.22% 213.33%, #FFF 0%, #85F7E2 47.4%, #FFB60E 100%), #277DFF;
+  color: #080707;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 16px;
+  svg{
+    width: 24px;
+    height: 16px;
+    stroke-width: 4px;
+    stroke: #080707;
+  }
+}
+
 .btn-bordered {
   border: 2px solid white;
   &.btn-md {
-    padding: 10px 16px;
+    padding: 10px 24px;
   }
   &:hover {
     background: white;
@@ -245,7 +279,7 @@ body, html {
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Space Grotesk', sans-serif;
     }
 
     p {
@@ -254,10 +288,8 @@ body, html {
       font-weight: 400;
       line-height: 150%;
       margin: 0;
-      font-family: 'Space Grotesk', sans-serif;
       span {
         color: #FFBE27;
-        font-family: 'Space Grotesk', sans-serif;
         font-size: 18px;
         font-weight: 700;
         line-height: 150%;
@@ -296,13 +328,14 @@ body, html {
     position: relative;
     display: flex;
     width: 100%;
-    padding: 56px 0px;
+    padding: 56px 0;
     align-items: center;
     justify-content: space-evenly;
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.07);
     background: rgba(255, 255, 255, 0.07);
     backdrop-filter: blur(64px);
+    font-family: "Space Grotesk", sans-serif;
     &:before {
       position: absolute;
       content: '';
@@ -336,6 +369,634 @@ body, html {
         font-weight: 500;
         line-height: 16px;
         text-transform: uppercase;
+      }
+    }
+  }
+}
+
+.content-title{
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  color: #fff;
+}
+
+.benefits{
+  &-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: stretch;
+    padding: 64px 0 0;
+    &__title{
+      margin-bottom: 32px;
+    }
+    &-column{
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      align-self: stretch;
+
+      &-cart{
+        display: flex;
+        padding: 24px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        flex: 1 1 0;
+        align-self: stretch;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        background: rgba(255, 255, 255, 0.07) url("../../images/benefits-cart-bg.svg");
+        backdrop-filter: blur(64px);
+        &:hover{
+          background: radial-gradient(378.77% 373.42% at -54.69% 174.26%, #FFF 0%, #85F7E2 47.4%, #FFB60E 100%), #1F2329;
+          &:hover .benefits-content-column-cart__title{
+            color: #080707;
+          }
+          &:hover .benefits-content-column-cart__description{
+            color: #080707;
+            opacity: 0.65;
+          }
+          &:hover .line{
+            opacity: 0.25;
+            background: #080707;
+          }
+          &:hover svg{
+            fill: #080707;
+          }
+        }
+        svg{
+          width: 32px;
+          height: 32px;
+          fill: white;
+        }
+        &__title{
+          align-self: stretch;
+          font-family: "Space Grotesk", sans-serif;
+          font-weight: 700;
+          font-size: 24px;
+          color: white;
+          line-height: 150%;
+        }
+        .line{
+          width: 240px;
+          height: 1px;
+          opacity: 0.25;
+          background: #FFF;
+        }
+        &__description{
+          font-size: 16px;
+          color: #DAE9FF;
+          font-weight: 400;
+          line-height: 150%;
+        }
+      }
+    }
+  }
+}
+.started{
+  &-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: stretch;
+    gap: 64px;
+    padding: 64px 0;
+    &-up{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 32px;
+      align-self: stretch;
+      &-titles{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+        align-self: stretch;
+        &__subtitle{
+          color: #FFF;
+          text-align: center;
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 150%;
+        }
+      }
+      &-column{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-self: stretch;
+        &-cart{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 16px;
+          flex: 1 0 0;
+          border-right: 1px solid rgba(255, 255, 255, 0.05);
+          &:last-child{
+            border-right: none;
+          }
+          svg{
+            width: 32px;
+            height: 32px;
+            fill: white;
+          }
+          &-titles{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            align-self: stretch;
+            &__title{
+              color: #FFF;
+              text-align: center;
+              font-family: "Space Grotesk", sans-serif;
+              font-size: 16px;
+              font-weight: 700;
+              line-height: 150%;
+            }
+            &__description{
+              color: #FFF;
+              text-align: center;
+              align-self: stretch;
+              font-size: 12px;
+              font-weight: 500;
+              line-height: 150%;
+            }
+          }
+        }
+      }
+    }
+    &-buttons{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      p{
+        color: #FFF;
+        text-align: center;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 32px;
+      }
+    }
+  }
+}
+.works{
+  margin-bottom: 64px;
+  &-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 64px;
+    align-self: stretch;
+    &-main{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+      align-self: stretch;
+      &-column{
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        align-self: stretch;
+        &-cart{
+          display: flex;
+          padding: 40px 32px 24px 32px;
+          flex-direction: column;
+          align-items: center;
+          gap: 16px;
+          flex: 1 0 0;
+          align-self: stretch;
+          border-right: 1px solid #080707;
+          background: rgba(255, 255, 255, 0.05);
+          backdrop-filter: blur(12px);
+          &:first-child{
+            border-radius: 20px 0 0 20px ;
+          }
+          &:last-child{
+            border-right: none;
+            border-radius: 0 20px 20px 0;
+          }
+          &__title{
+            align-self: stretch;
+            color: #FFF;
+            text-align: center;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 16px;
+          }
+          &__description{
+            align-self: stretch;
+            color: #FFF;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 150%;
+          }
+          img{
+            height: 208px;
+            align-self: stretch;
+          }
+        }
+      }
+    }
+  }
+}
+.reviews{
+  &-content{
+    margin-bottom: 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 64px;
+    align-self: stretch;
+    &-column{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-self: stretch;
+      &-cart{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+        flex: 1 0 0;
+        &-icon{
+          display: flex;
+          padding: 24px;
+          flex-direction: column;
+          align-items: center;
+          gap: 16px;
+          border-radius: 20px;
+          border-right: 1px solid #080707;
+          background: rgba(255, 255, 255, 0.05);
+          svg{
+            fill: white;
+            width: 24px;
+            height: 24px;
+          }
+        }
+        &-titles{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 8px;
+          &__title{
+            color: #FFF;
+            text-align: center;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 16px;
+            max-width: 236px;
+          }
+          &__description{
+            color: #FFF;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 150%;
+            max-width: 236px;
+          }
+        }
+      }
+    }
+    &-container{
+      display: flex;
+      padding: 0 40px;
+      justify-content: space-between;
+      align-items: center;
+      align-self: stretch;
+      border-radius: 20px;
+      &-list{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+        border-radius: 20px;
+        &-item{
+          display: flex;
+          //width: 320px;
+          padding: 40px 32px 24px 32px;
+          flex-direction: column;
+          align-items: center;
+          gap: 24px;
+          border-radius: 20px;
+          border-right: 1px solid #080707;
+          background: rgba(255, 255, 255, 0.05);
+          &-content{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            align-self: stretch;
+            &-up{
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              align-self: stretch;
+              &__title{
+                flex: 1 0 0;
+                color: #FFF;
+                font-family: "Space Grotesk", sans-serif;
+                font-size: 18px;
+                font-weight: 700;
+                line-height: 16px;
+              }
+              &-starlist{
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                gap: 8px;
+                svg{
+                  fill: #24E476;
+                  width: 12px;
+                  height: 12px;
+                }
+              }
+            }
+            &__description{
+              align-self: stretch;
+              color: #FFF;
+              font-size: 14px;
+              font-weight: 500;
+              line-height: 150%;
+            }
+          }
+          &-customer{
+            display: flex;
+            width: 262.286px;
+            justify-content: space-between;
+            align-items: center;
+            &-info{
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              svg{
+                width: 24px;
+                height: 24px;
+              }
+              &-data{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                &__name{
+                  color: #FFF;
+                  font-size: 12px;
+                  font-weight: 700;
+                  line-height: 16px;
+                }
+                &__date{
+                  color: #FFF;
+                  text-align: center;
+                  font-size: 10px;
+                  font-weight: 700;
+                  line-height: 16px;
+                  opacity: 0.25;
+                }
+              }
+            }
+            &-checked{
+              display: flex;
+              align-items: center;
+              gap: 8px;
+              &__title{
+                color: #FFF;
+                font-size: 10px;
+                font-weight: 700;
+                line-height: 16px;
+                opacity: 0.25;
+              }
+              svg{
+                width: 12px;
+                height: 12px;
+                fill: #70D2E8;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.info{
+  &-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    align-self: stretch;
+    margin-bottom: 64px;
+    &-titles{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      &__description{
+        color: #FFF;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 150%;
+        max-width: 324px;;
+        span{
+          color: #FFB60E;
+          font-size: 16px;
+          font-weight: 900;
+          line-height: 150%;
+        }
+      }
+    }
+    &-text{
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 32px;
+      &-item{
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        svg{
+          width: 12px;
+          height: 12px;
+          fill: #FFF;
+        }
+        &__title{
+          color: #FFF;
+          text-align: center;
+          font-size: 14px;
+          font-weight: 700;
+          line-height: 16px;
+        }
+      }
+    }
+  }
+}
+.faq{
+  &-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    align-self: stretch;
+    margin-bottom: 64px;
+    &-questions{
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 16px;
+      align-self: stretch;
+      &-left,&-right{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        flex: 1 0 0;
+        &-item{
+          display: flex;
+          padding: 16px;
+          justify-content: space-between;
+          align-items: center;
+          align-self: stretch;
+          border-radius: 20px;
+          background: rgba(255, 255, 255, 0.05);
+          &-left{
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            &-icon{
+              display: flex;
+              width: 24px;
+              height: 24px;
+              justify-content: center;
+              align-items: center;
+              svg {
+                width: 24px;
+                height: 24px;
+                flex-shrink: 0;
+              }
+            }
+            &__title{
+              color: #FFF;
+              font-family: "Space Grotesk", sans-serif;
+              font-size: 16px;
+              font-weight: 700;
+              line-height: 16px;
+            }
+          }
+          &-right{
+            display: flex;
+            padding: 8px;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            border-radius: 20px;
+            svg{
+              width: 8px;
+              height: 8px;
+              fill: white;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.footer{
+  background: #000;
+  &-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &-top{
+      display: flex;
+      padding: 32px 0;
+      justify-content: space-between;
+      align-items: flex-start;
+      align-self: stretch;
+      border-bottom: 1px solid rgba(197, 235, 255, 0.00);
+      background: var(--Pure-colors-Black, #000);
+      backdrop-filter: blur(40px);
+      &-left{
+        display: flex;
+        align-items: flex-start;
+        gap: 58px;
+        &-logo{
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          &-img{
+            width: 26px;
+            height: 38px;
+          }
+          &__title{
+            color: #FFF;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 30px;
+          }
+        }
+        &-column{
+          display: flex;
+          align-items: flex-start;
+          gap: 32px;
+          &-explore, &-services{
+            display: flex;
+            width: 180px;
+            padding: 24px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 16px;
+            border-radius: 20px;
+            background: rgba(31, 35, 41, 0.50);
+            &__title{
+              color: #FFF;
+              font-family: "Space Grotesk", sans-serif;
+              font-size: 24px;
+              font-weight: 700;
+              line-height: 30px;
+            }
+            &-links{
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              gap: 16px;
+              align-self: stretch;
+              &-item{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                align-self: stretch;
+                p{
+                  color: #686E73;
+                  font-size: 16px;
+                  font-weight: 500;
+                  line-height: 16px;
+                }
+                svg{
+                  width: 8.5px;
+                  height: 8.5px;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
