@@ -1,0 +1,3374 @@
+{% set serverImgPath1 = 'https://yourpanelassets.com/projects/naizop/img/new design/img/' %}
+{% set serverImgPath = 'http://i.23robo.info/projects/naizop/img/' %}
+<!DOCTYPE html>
+<html lang="{{ site['language'] }}">
+<head>
+    <style>
+        #nizop-svg {
+            width: 616.248px;
+            height: 560.075px;
+        }
+        #order_average_time {
+            display: none !important;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page['title'] }}</title>
+    <meta name="keywords" content="{{ site['seo_key'] }}">
+    <meta name="description" content="{{ site['seo_desc'] }}">
+    {% if site['favicon'] %}
+        <link rel="shortcut icon" type="image/ico" href="{{ site['favicon'] }}" />
+    {% endif %}
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    {{ site['custom_header'] }}
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    {% if user['auth'] %}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Rubik:wght@300;400;500;600;700;800;900&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+        <link rel="stylesheet" type="text/css"  href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.0/css/perfect-scrollbar.css" />
+        <link rel="stylesheet" type="text/css"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
+    {% if page['url']=='/addfunds' or page['url']=='/tickets' %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/css/bootstrap-select.min.css">
+    {% endif %}
+    {% else %}
+    {% if page['title']=='Use the Best SMM Panel & Buy Instagram Followers | Naizop' %}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    {% else %}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Rubik:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.css" />
+        <script src="https://kit.fontawesome.com/761d96b754.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
+
+    {% endif %}
+    {% endif %}
+    {% for style in site['styles'] %}
+        <link rel="stylesheet" type="text/css" href="{% if user['auth'] %}{{ style['href'] }}{% else %}{% if page['title']=='Best SMM Panel for Cheap Social Media Services' or page['title']=='Use the Best SMM Panel & Buy Instagram Followers | Naizop' %}{% if style['href']=='https://cdn4.mypanel.link/0a268b/8gjm1csrtshd3if4.css' %}https://essisto.com/dev/Naizop%20animation/naiza.css{% elseif style['href']=='https://cdn4.mypanel.link/libs/bootstrap-datetimepicker/4.17.47/bootstrap-datetimepicker.min.css' %}{% else %}{{ style['href'] }}{% endif %}{% else %}{{ style['href'] }}{% endif %}{% endif %}">
+    {% endfor %}
+
+    {# <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet"> #}
+
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+</head>
+<body class="{% if user['auth'] %}dashboard vector-pic {% else %}guest{% endif %}">
+
+<!--prime:2956246c-->
+{% if user['auth'] %}
+    <div class="page-body">
+        <div class="top-alert-bar">
+            <div class="container">
+                <div class="top-alert-cntnt">
+                    <p>Refer a Friend: Earn 5% for every friend you invite to Naizop!</p>
+                    <a href="javascript:void(0)" class="grdnt-btn refer-popup-btn">Refer</a>
+                </div>
+                <div class="top-alert-close-btn">
+                    <img src="https://cdn4.mypanel.link/idhwx8/or7j448hb20on7sj.png" alt="">
+                </div>
+            </div>
+        </div>
+        <main class="main-wpr">
+            <aside>
+                <div class="sidebar-in">
+                    <div class="nav-brand-wpr">
+                        <a href="/">
+                            <img src="https://cdn4.mypanel.link/idhwx8/1z6la5sl7up9t30u.png" alt="">
+                        </a>
+                        <button type="button" class="side-menu-toggler">
+                            <img src="https://cdn.mypanel.link/0a268b/e00c7k3iamqt4dz4.svg" alt="">
+                        </button>
+                        <button class="nav-toggler">
+                            <span class="stick"></span>
+                        </button>
+                    </div>
+                    <div class="side-menu-outer">
+                        <div class="mobile-sidebar-hdr">
+                            <div class="mobile-sidebar-hdr-left">
+                                <div class="header_prof mobile">
+                                    <a href="/account" class="header_prof_img">
+                                        <div class="header_prof__wrp">
+                                            <img src="https://cdn4.mypanel.link/idhwx8/xsafojaythga9b2k.png" id="profileImg" alt="">
+
+                                            <script>
+
+
+                                                setTimeout(function(){
+
+
+
+                                                    const formData2 = new FormData();
+
+                                                    let pro_user = "{{ user['username'] }}";
+
+                                                    let proUser_id = "{{ user['id']  }}";
+
+                                                    let domain = "naizop.com";
+
+
+
+
+                                                    formData2.append('username', pro_user);
+
+                                                    formData2.append('domain', domain);
+
+                                                    formData2.append('user_id', proUser_id);
+
+
+                                                    fetch('https://img.addonsupply.in/profile/image/', {
+                                                        method: 'POST',
+                                                        body: formData2,
+                                                    }).then((res) => res.json())
+                                                        .then((data) => {
+                                                            if(data.success){
+                                                                document.getElementById('profileImg').setAttribute('src', data.img_url);
+
+                                                                document.getElementById('profileImg2').setAttribute('src', data.img_url);
+
+
+                                                            }else{
+                                                                // error
+
+                                                            }
+                                                        })
+                                                        .catch((err) => console.log(err));
+                                                }, 10)
+
+
+
+
+
+                                            </script>
+
+
+                                        </div>
+                                    </a>
+                                    <a href="/account" class="header_prof_rgt">
+                                        <span class="header_prof_wl">Welcome,</span>
+                                        <span class="header_prof_nm">{{ user['username'] }}</span>
+                                    </a>
+                                </div>
+
+                                <div class="progress-section mobile" style="display: none;">
+                                    <a href="/vip-rewards" class="task-progress">
+                                        <span id="progress-mob"></span>
+                                        <img class="prgrss-img" src="https://cdn4.mypanel.link/idhwx8/g8ocwjprlq1d2924.png" alt="">
+                                        <progress class="progress" max="100" value="0"></progress>
+                                        {# <span>
+                                  {% if user['spent'] >= 50000 %}
+                            100
+                            {% elseif user['spent'] >= 15000 %}
+                            87.5
+                            {% elseif user['spent'] >= 5000 %}
+                            75
+                            {% elseif user['spent'] >= 2500 %}
+                            62.5
+                            {% elseif user['spent'] >= 1500 %}
+                            50
+                            {% elseif user['spent'] >= 1000 %}
+                            37.5
+                            {% elseif user['spent'] >= 100 %}
+                            25
+                            {% else %}
+                            12.5
+                            {% endif %}%</span>
+                                {% if user['spent'] >= 50000 %}
+                            <img class="prgrss-img" src="https://cdn4.mypanel.link/idhwx8/tfiip62mqyp2yzog.png" alt="">
+                            {% elseif user['spent'] >= 15000 %}
+                            <img class="prgrss-img" src="https://cdn4.mypanel.link/idhwx8/56l8i8j1him8kxzz.png" alt="">
+                            {% elseif user['spent'] >= 5000 %}
+                            <img class="prgrss-img" src="https://cdn4.mypanel.link/idhwx8/ace37gyb1q1ehr7e.png" alt="">
+                            {% elseif user['spent'] >= 2500 %}
+                            <img class="prgrss-img" src="https://cdn4.mypanel.link/idhwx8/gesicrwq5pl7o4ru.png" alt="">
+                            {% elseif user['spent'] >= 1500 %}
+                            <img class="prgrss-img" src="https://cdn4.mypanel.link/idhwx8/utwswfg9gwaydtmk.png" alt="">
+                            {% elseif user['spent'] >= 1000 %}
+                            <img class="prgrss-img" src="https://cdn4.mypanel.link/idhwx8/bkts0nmqi5wschs2.png" alt="">
+                            {% elseif user['spent'] >= 100 %}
+                            <img class="prgrss-img" src="https://cdn4.mypanel.link/idhwx8/1b6mmn0lunbqnz4q.png" alt="">
+                            {% else %}
+                            <img class="prgrss-img" src="https://cdn4.mypanel.link/idhwx8/g8ocwjprlq1d2924.png" alt="">
+                            {% endif %}
+                                <progress class="progress" max="100" value="{% if user['spent'] >= 50000 %}100{% elseif user['spent'] >= 15000 %}87.5{% elseif user['spent'] >= 5000 %}75{% elseif user['spent'] >= 2500 %}62.5{% elseif user['spent'] >= 1500 %}50{% elseif user['spent'] >= 1000 %}37.5{% elseif user['spent'] >= 100 %}25{% else %}12.5{% endif %}"></progress>#}
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="mobile-sidebar-hdr-rht">
+                                <a href="/addfunds" class="header_balance mobile">
+                                    <span class="blnc">BALANCE</span>
+                                    <span class="amount">{{ user['balance_formatted'] }}</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="header_rgt mobile">
+                            <a href="/addfunds" class="header-wlt"><img
+                                        src="https://cdn4.mypanel.link/idhwx8/iums75k2wshwatie.png" alt=""> Wallet</a>
+                        </div>
+
+
+                        <div class="refer-btn-wpr">
+                            <div class="refer-btn-wpr-in">
+                                <a href="javascript:void(0)" class="refer-btn refer-popup-btn">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M11.6659 4.16667C11.6667 3.24583 9.80004 2.5 7.50004 2.5C5.20004 2.5 3.33504 3.24667 3.33337 4.16667C3.33337 5.0875 5.19837 5.83333 7.50004 5.83333C9.80171 5.83333 11.6667 5.0875 11.6667 4.16667" stroke="#FFB60E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M11.6667 4.16667V10.6333" stroke="#FFB60E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M3.33411 7.5C3.33411 8.42083 5.19911 9.16667 7.50077 9.16667C9.80244 9.16667 11.6674 8.42083 11.6674 7.5" stroke="#FFB60E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M16.4017 11.0983C17.8659 12.5625 17.8659 14.9375 16.4017 16.4017C14.9375 17.8658 12.5625 17.8658 11.0984 16.4017C9.6342 14.9375 9.6342 12.5625 11.0984 11.0983C12.5625 9.63417 14.9375 9.63417 16.4017 11.0983" stroke="#FFB60E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M10.4208 12.0208C9.66911 12.3167 8.63827 12.5 7.49994 12.5C5.19911 12.5 3.33411 11.7542 3.33411 10.8333" stroke="#FFB60E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M10.3709 15.37C9.62337 15.6558 8.61587 15.8333 7.50004 15.8333C5.19921 15.8333 3.33421 15.0875 3.33337 14.1667V4.16667" stroke="#FFB60E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg>
+                                    Refer and Earn
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="side-menu-wpr">
+                            <nav>
+                                {# <ul>
+                                    <li {% if site['active_menu'] == "index" %}class="active"{% endif %}>
+                                        <a href="/">
+                                            <div class="icon-wpr">
+                                                <img src="https://cdn.mypanel.link/0a268b/5rxuys8c0ajjpauq.svg" alt="">
+                                            </div>
+                                                Place New Order
+                                            </a>
+                                    </li>
+                                    <li {% if site['active_menu'] == "massorder" %}class="active"{% endif %}>
+                                        <a href="/massorder">
+                                            <div class="icon-wpr">
+                                                <img src="https://cdn.mypanel.link/0a268b/eim693pzk8bmr8fl.svg" alt="">
+                                            </div>
+                                            Mass Order
+                                        </a>
+                                    </li>
+                                    <li {% if site['active_menu'] == "services" %}class="active"{% endif %}>
+                                        <a href="/services">
+                                            <div class="icon-wpr">
+                                                <img src="https://cdn.mypanel.link/0a268b/010i5ia9hz0ds16u.svg" alt="">
+                                            </div>
+                                            All Services
+                                        </a>
+                                    </li>
+                                    <li {% if site['active_menu'] == "orders" %}class="active"{% endif %}>
+                                        <a href="/orders">
+                                            <div class="icon-wpr">
+                                                <img src="https://cdn.mypanel.link/0a268b/hb122t5wqqrdp1eo.svg" alt="">
+                                            </div>
+                                                Orders
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/subscriptions">
+                                          <div class="icon-wpr">
+                                            <img src="https://cdn.mypanel.link/0a268b/a9h5nt2by1cfngt5.svg" alt="">
+                                          </div>
+                                            Subscriptions
+                                        </a>
+                                    </li>
+                                    <li {% if site['active_menu'] == "addfunds" %}class="active"{% endif %}>
+                                        <a href="/addfunds">
+                                            <div class="icon-wpr">
+                                                <img src="https://cdn.mypanel.link/0a268b/0g0tkz7o8tq91akl.svg" alt="">
+                                            </div>
+                                                Add Funds
+                                            </a>
+                                    </li>
+                                    <li {% if site['active_menu'] == "tickets" %}class="active"{% endif %}>
+                                        <a href="/tickets">
+                                            <div class="icon-wpr">
+                                                <img src="https://cdn.mypanel.link/0a268b/w0l2wuij2aid5qz0.svg" alt="">
+                                            </div>
+                                            Support
+                                            <span class="support">{{ user['unread_ticket'] }}</span>
+                                        </a>
+                                    </li>
+                                    <li {% if site['active_menu'] == "affiliates" %}class="active"{% endif %}>
+                                        <a href="/affiliates">
+                                            <div class="icon-wpr">
+                                                <img src="https://cdn.mypanel.link/0a268b/59tg7elauecsjup7.svg" alt="">
+                                            </div>
+                                            Affiliates
+                                        </a>
+                                    </li>
+                                </ul> #}
+                                <ul>
+                                    {% for menu in site['menu'] %}
+                                        {% if menu['link'] == '/support' %}
+                                            <li {% if menu['active'] %} class="active" {% endif %}>
+
+                                                <a href="/support" {% if menu['external'] %} target="_blank" {% endif %}>
+                                                    <div class="icon-wpr">
+                                                        <img src="{{ serverImgPath }}Tickets.png" alt="">
+                                                    </div>
+                                                    Support <span class="badge" style="background-color: #f0ad4e">{{ user['unread_ticket'] }}</span>
+                                                </a>
+                                            </li>
+                                        {% elseif menu['link'] == '/terms' or menu['link'] == '/faq' or menu['link'] == '/updates' %}
+                                        {% else %}
+                                            <li {% if menu['active'] %} class="active" {% endif %}>
+
+                                                <a href="{{ menu['link'] }}" {% if menu['external'] %} target="_blank" {% endif %}>
+                                                    <div class="icon-wpr">
+                                                        <img src="{{ serverImgPath }}{{ menu['name'] }}.png" alt="">
+                                                    </div>
+                                                    {#
+                                                    {% if menu['icon'] %}
+                                                        <i class="navbar-icon {{ menu['icon'] }}"></i>
+                                                    {% endif %}
+                                                    #}
+                                                    {{ menu['name'] }}
+                                                </a>
+                                            </li>
+                                        {% endif %}
+                                    {% endfor %}
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="sidebar-btm">
+                            <ul class="sidebar-btm-menu">
+                                <li class="drop-menu">
+                                    <div class="hdng-txt">
+                                        <img src="https://cdn.mypanel.link/0a268b/dg7k7bw3dwkoeuei.svg" alt="">
+                                        More
+                                        <span class="clickD"><svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 0.999999L5 5L9 1" stroke="white" stroke-width="2" stroke-linecap="round"></path></svg></span>
+                                    </div>
+                                    <ul class="drop-menu-in">
+                                        <li {% if site['active_menu'] == "updates" %}class="active"{% endif %}>
+                                            <a href="/updates">
+                                                <div class="icon-wpr">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path opacity="0.4" d="M1.33335 8.00014C1.33335 4.31748 4.31802 1.33348 8.00002 1.33348C11.682 1.33348 14.6667 4.31748 14.6667 8.00014C14.6667 11.6815 11.682 14.6668 8.00002 14.6668C4.31802 14.6668 1.33335 11.6815 1.33335 8.00014Z" fill="white"/>
+                                                        <path d="M10.148 6.57401L7.55533 9.16667L6 7.61134" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        <path d="M8.72668 3.66667L9.72668 2.66667L8.72668 1.66667" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        <path d="M7.27338 12.3333L6.27338 13.3333L7.27338 14.3333" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        <path d="M11.7827 4.24734C12.7393 5.21134 13.3333 6.53468 13.3333 8.00001C13.3333 10.9453 10.9453 13.3333 8.00001 13.3333C7.47601 13.3333 6.97134 13.2547 6.49268 13.114" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        <path d="M4.16935 11.708C3.24002 10.748 2.66669 9.44134 2.66669 8.00001C2.66669 5.05467 5.05469 2.66667 8.00002 2.66667C8.52402 2.66667 9.02869 2.74534 9.50735 2.88601" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    </svg>
+                                                </div>
+                                                Updates
+                                            </a>
+                                        </li>
+                                        <li {% if site['active_menu'] == "blog" %}class="active"{% endif %}>
+                                            <a href="https://blog.naizop.com/">
+                                                <div class="icon-wpr">
+                                                    <svg width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path opacity="0.4" d="M8.794 0.333328H3.20667C1.18 0.333328 0 1.51999 0 3.55333V10.44C0 12.5067 1.18 13.6667 3.20667 13.6667H8.794C10.8533 13.6667 12 12.5067 12 10.44V3.55333C12 1.51999 10.8533 0.333328 8.794 0.333328Z" fill="white"/>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.38664 3.43333V3.44C3.09931 3.44 2.86664 3.67333 2.86664 3.96C2.86664 4.24667 3.09931 4.48 3.38664 4.48H5.37931C5.66664 4.48 5.89997 4.24667 5.89997 3.95267C5.89997 3.66667 5.66664 3.43333 5.37931 3.43333H3.38664ZM8.61331 7.49333H3.38664C3.09931 7.49333 2.86664 7.26 2.86664 6.97333C2.86664 6.68667 3.09931 6.45267 3.38664 6.45267H8.61331C8.89997 6.45267 9.13331 6.68667 9.13331 6.97333C9.13331 7.26 8.89997 7.49333 8.61331 7.49333ZM8.61331 10.54H3.38664C3.18664 10.5667 2.99331 10.4667 2.88664 10.3C2.77997 10.1267 2.77997 9.90667 2.88664 9.74C2.99331 9.56667 3.18664 9.47333 3.38664 9.49333H8.61331C8.87931 9.52 9.07997 9.74667 9.07997 10.02C9.07997 10.286 8.87931 10.5133 8.61331 10.54Z" fill="white"/>
+                                                    </svg>
+                                                </div>
+                                                Blog
+                                            </a>
+                                        </li>
+                                        <li {% if site['active_menu'] == "terms" %}class="active"{% endif %}>
+                                            <a href="/terms">
+                                                <div class="icon-wpr">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path opacity="0.4" d="M3.14846 14.1115C3.1398 14.1115 3.1318 14.1115 3.12246 14.1109C2.91246 14.1002 2.70646 14.0549 2.51046 13.9755C1.5458 13.5835 1.08046 12.4815 1.4718 11.5175L6.35246 2.96687C6.52046 2.66287 6.77513 2.4082 7.0858 2.2362C7.9958 1.7322 9.14646 2.06354 9.6498 2.97287L14.4985 11.4582C14.6065 11.7122 14.6525 11.9189 14.6638 12.1295C14.6898 12.6335 14.5178 13.1169 14.1805 13.4909C13.8431 13.8649 13.3798 14.0855 12.8765 14.1109L3.19646 14.1115H3.14846Z" fill="white"/>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.41632 6.68053C7.41632 6.3592 7.67832 6.0972 7.99965 6.0972C8.32099 6.0972 8.58299 6.3592 8.58299 6.68053V8.56586C8.58299 8.88786 8.32099 9.1492 7.99965 9.1492C7.67832 9.1492 7.41632 8.88786 7.41632 8.56586V6.68053ZM7.41632 10.8466C7.41632 10.5233 7.67832 10.2599 7.99965 10.2599C8.32099 10.2599 8.58299 10.5199 8.58299 10.8393C8.58299 11.1679 8.32099 11.4299 7.99965 11.4299C7.67832 11.4299 7.41632 11.1679 7.41632 10.8466Z" fill="white"/>
+                                                    </svg>
+                                                </div>
+                                                Terms
+                                            </a>
+                                        </li>
+                                        <li {% if site['active_menu'] == "faq" %}class="active"{% endif %}>
+                                            <a href="/faq">
+                                                <div class="icon-wpr">
+                                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path opacity="0.4" d="M7.01331 0.333332C3.13998 0.333332 0.333313 3.49333 0.333313 7C0.333313 8.12 0.65998 9.27333 1.23331 10.3267C1.33998 10.5 1.35331 10.72 1.27998 10.9267L0.833313 12.42C0.733313 12.78 1.03998 13.0467 1.37998 12.94L2.72665 12.54C3.09331 12.42 3.37998 12.5733 3.72065 12.78C4.69398 13.3533 5.90665 13.6467 6.99998 13.6467C10.3066 13.6467 13.6666 11.0933 13.6666 6.98C13.6666 3.43333 10.8 0.333332 7.01331 0.333332Z" fill="white"/>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M6.98699 7.86006C6.51366 7.8534 6.13366 7.4734 6.13366 7.00006C6.13366 6.5334 6.52032 6.14673 6.98699 6.1534C7.46032 6.1534 7.84032 6.5334 7.84032 7.00673C7.84032 7.4734 7.46032 7.86006 6.98699 7.86006ZM3.91339 7.86011C3.44673 7.86011 3.06006 7.47344 3.06006 7.00677C3.06006 6.53344 3.44006 6.15344 3.91339 6.15344C4.38673 6.15344 4.76673 6.53344 4.76673 7.00677C4.76673 7.47344 4.38673 7.85344 3.91339 7.86011ZM9.20686 7.00673C9.20686 7.4734 9.58686 7.86006 10.0602 7.86006C10.5335 7.86006 10.9135 7.4734 10.9135 7.00673C10.9135 6.5334 10.5335 6.1534 10.0602 6.1534C9.58686 6.1534 9.20686 6.5334 9.20686 7.00673Z" fill="white"/>
+                                                    </svg>
+                                                </div>
+                                                FAQ
+                                            </a>
+                                        </li>
+                                        <li {% if site['active_menu'] == "api" %}class="active"{% endif %}>
+                                            <a href="/api">
+                                                <div class="icon-wpr">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path opacity="0.4" d="M10.1731 3.33333H5.82739C4.25109 3.33333 3.33331 4.164 3.33331 5.58733V10.408C3.33331 11.8547 4.25109 12.6667 5.82739 12.6667H10.1731C11.7748 12.6667 12.6666 11.8547 12.6666 10.408V5.58733C12.6666 4.164 11.7748 3.33333 10.1731 3.33333Z" fill="white"/>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M10.0008 12.6686H5.99914C4.52755 12.6643 3.33567 11.4724 3.33136 10.0008V5.99917C3.33567 4.52758 4.52755 3.3357 5.99914 3.33139H10.0008C11.4724 3.3357 12.6643 4.52758 12.6686 5.99917V10.0008C12.6643 11.4724 11.4724 12.6643 10.0008 12.6686Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        <path d="M8.92356 3.33139V1.9975" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        <path d="M10.7704 3.44555V1.9975" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        <path d="M5.22959 3.44531V1.9975" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        <path d="M7.07664 3.33139V1.9975" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        <path d="M8.92356 14.0025V12.6686" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        <path d="M10.7704 14.0025V12.5543" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        <path d="M5.22959 14.0025V12.5543" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        <path d="M7.07664 14.0025V12.6686" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        <path d="M12.6686 8.92361H14.0025" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        <path d="M12.5544 10.7704H14.0025" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        <path d="M12.5547 5.22961H14.0025" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        <path d="M12.6686 7.07669H14.0025" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        <path d="M1.9975 8.92361H3.33139" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        <path d="M1.9975 10.7704H3.44572" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        <path d="M1.9975 5.22961H3.44565" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        <path d="M1.9975 7.07669H3.33139" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.33388 10.6678H6.6661C5.93031 10.6656 5.33437 10.0697 5.33221 9.33389V6.66611C5.33437 5.93032 5.93031 5.33438 6.6661 5.33222H9.33388C10.0697 5.33438 10.6656 5.93032 10.6678 6.66611V9.33389C10.6656 10.0697 10.0697 10.6656 9.33388 10.6678Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    </svg>
+                                                </div>
+                                                API
+                                            </a>
+                                        </li>
+                                        <li {% if site['active_menu'] == "ambassador-program" %}class="active"{% endif %}>
+                                            <a href="/ambassador-program">
+                                                <div class="icon-wpr">
+                                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path opacity="0.4" d="M7.65085 1.07574L9.13517 4.05859C9.24452 4.2747 9.45323 4.42478 9.69395 4.45813L13.028 4.94371C13.2227 4.97106 13.3994 5.07377 13.5188 5.23052C13.6368 5.38527 13.6875 5.58137 13.6588 5.77413C13.6355 5.93421 13.5601 6.08229 13.4448 6.19568L11.0289 8.53754C10.8522 8.70095 10.7722 8.94308 10.8149 9.17986L11.4097 12.4722C11.473 12.8697 11.2096 13.2446 10.8149 13.32C10.6522 13.346 10.4855 13.3186 10.3388 13.2439L7.36479 11.6945C7.14407 11.5831 6.88335 11.5831 6.66264 11.6945L3.68866 13.2439C3.32325 13.438 2.87049 13.306 2.66711 12.9458C2.59176 12.8024 2.56509 12.639 2.58976 12.4795L3.18456 9.18653C3.22723 8.95041 3.14655 8.70695 2.97051 8.54354L0.554657 6.20302C0.267262 5.92554 0.258594 5.46864 0.53532 5.18116C0.541321 5.17516 0.547989 5.16849 0.554657 5.16182C0.669349 5.04509 0.820048 4.97106 0.982749 4.95171L4.3168 4.46547C4.55685 4.43145 4.76556 4.28271 4.87559 4.06526L6.30656 1.07574C6.43392 0.819612 6.69798 0.660197 6.9847 0.666868H7.07406C7.32278 0.696883 7.53949 0.850961 7.65085 1.07574Z" fill="white"/>
+                                                        <path d="M6.99465 11.6114C6.86552 11.6154 6.73971 11.6501 6.62656 11.7122L3.66713 13.2581C3.30502 13.4309 2.87169 13.2968 2.66867 12.9505C2.59345 12.8091 2.56616 12.6469 2.59145 12.4881L3.18254 9.2021C3.22248 8.96324 3.1426 8.72037 2.96887 8.55223L0.551938 6.21232C0.265048 5.93142 0.259722 5.47038 0.540622 5.18281C0.544616 5.1788 0.547944 5.17547 0.551938 5.17213C0.666428 5.0587 0.814199 4.98398 0.973287 4.96062L4.31013 4.46955C4.55176 4.43886 4.76144 4.28807 4.86794 4.06923L6.31837 1.04208C6.45615 0.797878 6.72041 0.652425 6.99998 0.667771C6.99465 0.865934 6.99465 11.4766 6.99465 11.6114Z" fill="white"/>
+                                                    </svg>
+                                                </div>
+                                                Ambassador Program
+                                            </a>
+                                        </li>
+                                        <li {% if site['active_menu'] == "vip-rewards" %}class="active"{% endif %}>
+                                            <a href="/vip-rewards">
+                                                <div class="icon-wpr">
+                                                    <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path opacity="0.4" d="M13.1666 6.98426C12.6193 6.98426 12.174 6.54299 12.174 6.00066C12.174 5.45767 12.6193 5.0164 13.1666 5.0164C13.2993 5.0164 13.4266 4.96422 13.52 4.87174C13.614 4.7786 13.6666 4.65243 13.6666 4.52097L13.666 2.7361C13.666 1.22735 12.4266 0 10.904 0H3.09598C1.57331 0 0.33398 1.22735 0.33398 2.7361L0.333313 4.57844C0.333313 4.7099 0.38598 4.83607 0.47998 4.92921C0.573313 5.02169 0.700646 5.07387 0.833313 5.07387C1.39931 5.07387 1.82598 5.4722 1.82598 6.00066C1.82598 6.54299 1.38065 6.98426 0.833313 6.98426C0.557313 6.98426 0.333313 7.20621 0.333313 7.47969V9.26324C0.333313 10.772 1.57198 12 3.09531 12H10.9046C12.428 12 13.6666 10.772 13.6666 9.26324V7.47969C13.6666 7.20621 13.4426 6.98426 13.1666 6.98426Z" fill="white"/>
+                                                        <path d="M9.28699 5.72573L8.50099 6.49107L8.68699 7.57307C8.71899 7.7604 8.64366 7.94507 8.48966 8.05573C8.33699 8.16773 8.13766 8.18173 7.96966 8.0924L6.99966 7.5824L6.02766 8.09307C5.95566 8.13107 5.87699 8.15107 5.79899 8.15107C5.69699 8.15107 5.59633 8.11907 5.50966 8.0564C5.35633 7.94507 5.28099 7.7604 5.31299 7.57307L5.49833 6.49107L4.71233 5.72573C4.57633 5.59373 4.52899 5.39973 4.58766 5.21907C4.64699 5.03907 4.80033 4.91107 4.98766 4.8844L6.07166 4.7264L6.55766 3.74173C6.64233 3.5724 6.81166 3.46707 6.99966 3.46707H7.00099C7.18966 3.46773 7.35899 3.57307 7.44233 3.7424L7.92833 4.7264L9.01433 4.88507C9.19966 4.91107 9.35299 5.03907 9.41166 5.21907C9.47099 5.39973 9.42366 5.59373 9.28699 5.72573Z" fill="white"/>
+                                                    </svg>
+                                                </div>
+                                                VIP Rewards
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- <li class="drop-menu">
+                                  <div class="hdng-txt">
+                                      <img src="https://cdn4.mypanel.link/idhwx8/qcsm9redk74trt7t.png" alt="">
+                                      Promotions
+                                  </div>
+                                  <ul class="drop-menu-in promotion-btn-list">
+                                      <li>
+                                          <a href="javascript:void(0)" class="refer-btn refer-popup-btn">
+                                              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                  <path d="M11.6659 4.16667C11.6667 3.24583 9.80004 2.5 7.50004 2.5C5.20004 2.5 3.33504 3.24667 3.33337 4.16667C3.33337 5.0875 5.19837 5.83333 7.50004 5.83333C9.80171 5.83333 11.6667 5.0875 11.6667 4.16667" stroke="#FFB60E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                  <path d="M11.6667 4.16667V10.6333" stroke="#FFB60E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                  <path d="M3.33411 7.5C3.33411 8.42083 5.19911 9.16667 7.50077 9.16667C9.80244 9.16667 11.6674 8.42083 11.6674 7.5" stroke="#FFB60E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                  <path d="M16.4017 11.0983C17.8659 12.5625 17.8659 14.9375 16.4017 16.4017C14.9375 17.8658 12.5625 17.8658 11.0984 16.4017C9.6342 14.9375 9.6342 12.5625 11.0984 11.0983C12.5625 9.63417 14.9375 9.63417 16.4017 11.0983" stroke="#FFB60E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                  <path d="M10.4208 12.0208C9.66911 12.3167 8.63827 12.5 7.49994 12.5C5.19911 12.5 3.33411 11.7542 3.33411 10.8333" stroke="#FFB60E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                  <path d="M10.3709 15.37C9.62337 15.6558 8.61587 15.8333 7.50004 15.8333C5.19921 15.8333 3.33421 15.0875 3.33337 14.1667V4.16667" stroke="#FFB60E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                              </svg>
+                                              Refer and Earn
+                                          </a>
+                                      </li>
+                                      <li>
+                                          <a href="javascript:void(0)" class="refer-btn raffel-popup-btn">
+                                              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                  <path fill-rule="evenodd" clip-rule="evenodd" d="M5 17.5H3.33333C2.87333 17.5 2.5 17.1267 2.5 16.6667V11.6667C2.5 11.2067 2.87333 10.8333 3.33333 10.8333H5C5.46 10.8333 5.83333 11.2067 5.83333 11.6667V16.6667C5.83333 17.1267 5.46 17.5 5 17.5Z" stroke="#FFB60E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                  <path d="M10.8334 14.1667H12.7775C13.1384 14.1667 13.4892 14.05 13.7775 13.8333L15.7909 12.3233C16.2934 11.9467 16.9967 11.9967 17.4409 12.4408V12.4408C17.9342 12.9342 17.9342 13.7333 17.4409 14.2258L15.7134 15.9533C15.2484 16.4183 14.655 16.7358 14.01 16.865L11.5684 17.3533C11.0842 17.45 10.585 17.4383 10.1059 17.3183L7.89754 16.7667C7.63337 16.7 7.36254 16.6667 7.09004 16.6667H5.83337" stroke="#FFB60E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                  <path d="M10.8334 14.1667H12.0709C12.7684 14.1667 13.3334 13.6017 13.3334 12.9042V12.6517C13.3334 12.0725 12.9392 11.5675 12.3775 11.4275L10.4675 10.95C10.1567 10.8725 9.83837 10.8333 9.51837 10.8333V10.8333C8.74587 10.8333 7.99004 11.0617 7.34754 11.4908L5.83337 12.5" stroke="#FFB60E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                  <path d="M14.3073 4.29603C15.2309 5.21962 15.2309 6.71705 14.3073 7.64064C13.3837 8.56423 11.8863 8.56423 10.9627 7.64064C10.0391 6.71705 10.0391 5.21962 10.9627 4.29603C11.8863 3.37243 13.3837 3.37243 14.3073 4.29603" stroke="#FFB60E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                  <path d="M12.1925 3.64584C12.115 3.17501 11.9 2.72251 11.5367 2.35917C10.6133 1.43584 9.11583 1.43584 8.1925 2.35917C7.26917 3.28251 7.26917 4.78001 8.1925 5.70334C8.7675 6.27834 9.56417 6.49417 10.3067 6.35334" stroke="#FFB60E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                              </svg>
+                                              Weekly Raffle
+                                          </a>
+                                      </li>
+                                  </ul>
+                                </li> -->
+                            </ul>
+
+                            {# <div class="side-bar-social">
+                              <ul>
+                                <li><a href="#url" class="telegram"><img src="https://cdn4.mypanel.link/idhwx8/7m0m12fty00gki82.png" alt=""></a></li>
+                                <li><a href="#url" class="twitter"><img src="https://cdn4.mypanel.link/idhwx8/dwn6jtw84tbbk2cg.png" alt=""></a></li>
+                              </ul>
+                            </div> #}
+                        </div>
+                        <div class="logout-btn-wpr mobile">
+                            {#
+                            <div class="language-wpr">
+                              <a href="#" class="header-usd">{{ user['lang'] }}</a>
+                                <div class="language-list">
+                                    <ul>
+                                    <li><a href="#url" class="active">English</a></li>
+                                    <li><a href="#url">Russian</a></li>
+                                    <li><a href="#url">Indonesia</a></li>
+                                    <li><a href="#url">Turkish</a></li>
+                                    <li><a href="#url">Deutsch</a></li>
+                                    <li><a href="#url">Ukrainian</a></li>
+                                    <li><a href="#url">Georgia</a></li>
+                                    <li><a href="#url">Spanish</a></li>
+                                    <li><a href="#url">Italian</a></li>
+                                    <li><a href="#url">Portuguese</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            #}
+
+
+
+                            {% if site['languages']|length > 1 %}
+                                <div class="language-wpr">
+                                    {% for lang in site['languages'] %}
+                                        {% if lang['active'] %}
+                                            <a href="#" class="header-usd">
+                                                {# {{ lang['name'] }} #}
+                                                {{ user['lang'] }}
+                                            </a>
+                                        {% endif %}
+                                    {% endfor %}
+                                    <div class="language-list">
+                                        <ul>
+                                            {% for lang in site['languages'] %}
+                                                <li {% if lang['active'] %} class="active" {% endif %}>
+                                                    <a href="/{{ lang['code'] }}">{{ lang['name'] }}</a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                            {% endif %}
+
+
+
+                            <div class="header-nt-outer">
+                                <a href="javascript:void(0)" class="header-nt">
+                                  <span>
+                                      <img
+                                              src="https://cdn.mypanel.link/0a268b/lk6mx1d4e73hnakt.png"
+                                              alt="" class="notification-icon">
+                                          <img src="https://cdn4.mypanel.link/idhwx8/bdms30ei9i5wrd4j.png" alt="" class="active-notification-icon">
+                                  </span>
+                                </a>
+                                <div class="notifiction-details-wpr">
+                                    <h3 class="notif-hdng">Notifications</h3>
+                                    <div class="notf-tab-wpr">
+                                        <div class="notf-tab-wpr-in">
+                                            <ul class="nav nav-tabs">
+                                                {#
+                                                <li>
+                                                    <a data-toggle="tab" href="#all_notf_mobile">All notifications</a>
+                                                </li>
+                                                #}
+                                                <li class="active">
+                                                    <a data-toggle="tab" href="#updt_nitf_mobile">Updates</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="tab-content">
+                                            {#
+                                            <div id="all_notf_mobile" class="tab-pane fade">
+                                                <div class="all-notf-list">
+                                                    <ul>
+                                                        <li>
+                                                          <a href="#url">
+                                                            <p>
+                                                                We’ve instant-credited your deposit of $23.49. Please note, you’ll need to wait 1 confirmation to withdroaw.
+                                                            </p>
+                                                          </a>
+                                                            <div class="notf-time">6 days ago</div>
+                                                        </li>
+                                                        <li>
+                                                          <a href="#url">
+                                                            <p>
+                                                                We’ve instant-credited your deposit of $23.49. Please note, you’ll need to wait 1 confirmation to withdroaw.
+                                                            </p>
+                                                          </a>
+                                                            <div class="notf-time">6 days ago</div>
+                                                        </li>
+                                                        <li>
+                                                          <a href="#url">
+                                                            <p>
+                                                                We’ve instant-credited your deposit of $23.49. Please note, you’ll need to wait 1 confirmation to withdroaw.
+                                                            </p>
+                                                          </a>
+                                                            <div class="notf-time">6 days ago</div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            #}
+                                            <div id="updt_nitf_mobile" class="tab-pane fade in active">
+                                                <div class="all-update-list">
+                                                    <ul  class="update-content"></ul>
+
+                                                    {#<ul>
+                                                      <li>
+                                                          <div class="each-update-wpr">
+                                                              <div class="each-update-img">
+                                                                  <img src="https://cdn4.mypanel.link/idhwx8/tw5ojxz57p7mb3s1.jpeg" alt="">
+                                                              </div>
+                                                              <div class="each-update-cntnt">
+                                                                  <div class="update-tp">
+                                                                      <span class="order-id">Order ID: #1524</span>
+                                                                      <a href="/update">
+                                                                          Go to updates
+                                                                          <img src="https://cdn4.mypanel.link/idhwx8/jkpf6td8ms3cz7mg.png" alt="">
+                                                                      </a>
+                                                                  </div>
+                                                                  <p>
+                                                                      Service: Instagram Followers [Permanent & Mixed]<br/>
+                                                                      Date: 2022-04-11 08:10:39
+                                                                  </p>
+                                                                  <div class="notf-time">6 days ago</div>
+                                                              </div>
+                                                          </div>
+                                                      </li>
+                                                      <li>
+                                                          <div class="each-update-wpr">
+                                                              <div class="each-update-img">
+                                                                  <img src="https://cdn4.mypanel.link/idhwx8/xn8m18o5zldai26y.jpeg" alt="">
+                                                              </div>
+                                                              <div class="each-update-cntnt">
+                                                                  <div class="update-tp">
+                                                                      <span class="order-id">Order ID: #1524</span>
+                                                                      <a href="/update">
+                                                                          Go to updates
+                                                                          <img src="https://cdn4.mypanel.link/idhwx8/jkpf6td8ms3cz7mg.png" alt="">
+                                                                      </a>
+                                                                  </div>
+                                                                  <p>
+                                                                      Service: Instagram Followers [Permanent & Mixed]<br/>
+                                                                      Date: 2022-04-11 08:10:39
+                                                                  </p>
+                                                                  <div class="notf-time">6 days ago</div>
+                                                              </div>
+                                                          </div>
+                                                      </li>
+                                                      <li>
+                                                          <div class="each-update-wpr">
+                                                              <div class="each-update-img">
+                                                                  <img src="https://cdn4.mypanel.link/idhwx8/tw5ojxz57p7mb3s1.jpeg" alt="">
+                                                              </div>
+                                                              <div class="each-update-cntnt">
+                                                                  <div class="update-tp">
+                                                                      <span class="order-id">Order ID: #1524</span>
+                                                                      <a href="/update">
+                                                                          Go to updates
+                                                                          <img src="https://cdn4.mypanel.link/idhwx8/jkpf6td8ms3cz7mg.png" alt="">
+                                                                      </a>
+                                                                  </div>
+                                                                  <p>
+                                                                      Service: Instagram Followers [Permanent & Mixed]<br/>
+                                                                      Date: 2022-04-11 08:10:39
+                                                                  </p>
+                                                                  <div class="notf-time">6 days ago</div>
+                                                              </div>
+                                                          </div>
+                                                      </li>
+                                                  </ul>#}
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="/logout" class="hdr_log">
+                                Log out<img src="https://cdn.mypanel.link/0a268b/dy4u6s4zmtyq3shk.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="mob-sidebar-overlay"></div>
+                </div>
+            </aside>
+            <div class="page-content-wpr">
+
+                <div class="header">
+                    <div class="container-fluid">
+                        <div class="header_wrap">
+                            <div class="header_left">
+                                <div class="header_prof">
+                                    <a href="/account" class="header_prof_img">
+                                        <div class="header_prof__wrp">
+                                            <img src="https://cdn4.mypanel.link/idhwx8/xsafojaythga9b2k.png" id="profileImg3" alt="">
+                                            {#<img src="https://cdn4.mypanel.link/idhwx8/uh4aq24ex8q0ci8s.png" id="profileImg3" alt="">
+                                            <img src="https://cdn4.mypanel.link/idhwx8/xsafojaythga9b2k.png" id="profileImg2" alt="">#}
+                                        </div>
+                                    </a>
+                                    <a href="/account" class="header_prof_rgt">
+                                        <span class="header_prof_wl">Welcome,</span>
+                                        <span class="header_prof_nm">{{ user['username'] }}</span>
+                                    </a>
+                                </div>
+                                <a href="/addfunds" class="header_balance">
+                                    <span class="blnc">BALANCE</span>
+                                    <span class="amount">{{ user['balance_formatted'] }}</span>
+                                </a>
+                            </div>
+                            <div class="header_rgt">
+                                <a href="/vip-rewards" class="progress-section" style="display: none;">
+                                    <div class="task-progress">
+                                        <span id="currentRank" style="display:none;"></span>
+                                        <span id="progress"></span>
+                                        <img class="prgrss-img" src="https://cdn4.mypanel.link/idhwx8/g8ocwjprlq1d2924.png" alt="">
+                                        <progress class="progress" max="100" value="0"></progress>
+                                        {#
+                                        <span>
+                                {% if user['spent'] >= 50000 %}
+                                100
+                                {% elseif user['spent'] >= 15000 %}
+                                87.5
+                                {% elseif user['spent'] >= 5000 %}
+                                75
+                                {% elseif user['spent'] >= 2500 %}
+                                62.5
+                                {% elseif user['spent'] >= 1500 %}
+                                50
+                                {% elseif user['spent'] >= 1000 %}
+                                37.5
+                                {% elseif user['spent'] >= 100 %}
+                                25
+                                {% else %}
+                                12.5
+                                {% endif %}%
+                              </span>
+                                {% if user['spent'] >= 50000 %}
+                                <img class="prgrss-img" src="https://cdn4.mypanel.link/idhwx8/tfiip62mqyp2yzog.png" alt="">
+                                {% elseif user['spent'] >= 15000 %}
+                                <img class="prgrss-img" src="https://cdn4.mypanel.link/idhwx8/56l8i8j1him8kxzz.png" alt="">
+                                {% elseif user['spent'] >= 5000 %}
+                                <img class="prgrss-img" src="https://cdn4.mypanel.link/idhwx8/ace37gyb1q1ehr7e.png" alt="">
+                                {% elseif user['spent'] >= 2500 %}
+                                <img class="prgrss-img" src="https://cdn4.mypanel.link/idhwx8/gesicrwq5pl7o4ru.png" alt="">
+                                {% elseif user['spent'] >= 1500 %}
+                                <img class="prgrss-img" src="https://cdn4.mypanel.link/idhwx8/utwswfg9gwaydtmk.png" alt="">
+                                {% elseif user['spent'] >= 1000 %}
+                                <img class="prgrss-img" src="https://cdn4.mypanel.link/idhwx8/bkts0nmqi5wschs2.png" alt="">
+                                {% elseif user['spent'] >= 100 %}
+                                <img class="prgrss-img" src="https://cdn4.mypanel.link/idhwx8/1b6mmn0lunbqnz4q.png" alt="">
+                                {% else %}
+                                <img class="prgrss-img" src="https://cdn4.mypanel.link/idhwx8/g8ocwjprlq1d2924.png" alt="">
+                                {% endif %}
+
+                                            <progress class="progress" max="100" value="{% if user['spent'] >= 50000 %}100{% elseif user['spent'] >= 15000 %}87.5{% elseif user['spent'] >= 5000 %}75{% elseif user['spent'] >= 2500 %}62.5{% elseif user['spent'] >= 1500 %}50{% elseif user['spent'] >= 1000 %}37.5{% elseif user['spent'] >= 100 %}25{% else %}12.5{% endif %}"></progress>#}
+                                    </div>
+                                </a>
+                                <a href="/addfunds" class="header-wlt"><img
+                                            src="https://cdn4.mypanel.link/idhwx8/iums75k2wshwatie.png" alt=""> Wallet</a>
+                                {#
+                                <div class="language-wpr">
+                                    <a href="#" class="header-usd">{{ user['lang'] }}</a>
+                                    <div class="language-list">
+                                        <ul>
+                                        <li><a href="#url" class="active">English</a></li>
+                                        <li><a href="#url">Russian</a></li>
+                                        <li><a href="#url">Indonesia</a></li>
+                                        <li><a href="#url">Turkish</a></li>
+                                        <li><a href="#url">Deutsch</a></li>
+                                        <li><a href="#url">Ukrainian</a></li>
+                                        <li><a href="#url">Georgia</a></li>
+                                        <li><a href="#url">Spanish</a></li>
+                                        <li><a href="#url">Italian</a></li>
+                                        <li><a href="#url">Portuguese</a></li>
+                                        </ul>
+                                    </div>
+                                  </div>
+                                #}
+
+
+                                {% if site['languages']|length > 1 %}
+                                    <div class="language-wpr">
+                                        {% for lang in site['languages'] %}
+                                            {% if lang['active'] %}
+                                                <a href="#" class="header-usd">
+                                                    {# {{ lang['name'] }} #}
+                                                    {{ user['lang'] }}
+                                                </a>
+                                            {% endif %}
+                                        {% endfor %}
+                                        <div class="language-list">
+                                            <ul>
+                                                {% for lang in site['languages'] %}
+                                                    <li {% if lang['active'] %} class="active" {% endif %}>
+                                                        <a href="/{{ lang['code'] }}">{{ lang['name'] }}</a>
+                                                    </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                {% endif %}
+
+
+
+                                <div class="header-nt-outer">
+                                    <a href="javascrip:void(0);" class="header-nt">
+                                      <span>
+                                          <img
+                                                  src="https://cdn.mypanel.link/0a268b/lk6mx1d4e73hnakt.png"
+                                                  alt="" class="notification-icon">
+                                              <img src="https://cdn4.mypanel.link/idhwx8/bdms30ei9i5wrd4j.png" alt="" class="active-notification-icon">
+                                      </span>
+                                    </a>
+                                    <div class="notifiction-details-wpr">
+                                        <h3 class="notif-hdng">Notifications</h3>
+                                        <div class="notf-tab-wpr">
+                                            <div class="notf-tab-wpr-in">
+                                                <ul class="nav nav-tabs">
+                                                    {#
+                                                    <li>
+                                                        <a data-toggle="tab" href="#all_notf">All notifications</a>
+                                                    </li>
+                                                    #}
+                                                    <li class="active">
+                                                        <a data-toggle="tab" href="#updt_nitf">Updates</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="tab-content">
+                                                {#
+                                                <div id="all_notf" class="tab-pane fade">
+                                                    <div class="all-notf-list">
+                                                        <ul>
+                                                            <li>
+                                                              <a href="#url">
+                                                                <p>
+                                                                    We’ve instant-credited your deposit of $23.49. Please note, you’ll need to wait 1 confirmation to withdroaw.
+                                                                </p>
+                                                              </a>
+                                                                <div class="notf-time">6 days ago</div>
+                                                            </li>
+                                                            <li>
+                                                              <a href="#url">
+                                                                <p>
+                                                                    We’ve instant-credited your deposit of $23.49. Please note, you’ll need to wait 1 confirmation to withdroaw.
+                                                                </p>
+                                                              </a>
+                                                                <div class="notf-time">6 days ago</div>
+                                                            </li>
+                                                            <li>
+                                                              <a href="#url">
+                                                                <p>
+                                                                    We’ve instant-credited your deposit of $23.49. Please note, you’ll need to wait 1 confirmation to withdroaw.
+                                                                </p>
+                                                              </a>
+                                                                <div class="notf-time">6 days ago</div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                #}
+                                                <div id="updt_nitf" class="tab-pane fade in active">
+                                                    <div class="all-update-list">
+                                                        <ul  class="update-content"></ul>
+
+                                                        {# <ul>
+                                                          <li>
+                                                              <div class="each-update-wpr">
+                                                                  <div class="each-update-img">
+                                                                      <img src="https://cdn4.mypanel.link/idhwx8/tw5ojxz57p7mb3s1.jpeg" alt="">
+                                                                  </div>
+                                                                  <div class="each-update-cntnt">
+                                                                      <div class="update-tp">
+                                                                          <span class="order-id">Order ID: #1524</span>
+                                                                          <a href="/update">
+                                                                              Go to updates
+                                                                              <img src="https://cdn4.mypanel.link/idhwx8/jkpf6td8ms3cz7mg.png" alt="">
+                                                                          </a>
+                                                                      </div>
+                                                                      <p>
+                                                                          Service: Instagram Followers [Permanent & Mixed]<br/>
+                                                                          Date: 2022-04-11 08:10:39
+                                                                      </p>
+                                                                      <div class="notf-time">6 days ago</div>
+                                                                  </div>
+                                                              </div>
+                                                          </li>
+                                                          <li>
+                                                              <div class="each-update-wpr">
+                                                                  <div class="each-update-img">
+                                                                      <img src="https://cdn4.mypanel.link/idhwx8/xn8m18o5zldai26y.jpeg" alt="">
+                                                                  </div>
+                                                                  <div class="each-update-cntnt">
+                                                                      <div class="update-tp">
+                                                                          <span class="order-id">Order ID: #1524</span>
+                                                                          <a href="/update">
+                                                                              Go to updates
+                                                                              <img src="https://cdn4.mypanel.link/idhwx8/jkpf6td8ms3cz7mg.png" alt="">
+                                                                          </a>
+                                                                      </div>
+                                                                      <p>
+                                                                          Service: Instagram Followers [Permanent & Mixed]<br/>
+                                                                          Date: 2022-04-11 08:10:39
+                                                                      </p>
+                                                                      <div class="notf-time">6 days ago</div>
+                                                                  </div>
+                                                              </div>
+                                                          </li>
+                                                          <li>
+                                                              <div class="each-update-wpr">
+                                                                  <div class="each-update-img">
+                                                                      <img src="https://cdn4.mypanel.link/idhwx8/tw5ojxz57p7mb3s1.jpeg" alt="">
+                                                                  </div>
+                                                                  <div class="each-update-cntnt">
+                                                                      <div class="update-tp">
+                                                                          <span class="order-id">Order ID: #1524</span>
+                                                                          <a href="/update">
+                                                                              Go to updates
+                                                                              <img src="https://cdn4.mypanel.link/idhwx8/jkpf6td8ms3cz7mg.png" alt="">
+                                                                          </a>
+                                                                      </div>
+                                                                      <p>
+                                                                          Service: Instagram Followers [Permanent & Mixed]<br/>
+                                                                          Date: 2022-04-11 08:10:39
+                                                                      </p>
+                                                                      <div class="notf-time">6 days ago</div>
+                                                                  </div>
+                                                              </div>
+                                                          </li>
+                                                      </ul>#}
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <a href="#" class="header-nt"><span><img
+                                            src="https://cdn4.mypanel.link/idhwx8/69fuc1jstutksar1.png"
+                                            alt=""></span></a> -->
+                                <a href="/logout" class="hdr_log" id="login-popup-btn">
+                                    Log out<img src="https://cdn.mypanel.link/0a268b/dy4u6s4zmtyq3shk.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- body change content -->
+                {{content}}
+            </div>
+        </main>
+        <footer class="footer">
+            <div class="footer-in">
+                <div class="container">
+                    <div class="fttr_main">
+                        <div class="fttr_rw">
+                            <div class="fttr_logo_col">
+                                <a href="/"><img src="https://cdn4.mypanel.link/idhwx8/6116443e18a8y3tl.png" alt=""></a>
+                            </div>
+                            <div class="fttr_link_col">
+                                <div class="fttr_link_innr">
+                                    <div class="fttr_menu_wppr_outter">
+                                        <div class="fttr_menu_wppr">
+                                            <div class="fttr_head">
+                                                <p>Explore</p>
+                                            </div>
+                                            <ul>
+                                                <li>
+                                                    <a href="#url">
+                                                        Sign In
+                                                        <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M2.5 1H9.5M9.5 1V8M9.5 1L1 9.5" stroke="#686E73" stroke-width="1.2"></path>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#url">
+                                                        Terms
+                                                        <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M2.5 1H9.5M9.5 1V8M9.5 1L1 9.5" stroke="#686E73" stroke-width="1.2"></path>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#url">
+                                                        FAQ
+                                                        <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M2.5 1H9.5M9.5 1V8M9.5 1L1 9.5" stroke="#686E73" stroke-width="1.2"></path>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#url">
+                                                        All Services
+                                                        <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M2.5 1H9.5M9.5 1V8M9.5 1L1 9.5" stroke="#686E73" stroke-width="1.2"></path>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="fttr_menu_wppr_outter">
+                                        <div class="fttr_menu_wppr">
+                                            <div class="fttr_head">
+                                                <p>Services</p>
+                                            </div>
+                                            <ul>
+                                                <li>
+                                                    <a href="#url">
+                                                        Facebook
+                                                        <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M2.5 1H9.5M9.5 1V8M9.5 1L1 9.5" stroke="#686E73" stroke-width="1.2"></path>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#url">
+                                                        Youtube
+                                                        <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M2.5 1H9.5M9.5 1V8M9.5 1L1 9.5" stroke="#686E73" stroke-width="1.2"></path>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#url">
+                                                        Instagram
+                                                        <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M2.5 1H9.5M9.5 1V8M9.5 1L1 9.5" stroke="#686E73" stroke-width="1.2"></path>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#url">
+                                                        Twitter
+                                                        <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M2.5 1H9.5M9.5 1V8M9.5 1L1 9.5" stroke="#686E73" stroke-width="1.2"></path>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="fttr_menu_wppr_outter">
+                                        <div class="fttr_menu_wppr fttr_follow_wppr">
+                                            <div class="fttr_head">
+                                                <p>Follow us</p>
+                                            </div>
+                                            <ul>
+                                                <li>
+                                                    <a href="#url">
+                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.496 3H16.505C18.987 3 21 5.012 21 7.496V16.505C21 18.987 18.988 21 16.504 21H7.496C5.013 21 3 18.988 3 16.504V7.496C3 5.013 5.012 3 7.496 3Z" stroke="#686E73" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                            <path d="M16.9487 6.71279C16.7627 6.71379 16.6117 6.86479 16.6117 7.05079C16.6117 7.23679 16.7637 7.38779 16.9497 7.38779C17.1357 7.38779 17.2867 7.23679 17.2867 7.05079C17.2877 6.86379 17.1357 6.71279 16.9487 6.71279" stroke="#686E73" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                            <path d="M14.546 9.45432C15.9519 10.8602 15.9519 13.1396 14.546 14.5455C13.1401 15.9514 10.8607 15.9514 9.45481 14.5455C8.04892 13.1396 8.04892 10.8602 9.45481 9.45432C10.8607 8.04843 13.1401 8.04843 14.546 9.45432" stroke="#686E73" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#url">
+                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 3H16.504C18.987 3 21 5.013 21 7.496V16.505C21 18.987 18.987 21 16.504 21H7.496C5.013 21 3 18.987 3 16.504V7.5C3 5.015 5.015 3 7.5 3V3Z" stroke="#686E73" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M10.0948 15.4911L9.2828 12.8171C9.2818 12.8161 6.9568 12.0911 6.9568 12.0911C6.6908 12.0081 6.6778 11.6351 6.9388 11.5351L15.7898 8.12106C16.1168 7.99506 16.4538 8.28206 16.3818 8.62506L14.8948 15.6331C14.8078 16.0441 14.3248 16.2271 13.9878 15.9771L11.8758 14.4171L10.6308 15.6291C10.4558 15.7971 10.1658 15.7221 10.0948 15.4911V15.4911Z" stroke="#686E73" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                        </svg>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="fttr_right_col">
+                                <div class="fttr_card_link_wppr">
+                                    <img src="https://cdn4.mypanel.link/idhwx8/2tiqb4yjpc51pc02.png" class="pay-img">
+                                    <img src="https://cdn4.mypanel.link/idhwx8/wo0cxxaf5b23izxn.png" class="tech-img">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="copy_right">
+                        <p>&copy; <a href="/">naizop.com</a> All rights reserved</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+
+
+
+
+
+    <!-- Rank Modal modal start -->
+    <div class="custom-modal-wpr ordr_inform_popUp rank_modal" id="rank_modal" style="display: none;">
+        <div class="modal-wpr">
+            <div class="modal-hdr">
+                <h2 class="modal-hdng">Ranks</h2>
+                <button type="button" data-fancybox-close class="fancybox-close-btn">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1.33252 1.33261L14.6659 14.6659" stroke="white" stroke-width="1.5"
+                              stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M14.6659 1.33261L1.33252 14.6659" stroke="white" stroke-width="1.5"
+                              stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="popup_order_main">
+                    <div class="popup_order_rw">
+                        <div class="popup_order_col">
+                            <p><span class="popUp_table_title">Rank</span></p>
+                        </div>
+                        <div class="popup_order_col">
+                            <p><span class="popUp_table_title">Amount spent</span></p>
+                        </div>
+                    </div>
+                    <div class="popup_order_rw">
+                        <div class="popup_order_col">
+                            <p>VIP III</p>
+                        </div>
+                        <div class="popup_order_col">
+                            <p>$50.000</p>
+                        </div>
+                    </div>
+                    <div class="popup_order_rw">
+                        <div class="popup_order_col">
+                            <p>VIP</p>
+                        </div>
+                        <div class="popup_order_col">
+                            <p>$15.000</p>
+                        </div>
+                    </div>
+                    <div class="popup_order_rw">
+                        <div class="popup_order_col">
+                            <p>Diamond</p>
+                        </div>
+                        <div class="popup_order_col">
+                            <p>$5.000</p>
+                        </div>
+                    </div>
+                    <div class="popup_order_rw">
+                        <div class="popup_order_col">
+                            <p>Platinum</p>
+                        </div>
+                        <div class="popup_order_col">
+                            <p>$2.500</p>
+                        </div>
+                    </div>
+                    <div class="popup_order_rw">
+                        <div class="popup_order_col">
+                            <p>Gold</p>
+                        </div>
+                        <div class="popup_order_col">
+                            <p>$1.500</p>
+                        </div>
+                    </div>
+                    <div class="popup_order_rw">
+                        <div class="popup_order_col">
+                            <p>Silver</p>
+                        </div>
+                        <div class="popup_order_col">
+                            <p>$1.000</p>
+                        </div>
+                    </div>
+                    <div class="popup_order_rw">
+                        <div class="popup_order_col">
+                            <p>Bronze</p>
+                        </div>
+                        <div class="popup_order_col">
+                            <p>$100</p>
+                        </div>
+                    </div>
+                    <div class="popup_order_rw">
+                        <div class="popup_order_col">
+                            <p>New</p>
+                        </div>
+                        <div class="popup_order_col">
+                            <p>$0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Rank Modal modal end -->
+
+    <!-- Refer and Earn modal start -->
+    <div class="custom-modal-outer refer-earn-modal" style="display: none;">
+        <div class="custom-modal-overlay"></div>
+        <div class="custom-modal-in">
+            <div class="modal-cntnt-wpr refer-earn-cntnt">
+                <div class="custom-modal-hdr">
+                    <h2 class="modal-hdng">Refer and Earn</h2>
+                    <button type="button" class="modal-close-btn">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1.33252 1.33261L14.6659 14.6659" stroke="white" stroke-width="1.5"
+                                  stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M14.6659 1.33261L1.33252 14.6659" stroke="white" stroke-width="1.5"
+                                  stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="modal-cntnt-body refer-earn-modal-body">
+                    <div class="refer-img-wpr">
+                        <img src="https://cdn.mypanel.link/0a268b/4q3r04f8733dbzpa.svg" alt="" class="desktop-img">
+                        <img src="https://cdn.mypanel.link/0a268b/b6q5pxs8erszsrsd.png" alt="" class="mobile-img">
+                    </div>
+                    <div class="learn-more-link-wpr">
+                        <a href="/affiliates">Learn more</a>
+                    </div>
+                    <div class="rfer-link-wpr">
+                        <h3>Share your referral link:</h3>
+                        <div class="rfer-link-copy-wpr">
+                            <div class="rfer-link">
+                                {{ user['referral_link'] }}
+                            </div>
+                            <button type="button" class="copy-btn" id="refr-link-btn">Copy link</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Refer and Earn modal end -->
+
+    <!-- Raffel modal start -->
+    <div class="custom-modal-outer raffel-modal" style="display: none;">
+        <div class="custom-modal-overlay"></div>
+        <div class="custom-modal-in">
+            <div class="modal-cntnt-wpr raffel-cntnt">
+                <div class="custom-modal-hdr">
+                    <h2 class="modal-hdng">Weekly Raffle</h2>
+                    <button type="button" class="modal-close-btn">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1.33252 1.33261L14.6659 14.6659" stroke="white" stroke-width="1.5"
+                                  stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M14.6659 1.33261L1.33252 14.6659" stroke="white" stroke-width="1.5"
+                                  stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="modal-cntnt-body raffel-modal-body">
+                    <div class="rffl-top-wpr">
+                        <div class="rffl-date-wpr">
+                            <span class="date-icon">
+                                <img src="https://cdn4.mypanel.link/idhwx8/o4m6t6lnu8ua7fms.png" alt="">
+                            </span>
+                            05/09/2022 - 12/09/2022
+                        </div>
+                        <div class="prize-pool-wpr">
+                            <p>Prize pool <span>$200.00</span></p>
+                        </div>
+                    </div>
+                    <div class="rffl-countdn-wpr">
+                        <div class="rffl-countdn-in">
+                            <div class="each-time-count">
+                                <div class="time">
+                                    06
+                                    <span>days</span>
+                                </div>
+                                <span class="dot">:</span>
+                            </div>
+                            <div class="each-time-count">
+                                <div class="time">
+                                    14
+                                    <span>hours</span>
+                                </div>
+                                <span class="dot">:</span>
+                            </div>
+                            <div class="each-time-count">
+                                <div class="time">
+                                    18
+                                    <span>minutes</span>
+                                </div>
+                                <span class="dot">:</span>
+                            </div>
+                            <div class="each-time-count">
+                                <div class="time">
+                                    37
+                                    <span>seconds</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rffl-btm-wpr">
+                        <div class="raffl-info-txt">
+                            <div class="raffl-info-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path opacity="0.4" d="M2.00012 12.0002C2.00012 6.47621 6.47712 2.00021 12.0001 2.00021C17.5231 2.00021 22.0001 6.47621 22.0001 12.0002C22.0001 17.5222 17.5231 22.0002 12.0001 22.0002C6.47712 22.0002 2.00012 17.5222 2.00012 12.0002Z" fill="white"/>
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M11.13 11.3693C11.13 10.8873 11.523 10.4943 12.005 10.4943C12.487 10.4943 12.88 10.8873 12.88 11.3693V15.7893C12.88 16.2713 12.487 16.6643 12.005 16.6643C11.523 16.6643 11.13 16.2713 11.13 15.7893V11.3693ZM12.875 8.19651C12.875 8.67851 12.484 9.07151 12.005 9.07151C11.512 9.07151 11.12 8.67851 11.12 8.19651C11.12 7.71451 11.512 7.32151 11.995 7.32151C12.48 7.32151 12.875 7.71451 12.875 8.19651Z" fill="white"/>
+                                </svg>
+                            </div>
+                            <p>
+                                <strong>How to enter the raffle:</strong><br>
+                                For every $200 wagered, player receive one ticket. Players can get unlimited tickets. At the end of each raffle ten winners will chosen via random.org
+                            </p>
+                        </div>
+                        <div class="raffl-entry">
+                            <p>Your number of entries: 0</p>
+                        </div>
+                        <div class="raffl-btm-txt">
+                            <p>For a detailed breakdown of the prize and payout structure, please visit the official announcement for this <span>giveaway.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Raffel modal end -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+
+
+
+{% else %}
+    <nav class="navbar navbar-default navbar-static-top {% if page['title'] == 'Best SMM Panel for Cheap Social Media Services' or page['title'] == 'Get Started Now!' or page['title'] == 'Use the Best SMM Panel & Buy Instagram Followers | Naizop' or page['title'] == ' Use the Best SMM Panel & Buy Instagram Followers | Naizop' %}login-nav{% endif %} {% if site['rtl'] %} rtl-navbar {% endif %}">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="15" height="2" rx="1" transform="matrix(-1 0 0 1 30 28)" fill="white"/>
+                        <rect width="20" height="2" rx="1" transform="matrix(-1 0 0 1 30 21)" fill="white"/>
+                        <rect width="15" height="2" rx="1" transform="matrix(-1 0 0 1 30 14)" fill="white"/>
+                    </svg>
+                </button>
+                <a class="navbar-brand" href="{{ page_url('index') }}">
+                    {% if site['logo'] %}
+                        <img src="{{ site['logo'] }}" alt="{{ site['name'] }}" title="{{ site['name'] }}">
+                    {% else %}
+                        <span class="nav-title">{{ site['name'] }}</span>
+                    {% endif %}
+                    {#<img src="https://cdn4.mypanel.link/0a268b/jn9l19goil5lslzu.png" alt="naizop.com" title="" width="40px" height="40px">#}
+                    {#<span class="nav-title" style="display: none;">Naizop</span>#}
+                </a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-left" style="margin-top: 7px;">
+                    {#
+                    <li {% if page['title'] == 'Best SMM Panel for Cheap Social Media Services' or page['title'] == 'Use the Best SMM Panel & Buy Instagram Followers | Naizop' or page['url']==' Use the Best SMM Panel & Buy Instagram Followers | Naizop' or page['title']=='Sign in' %} class="active" {% endif %}>
+                      <a href="/" {% if menu['external'] %} target="_blank" {% endif %}>Home</a></li>
+                    {% for menu in site['menu'] %}
+                    {% if menu['name'] == 'Sign in' or menu['name'] == 'Sign up' %}
+                    {% else %}
+                    <li{% if menu['active'] %} class="active" {% endif %}><a href="{{ menu['link'] }}" {% if menu['external'] %} target="_blank" {% endif %}>{% if menu['icon'] %}<i class="navbar-icon {{ menu['icon'] }}"></i>{% endif %}{{ menu['name'] }}</a></li>
+                    {% endif %}
+                    {% endfor %}
+                    {% if site['languages']|length > 1 %}
+                    <li class="dropdown">
+                      {% for lang in site['languages'] %}
+                      {% if lang['active'] %}
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> {{ lang['name'] }} <span class="caret"></span></a>
+                      {% endif %}
+                      {% endfor %}
+                      <ul class="dropdown-menu dropdown-max-height">
+                        {% for lang in site['languages'] %}
+                        <li{% if lang['active'] %} class="active"{% endif %}><a href="/{{ lang['code'] }}">{{ lang['name'] }}</a></li>
+                        {% endfor %}
+                      </ul>
+                    </li>
+                    {% endif %}
+                    #}
+
+
+                    {% for menu in site['menu'] %}
+                        <li {% if menu['active'] %} class="active" {% endif %}>
+                            {% if menu['link'] == '/signup' %}
+                            {% else %}
+                                <a href="{{ menu['link'] }}" {% if menu['external'] %} target="_blank" {% endif %}>
+                                    {% if menu['icon'] %}
+                                        <i class="navbar-icon {{ menu['icon'] }}"></i>
+                                    {% endif %}
+                                    {{ menu['name'] }}
+                                </a>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                    <li>
+                        <a href="/#business">
+                            REVIEWS
+                        </a>
+                    </li>
+
+
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    {#
+                    {% if page['title'] == 'Sign in' or page['title'] == 'Best SMM Panel for Cheap Social Media Services' or page['title'] == 'Use the Best SMM Panel & Buy Instagram Followers | Naizop' or page['title'] == ' Use the Best SMM Panel & Buy Instagram Followers | Naizop' or page['title'] == 'Best SMM Panel to Buy Instagram Followers | Naizop' %}
+                    #}
+                    {% if page['title'] == 'Best SMM Panel to Buy Instagram Followers | Naizop' %}
+                        <li class="sign-in">
+                            <a data-toggle="modal" class="login-popup-btn" >
+                                {# <span class="after-hover">Login</span> #}
+                                Login
+                            </a>
+                        </li>
+                    {% else %}
+                        <li class="sign-in"><a class="login-popup-btn" data-target="#login-modal" href="/#">
+                                {# <span class="after-hover">Login</span> #}
+                                Login
+                            </a></li>
+                    {% endif %}
+                    <li class="sign-up">
+                        <a href="/signup">
+                            {# <span class="after-hover">Register</span> #}
+                            Register
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="main-content">
+        <div class="main-content-in">
+            {{ content }}
+        </div>
+    </div>
+
+    {#% if page['title'] == 'Best SMM Panel for Cheap Social Media Services' or page['title'] == 'Sign in' %#}
+    <footer class="new-footer-2" data-aos="zoom-in" data-aos-easing="linear"
+            data-aos-duration="500">
+        <div class="container">
+            <div class="row row-top">
+                <div class="col-xs-12 col-md-3 col-lg-2">
+                    <div>
+                        <a href="#" class="footer-logo"><img class="lazyload" src="https://cdn.mypanel.link/0a268b/xpe1hjwdxqxbiaeb.webp" data-src="https://cdn.mypanel.link/0a268b/xpe1hjwdxqxbiaeb.webp" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
+                    <div class="footer-menu">
+                        <h4>Explore</h4>
+                        <ul>
+                            <li>
+                                <a href="/">Sign In
+                                </a>
+                                <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2.5 1H9.5M9.5 1V8M9.5 1L1 9.5" stroke="#686E73" stroke-width="1.2"></path>
+                                </svg>
+                            </li>
+                            <li>
+                                <a href="/terms">Terms
+                                </a>
+                                <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2.5 1H9.5M9.5 1V8M9.5 1L1 9.5" stroke="#686E73" stroke-width="1.2"></path>
+                                </svg>
+                            </li>
+                            <li>
+                                <a href="/faq">FAQ
+                                </a>
+                                <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2.5 1H9.5M9.5 1V8M9.5 1L1 9.5" stroke="#686E73" stroke-width="1.2"></path>
+                                </svg>
+                            </li>
+                            <li>
+                                <a href="/services">All Services
+                                </a>
+                                <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2.5 1H9.5M9.5 1V8M9.5 1L1 9.5" stroke="#686E73" stroke-width="1.2"></path>
+                                </svg>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
+                    <div class="footer-menu">
+                        <h4>Services</h4>
+                        <ul>
+                            <li>
+                                <a href="/">Facebook</a>
+                                <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2.5 1H9.5M9.5 1V8M9.5 1L1 9.5" stroke="#686E73" stroke-width="1.2"></path>
+                                </svg>
+                            </li>
+                            <li>
+                                <a href="/">Youtube
+                                </a>
+                                <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2.5 1H9.5M9.5 1V8M9.5 1L1 9.5" stroke="#686E73" stroke-width="1.2"></path>
+                                </svg>
+                            </li>
+                            <li>
+                                <a href="/">Instagram
+                                </a>
+                                <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2.5 1H9.5M9.5 1V8M9.5 1L1 9.5" stroke="#686E73" stroke-width="1.2"></path>
+                                </svg>
+                            </li>
+                            <li>
+                                <a href="/">Twitter
+                                </a>
+                                <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2.5 1H9.5M9.5 1V8M9.5 1L1 9.5" stroke="#686E73" stroke-width="1.2"></path>
+                                </svg>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
+                    <div class="footer-menu">
+                        <h4>Follow us</h4>
+                        <ul>
+                            <li><a href="/"><svg width="24" height="24" style="margin-right: 8px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.496 3H16.505C18.987 3 21 5.012 21 7.496V16.505C21 18.987 18.988 21 16.504 21H7.496C5.013 21 3 18.988 3 16.504V7.496C3 5.013 5.012 3 7.496 3Z" stroke="#686E73" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M16.9487 6.71279C16.7627 6.71379 16.6117 6.86479 16.6117 7.05079C16.6117 7.23679 16.7637 7.38779 16.9497 7.38779C17.1357 7.38779 17.2867 7.23679 17.2867 7.05079C17.2877 6.86379 17.1357 6.71279 16.9487 6.71279" stroke="#686E73" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M14.546 9.45432C15.9519 10.8602 15.9519 13.1396 14.546 14.5455C13.1401 15.9514 10.8607 15.9514 9.45481 14.5455C8.04892 13.1396 8.04892 10.8602 9.45481 9.45432C10.8607 8.04843 13.1401 8.04843 14.546 9.45432" stroke="#686E73" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 3H16.504C18.987 3 21 5.013 21 7.496V16.505C21 18.987 18.987 21 16.504 21H7.496C5.013 21 3 18.987 3 16.504V7.5C3 5.015 5.015 3 7.5 3V3Z" stroke="#686E73" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M10.0948 15.4911L9.2828 12.8171C9.2818 12.8161 6.9568 12.0911 6.9568 12.0911C6.6908 12.0081 6.6778 11.6351 6.9388 11.5351L15.7898 8.12106C16.1168 7.99506 16.4538 8.28206 16.3818 8.62506L14.8948 15.6331C14.8078 16.0441 14.3248 16.2271 13.9878 15.9771L11.8758 14.4171L10.6308 15.6291C10.4558 15.7971 10.1658 15.7221 10.0948 15.4911V15.4911Z" stroke="#686E73" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-lg-4">
+                    <div class="pay-tech-marks">
+                        <div>
+                            <img src="https://cdn.mypanel.link/0a268b/bhkcqt2byad5wedp.webp" data-src="https://cdn.mypanel.link/0a268b/bhkcqt2byad5wedp.webp" class="pay-mark lazyload" width="1412px" height="96px">
+                            <img src="https://cdn.mypanel.link/0a268b/ld3q6t5lxx90pzsi.webp" data-src="https://cdn.mypanel.link/0a268b/ld3q6t5lxx90pzsi.webp" class="tech-mark lazyload" width="1135px" height="190px">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-bottom">
+                <div class="">
+                    <div class="col-xs-12">
+                        <p>© naizop.com All rights reserved</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    {#% else %#}
+    {#% endif %#}
+{% endif %}
+<!-- Main variables *content* -->
+{{ site['custom_footer'] }}
+{% for script in site['scripts'] %}
+    <script type="text/javascript" {% if script['src'] %}src="{{ script['src'] }}"{% endif %}>
+        {% if script['code'] %} {{ script['code'] }} {% endif %}
+    </script>
+{% endfor %}
+
+<script>
+    var point_url = "https://script.ourperfectapp.com/macros/nz/AKfycbybudEa04-m1T6_8EZTldRPea-WExunYEjNcIk0fZxolxDi6FPB/exec";
+
+    $(document).ready(function() {
+
+        $.post(point_url, {"action":"get_rank", "user_id":'{{ user['id'] }}'}, function(response){
+            if(response != 'undefined'){
+                response = JSON.parse(response);
+                $('#currentRank').text(response.rank);
+                if(response.rank == 'New'){
+                    var link = 'https://yourpanelassets.com/projects/naizop/img/new%20design/img/ranks/New.webp';
+                    $('.prgrss-img').attr('src',link);
+                } else if(response.rank == 'Bronze'){
+                    var link = 'https://yourpanelassets.com/projects/naizop/img/new%20design/img/ranks/Bronze.webp';
+                    $('.prgrss-img').attr('src',link);
+                } else if(response.rank == 'Silver'){
+                    var link = 'https://yourpanelassets.com/projects/naizop/img/new%20design/img/ranks/Silver.webp';
+                    $('.prgrss-img').attr('src',link);
+                } else if(response.rank == 'Gold'){
+                    var link = 'https://yourpanelassets.com/projects/naizop/img/new%20design/img/ranks/Gold.webp';
+                    $('.prgrss-img').attr('src',link);
+                } else if(response.rank == 'Platinum'){
+                    var link = 'https://yourpanelassets.com/projects/naizop/img/new%20design/img/ranks/Platinum.webp';
+                    $('.prgrss-img').attr('src',link);
+                } else if(response.rank == 'Diamond'){
+                    var link = 'https://yourpanelassets.com/projects/naizop/img/new%20design/img/ranks/Diamond.webp';
+                    $('.prgrss-img').attr('src',link);
+                } else if(response.rank == 'Vip'){
+                    var link = 'https://yourpanelassets.com/projects/naizop/img/new%20design/img/ranks/Vip.webp';
+                    $('.prgrss-img').attr('src',link);
+                } else if(response.rank == 'King'){
+                    var link = 'https://yourpanelassets.com/projects/naizop/img/new%20design/img/ranks/King.webp';
+                    $('.prgrss-img').attr('src',link);
+                }
+                if(response.rank != 'New'){
+                    $('#progress').text(response.progress).show();
+                    $('#progress-mob').text(response.progress).show();
+                    $('.progress').attr('value',response.progress.replace(/%/g,''));
+                }else{
+                    // $('#progress').text(null).hide();
+                    $('#progress').text('0');
+                }
+            }
+        });
+
+
+        $.post(point_url, { 'action':'add_points','user_id':'{{ user['id'] }}','username':'{{user['username']}}','email':'{{user['email']}}','spent':'{{ user['spent'] }}' }, function(response){
+            // do something
+        });
+
+        setTimeout(function(){
+            $.post(point_url, { 'action':'get_points','user_id':'{{ user['id'] }}' }, function(response){
+                var data = JSON.parse(response);
+
+                var userPoint = (Math.round({{ user['spent'] }} - data.point));
+                // var userPoint = (Math.round({{ user['spent'] }} - 0));
+
+                {% if user['spent'] >= 50000 %}
+                var userBonus = 2
+                {% elseif user['spent'] >= 15000 %}
+                var userBonus = 1.75
+                {% elseif user['spent'] >= 5000 %}
+                var userBonus = 1.50
+                {% elseif user['spent'] >= 2500 %}
+                var userBonus = 1.25
+                {% elseif user['spent'] >= 1000 %}
+                var userBonus = 1
+                {% elseif user['spent'] >= 100 %}
+                var userBonus = 0.5
+                {% else %}
+                var userBonus = 0.0
+                {% endif %}
+
+                var userMoney = (userPoint)*(userBonus)/100;
+                //  var userMoney = (50000)*(userBonus)/100;
+
+                $('#userPoint').text(userPoint);
+                $('#userMoney').text(userMoney.toFixed(2));
+                $('#userMoney1').text(userMoney.toFixed(2));
+
+                if(userPoint >= 100 ){
+                    $('.redeem-btn').removeClass('hide');
+                    console.log('Userpoint' + ' ' + userPoint);
+                } else {
+                    console.log('Userpoint' + ' ' + userPoint);
+                }
+                if(userPoint >= 100 ){
+                    $('#ticketsend #subject option.hide[value="Point"]').removeClass('hide');
+                    console.log('Userpoint' + ' ' + userPoint);
+                } else {
+                    console.log('Userpoint' + ' ' + userPoint);
+                }
+            });
+        }, 3000);
+
+        {% if page['title'] == 'Redeem History' %}
+        $.post(point_url, { 'action':'get_redemptions','user_id':'{{ user['id'] }}' }, function(response){
+            if(response){
+                $('#tbl-redeem-data').html(response);
+            }
+        });
+        {% endif %}
+
+
+    });
+
+
+</script>
+
+
+{% if page['title'] == 'Account' %}
+    <script>
+        var dataUrl = "https://script.ourperfectapp.com/macros/nz/AKfycbybudEa04-m1T6_8EZTldRPea-WExunYEjNcIk0fZxolxDi6FPB/exec";
+        var userId = {{ user['id'] }};
+
+        $(document).ready(function(){
+            $.post(dataUrl, {"action":"get_profile_picture", "user_id":userId}, function(response){
+                if(response != 'undefined'){
+                    response = JSON.parse(response);
+                    $('.uploaded-img').attr('src', response.profile_image_url);
+                    $('.avatar-toggle').attr('data-default-avatar', response.default_avatar);
+                    if(response.default_avatar == 0){
+                        // show uploaded picture
+                    }else{
+                        // show default avatar
+                    }
+                }
+            });
+
+            $('.avatar-toggle').on('click', function(){
+                var default_avatar = $(this).attr('data-default-avatar');
+                $.post(dataUrl, {"action":"avatar_toggle", "user_id":userId}, function(response){
+                    if(response == 'true'){
+                        if(default_avatar == 1){
+                            $('.avatar-toggle').attr('data-default-avatar', 0);
+                            // show uploaded picture
+                        }else{
+                            $('.avatar-toggle').attr('data-default-avatar', 1);
+                            // show default avatar
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+{% endif %}
+
+<script>
+    $(function() { //run when the DOM is ready
+        $(".vote-pic li").click(function() { //use a class, since your ID gets mangled
+            $(".vote-pic li").removeClass("active");
+            $(this).toggleClass("active"); //add the class to the clicked element
+        });
+    });
+</script>
+
+{% if page['title'] == 'Update' %}
+    <script src="https://instagrauto.com/japelite/js/favform2.js" type="text/javascript"></script>
+    <script>
+        var category = "";
+        var search = "";
+
+        function populatePaginaiton(response) {
+            var $pager = $('.table-pagination ul');
+            $pager.html('');
+            if (response.prev_page_url != null) {
+                $pager.append("<li><a href='javascript:void(0)' onclick=\"loadUpdates('" + response.prev_page_url + "')\" ><i class='fas fa-arrow-left mr-2'></i></a></li>");
+            } else {
+                $pager.append("<li></li>");
+            }
+
+            var left = 3, right = 3;
+            if (response.current_page == 1) right = 6;
+            if (response.current_page == 2) right = 5;
+            if (response.current_page >= response.last_page) left = 5;
+
+            for (var i = 1; i <= response.last_page; i++) {
+                var active = "", link = "";
+                if (i == response.current_page) {
+                    active = "active";
+                    link = "javascript:void(0)";
+                } else {
+                    link = "https://updates.naizop.com/api/updates?search=" + search + "&category=" + category + "&page=" + i;
+                }
+
+                if (i >= response.current_page - left && i <= response.current_page + right)
+                    $pager.append("<li class='" + active + "'><a href='javascript:void(0)' onclick=\"loadUpdates('" + link + "')\" >" + i + "</a></li>");
+            }
+
+            if (response.next_page_url != null) {
+                $pager.append("<li><a href='javascript:void(0)' onclick=\"loadUpdates('" + response.next_page_url + "')\" ><i class='fas fa-arrow-right mr-2'></i></a></li>");
+            } else {
+                $pager.append("<li></li>");
+            }
+        }
+
+        function filterByCategory(cat) {
+            if (cat == '')
+                $('#filter').text("All");
+            else if (cat == "Notification:{{ user['email'] }}")
+                $('#filter').text("Notification Enabled");
+            else
+                $('#filter').text(cat);
+            category = cat;
+
+            var link = "https://updates.naizop.com/api/updates?search=" + search + "&category=" + category;
+            loadUpdates(link);
+        }
+
+        function loadUpdates(link) {
+            $.get(link, function(response) {
+                $('.updates-wrap').html('');
+
+                response.data.forEach(function (data) {
+                    var type = "btn-secondary";
+
+                    if (data.update.indexOf("Service Enabled") >= 0) type = "enabled";
+                    if (data.update.indexOf("Service Disabled") >= 0) type = "disabled";
+                    if (data.update.indexOf("Price INCREASED") >= 0) type = "increased";
+                    if (data.update.indexOf("Price DECREASED") >= 0) type = "decreased";
+
+                    $('.updates-wrap').append("" +
+                        "<div class='col-sm-4'><div class='update-box'>" + "<div class='row'><div class='col-xs-3'><h4 class='update-title'>ID</h4><p>" + data.linked_service.service + "</p></div>" + "<div class='col-xs-9'><h4 class='update-title'>DATE</h4><p>" + data.created_at + "</p></div></div>" + "<div class='row servRow'><div class='col-sm-12'><h4 class='update-title'>SERVICE</h4><p>" + data.linked_service.name + "</p></div></div>" + "<div class='row'><div class='col-sm-12'><div class='form-group ig3 " + type + "'><label>UPDATE</label><input class='form-control' type='text' value='" + data.update + "' readonly /></div></div></div>" + "</div></div>"
+                    );
+                });
+
+                populatePaginaiton(response);
+            });
+        }
+
+        $(function() {
+            $('#search').click(function(e) {
+                var parentOffset = $(this).parent().offset();
+                var relX = e.pageX - parentOffset.left;
+
+                if (relX < 30) {
+                    search = $(this).val();
+
+                    var link = "https://updates.naizop.com/api/updates?search=" + search + "&category=" + category;
+                    loadUpdates(link);
+                }
+            });
+
+            $('#search').on('change', function() {
+                search = $(this).val();
+
+                var link = "https://updates.naizop.com/api/updates?search=" + search + "&category=" + category;
+                loadUpdates(link);
+            });
+
+            loadUpdates("https://updates.naizop.com/api/updates");
+        });
+    </script>
+{% endif %}
+<script>
+    jQuery(function($){
+        var roles = ['digi life...', 'digi life..', 'digi life.', 'digi life...', 'digi life..'];
+        var counter = 0;
+        var $role = $('#description-rotate')
+        setInterval(function(){
+            $role.text(roles[counter++]);
+            if(counter >= roles.length){
+                counter = 0;
+            }
+        }, 2000)
+    })
+</script>
+{% if page['title'] == 'Services' or page['title'] == 'Buy Instagram Followers Packages & More | Naizop1' or page['title'] == 'Services | Buy Instagram Followers Packages & More | Naizop1' %}
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#searchService").keyup(function () {
+                var searchTerm = $("#searchService").val();
+                var listItem = $('.service-table tbody').children('tr');
+                var searchSplit = searchTerm.replace(/ /g, "'):containsi('")
+                $.extend($.expr[':'], {'containsi': function(elem, i, match, array) {
+                        return (elem.textContent || elem.innerText || '').toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
+                    }
+                });
+                $(".service-table:containsi('" + searchSplit + "')").each(function(e){
+                    $(this).attr('visible','true');
+                });
+                $(".ser-panelgp .panel-default:containsi('" + searchSplit + "')").each(function(e){
+                    $(this).attr('visible','true');
+                });
+                $(".service-table ").not(":containsi('" + searchSplit + "')").each(function(e){
+                    $(this).attr('visible', 'false');
+                });
+                $(".ser-panelgp .panel-default ").not(":containsi('" + searchSplit + "')").each(function(e){
+                    $(this).attr('visible', 'false');
+                });
+                $("tr.separator:first-child, tr.separator:last-child").each(function(e) {
+                    $(this).attr('visible','false');
+                });
+            });
+            $("#searchService").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $(".service-table tbody tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+
+    </script>
+{% endif %}
+{% if user['auth'] %}
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.0/perfect-scrollbar.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#tglr').popover({
+                html : true,
+                content: function() {
+                    return $('#panel-notes').html();
+                }
+            });
+        });
+        {# new PerfectScrollbar('.sidebar-wrap', {
+        handlers: ['click-rail', 'drag-thumb', 'keyboard', 'wheel', 'touch'],
+        scrollingThreshold: 1000,
+        wheelSpeed: 1,
+        wheelPropagation: false,
+        minScrollbarLength: null,
+        maxScrollbarLength: null,
+        useBothWheelAxes: false,
+        suppressScrollX: false,
+        suppressScrollY: false,
+        swipeEasing: true,
+        scrollXMarginOffset: 0,
+        scrollYMarginOffset: 0
+      }); #}
+    </script>
+    <script>
+        {# new PerfectScrollbar('.news-wrap', {
+        handlers: ['click-rail', 'drag-thumb', 'keyboard', 'wheel', 'touch'],
+        scrollingThreshold: 1000,
+        wheelSpeed: 1,
+        wheelPropagation: false,
+        minScrollbarLength: null,
+        maxScrollbarLength: null,
+        useBothWheelAxes: false,
+        suppressScrollX: false,
+        suppressScrollY: false,
+        swipeEasing: true,
+        scrollXMarginOffset: 0,
+        scrollYMarginOffset: 0
+      }); #}
+    </script>
+    <script>
+        $('.hamburger').on('click', function(e) {
+            $('.main-wrapper').toggleClass("toggle");
+        });
+        $('#fund-history').on('click', function(e) {
+            if ($(this).text() == "Payment History") {
+                $(this).text("Go Back");
+            } else {
+                $(this).text("Payment History");
+            };
+            $('.fundFrm, .fundhstry').toggleClass("hidden");
+        });
+        if ($(window).width() < 992) {
+            $('.main-wrapper').addClass("toggle");
+        }
+    </script>
+{% endif %}
+
+{% if page['url']=='/tickets' %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/js/bootstrap-select.min.js"></script>
+    <script>
+        $(function () {
+            $('.slkt').selectpicker({
+                iconBase:'iko'
+            });
+        });
+        function handleOrderType(selectObject) {
+            var element = document.getElementById("order-group");
+            var optional = document.getElementById("optional");
+            var orderid = document.getElementById('orderid');
+            let paymentOptions = document.getElementsByClassName('payment-option');
+            let messageBox = document.querySelector('.form-group #message');
+            if (selectObject.value == "Order") {
+                orderid.setAttribute('required', true);
+                messageBox.removeAttribute('required');
+                element.style.display = "block";
+                optional.style.display = "inline";
+                Object.values(paymentOptions).forEach(function(e){
+                    e.style.display = 'none';
+                    e.querySelector('input').removeAttribute('required');
+                });
+            } else if (selectObject.value == "Payment") {
+                orderid.removeAttribute('required');
+                element.style.display = "none";
+                optional.style.display = "none";
+                Object.values(paymentOptions).forEach(function(e){
+                    e.style.display = 'block';
+                    e.querySelector('input').setAttribute('required', true);
+                });
+                messageBox.setAttribute('required', true);
+            } else if (selectObject.value == "Other") {
+                orderid.removeAttribute('required');
+                element.style.display = "none";
+                optional.style.display = "none";
+                Object.values(paymentOptions).forEach(function(e){
+                    e.style.display = 'none';
+                    e.querySelector('input').removeAttribute('required');
+                });
+                messageBox.setAttribute('required', true);
+            } else if (selectObject.value == "Point") {
+                orderid.removeAttribute('required');
+                element.style.display = "none";
+                optional.style.display = "none";
+                Object.values(paymentOptions).forEach(function(e){
+                    e.style.display = 'none';
+                    e.querySelector('input').removeAttribute('required');
+                });
+                messageBox.setAttribute('required', true);
+            } else if (selectObject.value == "Request") {
+                Object.values(paymentOptions).forEach(function(e){
+                    e.style.display = 'none';
+                });
+                orderid.removeAttribute('required');
+                element.style.display = "none";
+                optional.style.display = "none";
+                messageBox.setAttribute('required', true);
+            }
+        }
+        function createNewTicket(e) {
+            if (e.preventDefault) e.preventDefault();
+            var subject = document.getElementById("subject").value;
+            var message = "";
+            var req = $('#requestType :selected').val();
+            var t_id = "{% if user['spent'] >= 150 %}PRIORITY{% else %}NORMAL{% endif %}";
+            var acstatus = document.getElementById("acc_status").value;
+            if (subject == "Order") {
+                message += "Order ID: " + document.getElementById("orderid").value + "\n";
+                message += "Request: " + document.getElementById("requestType").value + "\n\n";
+                message += document.getElementById("message").value;
+                subject += ' - ' + acstatus + ' - ' + t_id;
+            }else if (subject == "Payment") {
+                message += "How did you pay: " + document.getElementById("payType").value + "\n";
+                // $('.payment-option input').each(function(i){
+                // message += $(this).data('label') + ': ' + $(this).val() + "\n";
+                // });
+                subject += ' - ' + acstatus + ' - ' + t_id;
+                message += document.getElementById("message").value;
+            }else {
+                message = document.getElementById("message").value;
+                subject += ' - ' + acstatus + ' - ' + t_id;
+            }
+            $('#subject :selected').val(subject);
+            document.getElementById("hmessage").value = message;
+            return true;
+        }
+        var form = document.getElementById("ticketsend");
+        if (form.attachEvent) {
+            form.attachEvent("submit", createNewTicket);
+        } else {
+            form.addEventListener("submit", createNewTicket);
+        }
+    </script>
+{% endif %}
+
+{% if user['auth'] %}
+    {#
+    <script>
+      var geender = 'male';
+      console.log(localStorage['myKey']);
+
+      $(window).on('load', function() {
+        if (localStorage['myKey'] == 'female' ) {
+          $('.prof-pic img').attr('src', 'https://cdn4.mypanel.link/0a268b/n14842tljzhoam01.png')
+          $('.gender-img img').attr('src', 'https://cdn4.mypanel.link/0a268b/n14842tljzhoam01.png');
+          $('.profile-pic').attr('src', 'https://cdn4.mypanel.link/0a268b/n14842tljzhoam01.png');
+          $('img.ticket-gender').attr('src', 'https://cdn4.mypanel.link/0a268b/n14842tljzhoam01.png');
+          $('.row.gender-row .btn-toggle').addClass('active');
+
+        }
+        else {
+          $('.prof-pic img').attr('src', 'https://cdn4.mypanel.link/0a268b/q7ep16zz2j1go4n2.png')
+          $('.gender-img img').attr('src', 'https://cdn4.mypanel.link/0a268b/q7ep16zz2j1go4n2.png');
+          $('.profile-pic').attr('src', 'https://cdn4.mypanel.link/0a268b/q7ep16zz2j1go4n2.png');
+          $('img.ticket-gender').attr('src', 'https://cdn4.mypanel.link/0a268b/q7ep16zz2j1go4n2.png');
+          // $('img.ticket-gender').attr('src', 'https://cdn4.mypanel.link/38d89a/tybxkioyhiaswf0t.png');
+
+        }
+      });
+
+      $('.gender-img a').click(function() {
+        if (localStorage['myKey'] == 'female' ) {
+          $('.gender-img img').attr('src', 'https://cdn4.mypanel.link/0a268b/q7ep16zz2j1go4n2.png');
+          localStorage['myKey'] = 'male';
+          var geender = 'male';
+          console.log(localStorage['myKey']);
+
+        }
+        else {
+          $('.gender-img img').attr('src', 'https://cdn4.mypanel.link/0a268b/n14842tljzhoam01.png');
+          localStorage['myKey'] = 'female';
+          var geender = 'female';
+          console.log(localStorage['myKey']);
+        }
+      });
+
+
+
+    </script>
+    #}
+    {% if page['url']=='/' %}
+        <script>
+            $(document).ready(function() {
+                setList(0);
+                setList(1);
+            });
+            function ikon(opt) {
+                var ikon = "";
+                if (opt.indexOf("Instagram") >= 0) {
+                    ikon = "<span class=\"ico-ig\"><i class=\"fab fa-instagram\" aria-hidden=\"true\"></i> </span>";
+                } else if (opt.indexOf("IGTV") >= 0) {
+                    ikon = "<span class=\"ico-ig\"><i class=\"fab fa-instagram\" aria-hidden=\"true\"></i> </span>";
+                } else if (opt.indexOf("FaceBook") >= 0 || opt.indexOf("facebook") >= 0 || opt.indexOf("Facebook") >= 0) {
+                    ikon = "<span class=\"ico-fb\"><i class=\"fab fa-facebook-square\" aria-hidden=\"true\"></i> </span>";
+                } else if (opt.indexOf("Youtube") >= 0) {
+                    ikon = "<span class=\"ico-yt\"><i class=\"fab fa-youtube\" aria-hidden=\"true\"></i> </span>";
+                } else if (opt.indexOf("YouTube") >= 0) {
+                    ikon = "<span class=\"ico-yt\"><i class=\"fab fa-youtube\" aria-hidden=\"true\"></i> </span>";
+                }else if (opt.indexOf("Twitter") >= 0) {
+                    ikon = "<span class=\"ico-tw\"><i class=\"fab fa-twitter\" aria-hidden=\"true\"></i> </span>";
+                } else if (opt.indexOf("Google") >= 0) {
+                    ikon = "<span class=\"ico-gp\"><i class=\"fab fa-google-plus\" aria-hidden=\"true\"></i> </span>";
+                } else if (opt.indexOf("Souncloud") >= 0 || opt.indexOf("souncloud") >= 0 || opt.indexOf("SoundCloud") >= 0 || opt.indexOf("Soundcloud USA") >=0) {
+                    ikon = "<span class=\"ico-sc\"><i class=\"fab fa-soundcloud\" aria-hidden=\"true\"></i> </span>";
+                } else if (opt.indexOf("Spotify") >= 0) {
+                    ikon = "<span class=\"ico-sp\"><i class=\"fab fa-spotify\" aria-hidden=\"true\"></i> </span>";
+                } else if (opt.indexOf("Telegram") >= 0) {
+                    ikon = "<span class=\"ico-tele\"><i class=\"fab fa-telegram-plane\" aria-hidden=\"true\"></i> </span>";
+                } else if (opt.indexOf("Pinterest") >= 0) {
+                    ikon = "<span class=\"ico-pt\"><i class=\"fab fa-pinterest-p\" aria-hidden=\"true\"></i> </span>";
+                } else if (opt.indexOf("Twitch") >= 0) {
+                    ikon = "<span class=\"ico-twc\"><i class=\"fab fa-twitch\" aria-hidden=\"true\"></i> </span>";
+                } else if (opt.indexOf("Tik") >= 0) {
+                    ikon = "<span class=\"ico-tic\"><i class=\"fab fa-tiktok\" aria-hidden=\"true\"></i> </span>";
+                } else if (opt.indexOf("Web") >= 0) {
+                    ikon = "<span class=\"ico-web\"><i class=\"fas fa-globe\" aria-hidden=\"true\"></i> </span>";
+                } else if (opt.indexOf("Discord") >= 0) {
+                    ikon = "<span class=\"ico-disc\"><i class=\"fab fa-discord\" aria-hidden=\"true\"></i> </span>";
+                } else if (opt.indexOf("LinkedIn") >= 0) {
+                    ikon = "<span class=\"ico-lin\"><i class=\"fab fa-linkedin-in\" aria-hidden=\"true\"></i> </span>";
+                } else if (opt.indexOf("MixCloud") >= 0) {
+                    ikon = "<span class=\"ico-mix\"><i class=\"fab fa-mixcloud\" aria-hidden=\"true\"></i> </span>";
+                } else if (opt.indexOf("VK") >= 0 || opt.indexOf("Vk") >= 0) {
+                    ikon = "<span class=\"ico-vk\"><i class=\"fab fa-vk\" aria-hidden=\"true\"></i> </span>";
+                } else if (opt.indexOf("PUBG") >= 0) {
+                    ikon = "<span class=\"ico-pubg\"><i class=\"fas fa-gamepad\" aria-hidden=\"true\"></i> </span>";
+                } else if (opt.indexOf("Club") >= 0) {
+                    ikon = "<span class=\"ico-clb\"><i class=\"fas fa-hand-sparkles\" aria-hidden=\"true\"></i> </span>";
+                } else if (opt.indexOf("Reddit") >= 0) {
+                    ikon = "<span class=\"ico-reddit\"><i class=\"fab fa-reddit-alien\" aria-hidden=\"true\"></i> </span>";
+                } else if (opt.indexOf("Steam") >= 0) {
+                    ikon = "<span class=\"ico-steam\"><i class=\"fab fa-steam-symbol\" aria-hidden=\"true\"></i> </span>";
+                } else if (opt.indexOf("Quora") >= 0) {
+                    ikon = "<span class=\"ico-steam\"><i class=\"fab fa-quora\" aria-hidden=\"true\"></i> </span>";
+                } else if (opt.indexOf("Tumblr") >= 0) {
+                    ikon = "<span class=\"ico-tumb\"><i class=\"fab fa-tumblr\" aria-hidden=\"true\"></i> </span>";
+                } else if (opt.indexOf("Triller") >= 0) {
+                    ikon = "<span class=\"ico-steam\"><img class=\"img-responsive\" src=\"https://i.imgur.com/X8HjEaX.png\"></span>";
+                } else if (opt.indexOf("OnlyFans") >= 0) {
+                    ikon = "<span class=\"ico-of\"><img src=\"https://cdn4.mypanel.link/0a268b/hab7bskjgibr54rm.png\" /></span>";
+                } else if (opt.indexOf("DuckDuckGo") >= 0) {
+                    ikon = "<span class=\"ico-duck\"><img src=\"https://cdn4.mypanel.link/0a268b/5c8b7s06mcoky5yn.png\" /></span>";
+                } else if (opt.indexOf("Blogspot") >= 0) {
+                    ikon = "<span class=\"ico-blog\"><i class=\"fab fa-blogger-b\"></i></span>";
+                } else if (opt.indexOf("Blogger") >= 0) {
+                    ikon = "<span class=\"ico-blog\"><i class=\"fab fa-blogger-b\"></i></span>";
+                } else if (opt.indexOf("Yandex.ru") >= 0) {
+                    ikon = "<span class=\"ico-yandex\"><i class=\"fab fa-yandex-international\"></i></span>";
+                } else if (opt.indexOf("Wikipedia") >= 0) {
+                    ikon = "<span class=\"ico-wikipedia\"><i class=\"fab fa-wikipedia-w\"></i></span>";
+                } else if (opt.indexOf("Sina Weibo") >= 0) {
+                    ikon = "<span class=\"sinaweibo\"><img class=\"img-responsive\" src=\"https://i.imgur.com/T80kYC3.png\"></span>";
+                } else if (opt.indexOf("StumbleUpon") >= 0) {
+                    ikon = "<span class=\"stumbleupon\"><img class=\"img-responsive\" src=\"https://i.imgur.com/eP0iD8l.png\"></span>";
+                } else if (opt.indexOf("Amazon") >= 0) {
+                    ikon = "<span class=\"amazon\"><i class=\"fab fa-amazon\"></i></span>";
+                } else if (opt.indexOf("Bing") >= 0) {
+                    ikon = "<span class=\"bing\"><img class=\"img-responsive\" src=\"https://i.imgur.com/6l9DLxL.png\"></span>";
+                } else if (opt.indexOf("eBay") >= 0) {
+                    ikon = "<span class=\"ebay\"><i class=\"fab fa-ebay\"></i></span>";
+                } else if (opt.indexOf("OK.ru") >= 0) {
+                    ikon = "<span class=\"ok\"><i class=\"fab fa-odnoklassniki\"></i></span>";
+                } else if (opt.indexOf("IMGur") >= 0) {
+                    ikon = "<span class=\"imgur\"><img class=\"img-responsive\" src=\"https://i.imgur.com/TaCuDxf.png\"></span>";
+                } else if (opt.indexOf("BuySellAds") >= 0) {
+                    ikon = "<span class=\"buysellads\"><i class=\"fab fa-buysellads\"></i></span>";
+                } else if (opt.indexOf("Craigslist") >= 0) {
+                    ikon = "<span class=\"craigslist\"><img class=\"img-responsive\" src=\"https://i.imgur.com/AsjPOgk.png\"></span>";
+                } else if (opt.indexOf("Fiverr") >= 0) {
+                    ikon = "<span class=\"fiver\"><img class=\"img-responsive\" src=\"https://i.imgur.com/cICRVgm.png\"></span>";
+                } else if (opt.indexOf("Yelp") >= 0) {
+                    ikon = "<span class=\"yelp\"><i class=\"fab fa-yelp\"></i></span>";
+                } else if (opt.indexOf("Shazam") >= 0) {
+                    ikon = "<span class=\"shazam\"><img class=\"img-responsive\" src=\"https://cdn4.mypanel.link/0a268b/fhxlnsplr3sywju0.png\"></span>";
+                } else if (opt.indexOf("Tidal") >= 0) {
+                    ikon = "<span class=\"tidal\"><img class=\"img-responsive\" src=\"https://cdn4.mypanel.link/0a268b/x1pe2rarqfiecs6i.png\"></span>";
+                } else if (opt.indexOf("Audiomack") >= 0) {
+                    ikon = "<span class=\"audiamark\"><img class=\"img-responsive\" src=\"https://cdn4.mypanel.link/0a268b/fxde4wpaqcpncn81.png\"></span>";
+                } else if (opt.indexOf("Behance") >= 0) {
+                    ikon = "<span class=\"behance\"><img class=\"img-responsive\" src=\"https://cdn4.mypanel.link/0a268b/0zt63a95oxbun16i.png\"></span>";
+                } else if (opt.indexOf("Reverbnation") >= 0) {
+                    ikon = "<span class=\"reverbnation\"><img class=\"img-responsive\" src=\"https://cdn4.mypanel.link/0a268b/d5mnq84ii3qanorf.png\"></span>";
+                } else if (opt.indexOf("Crypto") >= 0) {
+                    ikon = "<span class=\"Crypto\"><img class=\"img-responsive\" src=\"https://cdn4.mypanel.link/0a268b/a7g58bhk5s4x6zqd.png\"></span>";
+                } else if (opt.indexOf("TrustPilot") >= 0) {
+                    ikon = "<span class=\"trustpilot\"><img class=\"img-responsive\" src=\"https://cdn4.mypanel.link/0a268b/y4bd7lfud7zg0lcn.png\"></span>";
+                } else if (opt.indexOf("Private") >= 0) {
+                    ikon = "<span class=\"private\"><img class=\"img-responsive\" src=\"https://cdn4.mypanel.link/0a268b/08cbqnlrlezh0oxc.png\"></span>";
+                } else if (opt.indexOf("TripAdvisor") >= 0) {
+                    ikon = "<span class=\"tripadvisor\"><img class=\"img-responsive\" src=\"https://cdn4.mypanel.link/0a268b/cswa2t0k3sf2px0w.png\"></span>";
+                } else if (opt.indexOf("Medium") >= 0) {
+                    ikon = "<span class=\"medium\"><i class=\"fab fa-medium-m\"></i></span>";
+                }
+                return ikon;
+            }
+            function setList(val) {
+                if (val == 0) {
+                    $("#orders-drop").empty();
+                    $("#orderform-service option").each(function() {
+                        var ico = ikon($(this).text());
+                        $("#orders-drop").append('<button id="order-sItem" class="dropdown-item" type="button" onclick="selectOrder(' + $(this).val() + ')">' + ico + $(this).text() + '</button>');
+                    });
+                    var e = document.getElementById("orderform-service");
+                    var selected = e.options[e.selectedIndex].text;
+                    var ico = ikon(selected);
+                    $("#order-services").html(ico + selected);
+                } else if (val == 1) {
+                    $("#category-drop").empty();
+                    $("#orderform-category option").each(function() {
+                        var ico = ikon($(this).text());
+                        $("#category-drop").append('<button id="order-cItem" class="dropdown-item" type="button" onclick="selectCategory(' + $(this).val() + ')">' + ico + $(this).text() + '</button>');
+                    });
+                    var e = document.getElementById("orderform-category");
+                    var selected = e.options[e.selectedIndex].text;
+                    var ico = ikon(selected);
+                    $("#order-category").html(ico + selected);
+                }
+            }
+            $(function(ready) {
+                $("#orderform-service").change(function() {
+                    setList(0);
+                });
+                $("#orderform-category").change(function() {
+                    setList(1);
+                });
+            });
+            function selectOrder(val) {
+                $('#orderform-service').val(val);
+                $("#orderform-service").trigger("change");
+                var ico = ikon($("#orderform-service option[value='" + val + "']").text());
+                $("#order-services").html(ico + $("#orderform-service option[value='" + val + "']").text());
+            }
+            $("#order-sItem").click(function() {
+                $("#order-services").html($(this).html());
+            });
+            function selectCategory(val) {
+                $('#orderform-category').val(val);
+                $("#orderform-category").trigger("change");
+                var ico = ikon($("#orderform-category option[value='" + val + "']").text());
+                $("#order-category").html(ico + $("#orderform-category option[value='" + val + "']").text());
+            }
+        </script>
+        {% elseif page['url']=='/addfunds' %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/js/bootstrap-select.min.js"></script>
+        <script>
+            $(function () {
+                $('.slkt').selectpicker({
+                    iconBase:'iko'
+                });
+            });
+        </script>
+    {% elseif page['url']=='/tickets' %}
+        {# <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/js/bootstrap-select.min.js"></script>
+    <script>
+      $(function () {
+        $('.slkt').selectpicker({
+          iconBase:'iko'
+        });
+      });
+      function handleOrderType(selectObject) {
+        var element = document.getElementById("order-group");
+        var optional = document.getElementById("optional");
+        var orderid = document.getElementById('orderid');
+        let paymentOptions = document.getElementsByClassName('payment-option');
+        let messageBox = document.querySelector('.form-group #message');
+        if (selectObject.value == "Order") {
+          orderid.setAttribute('required', true);
+          messageBox.removeAttribute('required');
+          element.style.display = "block";
+          optional.style.display = "inline";
+          Object.values(paymentOptions).forEach(function(e){
+            e.style.display = 'none';
+            e.querySelector('input').removeAttribute('required');
+          });
+        } else if (selectObject.value == "Payment") {
+          orderid.removeAttribute('required');
+          element.style.display = "none";
+          optional.style.display = "none";
+          Object.values(paymentOptions).forEach(function(e){
+            e.style.display = 'block';
+            e.querySelector('input').setAttribute('required', true);
+          });
+          messageBox.setAttribute('required', true);
+        } else if (selectObject.value == "Other") {
+          orderid.removeAttribute('required');
+          element.style.display = "none";
+          optional.style.display = "none";
+          Object.values(paymentOptions).forEach(function(e){
+            e.style.display = 'none';
+            e.querySelector('input').removeAttribute('required');
+          });
+          messageBox.setAttribute('required', true);
+        } else if (selectObject.value == "Point") {
+          orderid.removeAttribute('required');
+          element.style.display = "none";
+          optional.style.display = "none";
+          Object.values(paymentOptions).forEach(function(e){
+            e.style.display = 'none';
+            e.querySelector('input').removeAttribute('required');
+          });
+          messageBox.setAttribute('required', true);
+        } else if (selectObject.value == "Request") {
+          Object.values(paymentOptions).forEach(function(e){
+            e.style.display = 'none';
+          });
+          orderid.removeAttribute('required');
+          element.style.display = "none";
+          optional.style.display = "none";
+          messageBox.setAttribute('required', true);
+        }
+      }
+      function createNewTicket(e) {
+        if (e.preventDefault) e.preventDefault();
+        var subject = document.getElementById("subject").value;
+        var message = "";
+        if (subject == "Order") {
+          message += "Order ID: " + document.getElementById("orderid").value + "\n";
+          message += "Request: " + document.getElementById("requestType").value + "\n\n";
+          message += document.getElementById("message").value;
+        }else if (subject == "Payment") {
+          $('.payment-option input').each(function(i){
+            message += $(this).data('label') + ': ' + $(this).val() + "\n";
+          });
+          message += document.getElementById("message").value;
+        }else {
+          message = document.getElementById("message").value;
+        }
+        document.getElementById("hmessage").value = message;
+        return true;
+      }
+      var form = document.getElementById("ticketsend");
+      if (form.attachEvent) {
+        form.attachEvent("submit", createNewTicket);
+      } else {
+        form.addEventListener("submit", createNewTicket);
+      }
+    </script>
+        #}
+    {% else %}
+    {% endif %}
+{% endif %}
+{% if user['auth'] %}
+{% else %}
+    <script>
+        var b = document.getElementsByTagName("body")[0];
+        b.addEventListener("mousemove", function(event) {
+            parallaxed(event);
+        });
+        function parallaxed(e) {
+            var amountMovedX = (e.clientX * -0.3 / 8);
+            var amountMovedY = (e.clientY * -0.3 / 8);
+            var x = document.getElementsByClassName("btn-primary1");
+            var i;
+            for (i = 0; i < x.length; i++) {
+                x[i].style.transform='translate(' + amountMovedX + 'px,' + amountMovedY + 'px)'
+            }
+        }
+    </script>
+{% endif %}
+{% if page['url'] == '/signup' %}
+    <script>
+        $(document).ready(function() {
+            $('.modal').modal('show')
+
+        });
+    </script>
+{% endif %}
+
+{% if page['title'] == 'Reset password' %}
+    <script>
+        $(document).ready(function() {
+            $('.modal').modal('show')
+
+        });
+    </script>
+{% endif %}
+
+<script>
+    $(document).ready(function() {
+        $('.order-info-wrap').click(function() {
+            $(this).toggleClass('active')
+
+        });
+    });
+
+    {#  function closebtn() {
+        $('.order-info-wrap.active .order-info-close').click(function() {
+          $('.order-info-wrap.active').removeClass('active');
+        });
+      }
+    #}
+</script>
+
+{# <script>
+    $(document).ready(function() {
+      $(".coinfinal").delay(5000).fadeIn(500);
+    });
+    $(document).ready(function(){
+      setTimeout(function(){
+        $(".animate-1").hide();
+      }, 5000);
+    });
+    </script>
+#}
+
+<script>
+    //  $('.mobi-view .btn').tooltip('show')
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script>
+    // $(".crypto-btn-wrap button").click(function() {
+    $('.crypto-slider').slick({
+        dots: false,
+        arrows:true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        appendArrows: $(".crypto-slider-nav1"),
+        nextArrow: '<button class="right-arrow"><span class="material-icons-outlined">arrow_forward_ios</span></button>',
+        prevArrow: '<button class="left-arrow"><span class="material-icons-outlined">arrow_back_ios</span></button>'
+    });
+    // });
+    $('.modal').on('shown.bs.modal', function (e) {
+        $('.crypto-slider').slick('setPosition');
+        $('.cryptomodal .modal-body').addClass('open');
+    })
+
+</script>
+
+<script>
+    function copy() {
+        var copyText = document.getElementById("copyClipboard");
+        copyText.select();
+        copyText.setSelectionRange(0, 99999);
+        document.execCommand("copy");
+
+        $('#copied-success').fadeIn(800);
+        $('#copied-success').fadeOut(5000);
+    }
+</script>
+<script>
+    // $('.status-list li').tooltip('show')
+    //  $('.status-list li').click(function(){
+    //    $(this).tooltip('show')
+    // });
+    $(".status-list li").hover(
+        function () {
+            $(this).tooltip('show')
+        }
+    );
+</script>
+{#
+<script>
+  // var geender = 'male';
+  // localStorage['myKey'] = 'gender';
+  console.log('localstorage' + ' ' + localStorage['myKey']);
+  const sex = $('input[name=gender]:checked', '.radio-div').val();
+  console.log('value' + ' ' + sex);
+  const stored = localStorage['myKey'];
+
+
+  $('.radio-div label').click(function() {
+    if (sex == 'male' ) {
+      $('.gender-img img').attr('src', 'https://cdn4.mypanel.link/0a268b/q7ep16zz2j1go4n2.png');
+      const sex = $('input[name=gender]:checked', '.radio-div').val();
+      localStorage['myKey'] = 'male';
+      console.log('localstorage' + ' ' + stored);
+      console.log('value' + ' ' + sex);
+      alert('dfsdf');
+
+    } else {
+      $('.gender-img img').attr('src', 'https://cdn4.mypanel.link/0a268b/n14842tljzhoam01.png');
+      const sex = $('input[name=gender]:checked', '.radio-div').val();
+      localStorage['myKey'] = 'female';
+      console.log('localstorage' + ' ' + stored);
+      console.log('value' + ' ' + sex);
+
+    }
+
+  });
+
+
+</script>
+#}
+
+<script>
+    var geender = 'male';
+    console.log(localStorage['myKey']);
+
+    $(window).on('load', function() {
+        if (localStorage['myKey'] == 'female' ) {
+            $('.prof-pic img').attr('src', 'https://cdn4.mypanel.link/0a268b/n14842tljzhoam01.png')
+            $('.gender-img .avatar').attr('src', 'https://cdn4.mypanel.link/0a268b/n14842tljzhoam01.png');
+            $('.profile-pic').attr('src', 'https://cdn4.mypanel.link/0a268b/n14842tljzhoam01.png');
+            $('img.ticket-gender').attr('src', 'https://cdn4.mypanel.link/0a268b/n14842tljzhoam01.png');
+            $('img.gender-left').attr('src', 'https://cdn4.mypanel.link/0a268b/n14842tljzhoam01.png');
+            $('img.gender-right').attr('src', 'https://cdn4.mypanel.link/0a268b/q7ep16zz2j1go4n2.png');
+            $('.row.gender-row .btn-toggle').addClass('active');
+            $('#male').attr('checked', 'checked');
+
+        }
+        else {
+            $('.prof-pic img').attr('src', 'https://cdn4.mypanel.link/0a268b/q7ep16zz2j1go4n2.png')
+            $('.gender-img .avatar').attr('src', 'https://cdn4.mypanel.link/0a268b/q7ep16zz2j1go4n2.png');
+            $('.profile-pic').attr('src', 'https://cdn4.mypanel.link/0a268b/q7ep16zz2j1go4n2.png');
+            $('img.ticket-gender').attr('src', 'https://cdn4.mypanel.link/0a268b/q7ep16zz2j1go4n2.png');
+            $('img.gender-left').attr('src', 'https://cdn4.mypanel.link/0a268b/q7ep16zz2j1go4n2.png');
+            $('img.gender-right').attr('src', 'https://cdn4.mypanel.link/0a268b/n14842tljzhoam01.png');
+            // $('img.ticket-gender').attr('src', 'https://cdn4.mypanel.link/38d89a/tybxkioyhiaswf0t.png');
+            $('#female').attr('checked', 'checked');
+
+        }
+    });
+
+    $('.radio-div label').click(function() {
+        if (localStorage['myKey'] == 'female' ) {
+            $('.gender-img .avatar').attr('src', 'https://cdn4.mypanel.link/0a268b/q7ep16zz2j1go4n2.png');
+            localStorage['myKey'] = 'male';
+            var geender = 'male';
+            console.log(localStorage['myKey']);
+            $('#female').attr('checked', 'checked');
+            location.reload();
+
+        }
+        else {
+            $('.gender-img .avatar').attr('src', 'https://cdn4.mypanel.link/0a268b/n14842tljzhoam01.png');
+            localStorage['myKey'] = 'female';
+            var geender = 'female';
+            console.log(localStorage['myKey']);
+            $('#male').attr('checked', 'checked');
+            location.reload();
+        }
+    });
+
+    $('.image-change-wrap a').click(function() {
+        $('.image-change-wrap').toggleClass('reverse');
+        $('.dashboard').toggleClass('cstm-pic vector-pic');
+        $('.dashboard.cstm-pic .prof-pic img, .dashboard.cstm-pic .gender-img .avatar1, .dashboard.cstm-pic .profile-pic, .dashboard.cstm-pic img.ticket-gender').attr('src', 'https://i.imgur.com/32C4dM7.png')
+
+        if(localStorage['myKey'] == 'male') {
+            $('.dashboard.vector-pic .prof-pic img, .dashboard.vector-pic .gender-img .avatar1, .dashboard.vector-pic .profile-pic, .dashboard.vector-pic img.ticket-gender').attr('src', 'https://cdn4.mypanel.link/0a268b/q7ep16zz2j1go4n2.png')
+        } else {
+            $('.dashboard.vector-pic .prof-pic img, .dashboard.vector-pic .gender-img .avatar1, .dashboard.vector-pic .profile-pic, .dashboard.vector-pic img.ticket-gender').attr('src', 'https://cdn4.mypanel.link/0a268b/n14842tljzhoam01.png')
+        }
+        // alert(localStorage['myKey']);
+
+    });
+
+    $(window).on('load', function() {
+        $('.dashboard.cstm-pic .prof-pic img, .dashboard.cstm-pic .gender-img .avatar1, .dashboard.cstm-pic .profile-pic, .dashboard.cstm-pic img.ticket-gender').attr('src', 'https://i.imgur.com/32C4dM7.png')
+
+        if(localStorage['myKey'] == 'male') {
+            $('.dashboard.vector-pic .prof-pic img, .dashboard.vector-pic .gender-img .avatar1, .dashboard.vector-pic .profile-pic, .dashboard.vector-pic img.ticket-gender').attr('src', 'https://cdn4.mypanel.link/0a268b/q7ep16zz2j1go4n2.png')
+        } else {
+            $('.dashboard.vector-pic .prof-pic img, .dashboard.vector-pic .gender-img .avatar1, .dashboard.vector-pic .profile-pic, .dashboard.vector-pic img.ticket-gender').attr('src', 'https://cdn4.mypanel.link/0a268b/n14842tljzhoam01.png')
+        }
+    });
+
+</script>
+
+
+<script>
+    $('.left-slider-wrap1').slick({
+        dots: false,
+        infinite: true,
+        arrows:false,
+        autoplay: true,
+        autoplaySpeed: 0,
+        speed: 7000,
+        cssEase: "linear",
+        slidesToShow: 8
+    });
+</script>
+
+<script>
+    $('.right-slider-wrap1').slick({
+        dots: false,
+        infinite: true,
+        arrows:false,
+        autoplay: true,
+        autoplaySpeed: 0,
+        speed: 7000,
+        cssEase: 'linear',
+        slidesToShow: 8,
+        //rtl:true
+        slidesToScroll: -1,
+        variableWidth: true
+    });
+
+</script>
+
+<script>
+    $(function() {
+        $("#morebtn").click(function() {
+            $('#more').toggleClass("active");
+        });
+    });
+    $(function(){
+        $("#morebtn").click(function () {
+            $(this).text(function(i, text){
+                return text === "Read More" ? "Read less" : "Read More";
+            })
+        });
+    })
+</script>
+<script>
+    $(function() {
+        if ( $('.owl-2').length > 0 ) {
+            $('.owl-2').owlCarousel({
+                center: true,
+                items: 1,
+                loop: true,
+                margin: 20,
+                smartSpeed: 1000,
+                autoplay: true,
+                nav: true,
+                dots: false,
+                pauseOnHover: false,
+                responsive:{
+                    320:{
+                        margin: 5,
+                        nav: true,
+                        items: 1
+                    },
+                    550:{
+                        margin: 5,
+                        nav: true,
+                        items: 1.5
+                    },
+                    767:{
+                        items: 2.5,
+                        margin: 5,
+                        nav: true,
+                    },
+                    991:{
+                        margin: 5,
+                    },
+                    1000:{
+                        margin: 20,
+                        nav: true,
+                        items: 2.2
+                    },
+                    1250:{
+                        margin: 20,
+                        stagePadding: 0,
+                        nav: true,
+                        items: 2.5
+                    },
+                    1400:{
+                        margin: 20,
+                        stagePadding: 0,
+                        nav: true,
+                        items: 2.7
+                    }
+                },
+                navText: [
+                    '<img src="https://cdn.mypanel.link/0a268b/rxyq8pgouyddwknj.png" class="owl-prev-bt" alt="Previous"><div class="left-bg-carousel"></div>', // Previous button image
+                    '<img src="https://cdn.mypanel.link/0a268b/5ih5w48lsxypnif5.png" class="owl-next-bt" alt="Next"><div class="right-bg-carousel"></div>' // Next button image
+                ],
+                // onInitialized: function() {
+                //   fixCarouselPosition();
+                // },
+                // onResized: function() {
+                //   fixCarouselPosition();
+                // }
+            });
+        }
+        // function fixCarouselPosition() {
+        //   var windowWidth = $(window).width();
+        //   var itemWidth = 500;
+        //   var centerPadding = (windowWidth - itemWidth) / 2;
+        //   $('.owl-stage').css('padding-left', centerPadding);
+        //   $('.owl-stage').css('padding-right', centerPadding);
+        // }
+    })
+    $(function() {
+        if ( $('.owl-3').length > 0 ) {
+            $('.owl-3').owlCarousel({
+                center: false,
+                items: 1,
+                loop: true,
+                margin: 20,
+                smartSpeed: 1000,
+                //autoplay: true,
+                autoplayTimeout:8000,
+                nav: true,
+                dots: true,
+                dotsEach: 1,
+                pauseOnHover: false,
+                responsive:{
+                    320:{
+                        margin: 5,
+                        nav: true,
+                        items: 1
+                    },
+                    600: {
+                        margin: 5,
+                        nav: true,
+                        items: 1,
+                    },
+                    1250:{
+                        margin: 20,
+                        stagePadding: 0,
+                        nav: true,
+                        items: 1.2
+                    },
+                },
+                navText: [
+                    '<img src="https://cdn.mypanel.link/0a268b/rxyq8pgouyddwknj.png" class="owl-prev-bt" alt="Previous"><div class="left-bg-carousel"></div>', // Previous button image
+                    '<img src="https://cdn.mypanel.link/0a268b/5ih5w48lsxypnif5.png" class="owl-next-bt" alt="Next"><div class="right-bg-carousel"></div>' // Next button image
+                ]
+            });
+        }
+
+    })
+</script>
+</script>
+<script>
+    $(document).ready(function() {
+        // Add click event listener to each button
+        $('#how-it-work .exp-bt').on('click', function() {
+            // Remove 'active' class from all buttons
+            var clickedElement = $(this);
+            $('#how-it-work .exp-bt').removeClass('active');
+            // Add 'active' class to the clicked button
+            $(this).addClass('active');
+
+            // Get the index of the clicked button
+            var index = $(this).prevAll('.exp-bt').length;
+            console.log("test1", index);
+            // Update the photo based on the index
+            $('#exp-photo').addClass('exp-hidden');
+            $('#exp-content').addClass('exp-hidden');
+            $('.explanation-desktop .get-started-bt').addClass('exp-hidden');
+            $('#exp-bt-border').addClass('exp-hidden');
+            $('#exp-bt-mask').addClass('exp-hidden');
+            setTimeout(function() {
+                var photoSrc = '';
+                if (index === 0) {
+                    photoSrc = 'https://cdn4.mypanel.link/idhwx8/xf7exuncmehph3ui.webp';
+                } else if (index === 1) {
+                    photoSrc = 'https://cdn.mypanel.link/0a268b/oc3w0nq7254uwle0.webp';
+                } else if (index === 2) {
+                    photoSrc = 'https://cdn.mypanel.link/0a268b/g0agukfsw15bjcxf.webp';
+                } else if (index === 3) {
+                    photoSrc = 'https://cdn4.mypanel.link/idhwx8/ybuduo7awfrxijhh.webp';
+                }
+                $('#exp-photo').attr('src', photoSrc);
+
+                // Update the content based on the index
+                var contentHtml = '';
+                if (index === 0) {
+                    contentHtml =
+                        '<div class="header-title">Sign Up</div>\
+          <p>Click the “Get Started For Free” button and create your free account. Choose your username, enter your email, create a strong password, and hit the “Sign Up” button. It’s that easy!</p>';
+                } else if (index === 1) {
+                    contentHtml =
+                        '<div class="header-title">Add Funds</div>\
+          <p>Choose your preferred method of payment to add funds to your account. Your funds will instantly appear in your Naizop balance. If they somehow don’t, contact our team member and the issue will be resolved.</p>';
+                } else if (index === 2) {
+                    contentHtml =
+                        '<div class="header-title">Place An Order</div>\
+          <p>Choose your desired service, enter quantity and link, and click “Submit”. Congratulations! Your order has been placed. Sit back, relax, and watch those desirable notifications popping up.</p>';
+                } else if (index === 3) {
+                    contentHtml =
+                        '<div class="header-title">Lorem ipsum dolor sit amet</div>\
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>\
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Lorem ipsum dolor sit amet, consectetuer adipiscing</p>';
+                }
+                $('#exp-content').html(contentHtml);
+                console.log("11111111111111");
+                console.log(clickedElement);
+
+                $('#exp-photo').removeClass('exp-hidden');
+                $('#exp-content').removeClass('exp-hidden');
+                $('.explanation-desktop .get-started-bt').removeClass('exp-hidden');
+                $('.exp-bt-border').removeClass('exp-hidden');
+                $('.exp-bt-mask').removeClass('exp-hidden');
+                $('#exp-bt-border').remove();
+                $('#exp-bt-mask').remove();
+
+                clickedElement.append('<svg width="360" height="1" viewbox="0 0 360 1" id="exp-bt-border" style="position: absolute; width: 100%; top: 57px; left: -2px;" fill="none" xmlns="http://www.w3.org/2000/svg">\
+<line y1="0.5" x2="360" y2="0.5" stroke="url(#paint0_linear_6636_112662)"/>\
+<defs>\
+<linearGradient id="paint0_linear_6636_112662" x1="6.90026e-08" y1="1.99978" x2="330" y2="1.99976" gradientunits="userSpaceOnUse">\
+<stop stop-color="white"/>\
+<stop offset="1" stop-color="white" stop-opacity="0"/>\
+    </linearGradient>\
+    </defs>\
+    </svg>\
+<img src="https://cdn4.mypanel.link/idhwx8/wuwl28bhs38kwh6o.png" id="exp-bt-mask"class="how-it-work-mask" width="200px" height="200px"/>');
+
+            }, 500);
+        });
+        $('.service-desktop .social-list .item').on('click', function() {
+            var clickedElement = $(this);
+            $('.service-desktop .social-list .item').removeClass('active');
+            $(this).addClass('active');
+            $('.service-desktop .service-part2').addClass('exp-hidden');
+            var index = $(this).prevAll('.service-desktop .social-list .item').length;
+            setTimeout(function(){
+                var servicePart2Content = '';
+                if (index === 0) {
+                    servicePart2Content = '<p>Over 30 categories to serve all your Facebook needs.</p>\
+<p>Most Popular Country Targeted Services.</p>\
+<p>Hand-Picked Gender Targeted Services.</p>\
+<p>Start time as low as 0 minutes.</p>';
+                } else if (index === 1) {
+                    servicePart2Content = '<p>The best quality real and permanent subscribers.</p>\
+<p>High-quality real views with high watch time(up to 1 hour).</p>\
+<p>Hand-picked targeted services for every region.</p>\
+<p>Enable monetization packages to start generating revenue.</p>';
+                } else if (index === 2) {
+                    servicePart2Content = '<p>Instagram video views that get videos viral.</p>\
+<p>Likes from high-follower profiles that pull your audience attention.</p>\
+<p>Country and gender-targeted services to build a highly selective following.</p>\
+<p>Reach service to turn the algorithm in your favor.</p>';
+                } else if (index === 3) {
+                    servicePart2Content = '<p>With 18 categories, access a treasure of Twitter growth.</p>\
+<p>Followers and video views services of the highest quality.</p>\
+<p>Poll votes services to get your trend popular.</p>\
+<p>Crypto and NFT Services.</p>';
+                }
+                $('.service-desktop .service-part2').removeClass('exp-hidden');
+                $('.service-desktop .service-part2').html(servicePart2Content);
+            }, 500);
+        });
+        $('#panel-service .service-mobile .social-list .item').on('click', function() {
+            $('#panel-service .service-mobile .social-list .item').removeClass('active');
+            $(this).addClass('active');
+        })
+    });
+
+
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" integrity="sha512-q583ppKrCRc7N5O0n2nzUiJ+suUv7Et1JGels4bXOaMFQcamPk9HjdUknZuuFjBNs7tsMuadge5k9RzdmO+1GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.0/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.js"></script>
+<script>
+
+    $(document).ready(function() {
+        $('#orderform-category').html($('#all_cat').html());
+        $("#orderform-category").trigger("change");
+
+
+        $("#fav").click(function(){
+            $('#orderform-category').html($('#fav_cat').html());
+            $("#orderform-category").trigger("change");
+            $('#fav').addClass("active");
+            $('#new').removeClass("active");
+            $('.social-pckgs-btns').hide();
+            $('.order-srch-form-wpr').hide();
+
+        });
+        $("#new").click(function(){
+            $('#orderform-category').html($('#all_cat').html());
+            $("#orderform-category").trigger("change");
+            $('#new').addClass("active");
+            $('#fav').removeClass("active");
+            $('.social-pckgs-btns').show();
+            $('.order-srch-form-wpr').show();
+        });
+
+
+    });
+
+
+
+    $(document).on('keyup', '#field-orderform-fields-quantity', function() {
+
+        setTimeout(
+            function()
+            {
+                var charge = $("#charge").val();
+                var quantity = $("#field-orderform-fields-quantity").val();
+                $("#new_charge").html(charge);
+                $("#new_quantity").html(quantity);
+
+            }, 200);
+    });
+
+    $('#orderform-service').change(function() {
+        $("#new_charge").html('0');
+
+        $("#new_quantity").html('0');
+    });
+    $(document).on('DOMSubtreeModified','#field-orderform-fields-average_time',function(){
+        $('#field-orderform-fields-average_time').hide();
+        $('#avg_time').html($('#field-orderform-fields-average_time').html());
+    })
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        $("#fav a").click(function(){
+            var checkfav = $('#allservices #fav_cat').val();
+            console.log(checkfav);
+            if (checkfav == -1 ) {
+
+            } else {
+                $('.fav-notify').removeClass('hide');
+                $('.fav-notify').show();
+            }
+
+        });
+
+    });
+
+</script>
+
+
+<script>
+
+
+
+    let select_option = document.querySelectorAll("#orderform-category option");
+
+    Array.from(select_option)
+
+    var categories = [];
+
+    select_option.forEach((el) => {
+
+        let restIconValue = (el.dataset.icon ? el.dataset.icon  : '') ;
+
+        categories.push({id:el.value ,name:el.innerHTML,icon: restIconValue })
+
+    })
+
+    console.log(categories)
+
+    var favServices =  "".split(",");
+
+    jQuery(function() {
+
+        $('.brand-category').on('click', function() {
+
+            category = $(this).data('id');
+
+            $('#orderform-category').html("");
+
+            categories.forEach(element => {
+
+                if (category == "everything") {
+
+                    //$('#orderform-category').append("<option value='" + element.id + "'>" + element.name + "</option>");
+
+                    $('#orderform-category').append(`<option value="${element.id}" data-icon="${element.icon}" >${element.name}</option>`);
+
+                }
+
+                else if (category == "كل شىء") {
+
+                    //$('#orderform-category').append("<option value='" + element.id + "'>" + element.name + "</option>");
+
+                    $('#orderform-category').append(`<option value="${element.id}" data-icon="${element.icon}" >${element.name}</option>`);
+
+                }
+
+                else if (category == "other") {
+
+                    if (!element.name.toLowerCase().includes("instagram") &&
+
+                        !element.name.toLowerCase().includes("facebook") &&
+
+                        !element.name.toLowerCase().includes("youtube") &&
+
+                        !element.name.toLowerCase().includes("twitter") &&
+
+                        !element.name.toLowerCase().includes("spotify") &&
+
+                        !element.name.toLowerCase().includes("tiktok") &&
+
+                        !element.name.toLowerCase().includes("traffic") &&
+
+                        !element.name.toLowerCase().includes("google") &&
+
+                        !element.name.toLowerCase().includes("snapchat") &&
+
+                        !element.name.toLowerCase().includes("linkedin") &&
+
+                        !element.name.toLowerCase().includes("twitch") &&
+
+                        !element.name.toLowerCase().includes("discord") &&
+
+                        !element.name.toLowerCase().includes("reviews") &&
+
+                        !element.name.toLowerCase().includes("telegram")) {
+
+                        // $('#orderform-category').append("<option value='" + element.id + "' >" + element.name + "</option>");
+
+                        $('#orderform-category').append(`<option value="${element.id}" data-icon="${element.icon}" >${element.name}</option>`);
+
+                    }
+
+                }
+
+                else if (category == "أخري") {
+
+                    if (!element.name.toLowerCase().includes("انستقرام") &&
+
+                        !element.name.toLowerCase().includes("فيسبوك") &&
+
+                        !element.name.toLowerCase().includes("يوتيوب") &&
+
+                        !element.name.toLowerCase().includes("تويتر") &&
+
+                        !element.name.toLowerCase().includes("سبوتيفاي") &&
+
+                        !element.name.toLowerCase().includes("تيك توك") &&
+
+                        !element.name.toLowerCase().includes("traffic") &&
+
+                        !element.name.toLowerCase().includes("جوجل") &&
+
+                        !element.name.toLowerCase().includes("سناب شات") &&
+
+                        !element.name.toLowerCase().includes("لنكد ان") &&
+
+                        !element.name.toLowerCase().includes("تويتش") &&
+
+                        !element.name.toLowerCase().includes("يسكورد") &&
+
+                        !element.name.toLowerCase().includes("telegram"))
+
+                    {
+
+                        //$('#orderform-category').append("<option value='" + element.id + "' >" + element.name + "</option>");
+
+                        $('#orderform-category').append(`<option value="${element.id}" data-icon="${element.icon}" >${element.name}</option>`);
+
+                    }
+
+                }
+
+
+
+                else if (element.name.toLowerCase().includes(category)) {
+
+                    console.log(element.name)
+
+                    // $('#orderform-category').append("<option value='" + element.id + "' >" + element.name + "</option>");
+
+                    $('#orderform-category').append(`<option value="${element.id}" data-icon="${element.icon}" >${element.name}</option>`);
+
+                }
+
+            });
+
+            $('#orderform-category').trigger('change');
+
+        });
+
+
+
+    });
+
+
+
+
+
+</script>
+{% if user['auth'] %}
+    <script>
+        var _services_data = window.modules.siteOrder.services;
+        // console.log(window.modules.siteOrder.fields);
+    </script>
+    <script>
+        var category = "";
+        var search = "";
+
+        function populatePaginaiton(response) {
+            var $pager = $('.table-pagination ul');
+            $pager.html('');
+            if (response.prev_page_url != null) {
+                $pager.append("<li><a href='javascript:void(0)' onclick=\"loadUpdates('" + response.prev_page_url + "')\" ><i class='fas fa-arrow-left mr-2'></i></a></li>");
+            } else {
+                $pager.append("<li></li>");
+            }
+
+            var left = 3, right = 3;
+            if (response.current_page == 1) right = 6;
+            if (response.current_page == 2) right = 5;
+            if (response.current_page >= response.last_page) left = 5;
+
+            for (var i = 1; i <= response.last_page; i++) {
+                var active = "", link = "";
+                if (i == response.current_page) {
+                    active = "active";
+                    link = "javascript:void(0)";
+                } else {
+                    link = "https://updates.naizop.com/api/updates?search=" + search + "&category=" + category + "&page=" + i;
+                }
+
+                if (i >= response.current_page - left && i <= response.current_page + right)
+                    $pager.append("<li class='" + active + "'><a href='javascript:void(0)' onclick=\"loadUpdates('" + link + "')\" >" + i + "</a></li>");
+            }
+
+            if (response.next_page_url != null) {
+                $pager.append("<li><a href='javascript:void(0)' onclick=\"loadUpdates('" + response.next_page_url + "')\" ><i class='fas fa-arrow-right mr-2'></i></a></li>");
+            } else {
+                $pager.append("<li></li>");
+            }
+        }
+
+        function filterByCategory(cat) {
+            if (cat == '')
+                $('#filter').text("All");
+            else if (cat == "Notification:gametakin10@gmail.com")
+                $('#filter').text("Notification Enabled");
+            else
+                $('#filter').text(cat);
+            category = cat;
+
+            var link = "https://updates.naizop.com/api/updates?search=" + search + "&category=" + category;
+            loadUpdates(link);
+        }
+
+        function loadUpdates(link) {
+            $.get(link, function(response) {
+                $('.table.update-table tbody').html('');
+                $('.update-content').html('');
+
+                response.data.forEach(function (data) {
+                    var type = "btn-secondary";
+
+                    if (data.update.indexOf("Service Enabled") >= 0) type = "enabled";
+                    if (data.update.indexOf("Service Disabled") >= 0) type = "disabled";
+                    if (data.update.indexOf("Price INCREASED") >= 0) type = "increased";
+                    if (data.update.indexOf("Price DECREASED") >= 0) type = "decreased";
+
+                    $('.table.update-table tbody').append("" +
+                        "<tr>" +
+                        "  <td class='text-center'><div class='id-boxi'>" + data.linked_service.service + "</div></td>" +
+                        "    <td>" + data.linked_service.name + "</td>" +
+                        "    <td>" + data.created_at + "</td>" +
+                        "    <td class='text-center'><a href='javascript:void(0)' class='btn btn-sm update badge " + type + "'>" + data.update + "</a></td>" +
+                        "</tr> "
+                    );
+                });
+
+
+
+
+                function populatePaginaiton(response) {
+                    var $pager1 = $('.update-content-pagi');
+                    $pager1.html('');
+                    if (response.prev_page_url != null) {
+                        $pager1.append("<li><a href='javascript:void(0)' onclick=\"loadUpdates('" + response.prev_page_url + "')\" ><i class='fas fa-arrow-left mr-2'></i></a></li>");
+                    } else {
+                        $pager1.append("<li></li>");
+                    }
+
+                    var left = 3, right = 3;
+                    if (response.current_page == 1) right = 6;
+                    if (response.current_page == 2) right = 5;
+                    if (response.current_page >= response.last_page) left = 5;
+
+                    for (var i = 1; i <= response.last_page; i++) {
+                        var active = "", link = "";
+                        if (i == response.current_page) {
+                            active = "active";
+                            link = "javascript:void(0)";
+                        } else {
+                            link = "https://updates.naizop.com/api/updates?search=" + search + "&category=" + category + "&page=" + i;
+                        }
+
+                        if (i >= response.current_page - left && i <= response.current_page + right)
+                            $pager1.append("<li class='" + active + "'><a href='javascript:void(0)' onclick=\"loadUpdates('" + link + "')\" >" + i + "</a></li>");
+                    }
+
+                    if (response.next_page_url != null) {
+                        $pager1.append("<li><a href='javascript:void(0)' onclick=\"loadUpdates('" + response.next_page_url + "')\" ><i class='fas fa-arrow-right mr-2'></i></a></li>");
+                    } else {
+                        $pager1.append("<li></li>");
+                    }
+                }
+
+                response.data.forEach(function (data) {
+                    var type = "btn-secondary";
+
+                    if (data.update.indexOf("Service Enabled") >= 0) type = "enabled";
+                    if (data.update.indexOf("Service Disabled") >= 0) type = "disabled";
+                    if (data.update.indexOf("Price INCREASED") >= 0) type = "increased";
+                    if (data.update.indexOf("Price DECREASED") >= 0) type = "decreased";
+
+                    $('.update-content').append("" +
+                        "<li>" +
+                        "<div class='each-update-wpr'>" +
+                        "<div class='each-update-img " + type + "'>" +
+                        "<img src='https://i.23robo.info/projects/naizop/img/"+type+".png' alt=''>" +
+                        "</div>" +
+                        "<div class='each-update-cntnt'>" +
+                        "<div class='update-tp'>" +
+                        "<span class='order-id'>Service ID: " + data.linked_service.service + "</span>" +
+                        "<a href='/updates' class='update " + type + "'>Go to updates <img src='https://cdn4.mypanel.link/idhwx8/jkpf6td8ms3cz7mg.png' alt=''></a>" +
+                        "</div>" +
+                        "<p>" +  data.linked_service.name + "<br>" + data.elapsed_time + "</p>" +
+                        "<div class='notf-time'>" + data.created_at + "</div>" +
+                        "</div>" +
+                        "</div>" +
+                        "</li>"
+                    );
+                });
+
+
+
+                populatePaginaiton(response);
+            });
+        }
+
+        $(function() {
+            $('#search').click(function(e) {
+                var parentOffset = $(this).parent().offset();
+                var relX = e.pageX - parentOffset.left;
+
+                if (relX < 30) {
+                    search = $(this).val();
+
+                    var link = "https://updates.naizop.com/api/updates?search=" + search + "&category=" + category;
+                    loadUpdates(link);
+                }
+            });
+
+            $('#search').on('change', function() {
+                search = $(this).val();
+
+                var link = "https://updates.naizop.com/api/updates?search=" + search + "&category=" + category;
+                loadUpdates(link);
+            });
+
+            loadUpdates("https://updates.naizop.com/api/updates");
+        });
+    </script>
+{% endif %}
+{#
+<script>
+  $('.card-mobile').on('click', function() {
+    $('.card-mobile').removeClass('active');
+    $(this).addClass('active');
+  });
+</script>
+#}
+<script type="text/javascript">
+    $('#method').on('change', function() {
+        var amount = parseInt($('#amount').val(null));
+        $("#fundbonus").val(null);
+
+        $("#amount").keyup(function () {
+            var amount =  parseInt($('#amount').val());
+            if( amount >= 50000) {
+                // 30%
+                var percent = 0.3;
+            } else if( amount >= 10000) {
+                // 25%
+                var percent = 0.25;
+            } else if( amount >= 5000) {
+                // 20%
+                var percent = 0.2;
+            } else if( amount >= 1000) {
+                // 15%
+                var percent = 0.15;
+            } else if( amount >= 750) {
+                // 12.5%
+                var percent = 0.125;
+            } else if( amount >= 500) {
+                // 10%
+                var percent = 0.1;
+            } else if( amount >= 251) {
+                // 7.5%
+                var percent = 0.075;
+            } else {
+                // 5%
+                var percent = 0.05;
+            }
+
+            var middleamount = percent * amount ;
+            var finalamount = middleamount + amount;
+            $("#fundbonus").val(finalamount);
+
+        });
+
+    });
+</script>
+<script>
+    $(document).ready(function(){
+        $("#ser_search").on("keyup", function() {
+            console.log('search working');
+            // var value = $(this).val().toLowerCase();
+            var value = $(this).val();
+            {#
+            $(".service-name").filter(function() {
+              //$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+              $(this).parent().parent().parent().parent().parent().toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+            $(".service-name").filter(function() {
+            //$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            $(this).parent().toggle($(this).text().toLowerCase().indexOf(value) > -1)
+          });
+            #}
+
+            {#
+            $("#service-table tbody tr").filter(function() {
+           $(this).parent().parent().parent().parent().toggle($(this).text().toLowerCase().indexOf(value) > -1)
+         });
+            #}
+
+
+            {#
+            $("#service-table tbody tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+            #}
+
+            $("#service-table .collapse-table").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+            console.log("value: " + value);
+        });
+    });
+</script>
+<script>
+    $(document).ready(function(){
+        $('#order_average_time').hide();
+        $('#orderform-service').on('change', function() {
+            setTimeout( function() {
+                var avgtimee = $('#field-orderform-fields-average_time').val();
+                $('#avg_time').html(avgtimee);
+            }, 200);
+        });
+    });
+
+
+</script>
+<script>
+    $(document).ready(function(){
+        var paymentselect = $("#method").val();
+        $('.fund-item .form-check[data-id="' + paymentselect + '"] .form-check-input').attr('checked', 'checked');
+    });
+    $('.fund-item .form-check').on('click', function() {
+        var paymentid = $(this).attr('data-id');
+        console.log(paymentid);
+        $("#method").val(paymentid).change();
+    });
+    $('.fund-list-txt').on('click', function() {
+        $('.fund-list-txt').removeClass('active');
+        $(this).addClass('active');
+    });
+
+    $('.fund-list-txt.banks').on('click', function() {
+        $('.fund-item .form-check').hide();
+        $('.fund-item .form-check[data-id="136329"]').show();
+        $('.fund-item .form-check[data-id="47389"]').show();
+    });
+    $('.fund-list-txt.crypto').on('click', function() {
+        $('.fund-item .form-check').hide();
+        $('.fund-item .form-check[data-id="15799"]').show();
+        $('.fund-item .form-check[data-id="132868"]').show();
+    });
+    $('.fund-list-txt.card').on('click', function() {
+        $('.fund-item .form-check').hide();
+        $('.fund-item .form-check[data-id="48175"]').show();
+        $('.fund-item .form-check[data-id="135139"]').show();
+        $('.fund-item .form-check[data-id="83034"]').show();
+        $('.fund-item .form-check[data-id="15802"]').show();
+        $('.fund-item .form-check[data-id="19522"]').show();
+    });
+    $('.fund-list-txt.others').on('click', function() {
+        $('.fund-item .form-check').hide();
+        $('.fund-item .form-check[data-id="19521"]').show();
+    });
+    $('.fund-list-txt.all').on('click', function() {
+        $('.fund-item .form-check').show();
+    });
+    $('.fund-frm .custom-amnt li a').on('click', function() {
+        $('.fund-frm .custom-amnt li a').removeClass('active');
+        $(this).addClass('active');
+    });
+    $(document).ready(function(){
+        $("#amount").on("keyup", function() {
+            var fundamount = $(this).val();
+            $('.cmn-blue-btn-fund').text(fundamount + ' USD');
+        });
+    });
+</script>
+<script>
+    $('.payment-detail-slider').slick({
+        dots: true,
+        arrows:true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        adaptiveHeight: true,
+        appendArrows: $(".slider1-nav"),
+        nextArrow: '<button class="right-arrow"><i class="fas fa-long-arrow-alt-right"></i></button>',
+        prevArrow: '<button class="left-arrow"><i class="fas fa-long-arrow-alt-left"></i></button>',
+    });
+</script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+
+
+</body>
+</html>
+
+
+
+

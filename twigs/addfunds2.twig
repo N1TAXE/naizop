@@ -1,0 +1,846 @@
+<div class="body-content-wpr">
+    <div class="page-content-overlay"></div>
+    <h1 class="page-hdng">Add Funds</h1>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="order-form-wpr">
+                <h2 class="fund-title-wrap">
+                    <span class="fund-title">Payment method</span>
+                    <span class="fund-title-info">How it works?
+            <i class="fal fa-question-circle"></i>
+          </span>
+                </h2>
+                <ul class="fund-list">
+                    <li>
+                        <span class="fund-list-txt all" data-id="all">ALL</span>
+                    </li>
+                    <li>
+                        <span class="fund-list-txt banks" data-id="banks">BANKS</span>
+                    </li>
+                    <li>
+                        <span class="fund-list-txt crypto" data-id="crypto">CRYPTO</span>
+                    </li>
+                    <li>
+                        <span class="fund-list-txt etc" data-id="etc">ETC</span>
+                    </li>
+                </ul>
+                <div class="fund-item">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="fundpayment" id="exampleRadios1" value="option1" checked>
+                        <label class="form-check-label" for="exampleRadios1">
+                            <img class="img-fluid" src="https://cdn.mypanel.link/0a268b/od6z1zl8zqsamcq9.png">
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="fundpayment" id="exampleRadios2" value="option2">
+                        <label class="form-check-label" for="exampleRadios2">
+                            <img class="img-fluid" src="https://cdn.mypanel.link/0a268b/mxjkslbsxa1rnb0j.png">
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="fundpayment" id="exampleRadios2" value="option2">
+                        <label class="form-check-label" for="exampleRadios2">
+                            <img class="img-fluid" src="https://cdn.mypanel.link/0a268b/4031hw6bhftf90g9.png">
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{#
+<style>
+  @media (max-width:1199px){
+    .boxx {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .how-box{
+      height: 190px;
+    }
+    .dwn {
+      font-size: 28px;
+    }
+    .flex-shrink-0{
+      margin:0 !important;
+    }
+  }
+</style>
+
+
+<div class="cont">
+  <h1>Add Funds</h1>
+  <div class="col-sm-6">
+    <div class="bubba">
+      <h2>Payment method</h2>
+    </div>
+  </div>
+  <div class="col-sm-6">
+
+  </div>
+</div>
+
+
+
+
+
+{% if content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="well {% if site['rtl'] %} rtl-content {% endif %}">
+        {{ content }}
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+#}
+
+
+
+
+
+
+
+<style>
+    .payments-popup_history .custom-modal-in.change-img-modal-in {
+        max-width: 60%;
+    }
+    .hdng-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        align-content: center;
+        margin-bottom: 30px;
+    }
+    .hdng-wrap .page-hdng {
+        margin-bottom: 0;
+        color: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+    }
+    .hdng-bar {
+        display: inline-flex;
+        background-color: #FFB60E;
+        width: 25px;
+        margin: 0 12px;
+        height: 2px;
+        border-radius: 5px;
+    }
+    .hdng-wrap .page-hdng.active {
+        color: #fff;
+    }
+    .fund-content-wrap .wtch-vdo-wpr {
+        display: none;
+    }
+    @media (max-width:550px) {
+        .add-fund-lft-col.col-sm-12 {
+            width: 100%;
+        }
+    }
+</style>
+<!-- body change content -->
+<div class="body-content-wpr">
+    <div class="hdng-wrap">
+        <h1 class="page-hdng active">Add Funds</h1>
+        <span class="hdng-bar"></span>
+        <h1 class="page-hdng">Fund History</h1>
+    </div>
+
+    <div class="addfund-row-wpr fund-frm">
+        <!-- <h2>New Ticket</h2> -->
+        <div class="add-fund-row row new-row">
+            <div class="add-fund-lft-col col-xs-12 col-md-6">
+                <div class="addfund-form-wpr">
+                    <div class="form-hdr">
+                        <h2>{{ lang('addfunds.method') }}</h2>
+                    </div>
+                    <div class="form-body">
+                        {% if success %}
+                            <div
+                                    class="alert alert-dismissible alert-success {% if site['rtl'] %} rtl-alert {% endif %}">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                {{ successText }}
+                            </div>
+                        {% endif %}
+                        {% if error %}
+                            <div
+                                    class="alert alert-dismissible alert-danger {% if site['rtl'] %} rtl-alert {% endif %}">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                {{ errorText }}
+                            </div>
+                        {% endif %}
+                        <form {% if site['rtl'] %} class="rtl-form" {% endif %} method="post" action="">
+                            <!-- <div class="row new-row support_rw"> -->
+                            <div class="support_col affiliate_field_grp support_frm_grp amout-wpr">
+                                <div class="form-group">
+                                    <div class="affiliate_field_grp support_frm_grp">
+                                        <div class="custom-select2 support-select">
+                                            <select class="form-control addonsupply2" id="method"
+                                                    name="AddFoundsForm[type]" id="order_type">
+                                                {#
+                                                {% for payment in paymentsList %}
+                                                <option value="{{ payment['id'] }}" {% if
+                                                        currentPayment==payment['id'] %} selected{% endif %}
+                                                        data-img_src="https://cdn.mypanel.link/idhwx8/rqymimss6asiahsa.png">
+                                                  {{ payment['name'] }}</option>{% endfor %}
+                                                #}
+                                                {% for payment in paymentsList %}
+                                                    {#
+                                                    <option data-img_src="{% if payment['id']=='123038' %}https://cdn.mypanel.link/idhwx8/rqymimss6asiahsa.png{% elseif payment['id']=='132081' %}https://cdn.mypanel.link/0a268b/none.png{% elseif payment['id']=='132082' %}https://cdn.mypanel.link/0a268b/none.png{% elseif payment['id']=='132083' %}https://cdn.mypanel.link/0a268b/none.png{% elseif payment['id']=='132084' %}https://cdn.mypanel.link/0a268b/none.png{% elseif payment['id']=='130768' %}https://cdn.mypanel.link/0a268b/none.png{% elseif payment['id']=='132086' %}https://cdn.mypanel.link/0a268b/none.png{% elseif payment['id']=='132087' %}https://cdn.mypanel.link/0a268b/none.png{% else %}https://cdn.mypanel.link/0a268b/jn9l19goil5lslzu.png{% endif %}"
+                                                            value="{{ payment['id'] }}" {% if
+                                                            currentPayment==payment['id'] %} selected{% endif
+                                                            %}>{{ payment['name'] }}</option>
+                                                    #}
+
+
+
+                                                    <option data-img_src="{% if payment['id']=='48175' %}
+                                              https://cdn.mypanel.link/0a268b/m7egih5dqqu4dc96.png
+                                              {% elseif payment['id']=='135139' %}
+                                              https://cdn.mypanel.link/0a268b/h56wim0l2q0inncb.png
+                                              {% elseif payment['id']=='83034' %}
+                                              https://cdn.mypanel.link/0a268b/9d08qd19wouude2e.png
+                                              {% elseif payment['id']=='15799' %}
+                                              https://cdn.mypanel.link/0a268b/lorlh9na4iilii4z.png
+                                              {% elseif payment['id']=='132868' %}
+                                              https://cdn.mypanel.link/0a268b/y2w95kdltjzc7bfm.png
+                                              {% elseif payment['id']=='15802' %}
+                                              https://cdn.mypanel.link/0a268b/syrkp6041jb9b04c.png
+                                              {% elseif payment['id']=='19522' %}
+                                              https://cdn.mypanel.link/0a268b/ayo8deh2oedlsi3b.png
+                                              {% elseif payment['id']=='47389' %}
+                                              https://cdn.mypanel.link/0a268b/glhzgc7xxt1rli1p.png
+                                              {% elseif payment['id']=='19521' %}
+                                              https://cdn.mypanel.link/0a268b/abhyq3i1bp9eg7ot.png
+                                              {% elseif payment['id']=='136329' %}
+                                              https://cdn.mypanel.link/0a268b/sh6khwr9gl5wpiq1.png
+                                              {% else %}
+                                              https://cdn.mypanel.link/0a268b/jn9l19goil5lslzu.png{% endif %}"
+                                                            value="{{ payment['id'] }}" {% if
+                                                        currentPayment==payment['id'] %} selected{% endif
+                                                    %}>{{ payment['name'] }}</option>
+                                                {% endfor %}
+
+                                            </select>
+                                            {#  <select class="form-control" id="method" name="AddFoundsForm[type]" id="order_type">
+                      {% for payment in paymentsList %}
+                      <option value="{{ payment['id'] }}" {% if
+                              currentPayment==payment['id'] %} selected{% endif %}
+                              data-img_src="https://cdn.mypanel.link/idhwx8/rqymimss6asiahsa.png">
+                        {{ payment['name'] }}</option>
+                      {% endfor %}
+                      </select>#}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="affiliate_field_grp support_frm_grp amout-wpr">
+                                    <label for="amount">{{ lang('addfunds.amount') }}</label>
+                                    <div class="affiliate_field_innr">
+                                        <input type="text" name="AddFoundsForm[amount]" id="amount">
+                                    </div>
+                                    <label class="control-label">
+                                        <span id="amount_label">After Bonus You Get</span>
+                                    </label>
+                                    <div class="affiliate_field_innr">
+                                        <input id="fundbonus" type="text" class="form-control" readonly="">
+                                    </div>
+                                    <div class="custom-amnt">
+                                        <ul>
+                                            <li><a class="set_amount" href="#" data-amount="15">$15</a>
+                                            </li>
+                                            <li><a class="set_amount" href="#" data-amount="25">$25</a>
+                                            </li>
+                                            <li><a class="set_amount" href="#" data-amount="50">$50</a>
+                                            </li>
+                                            <li><a class="set_amount" href="#"
+                                                   data-amount="100">$100</a></li>
+                                            <li><a class="set_amount" href="#"
+                                                   data-amount="250">$250</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                {% if site['cpf_field'] %}
+                                    <div class="form-group">
+                                        <label for="cpf" class="control-label">{{ lang('addfunds.cpf')
+                                            }}</label>
+                                        <input type="text" class="form-control" name="AddFoundsForm[cpf]"
+                                               id="cpf">
+                                    </div>
+                                {% endif %}
+
+                                <div class="supprt_submitBtn_wpr">
+                                    <p>DOUBLE CHECK BEFORE PAYING</p>
+                                    <input type="hidden" name="_csrf" value="{{ csrftoken }}">
+                                    <button type="submit" class="cmn-blue-btn">{{
+                                        lang('addfunds.button.pay') }}</button>
+                                </div>
+
+                                {% if paymentList %}
+                                    {#<div class="paymnt-histry">
+                <a class="payments-popup_modal" href="javascript:void(0)">
+                  Payment history
+                </a>
+                </div>#}
+                                {% endif %}
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="add-fund-rht-col col-xs-12 col-md-6">
+                <div class="addfund-step-wpr">
+                    <div class="fund-content-wrap paytr">
+                        <h2>Pay With Master Card</h2>
+                        <div class="addfund-step-outer">
+                            <div class="addfund-each-step">
+                                <div class="addfund-each-step-in">
+                                    <p><b>Deposit with Credit/Debit Cards! Via PrimePayments wallet in asimple click!</b></p>
+                                    <p>
+                                        <br>
+                                        After entering your desired amount, click 'Pay' and proceed with the payment link. You'll now be redirected to the payment page.
+                                    </p>
+                                    <p><b></b></p>
+                                    <p>
+
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="addfund-each-step">
+                                <div class="addfund-each-step-in">
+                                    <p>
+                                        <br>
+                                        Your balance on Naizop will be updated automaticlly once you paid through the Credit Card payment method. </p>
+
+                                    <p> If you happen to experience any issues, please be sure to contact our support team via tickets, or LiveChat.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="addfund-each-step">
+                                <div class="addfund-each-step-in">
+                                    <p>
+                                        Enjoy our services!
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wtch-vdo-wpr">
+                            <p>
+                                How it works?<br>
+                                Let's watch the video!
+                            </p>
+                            <a href="#url" class="ylw-btn">Watch the video</a>
+                            <button type="button" class="vdo-wpr-cls-btn">
+                                <img src="https://cdn.mypanel.link/idhwx8/l44m2d1t94p327qr.png" alt="">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="fund-content-wrap primepayment">
+                        <h2>Pay With Credit Card</h2>
+                        <div class="addfund-step-outer">
+                            <div class="addfund-each-step">
+                                <div class="addfund-each-step-in">
+                                    <p><b>Deposit with Credit/Debit Cards! Via PrimePayments wallet in asimple click!</b></p>
+                                    <p>
+                                        <br>
+                                        After entering your desired amount, click 'Pay' and proceed with the payment link. You'll now be redirected to the payment page.
+                                    </p>
+                                    <p><b></b></p>
+                                    <p>
+
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="addfund-each-step">
+                                <div class="addfund-each-step-in">
+                                    <p>
+                                        <br>
+                                        Your balance on Naizop will be updated automaticlly once you paid through the Credit Card payment method. </p>
+
+                                    <p> If you happen to experience any issues, please be sure to contact our support team via tickets, or LiveChat.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="addfund-each-step">
+                                <div class="addfund-each-step-in">
+                                    <p>
+                                        Enjoy our services!
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wtch-vdo-wpr">
+                            <p>
+                                How it works?<br>
+                                Let's watch the video!
+                            </p>
+                            <a href="#url" class="ylw-btn">Watch the video</a>
+                            <button type="button" class="vdo-wpr-cls-btn">
+                                <img src="https://cdn.mypanel.link/idhwx8/l44m2d1t94p327qr.png" alt="">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="fund-content-wrap anypay">
+                        <h2>2 Steps</h2>
+                        <div class="addfund-step-outer">
+                            <div class="addfund-each-step">
+                                <div class="addfund-each-step-in">
+                                    <p><b>Deposit with Credit/Debit Cards! Via PrimePayments wallet in asimple click!</b></p>
+                                    <p>
+                                        <br>
+                                        After entering your desired amount, click 'Pay' and proceed with the payment link. You'll now be redirected to the payment page.
+                                    </p>
+                                    <p><b></b></p>
+                                    <p>
+
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="addfund-each-step">
+                                <div class="addfund-each-step-in">
+                                    <p>
+                                        <br>
+                                        Your balance on Naizop will be updated automaticlly once you paid through the Credit Card payment method. </p>
+
+                                    <p> If you happen to experience any issues, please be sure to contact our support team via tickets, or LiveChat.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="addfund-each-step">
+                                <div class="addfund-each-step-in">
+                                    <p>
+                                        Enjoy our services!
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wtch-vdo-wpr">
+                            <p>
+                                How it works?<br>
+                                Let's watch the video!
+                            </p>
+                            <a href="#url" class="ylw-btn">Watch the video</a>
+                            <button type="button" class="vdo-wpr-cls-btn">
+                                <img src="https://cdn.mypanel.link/idhwx8/l44m2d1t94p327qr.png" alt="">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="fund-content-wrap payop">
+                        <h2>1 Steps</h2>
+                        <div class="addfund-step-outer">
+                            <div class="addfund-each-step">
+                                <div class="addfund-each-step-in">
+                                    <p><b>Deposit with Credit/Debit Cards! Via PrimePayments wallet in asimple click!</b></p>
+                                    <p>
+                                        <br>
+                                        After entering your desired amount, click 'Pay' and proceed with the payment link. You'll now be redirected to the payment page.
+                                    </p>
+                                    <p><b></b></p>
+                                    <p>
+
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="addfund-each-step">
+                                <div class="addfund-each-step-in">
+                                    <p>
+                                        <br>
+                                        Your balance on Naizop will be updated automaticlly once you paid through the Credit Card payment method. </p>
+
+                                    <p> If you happen to experience any issues, please be sure to contact our support team via tickets, or LiveChat.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="addfund-each-step">
+                                <div class="addfund-each-step-in">
+                                    <p>
+                                        Enjoy our services!
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wtch-vdo-wpr">
+                            <p>
+                                How it works?<br>
+                                Let's watch the video!
+                            </p>
+                            <a href="#url" class="ylw-btn">Watch the video</a>
+                            <button type="button" class="vdo-wpr-cls-btn">
+                                <img src="https://cdn.mypanel.link/idhwx8/l44m2d1t94p327qr.png" alt="">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="fund-content-wrap coinbase">
+                        <h2>3 Steps</h2>
+                        <div class="addfund-step-outer">
+                            <div class="addfund-each-step">
+                                <div class="addfund-each-step-in">
+                                    <p><b>Deposit with Credit/Debit Cards! Via PrimePayments wallet in asimple click!</b></p>
+                                    <p>
+                                        <br>
+                                        After entering your desired amount, click 'Pay' and proceed with the payment link. You'll now be redirected to the payment page.
+                                    </p>
+                                    <p><b></b></p>
+                                    <p>
+
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="addfund-each-step">
+                                <div class="addfund-each-step-in">
+                                    <p>
+                                        <br>
+                                        Your balance on Naizop will be updated automaticlly once you paid through the Credit Card payment method. </p>
+
+                                    <p> If you happen to experience any issues, please be sure to contact our support team via tickets, or LiveChat.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="addfund-each-step">
+                                <div class="addfund-each-step-in">
+                                    <p>
+                                        Enjoy our services!
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wtch-vdo-wpr">
+                            <p>
+                                How it works?<br>
+                                Let's watch the video!
+                            </p>
+                            <a href="#url" class="ylw-btn">Watch the video</a>
+                            <button type="button" class="vdo-wpr-cls-btn">
+                                <img src="https://cdn.mypanel.link/idhwx8/l44m2d1t94p327qr.png" alt="">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="fund-content-wrap cryptomus">
+                        <h2>2 Steps</h2>
+                        <div class="addfund-step-outer">
+                            <div class="addfund-each-step">
+                                <div class="addfund-each-step-in">
+                                    <p><b>Deposit with Credit/Debit Cards! Via PrimePayments wallet in asimple click!</b></p>
+                                    <p>
+                                        <br>
+                                        After entering your desired amount, click 'Pay' and proceed with the payment link. You'll now be redirected to the payment page.
+                                    </p>
+                                    <p><b></b></p>
+                                    <p>
+
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="addfund-each-step">
+                                <div class="addfund-each-step-in">
+                                    <p>
+                                        <br>
+                                        Your balance on Naizop will be updated automaticlly once you paid through the Credit Card payment method. </p>
+
+                                    <p> If you happen to experience any issues, please be sure to contact our support team via tickets, or LiveChat.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="addfund-each-step">
+                                <div class="addfund-each-step-in">
+                                    <p>
+                                        Enjoy our services!
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wtch-vdo-wpr">
+                            <p>
+                                How it works?<br>
+                                Let's watch the video!
+                            </p>
+                            <a href="#url" class="ylw-btn">Watch the video</a>
+                            <button type="button" class="vdo-wpr-cls-btn">
+                                <img src="https://cdn.mypanel.link/idhwx8/l44m2d1t94p327qr.png" alt="">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="fund-content-wrap payeer">
+                        <h2>1 Steps</h2>
+                        <div class="addfund-step-outer">
+                            <div class="addfund-each-step">
+                                <div class="addfund-each-step-in">
+                                    <p><b>Deposit with Credit/Debit Cards! Via PrimePayments wallet in asimple click!</b></p>
+                                    <p>
+                                        <br>
+                                        After entering your desired amount, click 'Pay' and proceed with the payment link. You'll now be redirected to the payment page.
+                                    </p>
+                                    <p><b></b></p>
+                                    <p>
+
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="addfund-each-step">
+                                <div class="addfund-each-step-in">
+                                    <p>
+                                        <br>
+                                        Your balance on Naizop will be updated automaticlly once you paid through the Credit Card payment method. </p>
+
+                                    <p> If you happen to experience any issues, please be sure to contact our support team via tickets, or LiveChat.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="addfund-each-step">
+                                <div class="addfund-each-step-in">
+                                    <p>
+                                        Enjoy our services!
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wtch-vdo-wpr">
+                            <p>
+                                How it works?<br>
+                                Let's watch the video!
+                            </p>
+                            <a href="#url" class="ylw-btn">Watch the video</a>
+                            <button type="button" class="vdo-wpr-cls-btn">
+                                <img src="https://cdn.mypanel.link/idhwx8/l44m2d1t94p327qr.png" alt="">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="fund-content-wrap perfectmoney">
+                        <h2>2 Steps</h2>
+                        <div class="addfund-step-outer">
+                            <div class="addfund-each-step">
+                                <div class="addfund-each-step-in">
+                                    <p><b>Deposit with Credit/Debit Cards! Via PrimePayments wallet in asimple click!</b></p>
+                                    <p>
+                                        <br>
+                                        After entering your desired amount, click 'Pay' and proceed with the payment link. You'll now be redirected to the payment page.
+                                    </p>
+                                    <p><b></b></p>
+                                    <p>
+
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="addfund-each-step">
+                                <div class="addfund-each-step-in">
+                                    <p>
+                                        <br>
+                                        Your balance on Naizop will be updated automaticlly once you paid through the Credit Card payment method. </p>
+
+                                    <p> If you happen to experience any issues, please be sure to contact our support team via tickets, or LiveChat.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="addfund-each-step">
+                                <div class="addfund-each-step-in">
+                                    <p>
+                                        Enjoy our services!
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wtch-vdo-wpr">
+                            <p>
+                                How it works?<br>
+                                Let's watch the video!
+                            </p>
+                            <a href="#url" class="ylw-btn">Watch the video</a>
+                            <button type="button" class="vdo-wpr-cls-btn">
+                                <img src="https://cdn.mypanel.link/idhwx8/l44m2d1t94p327qr.png" alt="">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="fund-content-wrap wise">
+                        <h2>2 Steps</h2>
+                        <div class="addfund-step-outer">
+                            <div class="addfund-each-step">
+                                <div class="addfund-each-step-in">
+                                    <p><b>Deposit with Credit/Debit Cards! Via PrimePayments wallet in asimple click!</b></p>
+                                    <p>
+                                        <br>
+                                        After entering your desired amount, click 'Pay' and proceed with the payment link. You'll now be redirected to the payment page.
+                                    </p>
+                                    <p><b></b></p>
+                                    <p>
+
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="addfund-each-step">
+                                <div class="addfund-each-step-in">
+                                    <p>
+                                        <br>
+                                        Your balance on Naizop will be updated automaticlly once you paid through the Credit Card payment method. </p>
+
+                                    <p> If you happen to experience any issues, please be sure to contact our support team via tickets, or LiveChat.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="addfund-each-step">
+                                <div class="addfund-each-step-in">
+                                    <p>
+                                        Enjoy our services!
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wtch-vdo-wpr">
+                            <p>
+                                How it works?<br>
+                                Let's watch the video!
+                            </p>
+                            <a href="#url" class="ylw-btn">Watch the video</a>
+                            <button type="button" class="vdo-wpr-cls-btn">
+                                <img src="https://cdn.mypanel.link/idhwx8/l44m2d1t94p327qr.png" alt="">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="fund-content-wrap turkey">
+                        <h2>2 Steps</h2>
+                        <div class="addfund-step-outer">
+                            <div class="addfund-each-step">
+                                <div class="addfund-each-step-in">
+                                    <p><b>Deposit with Credit/Debit Cards! Via PrimePayments wallet in asimple click!</b></p>
+                                    <p>
+                                        <br>
+                                        After entering your desired amount, click 'Pay' and proceed with the payment link. You'll now be redirected to the payment page.
+                                    </p>
+                                    <p><b></b></p>
+                                    <p>
+
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="addfund-each-step">
+                                <div class="addfund-each-step-in">
+                                    <p>
+                                        <br>
+                                        Your balance on Naizop will be updated automaticlly once you paid through the Credit Card payment method. </p>
+
+                                    <p> If you happen to experience any issues, please be sure to contact our support team via tickets, or LiveChat.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="addfund-each-step">
+                                <div class="addfund-each-step-in">
+                                    <p>
+                                        Enjoy our services!
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wtch-vdo-wpr">
+                            <p>
+                                How it works?<br>
+                                Let's watch the video!
+                            </p>
+                            <a href="#url" class="ylw-btn">Watch the video</a>
+                            <button type="button" class="vdo-wpr-cls-btn">
+                                <img src="https://cdn.mypanel.link/idhwx8/l44m2d1t94p327qr.png" alt="">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="addfund-row-wpr fund-hstry hide">
+        <div class="add-fund-row row new-row">
+            <div class="add-fund-lft-col col-sm-12">
+                <div class="addfund-form-wpr">
+                    <div class="form-body">
+                        <div class="table-responsive">
+                            <table class="table cmn-table1 your-ticket-table payment-history-table">
+                                <thead>
+                                <tr>
+                                    <th>{{ lang('addfunds.id') }}</th>
+                                    <th>{{ lang('addfunds.method') }}</th>
+                                    <th>{{ lang('addfunds.date') }}</th>
+                                    <th>{{ lang('addfunds.amount') }}</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for payment in paymentList %}
+                                    <tr>
+                                        <td data-heading="Order ID">{{ payment['id'] }}</td>
+                                        <td data-heading="Subject">{{ payment['method'] }}</td>
+                                        <td data-heading="Last update">
+                                            <p class="time_info">{{ payment['date'] }}</p>
+                                        </td>
+                                        <td data-heading="Status">
+                                            {% if payment['original_amount'] %}
+                                                <span data-toggle="tooltip" data-placement="left"
+                                                      title="{{ payment['original_amount'] }}&nbsp;{{ payment['original_currency'] }}">≈
+                        {{ payment['amount'] }}</span>
+                                            {% else %}
+                                                {{ payment['amount'] }}
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        {% if pagination['count'] > 50 %}
+                            <div class="nav-pills">
+                                <ul class="pagination {% if site['rtl'] %} rtl-pagination {% endif %}">
+                                    {% if pagination['current'] != 1 %}
+                                        <li>
+                                            <a href="{{ page['url'] }}/{{ pagination['last'] }}"
+                                               aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                            </a>
+                                        </li>
+                                    {% endif %}
+
+                                    {% set r, l = 3, 3 %}
+
+                                    {% if pagination['current'] == 1 %}
+                                        {% set r = 6 %}
+                                    {% endif %}
+
+                                    {% if pagination['current'] == 2 %}
+                                        {% set r = 5 %}
+                                    {% endif %}
+
+                                    {% if pagination['current'] >= pagination['pages'] %}
+                                        {% set l = 5 %}
+                                    {% endif %}
+
+                                    {% for i in 1..ceil(pagination['pages']) %}
+                                        {% if i >= (pagination['current']-l) and i <= (pagination['current']+r)
+                                        %} <li{% if i==pagination['current'] %} class="active" {% endif %}>
+                                            <a href="{{ page['url'] }}/{{i}}">{{i}}</a></li>
+                                        {% endif %}
+                                    {% endfor %}
+
+                                    {% if pagination['current'] < pagination['pages'] %} <li>
+                                        <a href="{{ page['url'] }}/{{ pagination['next'] }}"
+                                           aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

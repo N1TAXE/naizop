@@ -1,0 +1,152 @@
+<div class="body-content-wpr">
+    <div class="page-content-overlay"></div>
+    <div class="vipresward_subtitle">
+        <span>Support -</span>
+        <p>View Ticket</p>
+    </div>
+    <h1 class="page-hdng">View Ticket</h1>
+    <div class="row new-row viewTicket_rw">
+        <div class="support_chat_col">
+            <div class="cmn_gray_bg support_chat_bx">
+                <h2>Chat with Support</h2>
+                <div class="chat_body">
+                    <div class="chat_date">
+                        <p></p>
+                    </div>
+                    <div class="chat_wpr_outtr">
+                        {% if messageList %}
+                            {% for message in messageList %}
+                                {% if message['support'] == 0 %}
+                                    <div class="chat_wpr">
+                                        <div class="chat_field">
+                                            <div class="chat_txt">
+                                                {{ message['message'] }}
+                                            </div>
+                                            {% if message['files'] %}
+
+                                                <div style="margin-top: 16px;">
+
+                                                    {% for file in message['files'] %}
+
+                                                        <div>
+
+                                                            <a href="{{ file['url'] }}" title="{{ file['name'] }}" target="_blank" rel="noopener noreferrer nofollow">{{ sliceUrl(file['name']) }}</a>
+
+                                                        </div>
+
+                                                    {% endfor %}
+
+                                                </div>
+
+                                            {% endif %}
+                                            <span class="chat_time">{{ message['time'] }}</span>
+                                        </div>
+                                        <div class="chatUser_logo">
+                                            <img src="https://cdn.mypanel.link/idhwx8/xsafojaythga9b2k.png" alt="">
+                                        </div>
+                                    </div>
+                                {% else %}
+
+                                    <div class="chat_wpr reply">
+                                        <div class="chat_field">
+                                            <div class="chat_txt">
+                                                {{ message['message'] }}
+                                            </div>
+                                            <span class="chat_time">{{ message['time'] }}</span>
+                                        </div>
+                                        <div class="chatUser_logo">
+                                            <img src="https://cdn.mypanel.link/idhwx8/p7f9uuzfsy0wlt3x.png" alt="">
+                                        </div>
+                                    </div>
+
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+                {% if canAddMessage %}
+                    <div class="chat_fttr">
+                        <form {% if site['rtl'] %} class="rtl-form"{% endif %} method="post" action="">
+
+                            {% if error %}
+                                <div class="alert alert-dismissible alert-danger {% if site['rtl'] %} rtl-alert {% endif %}">
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                    {{ errorMessage }}
+                                </div>
+                            {% endif %}
+
+                            <label>{{ lang('tickets.message') }}</label>
+                            <textarea id="message" placeholder="Enter your message..." name="TicketMessageForm[message]"></textarea>
+                            <div class="form-group">
+                                <div
+                                        class="tickets-uploader"
+                                        data-rtl="{% if site['rtl'] %}true{% else %}false{% endif %}"
+                                        data-lang-button-attach="{{ lang('tickets.button.attach') }}"
+                                        data-lang-file-format-incorrect="{{ lang('tickets.error.file_format.incorrect') }}"
+                                        data-lang-file-size-incorrect="{{ lang('tickets.error.file_size.incorrect') }}"
+                                ></div>
+                            </div>
+
+                            <div class="chat_submitBtn_wrp">
+                                <input type="hidden" name="_csrf" value="{{csrftoken}}">
+                                <input type="submit" value="{{ lang('tickets.button.reply') }}">
+                            </div>
+                        </form>
+                    </div>    {% endif %}
+            </div>
+        </div>
+        <div class="ticket_details_col">
+            <div class="cmn_gray_bg ticket_details_wpr">
+                <h2>Ticket Details</h2>
+                <div class="popup_order_main">
+                    <div class="popup_order_rw">
+                        <div class="popup_order_col">
+                            <p><span class="popUp_table_title">Subject</span></p>
+                        </div>
+                        <div class="popup_order_col">
+                            <p>{{ ticket['thema'] }}</p>
+                        </div>
+                    </div>
+                    <div class="popup_order_rw">
+                        <div class="popup_order_col">
+                            <p><span class="popUp_table_title">Ticket ID</span></p>
+                        </div>
+                        <div class="popup_order_col">
+                            <p>#{{ ticket['id'] }}</p>
+                        </div>
+                    </div>
+                    <div class="popup_order_rw">
+                        <div class="popup_order_col">
+                            <p><span class="popUp_table_title">Request</span></p>
+                        </div>
+                        <div class="popup_order_col">
+                            <p>{% if 'Refill' in ticket['thema'] %} Refill
+                                {% elseif 'Speed Up' in ticket['thema'] %} Speed Up
+                                {% elseif 'Restart' in ticket['thema'] %} Restart
+                                {% elseif 'Cancel' in ticket['thema'] %} Cancel
+                                {% elseif 'Other' in ticket['thema'] %} Other
+                                {% else %}-
+                                {% endif %}</p>
+                        </div>
+                    </div>
+                    <div class="popup_order_rw">
+                        <div class="popup_order_col">
+                            <p><span class="popUp_table_title">Response Time</span></p>
+                        </div>
+                        <div class="popup_order_col">
+                            <p>0-4 H</p>
+                        </div>
+                    </div>
+                    <div class="popup_order_rw">
+                        <div class="popup_order_col">
+                            <p><span class="popUp_table_title">Ticket Status</span></p>
+                        </div>
+                        <div class="popup_order_col">
+                            <p>Answered</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

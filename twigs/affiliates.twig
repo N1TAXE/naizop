@@ -1,0 +1,229 @@
+<div class="body-content-wpr affiliates-page">
+    <div class="page-content-overlay"></div>
+    <h1 class="page-hdng">Affiliates</h1>
+    <div class="affiliate_main">
+        <div class="row new-row affiliate_rw">
+            <div class="col-xs-12 col-lg-8 affiliate_col">
+                <div class="affiliate_form_main">
+                    <form>
+                        <div class="row new-row affiliate_form_rw">
+                            <div class="col-xs-12 col-sm-12">
+                                <div class="affiliate_field_grp">
+                                    <label>Your link</label>
+                                    <div class="frm_two_field">
+                                        <input type="text" id="copyClipboard" value="{{ referral_link }}" readonly>
+                                        <div class="copyBtn_wrap">
+                                            <a href="#" class="cmn_blue_btn" id="copy_btn">Copy</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="affiliate_field_grp">
+                                    <label>Visits</label>
+                                    <div class="affiliate_field_innr">
+                                        <input type="text" value="{{ statistics['total_visits'] }}" readonly>
+                                        <span>Users</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="affiliate_field_grp">
+                                    <label>Referrals</label>
+                                    <div class="affiliate_field_innr">
+                                        <input type="text" value="{{ statistics['paid_referrals'] }}" readonly>
+                                        <span>Users</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="affiliate_field_grp">
+                                    <label>Registrations</label>
+                                    <div class="affiliate_field_innr">
+                                        <input type="text" value="{{ statistics['referral_registrations'] }}" readonly>
+                                        <span>Users</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="affiliate_field_grp">
+                                    <label>Total earnings</label>
+                                    <div class="affiliate_field_innr yellow_txt">
+                                        <input type="text" value="{{ statistics['total_earnings'] }}" readonly>
+                                        <span>Users</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12">
+                                <div class="affiliate_field_grp offr_col">
+                                    <label>Offer</label>
+                                    <div class="frm_two_field">
+                                        <div class="offr_wrap">
+                                            <p>Available earnings</p>
+                                            <span>{{ statistics['unpaid_earnings'] }}</span>
+                                        </div>
+                                        {% if statistics['request_payout'] %}
+                                            <div class="copyBtn_wrap">
+                                                <a href="{{ page['url'] }}/request-payout" class="cmn_blue_btn">{{ lang('affiliates.request_payout') }}</a>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="affiliate_table_wrap">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Conversation rate</th>
+                            <th>Minimum payout</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td data-heading="User">{{ user['username'] }}</td>
+                            <td data-heading="Conversation rate">{{ statistics['conversion_rate'] }}</td>
+                            <td data-heading="Minimum payout">{{ minimum_payout }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-xs-12 col-lg-4 affiliate_col">
+                <div class="affiliate_counting_wrppr">
+                    <div class="affiliate_count">
+                        <div class="affi_product_one"><img src="https://cdn.mypanel.link/idhwx8/gwnwku8t83b5bqfj.png" alt=""></div>
+                        <div class="affi_product_two"><img src="https://cdn.mypanel.link/idhwx8/fmgxiz1p775jfkno.png" alt=""></div>
+                        <span>1</span>
+                        <div class="affiliate_txt">
+                            <h2>JOIN US</h2>
+                            <p>Get started by copying your personal referal link.</p>
+                        </div>
+                    </div>
+                    <div class="affiliate_count">
+                        <div class="affi_product_three"><img src="https://cdn.mypanel.link/idhwx8/4w3it3yo2hbwq8ss.png" alt=""></div>
+                        <div class="affi_product_four"><img src="https://cdn.mypanel.link/idhwx8/fmgxiz1p775jfkno.png" alt=""></div>
+                        <span>2</span>
+                        <div class="affiliate_txt">
+                            <h2>PROMOTE</h2>
+                            <p>Get peoples attention and increase your number of referals</p>
+                        </div>
+                    </div>
+                    <div class="affiliate_count">
+                        <div class="affi_product_five"><img src="https://cdn.mypanel.link/idhwx8/gwnwku8t83b5bqfj.png" alt=""></div>
+                        <div class="affi_product_six"><img src="https://cdn.mypanel.link/idhwx8/fmgxiz1p775jfkno.png" alt=""></div>
+                        <span>3</span>
+                        <div class="affiliate_txt">
+                            <h2>EARN</h2>
+                            <p>Start earning Naizop funds based on your referrals activity.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="affiliate_info_wrap">
+                    <div class="affi_product_seven"><img src="https://cdn.mypanel.link/idhwx8/b3fk7mtlehsjbp7t.png" alt=""></div>
+                    <div class="affi_product_eight"><img src="https://cdn.mypanel.link/idhwx8/fmgxiz1p775jfkno.png" alt=""></div>
+                    <div class="affi_product_nine"><img src="https://cdn.mypanel.link/idhwx8/lxfoadonmchpsssh.png" alt=""></div>
+                    <p>Invite Your Friends with your <span>referal link</span> and you will earn <span>10%</span> of the money spent by your referrals for life!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="demo_logo_wrpr">
+        <span><img src="https://cdn.mypanel.link/idhwx8/xsafojaythga9b2k.png" alt=""></span>
+        <p>
+            Do you have a large audience and a lot of followers? Become our partner and profit with RevShare up to 30%. Earn a percentage of the net revenue on the referred users. Get in and let us enjoy the success together! If you would like to discuss a different affiliation model contact us via email marketing@naizop.com, our affiliate manager will be happy to review your request.</p>
+    </div>
+
+
+    <div class="reward-snt-wpr">
+        <h2 class="cmn-hdng center">
+            Rewards sent to-date
+        </h2>
+        <div class="reward-snt-row row new-row">
+            <div class="reward-snt-col col-xs-12 col-sm-6">
+                <div class="reward-snt-card">
+                    <div class="reward-snt-icon-wpr">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M23.3317 8.33333C23.3334 6.49167 19.6001 5 15.0001 5C10.4001 5 6.67008 6.49333 6.66675 8.33333C6.66675 10.175 10.3967 11.6667 15.0001 11.6667C19.6034 11.6667 23.3334 10.175 23.3334 8.33333" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M23.3333 8.33301V21.2663" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M6.66821 15C6.66821 16.8417 10.3982 18.3333 15.0015 18.3333C19.6049 18.3333 23.3349 16.8417 23.3349 15" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M32.8034 22.1963C35.7317 25.1246 35.7317 29.8746 32.8034 32.8029C29.8751 35.7313 25.1251 35.7313 22.1967 32.8029C19.2684 29.8746 19.2684 25.1246 22.1967 22.1963C25.1251 19.2679 29.8751 19.2679 32.8034 22.1963" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M20.8415 24.042C19.3382 24.6337 17.2765 25.0003 14.9999 25.0003C10.3982 25.0003 6.66821 23.5087 6.66821 21.667" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M20.7417 30.7397C19.2467 31.3113 17.2317 31.6663 15.0001 31.6663C10.3984 31.6663 6.66841 30.1747 6.66675 28.333V8.33301" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="reward-snt-txt">
+                        <h3>USD rewards sent to-date</h3>
+                        <span class="cmn-hdng">$105,937.50</span>
+                    </div>
+                </div>
+            </div>
+            <div class="reward-snt-col col-xs-12 col-sm-6">
+                <div class="reward-snt-card">
+                    <div class="reward-snt-icon-wpr">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M10 35.0003H6.66667C5.74667 35.0003 5 34.2537 5 33.3337V23.3337C5 22.4137 5.74667 21.667 6.66667 21.667H10C10.92 21.667 11.6667 22.4137 11.6667 23.3337V33.3337C11.6667 34.2537 10.92 35.0003 10 35.0003Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M21.6666 28.3338H25.555C26.2766 28.3338 26.9783 28.1004 27.555 27.6671L31.5816 24.6471C32.5866 23.8938 33.9933 23.9938 34.8816 24.8821V24.8821C35.8683 25.8688 35.8683 27.4671 34.8816 28.4521L31.4266 31.9071C30.4966 32.8371 29.31 33.4721 28.02 33.7304L23.1366 34.7071C22.1683 34.9004 21.17 34.8771 20.2116 34.6371L15.795 33.5338C15.2666 33.4004 14.725 33.3338 14.18 33.3338H11.6666" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M21.6666 28.3337H24.1416C25.5366 28.3337 26.6666 27.2037 26.6666 25.8087V25.3037C26.6666 24.1453 25.8783 23.1353 24.755 22.8553L20.935 21.9003C20.3133 21.7453 19.6766 21.667 19.0366 21.667V21.667C17.4916 21.667 15.98 22.1237 14.695 22.982L11.6666 25.0003" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M28.6147 8.59242C30.4618 10.4396 30.4618 13.4345 28.6147 15.2817C26.7675 17.1288 23.7726 17.1288 21.9254 15.2817C20.0782 13.4345 20.0782 10.4396 21.9254 8.59242C23.7726 6.74524 26.7675 6.74524 28.6147 8.59242" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M24.385 7.29134C24.23 6.34967 23.8 5.44467 23.0733 4.71801C21.2267 2.87134 18.2317 2.87134 16.385 4.71801C14.5383 6.56467 14.5383 9.55967 16.385 11.4063C17.535 12.5563 19.1283 12.988 20.6133 12.7063" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="reward-snt-txt">
+                        <h3>Commission sent to-date</h3>
+                        <span class="cmn-hdng">$203,311.77</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="share-referral-wpr">
+        <h2 class="share-referral-hdng cmn-hdng center">Share my <a href="#copyClipboard">referral</a> link and invitation code to social network</h2>
+        <div class="shr-rfl-btm">
+            <div class="shr-rfl-btm-lft">
+                <div class="rfl-img-wpr">
+                    <img src="https://cdn.mypanel.link/0a268b/30mi2m8jgkrsmpkr.png" alt="">
+                </div>
+                <h3 class="rfl-btm-hdng cmn-hdng">
+                    invite friends
+                    <span>to my referral now</span>
+                </h3>
+            </div>
+            <div class="shr-rfl-btm-rht">
+                <div class="rfl-icon-list">
+                    <ul>
+                        <li>
+                            <a href="https://www.instagram.com/" target="_blank" class="rfl-icon-wpr">
+                                <img src="https://cdn.mypanel.link/0a268b/y6tjzfn55brpfar7.png" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/" target="_blank" class="rfl-icon-wpr">
+                                <img src="https://cdn.mypanel.link/idhwx8/xw0zouezeqs2qzb4.png" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://mail.google.com/" target="_blank" class="rfl-icon-wpr">
+                                <img src="https://cdn.mypanel.link/0a268b/9c91iqkarqyjxywb.png" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/" target="_blank" class="rfl-icon-wpr">
+                                <img src="https://cdn.mypanel.link/0a268b/6cjyheklfft19rbt.png" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.whatsapp.com/" target="_blank" class="rfl-icon-wpr">
+                                <img src="https://cdn.mypanel.link/0a268b/ghl6hg8qalfz6bww.png" alt="">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

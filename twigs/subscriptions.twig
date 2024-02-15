@@ -1,0 +1,426 @@
+<style>
+    .popup_order_col p span.green_txt {
+        color: #1DCF00;
+    }
+    .popup_order_col p span.red_txt {
+        color: #FF3D00;
+    }
+</style>
+<div class="body-content-wpr">
+    <div class="page-content-overlay"></div>
+    <div class="order-srch-form-wpr order-page">
+        <form action="{{ page['url'] }}" method="get" id="history-search">
+            <div class="order-srch-row">
+                <input type="text" name="search" class="form-control" value="{{ search }}" placeholder="{{ lang('general.search.placeholder') }}">
+                <button type="submit">Search</button>
+            </div>
+        </form>
+    </div>
+    <div class="update_lists_wrappr">
+        <ul class="update_lists">
+            <li {% if 'all' == status %}class="active"{% endif %}><a href="{{ page['url'] }}">{{ lang('subscriptions.status.all') }}</a></li>
+            <li {% if 'active' == status %}class="active"{% endif %}><a href="{{ page['url'] }}/active">{{ lang('subscriptions.status.active') }}</a></li>
+            <li {% if 'paused' == status %}class="active"{% endif %}><a href="{{ page['url'] }}/paused">{{ lang('subscriptions.status.paused') }}</a></li>
+            <li {% if 'completed' == status %}class="active"{% endif %}><a href="{{ page['url'] }}/completed">{{ lang('subscriptions.status.completed') }}</a></li>
+            <li {% if 'expired' == status %}class="active"{% endif %}><a href="{{ page['url'] }}/expired">{{ lang('subscriptions.status.expired') }}</a></li>
+            <li {% if 'canceled' == status %}class="active"{% endif %}><a href="{{ page['url'] }}/canceled">{{ lang('subscriptions.status.canceled') }}</a></li>
+        </ul>
+    </div>
+    <h1 class="page-hdng order-page">Subscriptions</h1>
+    <div class="cmn-table-wpr">
+        <table class="cmn-table">
+            <thead>
+            <tr>
+                <th>{{ lang('subscriptions.id') }}</th>
+                <th>{{ lang('subscriptions.service') }}</th>
+                <th>{{ lang('subscriptions.username') }}</th>
+                <th>{{ lang('subscriptions.new_posts') }}</th>
+                <th>{{ lang('subscriptions.status') }}</th>
+                <th>Info</th>
+                <th>Reorder</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for order in orderList %}
+                <tr>
+                    <td data-heading="Order ID">#{{ order['id'] }}</td>
+                    <td data-heading="Service"><span class="serive-date">{{ order['date_created'] }}</span> {{ order['service'] }}</td>
+                    <td data-heading="Username">
+                        <a href="#recomend-modal-{{ order['id'] }}" data-fancybox="" class="table-link">{{ order['link'] }}</a>
+
+                        <!-- (order page)order information modal start -->
+                        <div class="custom-modal-wpr ordr_inform_popUp" id="recomend-modal-{{ order['id'] }}" style="display: none;">
+                            <div class="modal-wpr">
+                                <div class="modal-hdr">
+                                    <h2 class="modal-hdng">Order Information</h2>
+                                    <button type="button" data-fancybox-close class="fancybox-close-btn">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M1.33252 1.33261L14.6659 14.6659" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M14.6659 1.33261L1.33252 14.6659" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="popup_order_main">
+                                        <div class="popup_order_rw">
+                                            <div class="popup_order_col">
+                                                <p><span class="popUp_table_title">Section</span></p>
+                                            </div>
+                                            <div class="popup_order_col">
+                                                <p><span class="popUp_table_title">Value</span></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="popup_order_rw">
+                                            <div class="popup_order_col">
+                                                <p>Start Count</p>
+                                            </div>
+                                            <div class="popup_order_col">
+                                                <p>{% if order['current_count'] %}{{ order['current_count'] }}{% endif %}</p>
+                                            </div>
+                                        </div>
+                                        <div class="popup_order_rw">
+                                            <div class="popup_order_col">
+                                                <p>Quantity</p>
+                                            </div>
+                                            <div class="popup_order_col">
+                                                <p>{% if order['quantity'] == 0 %}&#8734;{% else %}{{ order['quantity'] }}{% endif %}</p>
+                                            </div>
+                                        </div>
+                                        <div class="popup_order_rw">
+                                            <div class="popup_order_col">
+                                                <p>Remains</p>
+                                            </div>
+                                            <div class="popup_order_col">
+                                                <p>0</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="btn_wppr">
+                                        <a href="/tickets" class="cmn_blue_btn">Support</a>
+                                    </div>
+                                    <div class="popUp_review_part">
+                                        <div class="left">
+                                            <p><strong>Excellent</strong></p>
+                                            <ul class="list_rating">
+                                                <li>
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M7.99976 11.9225L11.4759 11.0415L12.9283 15.5177L7.99976 11.9225ZM15.9998 6.13677H9.88071L7.99976 0.374866L6.11881 6.13677H-0.000244141L4.95214 9.7082L3.07118 15.4701L8.02357 11.8987L11.0712 9.7082L15.9998 6.13677Z" fill="#219653"/>
+                                                    </svg>
+                                                </li>
+                                                <li>
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M7.99976 11.9225L11.4759 11.0415L12.9283 15.5177L7.99976 11.9225ZM15.9998 6.13677H9.88071L7.99976 0.374866L6.11881 6.13677H-0.000244141L4.95214 9.7082L3.07118 15.4701L8.02357 11.8987L11.0712 9.7082L15.9998 6.13677Z" fill="#219653"/>
+                                                    </svg>
+                                                </li>
+                                                <li>
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M7.99976 11.9225L11.4759 11.0415L12.9283 15.5177L7.99976 11.9225ZM15.9998 6.13677H9.88071L7.99976 0.374866L6.11881 6.13677H-0.000244141L4.95214 9.7082L3.07118 15.4701L8.02357 11.8987L11.0712 9.7082L15.9998 6.13677Z" fill="#219653"/>
+                                                    </svg>
+                                                </li>
+                                                <li>
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M7.99976 11.9225L11.4759 11.0415L12.9283 15.5177L7.99976 11.9225ZM15.9998 6.13677H9.88071L7.99976 0.374866L6.11881 6.13677H-0.000244141L4.95214 9.7082L3.07118 15.4701L8.02357 11.8987L11.0712 9.7082L15.9998 6.13677Z" fill="#219653"/>
+                                                    </svg>
+                                                </li>
+                                                <li>
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M7.99976 11.9225L11.4759 11.0415L12.9283 15.5177L7.99976 11.9225ZM15.9998 6.13677H9.88071L7.99976 0.374866L6.11881 6.13677H-0.000244141L4.95214 9.7082L3.07118 15.4701L8.02357 11.8987L11.0712 9.7082L15.9998 6.13677Z" fill="#219653"/>
+                                                    </svg>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="right">
+                                            <p><strong>436</strong> reviews on</p>
+                                            <p>
+                                                            <span class="trustpilot_star">
+                                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M7.99976 11.9225L11.4759 11.0415L12.9283 15.5177L7.99976 11.9225ZM15.9998 6.13677H9.88071L7.99976 0.374866L6.11881 6.13677H-0.000244141L4.95214 9.7082L3.07118 15.4701L8.02357 11.8987L11.0712 9.7082L15.9998 6.13677Z" fill="#219653"/>
+                                                                </svg>
+                                                            </span>
+                                                <strong>Trustpilot</strong>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </td>
+                    <td data-heading="New posts"><span class="service-charge">{% if order['current_count'] %}
+                                    <a href="{{ page_url('orders') }}?subscription={{ order['id'] }}&likes_spread=0"><span class="rates">{{ order['current_count'] }}</span></a>
+                                    {% else %}
+                                <span class="rates">{{ order['current_count'] }}</span>
+                            {% endif %}
+                                    / {% if order['quantity'] == 0 %}&#8734;{% else %}{{ order['quantity'] }}{% endif %}</p></span></td>
+                    <td data-heading="Status">
+                                      <span class="status-tag red {{ order['status_name'] }}">
+                                        {% if order['status_name'] == 'Canceled' %}
+                                            Refunded
+                                        {% else %}
+                                            {{ order['status_name'] }}
+                                        {% endif %}
+                                      </span>
+                    </td>
+                    <td data-heading="Info">
+                        <div class="info-btn">
+                            <a href="#ordr_info_modal-{{ order['id'] }}" data-fancybox="" class="info-btn-icon">
+                                <img src="https://cdn.mypanel.link/idhwx8/dou5b15qhnizzmgd.png" alt="">
+                            </a>
+                        </div>
+                        <!-- (subscripton page) order information modal start -->
+                        <div class="custom-modal-wpr ordr_inform_popUp" id="ordr_info_modal-{{ order['id'] }}" style="display: none;">
+                            <div class="modal-wpr">
+                                <div class="modal-hdr">
+                                    <h2 class="modal-hdng">Order Information</h2>
+                                    <button type="button" data-fancybox-close class="fancybox-close-btn">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M1.33252 1.33261L14.6659 14.6659" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M14.6659 1.33261L1.33252 14.6659" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="popup_order_main">
+                                        <div class="popup_order_rw">
+                                            <div class="popup_order_col">
+                                                <p><span class="popUp_table_title">Section</span></p>
+                                            </div>
+                                            <div class="popup_order_col">
+                                                <p><span class="popUp_table_title">Value</span></p>
+                                            </div>
+                                        </div>
+                                        <div class="popup_order_rw">
+                                            <div class="popup_order_col">
+                                                <p>{{ lang('subscriptions.delay') }}</p>
+                                            </div>
+                                            <div class="popup_order_col">
+                                                <p>{{ order['delay'] }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="popup_order_rw">
+                                            <div class="popup_order_col">
+                                                <p>{{ lang('subscriptions.quantity') }}</p>
+                                            </div>
+                                            <div class="popup_order_col">
+                                                <p>{% if order['quantity_min'] == order['quantity_max'] %}{{ order['quantity_max']}}{% else %}{{ order['quantity_min'] }}-{{ order['quantity_max'] }}{% endif %}</p>
+                                            </div>
+                                        </div>
+                                        <div class="popup_order_rw">
+                                            <div class="popup_order_col">
+                                                <p>{{ lang('subscriptions.updated') }}</p>
+                                            </div>
+                                            <div class="popup_order_col">
+                                                <p class="time_info"><span>{{ order['date_updated'] }}</span></p>
+                                            </div>
+                                        </div>
+                                        <div class="popup_order_rw">
+                                            <div class="popup_order_col">
+                                                <p>{{ lang('subscriptions.expiry') }}</p>
+                                            </div>
+                                            <div class="popup_order_col">
+                                                <p>{{ order['date_expiry'] }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="btn_wppr">
+                                        <a href="/tickets" class="cmn_blue_btn">Support</a>
+                                    </div>
+                                    <div class="popUp_review_part">
+                                        <div class="left">
+                                            <p><strong>Excellent</strong></p>
+                                            <ul class="list_rating">
+                                                <li>
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M7.99976 11.9225L11.4759 11.0415L12.9283 15.5177L7.99976 11.9225ZM15.9998 6.13677H9.88071L7.99976 0.374866L6.11881 6.13677H-0.000244141L4.95214 9.7082L3.07118 15.4701L8.02357 11.8987L11.0712 9.7082L15.9998 6.13677Z" fill="#219653"/>
+                                                    </svg>
+                                                </li>
+                                                <li>
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M7.99976 11.9225L11.4759 11.0415L12.9283 15.5177L7.99976 11.9225ZM15.9998 6.13677H9.88071L7.99976 0.374866L6.11881 6.13677H-0.000244141L4.95214 9.7082L3.07118 15.4701L8.02357 11.8987L11.0712 9.7082L15.9998 6.13677Z" fill="#219653"/>
+                                                    </svg>
+                                                </li>
+                                                <li>
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M7.99976 11.9225L11.4759 11.0415L12.9283 15.5177L7.99976 11.9225ZM15.9998 6.13677H9.88071L7.99976 0.374866L6.11881 6.13677H-0.000244141L4.95214 9.7082L3.07118 15.4701L8.02357 11.8987L11.0712 9.7082L15.9998 6.13677Z" fill="#219653"/>
+                                                    </svg>
+                                                </li>
+                                                <li>
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M7.99976 11.9225L11.4759 11.0415L12.9283 15.5177L7.99976 11.9225ZM15.9998 6.13677H9.88071L7.99976 0.374866L6.11881 6.13677H-0.000244141L4.95214 9.7082L3.07118 15.4701L8.02357 11.8987L11.0712 9.7082L15.9998 6.13677Z" fill="#219653"/>
+                                                    </svg>
+                                                </li>
+                                                <li>
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M7.99976 11.9225L11.4759 11.0415L12.9283 15.5177L7.99976 11.9225ZM15.9998 6.13677H9.88071L7.99976 0.374866L6.11881 6.13677H-0.000244141L4.95214 9.7082L3.07118 15.4701L8.02357 11.8987L11.0712 9.7082L15.9998 6.13677Z" fill="#219653"/>
+                                                    </svg>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="right">
+                                            <p><strong>436</strong> reviews on</p>
+                                            <p>
+                                                                <span class="trustpilot_star">
+                                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                        <path d="M7.99976 11.9225L11.4759 11.0415L12.9283 15.5177L7.99976 11.9225ZM15.9998 6.13677H9.88071L7.99976 0.374866L6.11881 6.13677H-0.000244141L4.95214 9.7082L3.07118 15.4701L8.02357 11.8987L11.0712 9.7082L15.9998 6.13677Z" fill="#219653"/>
+                                                                    </svg>
+                                                                </span>
+                                                <strong>Trustpilot</strong>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- order information modal end -->
+                    </td>
+                    <td data-heading="Reorder">
+                        <a href="#ordr_details_modal_two-{{ order['id'] }}" data-fancybox="" class="reordr-btn">
+                            <img src="https://cdn.mypanel.link/idhwx8/62el8xil7fa5pcus.png" alt="">
+                        </a>
+                        <!-- (subscripton page) order details modal start -->
+                        <div class="custom-modal-wpr ordr_details_popUp" id="ordr_details_modal_two-{{ order['id'] }}" style="display: none;">
+                            <div class="modal-wpr">
+                                <div class="modal-hdr">
+                                    <h2 class="modal-hdng">Order Detail</h2>
+                                    <button type="button" data-fancybox-close class="fancybox-close-btn">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M1.33252 1.33261L14.6659 14.6659" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M14.6659 1.33261L1.33252 14.6659" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="popup_order_main">
+                                        <div class="popup_order_rw">
+                                            <div class="popup_order_col">
+                                                <p><span class="popUp_table_title">ID:</span></p>
+                                            </div>
+                                            <div class="popup_order_col">
+                                                <p>#{{ order['id'] }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="popup_order_rw">
+                                            <div class="popup_order_col">
+                                                <p><span class="popUp_table_title">Date:</span></p>
+                                            </div>
+                                            <div class="popup_order_col">
+                                                <p>{{ order['date_created'] }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="popup_order_rw">
+                                            <div class="popup_order_col">
+                                                <p><span class="popUp_table_title">Service:</span></p>
+                                            </div>
+                                            <div class="popup_order_col">
+                                                <p><a href="#">{{ order['service'] }}</a></p>
+                                            </div>
+                                        </div>
+                                        <div class="popup_order_rw">
+                                            <div class="popup_order_col">
+                                                <p><span class="popUp_table_title">Link:</span></p>
+                                            </div>
+                                            <div class="popup_order_col">
+                                                <p><a href="#">{{ order['link'] }}</a></p>
+                                            </div>
+                                        </div>
+                                        <div class="popup_order_rw">
+                                            <div class="popup_order_col">
+                                                <p><span class="popUp_table_title">Start count:</span></p>
+                                            </div>
+                                            <div class="popup_order_col">
+                                                <p>{{ order['current_count'] }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="popup_order_rw">
+                                            <div class="popup_order_col">
+                                                <p><span class="popUp_table_title">Quantity:</span></p>
+                                            </div>
+                                            <div class="popup_order_col">
+                                                <p>{{ order['quantity'] }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="popup_order_rw">
+                                            <div class="popup_order_col">
+                                                <p><span class="popUp_table_title">Remains:</span></p>
+                                            </div>
+                                            <div class="popup_order_col">
+                                                <p>0</p>
+                                            </div>
+                                        </div>
+                                        <div class="popup_order_rw">
+                                            <div class="popup_order_col">
+                                                <p><span class="popUp_table_title">Status:</span></p>
+                                            </div>
+                                            <div class="popup_order_col">
+                                                <p><span class="{% if order['status_name'] == 'Canceled' %}red_txt{% else %}green_txt{% endif %}">{{ order['status_name'] }}</span></p>
+                                            </div>
+                                        </div>
+                                        <div class="popup_order_rw">
+                                            <div class="popup_order_col">
+                                                <p><span class="popUp_table_title">Charge:</span></p>
+                                            </div>
+                                            <div class="popup_order_col">
+                                                <p>0.06</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {#
+                                    <div class="btn_wppr">
+                                        <a href="#" class="cmn_blue_btn">Notify Order</a>
+                                    </div>
+                                    #}
+                                </div>
+                            </div>
+                        </div>
+                        <!-- order details modal end -->
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+{% if pagination['count'] > 100 %}
+    <ul class="pagination {% if site['rtl'] %} rtl-pagination {% endif %}">
+        {% if pagination['current'] != 1 %}
+            <li>
+                <a href="{{ page['url'] }}/{{ status }}/{{ pagination['last'] }}{% if search %}?search={{ search }}{% endif %}" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+        {% endif %}
+
+        {% set r, l = 3, 3 %}
+
+        {% if pagination['current'] == 1 %}
+            {% set r = 6 %}
+        {% endif %}
+
+        {% if pagination['current'] == 2 %}
+            {% set r = 5 %}
+        {% endif %}
+
+        {% if pagination['current'] >= pagination['pages'] %}
+            {% set l = 5 %}
+        {% endif %}
+
+        {% for i in 1..ceil(pagination['pages']) %}
+            {% if i >= (pagination['current']-l) and i <= (pagination['current']+r) %}
+                <li{% if i == pagination['current'] %} class="active"{% endif %}><a href="{{ page['url'] }}/{{ status }}/{{i}}{% if search %}?search={{ search }}{% endif %}">{{i}}</a></li>
+            {% endif %}
+        {% endfor %}
+
+        {% if pagination['current'] < pagination['pages'] %}
+            <li>
+                <a href="{{ page['url'] }}/{{ status }}/{{ pagination['next'] }}{% if search %}?search={{ search }}{% endif %}" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        {%endif%}
+    </ul>
+{% endif %}
+
+<!-- order information modal end -->

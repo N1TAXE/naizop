@@ -1,0 +1,412 @@
+<style>
+    .row.blog-wrapper .col-sm-3:first-child .blog-date,
+    .row.blog-wrapper .col-sm-3:first-child .blog-tags,
+    .row.blog-wrapper .col-sm-4:first-child .blog-date,
+    .row.blog-wrapper .col-sm-4:first-child .blog-tags {
+        display: none;
+    }
+    .blog-excerpt, .blog-excerpt p {
+        font-family: Rubik;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14.9198px;
+        line-height: 18px;
+        color: #9D9DAB;
+    }
+    .row.blog-wrapper .col-sm-3:first-child .blog-excerpt,
+    .row.blog-wrapper .col-sm-4:first-child .blog-excerpt {
+        height: auto;
+    }
+    .row.blog-wrapper .col-sm-3:first-child .blog-ftr .btn.btn-primary,
+    .row.blog-wrapper .col-sm-4:first-child .blog-ftr .btn.btn-primary {
+        margin-left: auto;
+    }
+    .row.blog-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .guest .blogg {
+        padding-top: 105px;
+    }
+    .blog-header {
+        background-color: #131133;
+        border-radius: 24px 24px 0 0;
+        overflow: hidden;
+    }
+    .blog-header .img-responsive {
+        display: block;
+        margin: auto;
+    }
+    .blog-header img {
+        width: 100%;
+        height: 147px;
+    }
+    .row.blog-wrapper .col-sm-3:first-child .blog-header img,
+    .row.blog-wrapper .col-sm-4:first-child .blog-header img {
+        height: 313px;
+    }
+    .blog-body {
+        background-color: #171538;
+        padding: 20px 15px;
+    }
+    .blog-tags {
+        font-family: Rubik;
+        color: #64648A;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 17px;
+    }
+    .blog-title {
+        font-family: Rubik;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 24px;
+        /* text-shadow: 0px 0px 16px #FFFFFFB8; */
+        text-shadow: 0px 0px 16px rgba(255, 255, 255, 0.72);
+        margin: 9px 0;
+        height: auto;
+    }
+    .blog-ftr {
+        /* background-color: #171538; */
+        background: linear-gradient(90deg, #191639 0%, #161438 71.7%);
+        border-radius: 0 0 24px 24px;
+        display: flex;
+        /* flex-wrap: wrap; */
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 15px 15px;
+    }
+    .blog-wrap .btn.btn-primary {
+        background: transparent;
+        border: 1px solid #4A8EFF;
+        color: #4A8EFF;
+        font-weight: 700;
+        font-size: 14px;
+        min-width: 135px;
+        padding: 11px 17px;
+        border-radius: 100px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        line-height: 1;
+        font-family: Rubik;
+    }
+    .blog-date {
+        color: #64648A;
+        font-size: 14px;
+        font-weight: 400;
+        margin-bottom: 0;
+        margin-right: 5px;
+        font-family: Rubik;
+        flex: 0 0 35%;
+        max-width: 35%;
+    }
+    .row.blog-wrapper .col-sm-3:first-child,
+    .row.blog-wrapper .col-sm-4:first-child {
+        width: 100%;
+    }
+    .blog-wrap .btn.btn-primary svg {
+        margin-left: 6px;
+    }
+    .blog-excerpt {
+        /* height: 100px;*/
+        height: auto;
+        font-family: Rubik;
+    }
+    .blog-wrap {
+        padding: 0;
+        border-color: transparent;
+        margin-bottom: 20px;
+    }
+    .dashboard .blog-wrap .btn.btn-primary {
+        padding: 8px 8px;
+        min-width: auto;
+        font-size: 13px;
+    }
+    .dashboard .blog-date {
+        flex: 0 0 30%;
+        max-width: 30%;
+        white-space: normal;
+        word-break: break-word;
+    }
+    @media (max-width:550px) {
+        .blog-excerpt {
+            height: auto;
+        }
+    }
+</style>
+<div class="blogg">
+    {% if blog %}
+        <div class="{% if user['auth'] %}container-fluid{% else %}container{% endif %}">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="well {% if site['rtl'] %} rtl-content {% endif %}">
+                        {{ blog }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    {% if posts %}
+        <div class="{% if user['auth'] %}container-fluid{% else %}container{% endif %}">
+            <div class="row blog-wrapper">
+                {% for post in posts %}
+                    <div class="col-sm-4">
+                        <div class="blog-wrap">
+                            <div class="blog-header">
+                                <img class="img-responsive" src="{{ post['image'] }}" alt="{{ post['title'] }}">
+                            </div>
+                            <div class="blog-body">
+                                <p class="blog-tags">SOCIAL MEDIA UPDATES</p>
+                                <h2 class="blog-title">
+                                    {% set text1 = post['title'] %}
+                                    {{ text1|length > 30 ? text1|slice(0, 30) ~ '...' : text1 }}
+                                </h2>
+                                <div class="blog-excerpt">
+                                    {% set text = post['content'] %}
+                                    {{ text|length > 70 ? text|slice(0, 100) ~ '...' : text }}
+                                </div>
+                            </div>
+                            <div class="blog-ftr">
+                                <p class="blog-date">{{ post['created'] }} {# 6 June 2021#}</p>
+                                <a href="{{ page_url('blog') }}/{{ post['url'] }}" class="btn btn-primary">
+                                    {{ lang('blog.link') }}
+                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_150_568)">
+                                            <path d="M11.8301 6.23644L7.35732 9.93751C7.35732 9.93751 6.82667 10.4986 6.82667 9.89C6.82667 9.27913 6.82667 7.80462 6.82667 7.80462C6.82667 7.80462 6.46768 7.80462 5.91911 7.80462C4.34421 7.80462 1.48213 7.80462 0.317764 7.80462C0.317764 7.80462 5.45712e-06 7.88709 5.47806e-06 7.40798C5.49906e-06 6.92754 5.59135e-06 4.81616 5.60638e-06 4.47241C5.62137e-06 4.12955 0.265327 4.13672 0.265327 4.13672C1.39967 4.13672 4.35855 4.13672 5.87967 4.13672C6.37356 4.13672 6.69356 4.13672 6.69356 4.13672C6.69356 4.13672 6.69356 2.95488 6.69356 2.2109C6.69356 1.46961 7.2493 2.02804 7.2493 2.02804C7.2493 2.02804 11.4286 5.1765 11.8678 5.61392C12.1856 5.93392 11.8301 6.23644 11.8301 6.23644Z" fill="#4A8EFF"/>
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_150_568">
+                                                <rect width="12" height="12" fill="white" transform="translate(12) rotate(90)"/>
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    {% if pagination['count'] > 10 %}
+                        <ul class="pagination {% if site['rtl'] %} rtl-pagination {% endif %}">
+                            {% if pagination['current'] != 1 %}
+                                <li>
+                                    <a href="{{ page['url'] }}{% if pagination['last'] %}?page={{ pagination['last'] }}{% endif %}"
+                                       aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                            {% endif %}
+                            {% set r, l = 3, 3 %}
+                            {% if pagination['current'] == 1 %}
+                                {% set r = 6 %}
+                            {% endif %}
+                            {% if pagination['current'] == 2 %}
+                                {% set r = 5 %}
+                            {% endif %}
+                            {% if pagination['current'] >= pagination['pages'] %}
+                                {% set l = 5 %}
+                            {% endif %}
+                            {% for i in 1..ceil(pagination['pages']) %}
+                                {% if i >= (pagination['current']-l) and i <= (pagination['current']+r) %}
+                                    <li{% if i == pagination['current'] %} class="active"{% endif %}><a
+                                                href="{{ page['url'] }}{% if i != 1 %}?page={{ i }}{% endif %}">{{ i }}</a></li>
+                                {% endif %}
+                            {% endfor %}
+                            {% if pagination['current'] < pagination['pages'] %}
+                                <li>
+                                    <a href="{{ page['url'] }}{% if pagination['next'] %}?page={{ pagination['next'] }}{% endif %}"
+                                       aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+</div>
+
+
+<!-- {% if blog %}
+<div class="{% if user['auth'] %}container-fluid{% else %}container{% endif %}">
+<div class="row">
+<div class="col-md-8 col-md-offset-2">
+<div class="well {% if site['rtl'] %} rtl-content {% endif %}">
+{{ blog }}
+</div>
+</div>
+</div>
+</div>
+{% endif %} -->
+{#
+
+
+<style>
+  .blog-item {
+    display: block;
+    margin-bottom: 19px;
+    background-color: #191639;
+    border-radius: 20px 20px 0 0;
+  }
+  .blog-content {
+    padding: 15px 35px;
+  }
+  .post-title {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 10px;
+    margin-top: 0;
+    font-weight: 500;
+    font-family: Rubik,sans-serif;
+    text-shadow: 0 0 16px rgba(255, 255, 255, 0.72);
+  }
+  .blog-content p {
+    color: #9D9DAB;
+    font-size: 14.95px;
+    font-weight: 400;
+  }
+  .btn.btn-read svg {
+  	margin-left: 8px;
+  }
+  .btn.btn-read {
+    color: #4A8EFF;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: 1px solid #4A8EFF;
+    border-radius: 50px;
+    padding: 8px 15px;
+    margin-left: auto;
+    margin-right: 0;
+    max-width: 130px;
+    display: block;
+  	font-family: Rubik,sans-serif;
+  }
+  .blog-content h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #64648A;
+    margin-top: 0;
+    margin-bottom: 10px;
+  	font-family: Rubik,sans-serif;
+  }
+  .blog-content h4 {
+    font-size: 14.95px;
+    color: #64648A;
+  }
+  @media(max-width:550px){
+  	.blog-content {
+    	padding: 15px 20px;
+	}
+  }
+
+</style>
+
+{% if posts %}
+<div class="{% if user['auth'] %}container-fluid{% else %}container{% endif %}">
+  <div class="row">
+    {% for post in posts|reverse %}
+    {% if post['title']=='How to Get More Instagram Followers Easily (2021)' %}
+    <div class="col-sm-12">
+      <div class="blog-item">
+        {% if post['image'] %}
+        <div class="blog-image-wrap">
+          <img class="img-responsive" src="{{ post['image'] }}" alt="{{ post['title'] }}" >
+        </div>
+        {% endif %}
+        <div class="blog-content">
+          <h2 class="post-title">{% set blogtitle = post['title'] %}{{ blogtitle|length > 30 ? blogtitle|slice(0, 50) ~ '...' : blogtitle }}</h2>
+          <div class="row">
+            <div class="col-sm-9">{% set text = post['content'] %}
+              <p>{{ text|length > 500 ? text|slice(0, 27) ~ '...' : text }}</p>
+            </div>
+            <div class="col-sm-3">
+              <a href="{{ page_url('blog') }}/{{ post['url'] }}" class="btn btn-read">{{ lang('blog.link') }}<svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.8301 5.23644L7.35732 8.93751C7.35732 8.93751 6.82667 9.49863 6.82667 8.89C6.82667 8.27913 6.82667 6.80462 6.82667 6.80462C6.82667 6.80462 6.46768 6.80462 5.91911 6.80462C4.34421 6.80462 1.48213 6.80462 0.317764 6.80462C0.317764 6.80462 5.45712e-06 6.88709 5.47806e-06 6.40798C5.49906e-06 5.92754 5.59135e-06 3.81616 5.60638e-06 3.47241C5.62137e-06 3.12955 0.265327 3.13672 0.265327 3.13672C1.39967 3.13672 4.35855 3.13672 5.87967 3.13672C6.37356 3.13672 6.69356 3.13672 6.69356 3.13672C6.69356 3.13672 6.69356 1.95488 6.69356 1.2109C6.69356 0.469609 7.2493 1.02804 7.2493 1.02804C7.2493 1.02804 11.4286 4.1765 11.8678 4.61392C12.1856 4.93392 11.8301 5.23644 11.8301 5.23644Z" fill="#4A8EFF"/>
+</svg>
+</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% else %}
+    <div class="col-sm-4">
+      <div class="blog-item">
+        {% if post['image'] %}
+        <div class="blog-image-wrap">
+          <img class="img-responsive" src="{{ post['image'] }}" alt="{{ post['title'] }}" >
+        </div>
+        {% endif %}
+        <div class="blog-content">
+          <h3>SOCIAL MEDIA UPDATES</h3>
+          <h2 class="post-title">{% set blogtitle = post['title'] %}{{ blogtitle|length > 30 ? blogtitle|slice(0, 50) ~ '...' : blogtitle }}</h2>
+          {% set text = post['content'] %}
+          <p>{{ text|length > 500 ? text|slice(0, 27) ~ '...' : text }}</p>
+          <div class="row">
+            <div class="col-xs-5">
+              <h4>6 June 2021</h4>
+            </div>
+            <div class="col-xs-7">
+              <a href="{{ page_url('blog') }}/{{ post['url'] }}" class="btn btn-read">{{ lang('blog.link') }}<svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.8301 5.23644L7.35732 8.93751C7.35732 8.93751 6.82667 9.49863 6.82667 8.89C6.82667 8.27913 6.82667 6.80462 6.82667 6.80462C6.82667 6.80462 6.46768 6.80462 5.91911 6.80462C4.34421 6.80462 1.48213 6.80462 0.317764 6.80462C0.317764 6.80462 5.45712e-06 6.88709 5.47806e-06 6.40798C5.49906e-06 5.92754 5.59135e-06 3.81616 5.60638e-06 3.47241C5.62137e-06 3.12955 0.265327 3.13672 0.265327 3.13672C1.39967 3.13672 4.35855 3.13672 5.87967 3.13672C6.37356 3.13672 6.69356 3.13672 6.69356 3.13672C6.69356 3.13672 6.69356 1.95488 6.69356 1.2109C6.69356 0.469609 7.2493 1.02804 7.2493 1.02804C7.2493 1.02804 11.4286 4.1765 11.8678 4.61392C12.1856 4.93392 11.8301 5.23644 11.8301 5.23644Z" fill="#4A8EFF"/>
+</svg>
+</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      {% if pagination['count'] > 10 %}
+      <ul class="pagination {% if site['rtl'] %} rtl-pagination {% endif %}">
+        {% if pagination['current'] != 1 %}
+        <li>
+          <a href="{{ page['url'] }}{% if pagination['last'] %}?page={{ pagination['last'] }}{% endif %}"
+             aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        {% endif %}
+        {% set r, l = 3, 3 %}
+        {% if pagination['current'] == 1 %}
+        {% set r = 6 %}
+        {% endif %}
+        {% if pagination['current'] == 2 %}
+        {% set r = 5 %}
+        {% endif %}
+        {% if pagination['current'] >= pagination['pages'] %}
+        {% set l = 5 %}
+        {% endif %}
+        {% for i in 1..ceil(pagination['pages']) %}
+        {% if i >= (pagination['current']-l) and i <= (pagination['current']+r) %}
+        <li{% if i == pagination['current'] %} class="active"{% endif %}><a
+                                                                            href="{{ page['url'] }}{% if i != 1 %}?page={{ i }}{% endif %}">{{ i }}</a></li>
+        {% endif %}
+        {% endfor %}
+        {% if pagination['current'] < pagination['pages'] %}
+        <li>
+          <a href="{{ page['url'] }}{% if pagination['next'] %}?page={{ pagination['next'] }}{% endif %}"
+             aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+        {% endif %}
+      </ul>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endif %}
+
+
+#}

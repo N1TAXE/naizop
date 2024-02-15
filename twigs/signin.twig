@@ -1,0 +1,1254 @@
+<style>
+    body {
+        overflow-x: hidden;
+    }
+    body * {
+        font-family: Rubik, sans-serif;
+    }
+    h1.main-title {
+        font-family: Helvetica;
+        margin-bottom: 80px;
+        margin-top: 0!important;
+    }
+    .main-content > .container {
+        width: 100%!important;
+        padding: 0!important;
+        margin: auto!important;
+        max-width: 100%!important;
+    }
+    footer.new-footer-2 {
+        margin-top: 0;
+    }
+    .remember-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .remember-wrap .checkbox label {
+        color: #FFF;
+        font-size: 14px;
+        font-weight: 700;
+    }
+</style>
+<div class="home-page">
+    <section id="top-sec" class="new-top-sec" data-aos="zoom-in" data-aos-easing="linear"
+             data-aos-duration="500">
+        <div class="container">
+            <div class="col-sm-6">
+                {% if error %}
+                    <div class="notification-wrap {% if site['rtl'] %} rtl-alert {% endif %}">
+                        <div class="wtch-vdo-wpr ">
+                            <button type="button" class="vdo-wpr-cls-btn">
+                                <img src="https://cdn4.mypanel.link/idhwx8/cxztnqiowrkwt5lc.webp" alt="">
+                            </button>
+                            <p>{{ errorMessage }}</p>
+                        </div>
+                    </div>
+                {% endif %}
+                {% if success %}
+                    <div class="notification-wrap">
+                        <div class="wtch-vdo-wpr ">
+                            <button type="button" class="vdo-wpr-cls-btn">
+                                <img src="https://cdn4.mypanel.link/idhwx8/l44m2d1t94p327qr.png" alt="">
+                            </button>
+                            <p>{{ successMessage }}</p>
+                        </div>
+                    </div>
+                {% endif %}
+                <h1 class="main-titlee">Boost Your <br>Social Media</h1>
+                <p class="top-sec-txt">Join thousands of Brands and Influencers who elevated their social media growth with <span>Naizop</span>, the most trusted social media service with <span>{{ totals['ordersAll']|number_format(0, '.', ',') }}</span> orders until now.</p>
+                <ul class="top-sec-points">
+                    <li>
+                        <p>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1.6688 2.4C2.0496 2.0752 3.372 1.6 4.8 1.6C6.228 1.6 7.5512 2.0752 7.9312 2.4H9.6C9.6 0.604 6.3032 0 4.8 0C3.2968 0 0 0.604 0 2.4V12C0 13.796 3.2968 14.4 4.8 14.4C5.0296 14.4 5.3048 14.384 5.6 14.3536V12.7472C5.34 12.7776 5.0736 12.8 4.8 12.8C3.2672 12.8 1.8544 12.252 1.6 11.9312V11.3768C2.656 11.8216 3.988 12 4.8 12C5.0304 12 5.3048 11.984 5.6 11.9536V10.3472C5.34 10.3776 5.0736 10.4 4.8 10.4C3.2512 10.4 1.8328 9.84158 1.6 9.52158V8.97598C2.656 9.42078 3.988 9.59922 4.8 9.59922C5.0304 9.59922 5.3048 9.58323 5.6 9.55283V7.94639C5.34 7.97679 5.0736 7.99922 4.8 7.99922C3.2512 7.99922 1.8328 7.4408 1.6 7.1208V6.57519C2.656 7.01999 3.988 7.19844 4.8 7.19844C5.0304 7.19844 5.3048 7.18235 5.6 7.15195V5.54561C5.34 5.576 5.0736 5.59844 4.8 5.59844C3.2512 5.59844 1.8328 5.04002 1.6 4.72002V4.17441C2.656 4.61921 3.988 4.79756 4.8 4.79756C5.0304 4.79756 5.3048 4.78157 5.6 4.75117V3.14561C5.34 3.17601 5.0736 3.19756 4.8 3.19756C3.3728 3.19996 2.0496 2.7248 1.6688 2.4Z" fill="#FFBE27"/>
+                                <path d="M11.2 4C9.6968 4 6.4 4.604 6.4 6.4V13.6C6.4 15.396 9.6968 16 11.2 16C12.7032 16 16 15.396 16 13.6V6.4C16 4.6048 12.704 4 11.2 4ZM14.4 8.72236C14.168 9.04236 12.7496 9.60078 11.2 9.60078C9.6512 9.60078 8.2328 9.04236 8 8.72236V8.17676C9.056 8.62156 10.388 8.8 11.2 8.8C12.012 8.8 13.344 8.62156 14.4 8.17676V8.72236ZM14.4 11.1224C14.168 11.4424 12.7496 12.0008 11.2 12.0008C9.6512 12.0008 8.2328 11.4424 8 11.1224V10.5768C9.056 11.0216 10.388 11.2 11.2 11.2C12.012 11.2 13.344 11.0216 14.4 10.5768V11.1224ZM11.2 5.6C12.628 5.6 13.9512 6.0752 14.3312 6.4C13.9504 6.7248 12.6272 7.2 11.2 7.2C9.7728 7.2 8.4496 6.7248 8.0688 6.4C8.4496 6.076 9.7728 5.6 11.2 5.6ZM11.2 14.4C9.6672 14.4 8.2544 13.852 8 13.5312V12.9768C9.056 13.4216 10.388 13.6 11.2 13.6C12.012 13.6 13.344 13.4216 14.4 12.9768V13.5312C14.1456 13.852 12.7328 14.4 11.2 14.4Z" fill="#FFBE27"/>
+                            </svg>
+                            Low prices
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14.6667 14.6664V5.99968C14.6667 5.63168 14.368 5.33302 14 5.33302H11.3333C10.9653 5.33302 10.6667 5.63168 10.6667 5.99968V14.6664H10V8.66635C10 8.29835 9.70133 7.99968 9.33333 7.99968H6.66667C6.29867 7.99968 6 8.29835 6 8.66635V14.6664H5.33333V11.333C5.33333 10.965 5.03467 10.6664 4.66667 10.6664H2C1.632 10.6664 1.33333 10.965 1.33333 11.333V14.6664H0V15.9997H16V14.6664H14.6667ZM2.66667 14.6664V11.9997H4V14.6664H2.66667ZM7.33333 14.6664V9.33302H8.66667V14.6664H7.33333ZM12 14.6664V6.66635H13.3333V14.6664H12Z" fill="#FFBE27"/>
+                                <path d="M2.47127 9.80433L9.99996 2.27634V4.00034H11.3333V0.000335693H7.33329V1.33367H9.05729L1.52865 8.86166L2.47127 9.80433Z" fill="#FFBE27"/>
+                            </svg>
+                            Social Media Boosts
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15.8944 6.0029L12.6944 0.403178C12.552 0.153591 12.2872 0 12 0H3.99999C3.71279 0 3.448 0.153591 3.3056 0.403178L0.105589 6.0029C-0.0592116 6.29008 -0.0288162 6.65006 0.180784 6.90605L7.38081 15.7064C7.53281 15.892 7.76 16 8 16C8.24 16 8.46719 15.8928 8.61919 15.7064L15.8192 6.90605C16.0288 6.65006 16.0592 6.29008 15.8944 6.0029ZM6.81362 5.59972L8 2.83106L9.18638 5.59972H6.81362ZM9.35279 7.19964L8 12.1594L6.64799 7.19964H9.35279ZM9.21363 1.59992H10.94L10.2496 4.01659L9.21363 1.59992ZM5.75121 4.01659L5.06078 1.59992H6.7872L5.75121 4.01659ZM4.5392 5.59972H2.1784L3.75199 2.84546L4.5392 5.59972ZM4.98881 7.19964L6.2392 11.7842L2.48797 7.19964H4.98881ZM11.0112 7.19964H13.512L9.76163 11.7842L11.0112 7.19964ZM11.4608 5.59972L12.248 2.84546L13.8216 5.59972H11.4608Z" fill="#FFBE27"/>
+                            </svg>
+                            Be on top of social media
+                        </p>
+                    </li>
+                </ul>
+                <div class="newsletter">
+                    <div class="newsletter-input-wrap">
+                        <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path opacity="0.5" d="M16.2 2H1.8C0.8073 2 0 2.828 0 3.84615V12.1538C0 13.172 0.8073 14 1.8 14H16.2C17.1927 14 18 13.172 18 12.1538V3.84615C18 2.828 17.1927 2 16.2 2ZM14.5017 3.84615L9 7.37322L3.4983 3.84615H14.5017ZM1.8 12.1538V4.93448L8.523 9.24433C8.6688 9.33756 8.8344 9.38462 9 9.38462C9.1656 9.38462 9.3312 9.33756 9.477 9.24433L16.2 4.93448L16.2009 12.1538H1.8Z" fill="white"/>
+                        </svg>
+                        <input class="newsletter-input" type="email" placeholder="Enter your Email...">
+                    </div>
+                    <a href="/signup" class="newsletter-btn">Get Started For Free</a>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="top-sec-img-wrap">
+                    <img class="top-sec-img lazyload" data-src="https://cdn4.mypanel.link/0a268b/8kpx7dl5fgt5i6qi.webp" src="https://cdn4.mypanel.link/0a268b/8kpx7dl5fgt5i6qi.webp" width="839px" height="522px">
+                    {#<img class="top-sec-img lazyload" data-src="https://cdn4.mypanel.link/0a268b/i8jmsrkhh58dmdul.webp" src="https://cdn4.mypanel.link/0a268b/i8jmsrkhh58dmdul.webp" width="839px" height="602px">#}
+                    {#<img class="top-sec-img lazyload" data-src="https://cdn4.mypanel.link/0a268b/yt9s55m3y9rc19h6.webp" src="https://cdn4.mypanel.link/0a268b/yt9s55m3y9rc19h6.webp" width="619px" height="687px">#}
+
+                    {#<img class="top-sec-img img-responsive lazyload" src="https://cdn4.mypanel.link/idhwx8/ib2np1a1bre26wge.webp" data-src="https://cdn4.mypanel.link/idhwx8/ib2np1a1bre26wge.webp" width="619px" height="774px">#}
+                </div>
+                {#
+                <div class="top-right">
+                  <img src="https://cdn4.mypanel.link/idhwx8/o8w6qaezk00e27z1.png" class="img-home-rating" width="186px" height="186px"/>
+                  <img src="https://cdn4.mypanel.link/idhwx8/jdchohqfbgrycbrx.png" class="yellow-icons-mask" width="580px" height="580px"/>
+                  <img src="https://cdn4.mypanel.link/idhwx8/x22s3l3iqd48zfax.png" class="person-background" width="501px" height="676px"/>
+                  <img src="https://cdn4.mypanel.link/idhwx8/6icdyn3emrec08k8.png" class="wave-mask" width="440px" height="440px"/>
+                </div>
+                #}
+            </div>
+        </div>
+        <head>
+            <link rel="“canonical”" href="“https://naizop.com/”"/>
+        </head>
+    </section>
+    <section id="stats-sec" data-aos="zoom-in" data-aos-easing="linear"
+             data-aos-duration="500">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <ul class="stats-ul">
+                        <li>
+                            <div class="stats-box-wap">
+                                <h3 class="stats-box-title">{{ totals['ordersAll']|number_format(0, '.', ',') }}</h3>
+                                <p class="stats-box-txt">Orders</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="stats-box-wap">
+                                <h3 class="stats-box-title">125,840,000</h3>
+                                <p class="stats-box-txt">followers delivered</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="stats-box-wap">
+                                <h3 class="stats-box-title">250,793,000</h3>
+                                <p class="stats-box-txt">likes delivered</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="stats-box-wap">
+                                <h3 class="stats-box-title">0.0001</h3>
+                                <p class="stats-box-txt">starting from price</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="stats-box-wap">
+                                <h3 class="stats-box-title">5000</h3>
+                                <p class="stats-box-txt">services</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="quality-serv">
+        <div class="container">
+            <div class="card-group">
+                <div class="card" data-aos="fade-right" data-aos-easing="linear"
+                     data-aos-duration="500">
+                    <svg width="30" height="30" viewBox="0 0 30 30" class="card-icon-black" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M19.62 5C23.5888 5 26.25 8.725 26.25 12.1938C26.25 19.235 15.2012 25 15 25C14.7988 25 3.75 19.235 3.75 12.1938C3.75 8.725 6.41125 5 10.38 5C12.6487 5 14.1387 6.13125 15 7.13875C15.8613 6.13125 17.3513 5 19.62 5Z" fill="black"/>
+                    </svg>
+                    <svg width="30" height="30" viewbox="0 0 30 30" class="card-icon-light" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M19.62 5C23.5888 5 26.25 8.725 26.25 12.1938C26.25 19.235 15.2013 25 15 25C14.7987 25 3.75 19.235 3.75 12.1938C3.75 8.725 6.41125 5 10.38 5C12.6488 5 14.1388 6.13125 15 7.13875C15.8612 6.13125 17.3512 5 19.62 5Z" fill="white"/>
+                    </svg>
+                    <div class="card-title">Easy-To-<br>Use
+
+
+                        <br></div>
+                    <p>Naizop’s interface is as easy to use as ABC. From account creation to placing your first order, the entire process takes less than 10 minutes.
+
+
+                    </p>
+                </div>
+                <div class="card real-views" data-aos="fade-right" data-aos-easing="linear"
+                     data-aos-duration="500">
+                    <svg width="30" height="30" viewBox="0 0 30 30" class="card-icon-black"  fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M30.9116 15.6C30.8741 15.5 29.8116 13.15 27.4616 10.7875C24.3241 7.6625 20.3616 6 15.9991 6C11.6366 6 7.67409 7.6625 4.53659 10.7875C2.18659 13.15 1.12409 15.5 1.08659 15.6C1.03078 15.726 1.00195 15.8622 1.00195 16C1.00195 16.1378 1.03078 16.274 1.08659 16.4C1.12409 16.5 2.18659 18.85 4.53659 21.2125C7.67409 24.3375 11.6366 26 15.9991 26C20.3616 26 24.3241 24.3375 27.4616 21.2125C29.8116 18.85 30.8741 16.5 30.9116 16.4C30.9674 16.274 30.9962 16.1378 30.9962 16C30.9962 15.8622 30.9674 15.726 30.9116 15.6V15.6ZM15.9991 11.5C16.8891 11.5 17.7591 11.7639 18.4992 12.2584C19.2392 12.7529 19.816 13.4557 20.1566 14.2779C20.4971 15.1002 20.5863 16.005 20.4126 16.8779C20.239 17.7508 19.8104 18.5526 19.1811 19.182C18.5517 19.8113 17.7499 20.2399 16.877 20.4135C16.0041 20.5872 15.0993 20.4981 14.277 20.1575C13.4548 19.8169 12.7519 19.2401 12.2575 18.5001C11.763 17.76 11.4991 16.89 11.4991 16C11.4991 14.8065 11.9732 13.6619 12.8171 12.818C13.661 11.9741 14.8056 11.5 15.9991 11.5V11.5Z" fill="black"/>
+                    </svg>
+                    <svg width="30" height="30" viewBox="0 0 30 30" class="card-icon-light" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M30.9116 15.6C30.8741 15.5 29.8116 13.15 27.4616 10.7875C24.3241 7.6625 20.3616 6 15.9991 6C11.6366 6 7.67409 7.6625 4.53659 10.7875C2.18659 13.15 1.12409 15.5 1.08659 15.6C1.03078 15.726 1.00195 15.8622 1.00195 16C1.00195 16.1378 1.03078 16.274 1.08659 16.4C1.12409 16.5 2.18659 18.85 4.53659 21.2125C7.67409 24.3375 11.6366 26 15.9991 26C20.3616 26 24.3241 24.3375 27.4616 21.2125C29.8116 18.85 30.8741 16.5 30.9116 16.4C30.9674 16.274 30.9962 16.1378 30.9962 16C30.9962 15.8622 30.9674 15.726 30.9116 15.6ZM15.9991 11.5C16.8891 11.5 17.7591 11.7639 18.4992 12.2584C19.2392 12.7529 19.816 13.4557 20.1566 14.2779C20.4971 15.1002 20.5863 16.005 20.4126 16.8779C20.239 17.7508 19.8104 18.5526 19.1811 19.182C18.5517 19.8113 17.7499 20.2399 16.877 20.4135C16.0041 20.5872 15.0993 20.4981 14.277 20.1575C13.4548 19.8169 12.7519 19.2401 12.2575 18.5001C11.763 17.76 11.4991 16.89 11.4991 16C11.4991 14.8065 11.9732 13.6619 12.8171 12.818C13.661 11.9741 14.8056 11.5 15.9991 11.5Z" fill="white"/>
+                    </svg>
+                    <div class="card-title">Live Chat Support
+
+                        <br></div>
+                    <p>Our friendly and quick-response support team is available 24/7.
+                        If you feel off-track, our team is here to guide and take you by hand through the whole process.
+
+                    </p>
+                </div>
+                <div class="card" data-aos="fade-left" data-aos-easing="linear"
+                     data-aos-duration="500">
+                    <svg width="30" height="30" viewBox="0 0 32 32" class="card-icon-black"  fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M27.125 4.38751C26.8574 4.20371 26.5489 4.08823 26.2264 4.05119C25.9039 4.01415 25.5773 4.05666 25.275 4.17501C23.525 4.86251 19.975 6.00001 16 6.00001C12.025 6.00001 8.475 4.86251 6.725 4.17501C6.42201 4.05716 6.09487 4.01495 5.77189 4.05203C5.44891 4.08911 5.13984 4.20436 4.87145 4.38781C4.60305 4.57125 4.38342 4.81736 4.23157 5.10482C4.07972 5.39227 4.00024 5.71241 4 6.03751V13C4 17.475 5.2125 21.6875 7.4 24.875C9.5875 28.0625 12.725 30 16 30C19.275 30 22.3375 28.1875 24.6 24.875C26.8625 21.5625 28 17.475 28 13V6.03751C28.0005 5.71185 27.921 5.39105 27.7684 5.10333C27.6158 4.81562 27.3949 4.5698 27.125 4.38751V4.38751ZM10.0125 16.6625C9.92555 16.7611 9.82002 16.8415 9.70195 16.8993C9.58388 16.9571 9.45558 16.991 9.32439 16.9991C9.1932 17.0072 9.0617 16.9894 8.9374 16.9467C8.8131 16.9039 8.69845 16.8371 8.6 16.75C8.50231 16.6622 8.42287 16.556 8.36623 16.4375C8.30958 16.319 8.27685 16.1905 8.26988 16.0593C8.26292 15.9281 8.28186 15.7969 8.32564 15.673C8.36941 15.5492 8.43715 15.4352 8.525 15.3375C8.89797 14.9166 9.356 14.5797 9.86884 14.3489C10.3817 14.1181 10.9376 13.9988 11.5 13.9988C12.0624 13.9988 12.6183 14.1181 13.1312 14.3489C13.644 14.5797 14.102 14.9166 14.475 15.3375C14.5628 15.4352 14.6306 15.5492 14.6744 15.673C14.7181 15.7969 14.7371 15.9281 14.7301 16.0593C14.7232 16.1905 14.6904 16.319 14.6338 16.4375C14.5771 16.556 14.4977 16.6622 14.4 16.75C14.2165 16.9104 13.9812 16.9991 13.7375 17C13.5957 17.0001 13.4555 16.9701 13.3262 16.9119C13.1969 16.8537 13.0814 16.7687 12.9875 16.6625C12.7999 16.4538 12.5706 16.2869 12.3143 16.1727C12.058 16.0585 11.7806 15.9994 11.5 15.9994C11.2194 15.9994 10.942 16.0585 10.6857 16.1727C10.4294 16.2869 10.2001 16.4538 10.0125 16.6625V16.6625ZM19.875 22.8375C18.725 23.5961 17.3776 24.0004 16 24.0004C14.6224 24.0004 13.275 23.5961 12.125 22.8375C11.9071 22.6879 11.7564 22.459 11.705 22.1997C11.6537 21.9405 11.7057 21.6714 11.85 21.45C11.9221 21.3398 12.0152 21.245 12.124 21.1708C12.2328 21.0967 12.3551 21.0448 12.484 21.0181C12.613 20.9914 12.7459 20.9904 12.8752 21.0152C13.0045 21.04 13.1276 21.09 13.2375 21.1625C14.0553 21.7086 15.0166 22 16 22C16.9834 22 17.9447 21.7086 18.7625 21.1625C18.8724 21.09 18.9955 21.04 19.1248 21.0152C19.2541 20.9904 19.387 20.9914 19.516 21.0181C19.6449 21.0448 19.7672 21.0967 19.876 21.1708C19.9848 21.245 20.0779 21.3398 20.15 21.45C20.2943 21.6714 20.3463 21.9405 20.295 22.1997C20.2436 22.459 20.0929 22.6879 19.875 22.8375V22.8375ZM23.4 16.75C23.2165 16.9104 22.9812 16.9991 22.7375 17C22.5957 17.0001 22.4555 16.9701 22.3262 16.9119C22.1969 16.8537 22.0814 16.7687 21.9875 16.6625C21.7999 16.4538 21.5706 16.2869 21.3143 16.1727C21.058 16.0585 20.7806 15.9994 20.5 15.9994C20.2194 15.9994 19.942 16.0585 19.6857 16.1727C19.4294 16.2869 19.2001 16.4538 19.0125 16.6625C18.9256 16.7611 18.82 16.8415 18.702 16.8993C18.5839 16.9571 18.4556 16.991 18.3244 16.9991C18.1932 17.0072 18.0617 16.9894 17.9374 16.9467C17.8131 16.9039 17.6985 16.8371 17.6 16.75C17.5023 16.6622 17.4229 16.556 17.3662 16.4375C17.3096 16.319 17.2768 16.1905 17.2699 16.0593C17.2629 15.9281 17.2819 15.7969 17.3256 15.673C17.3694 15.5492 17.4372 15.4352 17.525 15.3375C17.898 14.9166 18.356 14.5797 18.8688 14.3489C19.3817 14.1181 19.9376 13.9988 20.5 13.9988C21.0624 13.9988 21.6183 14.1181 22.1312 14.3489C22.644 14.5797 23.102 14.9166 23.475 15.3375C23.5628 15.4352 23.6306 15.5492 23.6744 15.673C23.7181 15.7969 23.7371 15.9281 23.7301 16.0593C23.7232 16.1905 23.6904 16.319 23.6338 16.4375C23.5771 16.556 23.4977 16.6622 23.4 16.75V16.75Z" fill="black"/>
+                    </svg>
+                    <svg width="30" height="30" viewbox="0 0 32 32" class="card-icon-light" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M27.125 4.38751C26.8574 4.20371 26.5489 4.08823 26.2264 4.05119C25.9039 4.01415 25.5773 4.05666 25.275 4.17501C23.525 4.86251 19.975 6.00001 16 6.00001C12.025 6.00001 8.475 4.86251 6.725 4.17501C6.42201 4.05716 6.09487 4.01495 5.77189 4.05203C5.44891 4.08911 5.13984 4.20436 4.87145 4.38781C4.60305 4.57125 4.38342 4.81736 4.23157 5.10482C4.07972 5.39227 4.00024 5.71241 4 6.03751V13C4 17.475 5.2125 21.6875 7.4 24.875C9.5875 28.0625 12.725 30 16 30C19.275 30 22.3375 28.1875 24.6 24.875C26.8625 21.5625 28 17.475 28 13V6.03751C28.0005 5.71185 27.921 5.39105 27.7684 5.10333C27.6158 4.81562 27.3949 4.5698 27.125 4.38751ZM10.0125 16.6625C9.92555 16.7611 9.82002 16.8415 9.70195 16.8993C9.58388 16.9571 9.45558 16.991 9.32439 16.9991C9.1932 17.0072 9.0617 16.9894 8.9374 16.9467C8.8131 16.9039 8.69845 16.8371 8.6 16.75C8.50231 16.6622 8.42287 16.556 8.36623 16.4375C8.30958 16.319 8.27685 16.1905 8.26988 16.0593C8.26292 15.9281 8.28186 15.7969 8.32564 15.673C8.36941 15.5492 8.43715 15.4352 8.525 15.3375C8.89797 14.9166 9.356 14.5797 9.86884 14.3489C10.3817 14.1181 10.9376 13.9988 11.5 13.9988C12.0624 13.9988 12.6183 14.1181 13.1312 14.3489C13.644 14.5797 14.102 14.9166 14.475 15.3375C14.5628 15.4352 14.6306 15.5492 14.6744 15.673C14.7181 15.7969 14.7371 15.9281 14.7301 16.0593C14.7232 16.1905 14.6904 16.319 14.6338 16.4375C14.5771 16.556 14.4977 16.6622 14.4 16.75C14.2165 16.9104 13.9812 16.9991 13.7375 17C13.5957 17.0001 13.4555 16.9701 13.3262 16.9119C13.1969 16.8537 13.0814 16.7687 12.9875 16.6625C12.7999 16.4538 12.5706 16.2869 12.3143 16.1727C12.058 16.0585 11.7806 15.9994 11.5 15.9994C11.2194 15.9994 10.942 16.0585 10.6857 16.1727C10.4294 16.2869 10.2001 16.4538 10.0125 16.6625ZM19.875 22.8375C18.725 23.5961 17.3776 24.0004 16 24.0004C14.6224 24.0004 13.275 23.5961 12.125 22.8375C11.9071 22.6879 11.7564 22.459 11.705 22.1997C11.6537 21.9405 11.7057 21.6714 11.85 21.45C11.9221 21.3398 12.0152 21.245 12.124 21.1708C12.2328 21.0967 12.3551 21.0448 12.484 21.0181C12.613 20.9914 12.7459 20.9904 12.8752 21.0152C13.0045 21.04 13.1276 21.09 13.2375 21.1625C14.0553 21.7086 15.0166 22 16 22C16.9834 22 17.9447 21.7086 18.7625 21.1625C18.8724 21.09 18.9955 21.04 19.1248 21.0152C19.2541 20.9904 19.387 20.9914 19.516 21.0181C19.6449 21.0448 19.7672 21.0967 19.876 21.1708C19.9848 21.245 20.0779 21.3398 20.15 21.45C20.2943 21.6714 20.3463 21.9405 20.295 22.1997C20.2436 22.459 20.0929 22.6879 19.875 22.8375ZM23.4 16.75C23.2165 16.9104 22.9812 16.9991 22.7375 17C22.5957 17.0001 22.4555 16.9701 22.3262 16.9119C22.1969 16.8537 22.0814 16.7687 21.9875 16.6625C21.7999 16.4538 21.5706 16.2869 21.3143 16.1727C21.058 16.0585 20.7806 15.9994 20.5 15.9994C20.2194 15.9994 19.942 16.0585 19.6857 16.1727C19.4294 16.2869 19.2001 16.4538 19.0125 16.6625C18.9256 16.7611 18.82 16.8415 18.702 16.8993C18.5839 16.9571 18.4556 16.991 18.3244 16.9991C18.1932 17.0072 18.0617 16.9894 17.9374 16.9467C17.8131 16.9039 17.6985 16.8371 17.6 16.75C17.5023 16.6622 17.4229 16.556 17.3662 16.4375C17.3096 16.319 17.2768 16.1905 17.2699 16.0593C17.2629 15.9281 17.2819 15.7969 17.3256 15.673C17.3694 15.5492 17.4372 15.4352 17.525 15.3375C17.898 14.9166 18.356 14.5797 18.8688 14.3489C19.3817 14.1181 19.9376 13.9988 20.5 13.9988C21.0624 13.9988 21.6183 14.1181 22.1312 14.3489C22.644 14.5797 23.102 14.9166 23.475 15.3375C23.5628 15.4352 23.6306 15.5492 23.6744 15.673C23.7181 15.7969 23.7371 15.9281 23.7301 16.0593C23.7232 16.1905 23.6904 16.319 23.6338 16.4375C23.5771 16.556 23.4977 16.6622 23.4 16.75Z" fill="white"/>
+                    </svg>
+                    <div class="card-title">Super
+                        <br>Instant Results</div>
+                    <p>Most services start within 5 minutes. Speeds range from 2 Million/Day to 50/Day. This gives you the freedom to choose your desired speed according to your needs.
+                    </p>
+                </div>
+                <div class="card" data-aos="fade-left" data-aos-easing="linear"
+                     data-aos-duration="500">
+                    <svg width="30" height="30" viewBox="0 0 30 30" class="card-icon-black" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M20 30C25.5228 30 30 25.5228 30 20C30 14.4772 25.5228 10 20 10V20H10C10 25.5228 14.4772 30 20 30Z" fill="black"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M20 10C20 4.47715 15.5228 0 10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20V10H20Z" fill="black"/>
+                    </svg>
+                    <svg width="30" height="30" viewbox="0 0 30 30" class="card-icon-light" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M20 30C25.5228 30 30 25.5228 30 20C30 14.4772 25.5228 10 20 10V20H10C10 25.5228 14.4772 30 20 30Z" fill="white"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M20 10C20 4.47715 15.5228 0 10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20V10H20Z" fill="white"/>
+                    </svg>
+                    <div class="card-title">Support
+                        <br>Real Traffic</div>
+                    <p> While other panels leave your account at risk, with our “Real-Quality” services, your account is safe and protected from any restrictions. Get 100% real traffic today.
+                    </p>
+                </div>
+            </div>
+            <div class="card-group-mobile" data-aos="zoom-in" data-aos-easing="linear"
+                 data-aos-duration="500">
+                <div class="d-flex">
+                    <div class="card-mobile">
+                        <svg width="30" height="30" viewbox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.62 5C23.5888 5 26.25 8.725 26.25 12.1938C26.25 19.235 15.2013 25 15 25C14.7987 25 3.75 19.235 3.75 12.1938C3.75 8.725 6.41125 5 10.38 5C12.6488 5 14.1388 6.13125 15 7.13875C15.8612 6.13125 17.3512 5 19.62 5Z" fill="white"/>
+                        </svg>
+                        Easy-To-
+                        <br>
+                        Use
+                        <p>Naizop’s interface is as easy to use as ABC. From account creation to placing your first order, the entire process takes less than 10 minutes. </p>
+                    </div>
+                    <div class="card-mobile">
+                        <svg width="30" height="30" viewbox="0 0 30 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M29.9126 9.6C29.8751 9.5 28.8126 7.15 26.4626 4.7875C23.3251 1.6625 19.3626 0 15.0001 0C10.6376 0 6.67507 1.6625 3.53757 4.7875C1.18757 7.15 0.12507 9.5 0.0875696 9.6C0.0317608 9.72597 0.00292969 9.86222 0.00292969 10C0.00292969 10.1378 0.0317608 10.274 0.0875696 10.4C0.12507 10.5 1.18757 12.85 3.53757 15.2125C6.67507 18.3375 10.6376 20 15.0001 20C19.3626 20 23.3251 18.3375 26.4626 15.2125C28.8126 12.85 29.8751 10.5 29.9126 10.4C29.9684 10.274 29.9972 10.1378 29.9972 10C29.9972 9.86222 29.9684 9.72597 29.9126 9.6ZM15.0001 5.5C15.8901 5.5 16.7601 5.76392 17.5001 6.25839C18.2402 6.75285 18.8169 7.45566 19.1575 8.27792C19.4981 9.10019 19.5872 10.005 19.4136 10.8779C19.24 11.7508 18.8114 12.5526 18.182 13.182C17.5527 13.8113 16.7509 14.2399 15.878 14.4135C15.0051 14.5872 14.1003 14.4981 13.278 14.1575C12.4557 13.8169 11.7529 13.2401 11.2585 12.5001C10.764 11.76 10.5001 10.89 10.5001 10C10.5001 8.80653 10.9742 7.66193 11.8181 6.81802C12.662 5.97411 13.8066 5.5 15.0001 5.5Z" fill="white"/>
+                        </svg>
+                        Live Chat
+                        <br>
+                        Support
+                        <p>Our friendly and quick-response support team is available 24/7. If you feel off-track, our team is here to guide and take you by hand through the whole process. </p>
+                    </div>
+                </div>
+                <div class="d-flex">
+                    <div class="card-mobile">
+                        <svg width="30" height="30" viewbox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M27.125 4.38751C26.8574 4.20371 26.5489 4.08823 26.2264 4.05119C25.9039 4.01415 25.5773 4.05666 25.275 4.17501C23.525 4.86251 19.975 6.00001 16 6.00001C12.025 6.00001 8.475 4.86251 6.725 4.17501C6.42201 4.05716 6.09487 4.01495 5.77189 4.05203C5.44891 4.08911 5.13984 4.20436 4.87145 4.38781C4.60305 4.57125 4.38342 4.81736 4.23157 5.10482C4.07972 5.39227 4.00024 5.71241 4 6.03751V13C4 17.475 5.2125 21.6875 7.4 24.875C9.5875 28.0625 12.725 30 16 30C19.275 30 22.3375 28.1875 24.6 24.875C26.8625 21.5625 28 17.475 28 13V6.03751C28.0005 5.71185 27.921 5.39105 27.7684 5.10333C27.6158 4.81562 27.3949 4.5698 27.125 4.38751ZM10.0125 16.6625C9.92555 16.7611 9.82002 16.8415 9.70195 16.8993C9.58388 16.9571 9.45558 16.991 9.32439 16.9991C9.1932 17.0072 9.0617 16.9894 8.9374 16.9467C8.8131 16.9039 8.69845 16.8371 8.6 16.75C8.50231 16.6622 8.42287 16.556 8.36623 16.4375C8.30958 16.319 8.27685 16.1905 8.26988 16.0593C8.26292 15.9281 8.28186 15.7969 8.32564 15.673C8.36941 15.5492 8.43715 15.4352 8.525 15.3375C8.89797 14.9166 9.356 14.5797 9.86884 14.3489C10.3817 14.1181 10.9376 13.9988 11.5 13.9988C12.0624 13.9988 12.6183 14.1181 13.1312 14.3489C13.644 14.5797 14.102 14.9166 14.475 15.3375C14.5628 15.4352 14.6306 15.5492 14.6744 15.673C14.7181 15.7969 14.7371 15.9281 14.7301 16.0593C14.7232 16.1905 14.6904 16.319 14.6338 16.4375C14.5771 16.556 14.4977 16.6622 14.4 16.75C14.2165 16.9104 13.9812 16.9991 13.7375 17C13.5957 17.0001 13.4555 16.9701 13.3262 16.9119C13.1969 16.8537 13.0814 16.7687 12.9875 16.6625C12.7999 16.4538 12.5706 16.2869 12.3143 16.1727C12.058 16.0585 11.7806 15.9994 11.5 15.9994C11.2194 15.9994 10.942 16.0585 10.6857 16.1727C10.4294 16.2869 10.2001 16.4538 10.0125 16.6625ZM19.875 22.8375C18.725 23.5961 17.3776 24.0004 16 24.0004C14.6224 24.0004 13.275 23.5961 12.125 22.8375C11.9071 22.6879 11.7564 22.459 11.705 22.1997C11.6537 21.9405 11.7057 21.6714 11.85 21.45C11.9221 21.3398 12.0152 21.245 12.124 21.1708C12.2328 21.0967 12.3551 21.0448 12.484 21.0181C12.613 20.9914 12.7459 20.9904 12.8752 21.0152C13.0045 21.04 13.1276 21.09 13.2375 21.1625C14.0553 21.7086 15.0166 22 16 22C16.9834 22 17.9447 21.7086 18.7625 21.1625C18.8724 21.09 18.9955 21.04 19.1248 21.0152C19.2541 20.9904 19.387 20.9914 19.516 21.0181C19.6449 21.0448 19.7672 21.0967 19.876 21.1708C19.9848 21.245 20.0779 21.3398 20.15 21.45C20.2943 21.6714 20.3463 21.9405 20.295 22.1997C20.2436 22.459 20.0929 22.6879 19.875 22.8375ZM23.4 16.75C23.2165 16.9104 22.9812 16.9991 22.7375 17C22.5957 17.0001 22.4555 16.9701 22.3262 16.9119C22.1969 16.8537 22.0814 16.7687 21.9875 16.6625C21.7999 16.4538 21.5706 16.2869 21.3143 16.1727C21.058 16.0585 20.7806 15.9994 20.5 15.9994C20.2194 15.9994 19.942 16.0585 19.6857 16.1727C19.4294 16.2869 19.2001 16.4538 19.0125 16.6625C18.9256 16.7611 18.82 16.8415 18.702 16.8993C18.5839 16.9571 18.4556 16.991 18.3244 16.9991C18.1932 17.0072 18.0617 16.9894 17.9374 16.9467C17.8131 16.9039 17.6985 16.8371 17.6 16.75C17.5023 16.6622 17.4229 16.556 17.3662 16.4375C17.3096 16.319 17.2768 16.1905 17.2699 16.0593C17.2629 15.9281 17.2819 15.7969 17.3256 15.673C17.3694 15.5492 17.4372 15.4352 17.525 15.3375C17.898 14.9166 18.356 14.5797 18.8688 14.3489C19.3817 14.1181 19.9376 13.9988 20.5 13.9988C21.0624 13.9988 21.6183 14.1181 22.1312 14.3489C22.644 14.5797 23.102 14.9166 23.475 15.3375C23.5628 15.4352 23.6306 15.5492 23.6744 15.673C23.7181 15.7969 23.7371 15.9281 23.7301 16.0593C23.7232 16.1905 23.6904 16.319 23.6338 16.4375C23.5771 16.556 23.4977 16.6622 23.4 16.75Z" fill="white"/>
+                        </svg>
+                        Super Instant
+                        <br>
+                        Results
+                        <p>Most services start within 5 minutes. Speeds range from 2 Million/Day to 50/Day. This gives you the freedom to choose your desired speed according to your needs. </p>
+                    </div>
+                    <div class="card-mobile">
+                        <svg width="30" height="30" viewbox="0 0 30 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M20 29C25.5228 29 30 24.672 30 19.3333C30 13.9945 25.5228 9.66663 20 9.66663V19.3333H10C10 24.672 14.4772 29 20 29Z" fill="white"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M20 9.66667L10 9.66666V19.3333H10.0156C10.0104 19.3333 10.0052 19.3333 10 19.3333C4.47715 19.3333 0 15.0054 0 9.66667C0 4.32791 4.47715 0 10 0C15.5228 0 20 4.32791 20 9.66667Z" fill="white"/>
+                        </svg>
+                        Real
+                        <br>
+                        Traffic
+                        <p> While other panels leave your account at risk, with our “Real-Quality” services, your account is safe and protected from any restrictions. Get 100% real traffic today. </p>
+                    </div>
+                </div>
+            </div>
+            <div class="explanation" data-aos="zoom-in" data-aos-easing="linear"
+                 data-aos-duration="500">
+                <div class="container">
+                    <h2>How it works?</h2>
+                    <div
+                            id="exp-myCarousel" class="carousel slide" data-ride="carousel">
+                        <!-- Slides -->
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <div class="caption">1. Sign Up:</div>
+                                <div style="height: 360px;">
+                                    <img class="lazyload" src="https://cdn4.mypanel.link/idhwx8/xf7exuncmehph3ui.webp" data-src="https://cdn4.mypanel.link/idhwx8/xf7exuncmehph3ui.webp" alt="Image 1">
+                                </div>
+                                <div class="content">
+                                    <h3>Sign Up</h3>
+                                    <p>Click the “Get Started For Free” button and create your free account. Choose your username, enter your email, create a strong password, and hit the “Sign Up” button. It’s that easy!</p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="caption">2. Add Funds:</div>
+                                <div style="height: 360px;">
+                                    <img class="lazyload" src="https://cdn.mypanel.link/0a268b/oc3w0nq7254uwle0.webp" data-src="https://cdn.mypanel.link/0a268b/oc3w0nq7254uwle0.webp" alt="Image 2">
+                                </div>
+                                <div class="content">
+                                    <h3>Add Funds</h3>
+                                    <p>Choose your preferred method of payment to add funds to your account. Your funds will instantly appear in your Naizop balance. If they somehow don’t, contact our team member and the issue will be resolved.
+
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="caption">3. Place An Order:
+                                </div>
+                                <div style="height: 360px;">
+                                    <img class="lazyload" src="https://cdn.mypanel.link/0a268b/g0agukfsw15bjcxf.webp" data-src="https://cdn.mypanel.link/0a268b/g0agukfsw15bjcxf.webp" alt="Image 3">
+                                </div>
+                                <div class="content">
+                                    <h3>Place An Order</h3>
+                                    <p>Choose your desired service, enter quantity and link, and click “Submit”. Congratulations! Your order has been placed. Sit back, relax, and watch those desirable notifications popping up.
+                                    </p>
+                                </div>
+                            </div>
+                            {#<div class="item">
+              <div class="caption">4. Enjoy our services
+              </div>
+              <div style="height: 360px;">
+                <img class="lazyload" src="https://cdn4.mypanel.link/idhwx8/ybuduo7awfrxijhh.webp" data-src="https://cdn4.mypanel.link/idhwx8/ybuduo7awfrxijhh.webp" alt="Image 3">
+              </div>
+              <div class="content">
+                <h3>Lorem ipsum dolor sit amet</h3>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
+                <p style="margin-top: 25px;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Lorem ipsum dolor sit amet, consectetuer adipiscing
+                </p>
+              </div>
+              </div>#}
+                        </div>
+
+                        <!-- Controls -->
+                        <div class="carousel-control-wrap">
+                            <a class="left carousel-control" href="#exp-myCarousel" data-slide="prev"></a>
+                            <a class="right carousel-control" href="#exp-myCarousel" data-slide="next"></a>
+                        </div>
+                    </div>
+                    <a href="/signup" class="get-started-bt">
+                        <div>Get Started Now</div>
+                        <svg width="39" height="27" viewbox="0 0 43 18" class="icon" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect y="7.86426" width="40" height="2" rx="1" fill="#070B20"/>
+                            <path d="M35.8633 12.8995L35.8633 4.82843L39.8988 8.86397L35.8633 12.8995Z" stroke="#070B20" stroke-width="4"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="explanation-desktop" data-aos="zoom-in" data-aos-easing="linear"
+                 data-aos-duration="500">
+                <div class="how-it-work" id="how-it-work">
+                    <div style="font-size: 30px; font-weight: 400; margin-bottom: 74px; color: #fff;">How it works?</div>
+                    <p style="padding-bottom: 16px; position: relative;" class="exp-bt active">1. Sign Up:
+                        <svg width="360" height="1" viewbox="0 0 360 1" id="exp-bt-border" style="position: absolute; top: 57px; left: -2px;" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <line y1="0.5" x2="360" y2="0.5" stroke="url(#paint0_linear_6636_112662)"/>
+                            <defs>
+                                <linearGradient id="paint0_linear_6636_112662" x1="6.90026e-08" y1="1.99978" x2="330" y2="1.99976" gradientunits="userSpaceOnUse">
+                                    <stop stop-color="white"/>
+                                    <stop offset="1" stop-color="white" stop-opacity="0"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <img class="lazyload" src="https://cdn.mypanel.link/0a268b/xapox5ozg8odw4yp.png" data-src="https://cdn.mypanel.link/0a268b/xapox5ozg8odw4yp.png" id="exp-bt-mask"class="how-it-work-mask" width="200px" height="200px"/>
+                    </p>
+                    <p class="exp-bt">2. Add Funds:</p>
+                    <p class="exp-bt">3. Place An Order:</p>
+                </div>
+                <div class="photo">
+                    <img src="https://cdn4.mypanel.link/idhwx8/xf7exuncmehph3ui.webp" data-src="https://cdn4.mypanel.link/idhwx8/xf7exuncmehph3ui.webp" class="photo" id="exp-photo"/>
+                </div>
+                <div class="content">
+                    <div id="exp-content">
+                        <div class="header-title">
+                            Sign Up
+                        </div>
+                        <p>Click the “Get Started For Free” button and create your free account. Choose your username, enter your email, create a strong password, and hit the “Sign Up” button. It’s that easy!
+                        </p>
+                    </div>
+                    <a href="/signup" class="get-started-bt">
+                        <div>Get Started Now</div>
+                        <svg width="39" height="27" viewbox="0 0 43 18" class="icon" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect y="7.86426" width="40" height="2" rx="1" fill="#070B20"/>
+                            <path d="M35.8633 12.8995L35.8633 4.82843L39.8988 8.86397L35.8633 12.8995Z" stroke="#070B20" stroke-width="4"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <img class="bg-img lazyload" src="https://cdn.mypanel.link/0a268b/9xewhf15q75d58hi.webp" data-src="https://cdn.mypanel.link/0a268b/9xewhf15q75d58hi.webp"/>
+    </section>
+    <section id="panel-service">
+        <div class="container service-mobile" data-aos="zoom-in" data-aos-easing="linear"
+             data-aos-duration="500">
+            <div class="social-list">
+                <div class="item active">
+                    <div style="position: relative; height: 76px; ">
+                        <img class="lazyload" src="https://cdn.mypanel.link/0a268b/bxsjc4gct5wbz0nu.webp" data-src="https://cdn.mypanel.link/0a268b/bxsjc4gct5wbz0nu.webp" style="position: absolute; bottom: 0; left: -15px;"/>
+                    </div>
+                    <p class="service-mobile-text">The third most popular site in the world. According to stats: “350 million photos are uploaded every day.” How do you make your posts stand out then? No worries, we got you covered. Use our Instant delivery services today!</p>
+                    <div class="serviceHelp ser-mb-collapse collapse multi-collaps" id="serviceHelp">
+                        <p>Over 30 categories to serve all your Facebook needs.
+                        </p>
+                        <p>Most Popular Country Targeted Services.
+                        </p>
+                        <p>Hand-Picked Gender Targeted Services.</p>
+                        <p>Start time as low as 0 minutes.
+                        </p>
+                    </div>
+                    <a data-toggle="collapse" class="read-more" href="#serviceHelp" role="button" aria-expanded="false" aria-controls="serviceHelp">Read more</a>
+                    <div class="help-border"></div>
+                </div>
+                <div class="item">
+                    <img class="lazyload" src="https://cdn.mypanel.link/0a268b/xjuukkh3w0h1u5my.webp" data-src="https://cdn.mypanel.link/0a268b/xjuukkh3w0h1u5my.webp"/>
+                    <p class="service-mobile-text">With over 2.6 billion users, YouTube is the most popular video platform out there. Not only that, it is highly rewarding for popular YouTubers. So, do you want to get popular on YouTube and make your way to the top?
+                    </p>
+                    <div class="ser-mb-collapse collapse multi-collaps" id="youtube">
+                        <p>The best quality real and permanent subscribers.</p>
+                        <p>High-quality real views with high watch time(up to 1 hour).</p>
+                        <p>Hand-picked targeted services for every region.</p>
+                        <p>Enable monetization packages to start generating revenue.</p>
+                    </div>
+                    <a data-toggle="collapse"  class="read-more" href="#youtube" role="button" aria-expanded="false" aria-controls="youtube">Read more</a>
+                    <div class="help-border"></div>
+                </div>
+                <div class="item">
+                    <img class="lazyload" src="https://cdn.mypanel.link/0a268b/33rclh2c6eimw10c.webp" data-src="https://cdn.mypanel.link/0a268b/33rclh2c6eimw10c.webp"/>
+                    <p class="service-mobile-text">With 80+ categories, it is our top-demand platform. We have the most sought-after services for Instagram. From real & active users to blue-tick-verified, we have brought every possible service into existence.
+                    </p>
+                    <div class="ser-mb-collapse collapse multi-collaps" id="instagram">
+                        <p>Instagram video views that get videos viral.</p>
+                        <p>Likes from high-follower profiles that pull your audience's attention.</p>
+                        <p>Country and gender-targeted services to build a highly selective following.</p>
+                        <p>Reach services to turn the algorithm in your favor.</p>
+                    </div>
+                    <a data-toggle="collapse"  class="read-more" href="#instagram" role="button" aria-expanded="false" aria-controls="instagram">Read more</a>
+                    <div class="help-border"></div>
+                </div>
+                <div class="item">
+                    <img class="lazyload" src="https://cdn.mypanel.link/0a268b/13h4bt909tprftxg.webp" data-src="https://cdn.mypanel.link/0a268b/13h4bt909tprftxg.webp"/>
+                    <p class="service-mobile-text">With 229 million daily active users, X (Formerly known as Twitter) is the place to spread a new trend. According to stats: “82% of B2B content marketers use Twitter.”Get our Twitter services today and reap the benefits from this highly rewarding platform.</p>
+                    <div class="ser-mb-collapse collapse multi-collaps" id="twitter">
+                        <p>With 18 categories, access a treasure of Twitter growth.</p>
+                        <p>Followers and video views services of the highest quality.</p>
+                        <p>Poll votes services to get your trend popular.</p>
+                        <p>Crypto and NFT Services.</p>
+                    </div>
+                    <a data-toggle="collapse"  class="read-more" href="#twitter" role="button" aria-expanded="false" aria-controls="twitter">Read more</a>
+                    <div class="help-border"></div>
+                </div>
+            </div>
+        </div>
+        <div class="container service-desktop" data-aos="zoom-in" data-aos-easing="linear"
+             data-aos-duration="500">
+            <div class="service-part1">
+                <div class="social-list">
+                    <div class="item active facebook">
+                        <img class="lazyload" src="https://cdn.mypanel.link/0a268b/atriytaf2mrr85hd.webp" data-src="https://cdn.mypanel.link/0a268b/atriytaf2mrr85hd.webp" width="342px" height="130px"/>
+                        <p>The third most popular site in the world. According to stats: “350 million photos are uploaded every day.” How do you make your posts stand out then? No worries, we got you covered. Use our Instant delivery services today!</p>
+                    </div>
+                    <div class="item youtube">
+                        <img class="lazyload" src="https://cdn4.mypanel.link/idhwx8/zfqu38tlwprx7d6i.webp" data-src="https://cdn4.mypanel.link/idhwx8/zfqu38tlwprx7d6i.webp" width="189px" height="82px"/>
+                        <p>With over 2.6 billion users, YouTube is the most popular video platform out there. Not only that, it is highly rewarding for popular YouTubers. So, do you want to get popular on YouTube and make your way to the top?</p>
+                    </div>
+                    <div class="item instagram">
+                        <img class="lazyload" src="https://cdn.mypanel.link/0a268b/4bua91fmzdr7hwx4.webp" data-src="https://cdn.mypanel.link/0a268b/4bua91fmzdr7hwx4.webp" width="284px" height="103px"/>
+                        <p>With 80+ categories, it is our top-demand platform. We have the most sought-after services for Instagram. From real & active users to blue-tick-verified, we have brought every possible service into existence.</p>
+                    </div>
+                    <div class="item twitter">
+                        <img class="lazyload" src="https://cdn.mypanel.link/0a268b/22foz9bbhib8zwes.webp" data-src="https://cdn.mypanel.link/0a268b/22foz9bbhib8zwes.webp" width="239px" height="49px"/>
+                        <p>With 229 million daily active users, X (Formerly known as Twitter) is the place to spread a new trend. According to stats: “82% of B2B content marketers use Twitter.”Get our Twitter services today and reap the benefits from this highly rewarding platform.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="service-part2">
+                <p>Over 30 categories to serve all your Facebook needs.</p>
+                <p>Most Popular Country Targeted Services.</p>
+                <p>Hand-Picked Gender Targeted Services.</p>
+                <p>Start time as low as 0 minutes.</p>
+            </div>
+        </div>
+        <img src="https://cdn.mypanel.link/0a268b/9xewhf15q75d58hi.webp" data-src="https://cdn.mypanel.link/0a268b/9xewhf15q75d58hi.webp" class="panel-service-bg lazyload"/>
+    </section>
+    <section id="business">
+        <div class="business-carousel" data-aos="zoom-in" data-aos-easing="linear"
+             data-aos-duration="500">
+            <div class="owl-carousel owl-2">
+                <div class="owl-card">
+                    <img class="photo-bg lazyload" src="https://cdn.mypanel.link/0a268b/5olu2e2nukzllbhb.webp" data-src="https://cdn.mypanel.link/0a268b/5olu2e2nukzllbhb.webp" width="290px" height="290px"/>
+                    <img class="photo lazyload" src="https://cdn.mypanel.link/0a268b/qb58sn3810t5yq7u.webp" data-src="https://cdn.mypanel.link/0a268b/qb58sn3810t5yq7u.webp" width="220px" height="220px"/>
+                    <div class="name">Juliana T. <br>
+                        <img class="rating lazyload" src="https://cdn.mypanel.link/0a268b/zecg7bursf0stca6.webp" data-src="https://cdn.mypanel.link/0a268b/zecg7bursf0stca6.webp" width="200px" height="30px"/>
+                    </div>
+                    <svg width="400" class="border-line" height="1" viewBox="0 0 400 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line y1="0.5" x2="400" y2="0.5" stroke="url(#paint0_radial_6636_112718)" stroke-opacity="0.15"/>
+                        <defs>
+                            <radialGradient id="paint0_radial_6636_112718" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(-1.35458e-10 2.00701) scale(400 144400)">
+                                <stop stop-color="#C5EBFF" stop-opacity="0"/>
+                                <stop offset="0.499961" stop-color="#C5EBFF"/>
+                                <stop offset="1" stop-color="#C5EBFF" stop-opacity="0"/>
+                            </radialGradient>
+                        </defs>
+                    </svg>
+                    <p>
+                        Before using Naizop's services, our company's Twitter account was struggling to gain traction and reach our target audience. However, within a short period of time, Naizop's services helped us to significantly expand our Twitter following and increase our visibility on the platform. As a result, we were able to boost our sales and attract new customers to our business!
+                    </p>
+                </div>
+                <div class="owl-card">
+                    <img class="photo-bg lazyload" src="https://cdn.mypanel.link/0a268b/5olu2e2nukzllbhb.webp" data-src="https://cdn.mypanel.link/0a268b/5olu2e2nukzllbhb.webp" width="290px" height="290px"/>
+                    <img class="photo lazyload" src="https://cdn.mypanel.link/0a268b/j3i1qhke4g99tbio.webp" data-src="https://cdn.mypanel.link/0a268b/j3i1qhke4g99tbio.webp" width="220px" height="220px"/>
+                    <div class="name">Christian Buehner<br>
+                        <img class="rating lazyload" src="https://cdn.mypanel.link/0a268b/zecg7bursf0stca6.webp" data-src="https://cdn.mypanel.link/0a268b/zecg7bursf0stca6.webp" width="200px" height="30px"/>
+                    </div>
+                    <svg width="400" class="border-line" height="1" viewBox="0 0 400 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line y1="0.5" x2="400" y2="0.5" stroke="url(#paint0_radial_6636_112718)" stroke-opacity="0.15"/>
+                        <defs>
+                            <radialGradient id="paint0_radial_6636_112718" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(-1.35458e-10 2.00701) scale(400 144400)">
+                                <stop stop-color="#C5EBFF" stop-opacity="0"/>
+                                <stop offset="0.499961" stop-color="#C5EBFF"/>
+                                <stop offset="1" stop-color="#C5EBFF" stop-opacity="0"/>
+                            </radialGradient>
+                        </defs>
+                    </svg>
+                    <p>
+                        Naizop has proven to be the go-to choice for anyone seeking an effective and reliable SMM service. Their commitment to delivering high-quality interactions and their ability to elevate your online presence are unparalleled. I wholeheartedly express my gratitude to Naizop and highly recommend their services to anyone in need of social media boosting.
+                    </p>
+                </div>
+                <div class="owl-card">
+                    <img class="photo-bg lazyload" src="https://cdn.mypanel.link/0a268b/5olu2e2nukzllbhb.webp" data-src="https://cdn.mypanel.link/0a268b/5olu2e2nukzllbhb.webp" width="290px" height="290px"/>
+                    <img class="photo lazyload" src="https://cdn.mypanel.link/0a268b/8m0yihkp8tjw9dci.webp" data-src="https://cdn.mypanel.link/0a268b/8m0yihkp8tjw9dci.webp" width="220px" height="220px"/>
+                    <div class="name">Robert <br>
+                        <img class="rating lazyload" src="https://cdn.mypanel.link/0a268b/zecg7bursf0stca6.webp" data-src="https://cdn.mypanel.link/0a268b/zecg7bursf0stca6.webp" width="200px" height="30px"/>
+                    </div>
+                    <svg width="400" class="border-line" height="1" viewBox="0 0 400 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line y1="0.5" x2="400" y2="0.5" stroke="url(#paint0_radial_6636_112718)" stroke-opacity="0.15"/>
+                        <defs>
+                            <radialGradient id="paint0_radial_6636_112718" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(-1.35458e-10 2.00701) scale(400 144400)">
+                                <stop stop-color="#C5EBFF" stop-opacity="0"/>
+                                <stop offset="0.499961" stop-color="#C5EBFF"/>
+                                <stop offset="1" stop-color="#C5EBFF" stop-opacity="0"/>
+                            </radialGradient>
+                        </defs>
+                    </svg>
+                    <p>
+                        I've been utilizing this platform for over a month, and I must say it's the top panel I've come across! 👏 Every service functions perfectly and comes at an affordable price. Additionally, the ticket support is remarkably swift and supportive.
+                    </p>
+                </div>
+            </div>
+            <a href="/signup" class="get-started-bt">
+                <div>Get Started Now</div>
+                <svg width="39" height="27" viewbox="0 0 43 18" class="icon" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect y="7.86426" width="40" height="2" rx="1" fill="#070B20"/>
+                    <path d="M35.8633 12.8995L35.8633 4.82843L39.8988 8.86397L35.8633 12.8995Z" stroke="#070B20" stroke-width="4"/>
+                </svg>
+            </a>
+        </div>
+        <div class="unique-carousel" data-aos="zoom-in" data-aos-easing="linear"
+             data-aos-duration="500">
+            <div class="owl-carousel owl-3">
+                <div class="unique-card-group">
+                    <div class="context">
+            <span class="title core-title">
+              Highest Quality and Lowest Prices
+            </span>
+                        <p>At Naizop, we offer top-quality services at prices that are simply pennies on the dollar. That’s why, when it comes to social growth, Naizop is the secret weapon of top influencers and brands. </p>
+                        <a href="#">More about prices
+                            <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2.5 1H9.5M9.5 1V8M9.5 1L1 9.5" stroke="#91F2CF" stroke-width="1.4"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="photo">
+                        <img class="lazyload" src="https://cdn.mypanel.link/0a268b/nylb42ay45zj6qd9.webp" data-src="https://cdn.mypanel.link/0a268b/nylb42ay45zj6qd9.webp" width="420px" height="520px"/>
+                    </div>
+                </div>
+                <div class="unique-card-group">
+                    <div class="context">
+                        <span class="title">Everything for Everyone</span>
+                        <p>Whether Instagram Followers, YouTube Subscribers, or TikTok Views, Naizop is your one-station solution. With over 2,000 services for 10+ social platforms, you are growing every social platform from one place.</p>
+                    </div>
+                    <div class="photo">
+                        <img class="lazyload" src="https://cdn.mypanel.link/0a268b/nylb42ay45zj6qd9.webp" data-src="https://cdn.mypanel.link/0a268b/nylb42ay45zj6qd9.webp" width="420px" height="520px"/>
+                    </div>
+                </div>
+                <div class="unique-card-group">
+                    <div class="context">
+                        <span class="title">Only Tested Services</span>
+                        <p>Unlike any other panel, our services are rigorously tested and proven to meet the mentioned quality standards. So, you can choose any service that best suits your needs and stay assured that you’ll receive what’s promised.</p>
+                    </div>
+                    <div class="photo">
+                        <img class="lazyload" src="https://cdn.mypanel.link/0a268b/nylb42ay45zj6qd9.webp" data-src="https://cdn.mypanel.link/0a268b/nylb42ay45zj6qd9.webp" width="420px" height="520px"/>
+                    </div>
+                </div>
+                <div class="unique-card-group">
+                    <div class="context">
+            <span class="title">What makes our customers love Naizop?
+            </span>
+                        <p>While paid ads and influencer shoutouts can be effective…
+                            They come with an earth-shattering cost and a grueling amount of time.
+
+                            That’s where Naizop comes in. With features such as custom speed, gender, country, and many more… Our customers are building credibility in their selective circle at an insanely low cost.
+
+                            So… Are you ready to boost your social media growth today?
+                        </p>
+                    </div>
+                    <div class="photo">
+                        <img class="lazyload" src="https://cdn.mypanel.link/0a268b/nylb42ay45zj6qd9.webp" data-src="https://cdn.mypanel.link/0a268b/nylb42ay45zj6qd9.webp" width="420px" height="520px"/>
+                    </div>
+                </div>
+            </div>
+            <div>
+    </section>
+    <section id="faq2">
+        <div class="faq2-container" data-aos="zoom-in" data-aos-easing="linear"
+             data-aos-duration="500">
+            <div class="row" >
+                <div class="col-sm-12">
+                    <h2 class="title">FAQ
+                    </h2>
+                </div>
+            </div>
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="row">
+                    <div class="col-sm-6 part1">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="collapsed">
+                        <span class="faq-icon">
+                          <i class="fas fa-question"></i>
+                        </span>How can I get started? How does your site work?
+                                        <svg width="40" height="40" class="tab-down" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="40" height="40" rx="20" fill="#2F2F2F"/>
+                                            <path d="M20 23L24 18H16L20 23Z" fill="white"/>
+                                        </svg>
+                                        <svg width="40" height="40" class="tab-open" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="40" height="40" rx="20" fill="#2F2F2F"/>
+                                            <rect width="40" height="40" rx="20" fill="url(#paint0_radial_9401_29191)"/>
+                                            <path d="M20 18L16 23H24L20 18Z" fill="white"/>
+                                            <defs>
+                                                <radialGradient id="paint0_radial_9401_29191" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(20 -194) rotate(90) scale(278)">
+                                                    <stop stop-color="#005AE2"/>
+                                                    <stop offset="1" stop-color="#3A4351" stop-opacity="0"/>
+                                                </radialGradient>
+                                            </defs>
+                                        </svg>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
+                                <div class="panel-body">
+                                    <p>
+                                        Simply click the "register" or "Get Started Now" button and you will be redirected to the sign up page. You can create your account by providing the required information. After account creation, click "add funds" from your client dashboard to deposit funds to your Naizop wallet.<br> <br> To place order, please see this screenshot: https://i.imgur.com/sPi1l5V.png </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingTwo">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <span class="faq-icon">
+                          <i class="fas fa-question"></i>
+                        </span>
+                                        Can I try your services before making a deposit? Do you have a Free Trial?
+                                        <svg width="40" height="40" class="tab-down" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="40" height="40" rx="20" fill="#2F2F2F"/>
+                                            <path d="M20 23L24 18H16L20 23Z" fill="white"/>
+                                        </svg>
+                                        <svg width="40" height="40" class="tab-open" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="40" height="40" rx="20" fill="#2F2F2F"/>
+                                            <rect width="40" height="40" rx="20" fill="url(#paint0_radial_9401_29191)"/>
+                                            <path d="M20 18L16 23H24L20 18Z" fill="white"/>
+                                            <defs>
+                                                <radialGradient id="paint0_radial_9401_29191" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(20 -194) rotate(90) scale(278)">
+                                                    <stop stop-color="#005AE2"/>
+                                                    <stop offset="1" stop-color="#3A4351" stop-opacity="0"/>
+                                                </radialGradient>
+                                            </defs>
+                                        </svg>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo" aria-expanded="false" style="height: 0px;">
+                                <div class="panel-body">
+                                    <p>We provide a free test so that you can be 100% sure of the quality you'll be getting. This is a one-time offer and is available on certain services. <br> <br> To avail this, simply contact our support team and provide them with the target link and ID of the service you wish to test. A member will check(if service is eligible for test) and send an adequate quantity to the link you provided. </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingThree">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        <span class="faq-icon">
+                          <i class="fas fa-question"></i>
+                        </span>
+                                        How can I contact you? Customer Support
+                                        <svg width="40" height="40" class="tab-down" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="40" height="40" rx="20" fill="#2F2F2F"/>
+                                            <path d="M20 23L24 18H16L20 23Z" fill="white"/>
+                                        </svg>
+                                        <svg width="40" height="40" class="tab-open" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="40" height="40" rx="20" fill="#2F2F2F"/>
+                                            <rect width="40" height="40" rx="20" fill="url(#paint0_radial_9401_29191)"/>
+                                            <path d="M20 18L16 23H24L20 18Z" fill="white"/>
+                                            <defs>
+                                                <radialGradient id="paint0_radial_9401_29191" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(20 -194) rotate(90) scale(278)">
+                                                    <stop stop-color="#005AE2"/>
+                                                    <stop offset="1" stop-color="#3A4351" stop-opacity="0"/>
+                                                </radialGradient>
+                                            </defs>
+                                        </svg>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree" aria-expanded="false" style="height: 0px;">
+                                <div class="panel-body">
+                                    <p>We offer the following support methods:
+
+
+                                        <br><br>
+                                        • Live Chat (via the chat box on the bottom right of the page)
+                                        <br>
+                                        • Customer Support Ticket via your Naizop dashboard (click "Tickets" tab)
+                                        <br><br>
+                                        When you contact support please make sure to include the order ID for any orders you have questions about.
+                                        <br><br>
+                                        We offer support 24 hours a day, 7 days a week, 365 days a year. Live chat is available at most times. We respond to all support tickets within 12 hours or less.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="h4">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#c4" aria-expanded="false" aria-controls="c4">
+                        <span class="faq-icon">
+                          <i class="fas fa-question"></i>
+                        </span>
+                                        How can I find out more about the services you offer?
+                                        <svg width="40" height="40" class="tab-down" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="40" height="40" rx="20" fill="#2F2F2F"/>
+                                            <path d="M20 23L24 18H16L20 23Z" fill="white"/>
+                                        </svg>
+                                        <svg width="40" height="40" class="tab-open" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="40" height="40" rx="20" fill="#2F2F2F"/>
+                                            <rect width="40" height="40" rx="20" fill="url(#paint0_radial_9401_29191)"/>
+                                            <path d="M20 18L16 23H24L20 18Z" fill="white"/>
+                                            <defs>
+                                                <radialGradient id="paint0_radial_9401_29191" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(20 -194) rotate(90) scale(278)">
+                                                    <stop stop-color="#005AE2"/>
+                                                    <stop offset="1" stop-color="#3A4351" stop-opacity="0"/>
+                                                </radialGradient>
+                                            </defs>
+                                        </svg>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="c4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="h4" aria-expanded="false" style="height: 0px;">
+                                <div class="panel-body">
+                                    <p>You can see all current services on the Services and Pricing page or on the New Order page.
+                                        <br><br>
+                                        From the Service and Pricing page you can sort by Platform, Service, Price, or Rating.
+                                        <br><br>
+                                        On both the Service and New Order page you will see a detailed Service Description for each service.
+                                        <br><br>
+                                        Please note that the information listed on the Service and New Order page are estimates/averages, not guaranteed, and subject to change without notice.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 part2">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="h5">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#c5" aria-expanded="false" aria-controls="c5">
+                        <span class="faq-icon">
+                          <i class="fas fa-question"></i>
+                        </span>
+                                        How do I know my account will not be flagged or banned?
+                                        <svg width="40" height="40" class="tab-down" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="40" height="40" rx="20" fill="#2F2F2F"/>
+                                            <path d="M20 23L24 18H16L20 23Z" fill="white"/>
+                                        </svg>
+                                        <svg width="40" height="40" class="tab-open" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="40" height="40" rx="20" fill="#2F2F2F"/>
+                                            <rect width="40" height="40" rx="20" fill="url(#paint0_radial_9401_29191)"/>
+                                            <path d="M20 18L16 23H24L20 18Z" fill="white"/>
+                                            <defs>
+                                                <radialGradient id="paint0_radial_9401_29191" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(20 -194) rotate(90) scale(278)">
+                                                    <stop stop-color="#005AE2"/>
+                                                    <stop offset="1" stop-color="#3A4351" stop-opacity="0"/>
+                                                </radialGradient>
+                                            </defs>
+                                        </svg>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="c5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="h5" aria-expanded="false" style="height: 0px;">
+                                <div class="panel-body">
+                                    <p>
+                                        Because in our "Real Services" we only use real people, your account(s) will not be penalized. <br> <br> We understand that social media marketing is full of bots and fakery. Still, we are dedicated to providing authentic services that truly benefit your accounts.
+                                        <br> <br>
+                                        If you need the best results and stay away from bots, only use our "Real", "High Quality", and "Ultra High Quality" Services. Enjoy!
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="h6">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#c6" aria-expanded="false" aria-controls="c6">
+                        <span class="faq-icon">
+                          <i class="fas fa-question"></i>
+                        </span>
+                                        Are there discounts for large orders?
+                                        <svg width="40" height="40" class="tab-down" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="40" height="40" rx="20" fill="#2F2F2F"/>
+                                            <path d="M20 23L24 18H16L20 23Z" fill="white"/>
+                                        </svg>
+                                        <svg width="40" height="40" class="tab-open" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="40" height="40" rx="20" fill="#2F2F2F"/>
+                                            <rect width="40" height="40" rx="20" fill="url(#paint0_radial_9401_29191)"/>
+                                            <path d="M20 18L16 23H24L20 18Z" fill="white"/>
+                                            <defs>
+                                                <radialGradient id="paint0_radial_9401_29191" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(20 -194) rotate(90) scale(278)">
+                                                    <stop stop-color="#005AE2"/>
+                                                    <stop offset="1" stop-color="#3A4351" stop-opacity="0"/>
+                                                </radialGradient>
+                                            </defs>
+                                        </svg>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="c6" class="panel-collapse collapse" role="tabpanel" aria-labelledby="h6" aria-expanded="false" style="height: 0px;">
+                                <div class="panel-body">
+                                    <p>Yes! If you would like to request a large order that isn’t on our ordering layout, we will have no problems accommodating you. If you contact us on our customer support form, we can help you create a buying plan that meets your needs.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="h7">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#c7" aria-expanded="false" aria-controls="c7">
+                        <span class="faq-icon">
+                          <i class="fas fa-question"></i>
+                        </span>
+                                        Will I need to give you the passwords for my accounts?
+                                        <svg width="40" height="40" class="tab-down" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="40" height="40" rx="20" fill="#2F2F2F"/>
+                                            <path d="M20 23L24 18H16L20 23Z" fill="white"/>
+                                        </svg>
+                                        <svg width="40" height="40" class="tab-open" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="40" height="40" rx="20" fill="#2F2F2F"/>
+                                            <rect width="40" height="40" rx="20" fill="url(#paint0_radial_9401_29191)"/>
+                                            <path d="M20 18L16 23H24L20 18Z" fill="white"/>
+                                            <defs>
+                                                <radialGradient id="paint0_radial_9401_29191" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(20 -194) rotate(90) scale(278)">
+                                                    <stop stop-color="#005AE2"/>
+                                                    <stop offset="1" stop-color="#3A4351" stop-opacity="0"/>
+                                                </radialGradient>
+                                            </defs>
+                                        </svg>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="c7" class="panel-collapse collapse" role="tabpanel" aria-labelledby="h7" aria-expanded="false" style="height: 0px;">
+                                <div class="panel-body">
+                                    <p>No, because our services don’t need a password to influence your accounts. In case you ever receive an email that says it is from us, asking you a password, please report it to us immediately.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="h8">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#c8" aria-expanded="false" aria-controls="c8">
+                        <span class="faq-icon">
+                          <i class="fas fa-question"></i>
+                        </span>
+                                        What is Naizop affiliate program?
+                                        <svg width="40" height="40" class="tab-down" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="40" height="40" rx="20" fill="#2F2F2F"/>
+                                            <path d="M20 23L24 18H16L20 23Z" fill="white"/>
+                                        </svg>
+                                        <svg width="40" height="40" class="tab-open" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="40" height="40" rx="20" fill="#2F2F2F"/>
+                                            <rect width="40" height="40" rx="20" fill="url(#paint0_radial_9401_29191)"/>
+                                            <path d="M20 18L16 23H24L20 18Z" fill="white"/>
+                                            <defs>
+                                                <radialGradient id="paint0_radial_9401_29191" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(20 -194) rotate(90) scale(278)">
+                                                    <stop stop-color="#005AE2"/>
+                                                    <stop offset="1" stop-color="#3A4351" stop-opacity="0"/>
+                                                </radialGradient>
+                                            </defs>
+                                        </svg>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="c8" class="panel-collapse collapse" role="tabpanel" aria-labelledby="h8" aria-expanded="false" style="height: 0px;">
+                                <div class="panel-body">
+                                    <p>We have paid thousands of dollars to our users who have shared our helpful services with their friends.
+                                        <br><br>
+                                        Become a part of Naizop affiliate program and start making continuous never-ending commission on every order your referred account places for life. This opportunity is open to all users.
+                                        <br><br>
+                                        For more information, click the "Affiliates" tab on your Naizop dashboard. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="pickout">
+        <div id="pickout-exp" data-aos="zoom-in" data-aos-easing="linear"
+             data-aos-duration="500">
+            <img src="https://cdn.mypanel.link/0a268b/6dflgg1z62to6s9e.webp" data-src="https://cdn.mypanel.link/0a268b/6dflgg1z62to6s9e.webp" class="pick-exp-mask lazyload" width="1175px" height="1049px" />
+            <img src="https://cdn4.mypanel.link/idhwx8/ygouzdp682nii7mu.webp" data-src="https://cdn4.mypanel.link/idhwx8/ygouzdp682nii7mu.webp" class="pick-exp-bg lazyload" width="1359px" height="560px"/>
+            <img src="https://cdn.mypanel.link/0a268b/9xewhf15q75d58hi.webp" data-src="https://cdn.mypanel.link/0a268b/9xewhf15q75d58hi.webp" class="pick-exp-mask-mobile lazyload"/>
+            <img src="https://cdn.mypanel.link/0a268b/ar4cd4rczyorxhzh.webp" data-src="https://cdn.mypanel.link/0a268b/ar4cd4rczyorxhzh.webp" class="pick-exp-bg-mobile lazyload" />
+            <div class="core-content">
+                <span>NAIZOP</span>
+                <p>is the most reliable panel on the market<br>
+                    with <span style="color: #FFB60E;"> {{ site['counterOrdersAll']|number_format(0, '.', ',') }} </span> orders until now</p>
+                <a href="/signup" class="get-started-bt">
+                    <div>Get Started Now</div>
+                    <svg width="39" height="27" viewbox="0 0 43 18" class="icon" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect y="7.86426" width="40" height="2" rx="1" fill="#070B20"/>
+                        <path d="M35.8633 12.8995L35.8633 4.82843L39.8988 8.86397L35.8633 12.8995Z" stroke="#070B20" stroke-width="4"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="dark-bg"></div>
+        </div>
+    </section>
+</div>
+<div class="modal fade" id="Signinmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="">
+
+                    <form {% if site['rtl'] %} class="rtl-form" {% endif %} method="post" action="{{ page['url'] }}">
+                        {% if error %}
+                            <div class="alert alert-dismissible alert-danger {% if site['rtl'] %} rtl-alert {% endif %}">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                {{ errorMessage }}
+                            </div>
+                        {% endif %}
+
+                        {% if success %}
+                            <div class="alert alert-success alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                {{successMessage}}
+                            </div>
+                        {% endif %}
+
+                        <div class="form-group">
+                            <label for="username" class="control-label">{{ lang('signup.username') }}</label>
+                            <input type="text" class="form-control" id="username" name="LoginForm[username]" placeholder="Enter Your Username">
+                        </div>
+                        <div class="form-group form-group__password">
+                            <label for="password" class="control-label">{{lang('signup.password')}}</label>
+                            <input type="password" class="form-control" id="password" name="LoginForm[password]" placeholder="Enter Your Password">
+                            <div class="checkbox">
+                                <label>
+                                    {{lang('signin.remember_me')}}
+                                    <input type="checkbox" name="LoginForm[remember]" value="1" id="remember">
+                                </label>
+                            </div>
+                        </div>
+                        {% if site['resetPassword'] %}
+                            <a href="{{ page_url('resetpassword') }}" class="forgot-password1">I have forgotten my credentials,
+                                <span>{{ lang('signin.reset_password') }}</span>
+                            </a>
+                        {% endif %}
+
+
+                        {% if captcha %}
+                            <div class="g-recaptcha form-group" data-sitekey="{{captchaKey}}"></div>
+                        {% endif %}
+
+                        <hr>
+
+                        <input type="hidden" name="_csrf" value="{{csrftoken}}">
+                        <div class="button-wrap">
+                            <button type="submit" class="btn btn-primary">{{ lang('signin.button') }}</button>
+                            {% if registration %}
+                                <p style="text-transform: capitalize;color: #8B8A97;font-family: 'Rubik';font-size: 18px;">Or</p>
+                                <a class="btn btn-defualt" href="{{ page_url('signup') }}">{{ lang('signup.title') }}</a>
+                            {% endif %}
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="Signinmodal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="">
+                    <img class="img-responsive modal-logo" src="https://cdn4.mypanel.link/idhwx8/q5htu5zme5h4k7cr.webp" alt="{{ site['name'] }}">
+                    <div class="modal-btn-wrap">
+                        <a href="/" class="btn btn-primary">Login</a>
+                        <a href="/signup" class="btn btn-defualt">Register</a>
+                    </div>
+                    <form {% if site['rtl'] %} class="rtl-form" {% endif %} method="post" action="{{ page['url'] }}">
+                        {% if error %}
+                            <div class="alert alert-dismissible alert-danger {% if site['rtl'] %} rtl-alert {% endif %}">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                {{ errorMessage }}
+                            </div>
+                        {% endif %}
+
+                        {% if success %}
+                            <div class="alert alert-success alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                {{successMessage}}
+                            </div>
+                        {% endif %}
+
+                        <div class="form-group">
+                            <label for="username" class="control-label">{{ lang('signup.username') }}</label>
+                            <input type="text" class="form-control" id="username" name="LoginForm[username]" placeholder="Enter Your Username">
+                        </div>
+                        <div class="form-group form-group__password">
+                            <label for="password" class="control-label">{{lang('signup.password')}}</label>
+                            <input type="password" class="form-control" id="password" name="LoginForm[password]" placeholder="Enter Your Password">
+                            <div class="checkbox">
+                                <label>
+                                    {{lang('signin.remember_me')}}
+                                    <input type="checkbox" name="LoginForm[remember]" value="1" id="remember">
+                                </label>
+                            </div>
+                        </div>
+                        {% if captcha %}
+                            <div class="g-recaptcha form-group" data-sitekey="{{captchaKey}}"></div>
+                        {% endif %}
+                        <input type="hidden" name="_csrf" value="{{csrftoken}}">
+                        <div class="button-wrap">
+                            <button type="submit" class="btn btn-primary">{{ lang('signin.button') }}</button>
+                        </div>
+                        {% if site['resetPassword'] %}
+                            <a href="{{ page_url('resetpassword') }}" class="forgot-password1">I have forgotten my credentials,
+                                <span>{{ lang('signin.reset_password') }}</span>
+                            </a>
+                        {% endif %}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="modal fade login-modal" id="login-modalx" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="media">
+                    <div class="media-left">
+                        <img class="media-object" src="https://cdn4.mypanel.link/idhwx8/q5htu5zme5h4k7cr.webp" alt="{{ site['name'] }}">
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Experience
+                            <span>Excellence
+                    <br>Experience</span>
+                            Naizop</h4>
+                    </div>
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="login-modal-btn-wrap">
+                    <a class="login-modal-btn active" href="/">Login</a>
+                    <a class="login-modal-btn" href="/signup">Register</a>
+                </div>
+                <form {% if site['rtl'] %} class="rtl-form" {% endif %} method="post" action="{{ page['url'] }}">
+                    {% if error %}
+                        <div class="alert alert-dismissible alert-danger {% if site['rtl'] %} rtl-alert {% endif %}">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            {{ errorMessage }}
+                        </div>
+                    {% endif %}
+
+                    {% if success %}
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            {{successMessage}}
+                        </div>
+                    {% endif %}
+
+                    <div class="form-group">
+                        <label for="username" class="control-label">{{ lang('signup.username') }}</label>
+                        <input type="text" class="form-control" id="username" name="LoginForm[username]" placeholder="Enter Your Username">
+                    </div>
+                    <div class="form-group form-group__password">
+                        <label for="password" class="control-label">{{lang('signup.password')}}</label>
+                        <input type="password" class="form-control" id="password" name="LoginForm[password]" placeholder="Enter Your Password">
+                        <div class="checkbox">
+                            <label>
+                                {{lang('signin.remember_me')}}
+                                <input type="checkbox" name="LoginForm[remember]" value="1" id="remember">
+                            </label>
+                        </div>
+                    </div>
+                    {% if captcha %}
+                        <div class="g-recaptcha form-group" data-sitekey="{{captchaKey}}"></div>
+                    {% endif %}
+                    <input type="hidden" name="_csrf" value="{{csrftoken}}">
+                    <div class="flex-btn-row">
+                        {% if site['resetPassword'] %}
+                            <a href="{{ page_url('resetpassword') }}" class="forgot-password1">{{ lang('signin.reset_password') }}</a>
+                        {% endif %}
+                        <button type="submit" class="btn btn-primary">{{ lang('signin.button') }}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Login Modal start -->
+<div class="custom-modal-outer login-popup" style="display: none">
+    <div class="custom-modal-overlay"></div>
+    <div class="custom-modal-in login-cntnt">
+        <div class="modal-cntnt-wpr">
+            <div class="cmn_login_innr">
+                <button type="button" class="loginClose_btn modal-close-btn">
+                    <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                                d="M1.33252 1.33261L14.6659 14.6659"
+                                stroke="white"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                        ></path>
+                        <path
+                                d="M14.6659 1.33261L1.33252 14.6659"
+                                stroke="white"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                        ></path>
+                    </svg>
+                </button>
+                <div class="row new-row auth_rw">
+                    <div class="col-xs-12 col-sm-6 login_img_col">
+                        <div class="login_img_innr">
+                  <span class="overLay_login">
+                    <img src="https://cdn4.mypanel.link/idhwx8/z68ls7lxfj2nlkdo.webp" data-src="https://cdn4.mypanel.link/idhwx8/z68ls7lxfj2nlkdo.webp" class="lazyload" alt=""/></span>
+                            <div class="login_img_wrp sign-in-modal">
+                                <a href="/" class="login_logo">
+                                    <img class="lazyload"
+                                         src="https://cdn4.mypanel.link/idhwx8/0rlnyqikqg0yk3az.webp" data-src="https://cdn4.mypanel.link/idhwx8/0rlnyqikqg0yk3az.webp"
+                                         alt=""
+                                    />
+                                </a>
+                                <img src="https://cdn.mypanel.link/0a268b/o7u4excd500qm8mp.webp" data-src="https://cdn.mypanel.link/0a268b/o7u4excd500qm8mp.webp" alt="" class="login-popup-img lazyload">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 login_txt_col">
+                        <div class="login_txt_wrp sign-in-modal">
+                            <h2 class="cmn_login_heading">Login</h2>
+                            <div class="login-form-wpr">
+                                <form {% if site['rtl'] %} class="rtl-form" {% endif %} method="post" action="{{ page['url'] }}">
+                                    {% if error %}
+
+                                        <div class="notification-wrap {% if site['rtl'] %} rtl-alert {% endif %}">
+                                            <div class="wtch-vdo-wpr ">
+                                                <button type="button" class="vdo-wpr-cls-btn">
+                                                    <img src="https://cdn4.mypanel.link/idhwx8/cxztnqiowrkwt5lc.webp" alt="">
+                                                </button>
+                                                <p>{{ errorMessage }}</p>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+
+                                    {% if success %}
+
+                                        <div class="notification-wrap">
+                                            <div class="wtch-vdo-wpr ">
+                                                <button type="button" class="vdo-wpr-cls-btn">
+                                                    <img src="https://cdn4.mypanel.link/idhwx8/l44m2d1t94p327qr.png" alt="">
+                                                </button>
+                                                <p>{{ successMessage }}</p>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    <div class="login_frm_wrp">
+                                        <label>{{ lang('signup.username') }}</label>
+                                        <input type="text" placeholder="Enter your username…" id="username" name="LoginForm[username]"/>
+                                    </div>
+                                    <div class="login_frm_wrp">
+                                        <label>{{lang('signup.password')}}</label>
+                                        <input type="password" placeholder="Enter your password…" id="password" name="LoginForm[password]"/>
+                                    </div>
+                                    {% if captcha %}
+                                        <div class="g-recaptcha form-group" data-sitekey="{{captchaKey}}"></div>
+                                    {% endif %}
+                                    <div class="remember-wrap">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox"  name="LoginForm[remember]" value="1" id="remember">{{lang('signin.remember_me')}}
+                                            </label>
+                                        </div>
+                                        {% if site['resetPassword'] %}
+                                            <a href="{{ page_url('resetpassword') }}" class="forgot_link">
+                                                {{ lang('signin.reset_password') }}
+                                            </a>
+                                        {% endif %}
+                                    </div>
+
+
+
+                                    <div class="login_frmBtn_wrap">
+                                        <input type="hidden" name="LoginForm[remember]" value="1" id="remember">
+                                        <input type="hidden" name="_csrf" value="{{csrftoken}}">
+                                        <input type="submit" value="{{ lang('signin.button') }}" />
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Login Modal end -->
+
+{% if site['captcha'] %}
+    <script src='https://www.google.com/recaptcha/api.js?hl={{ site[' language'] }}'></script>
+{% endif %}

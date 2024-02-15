@@ -1,0 +1,130 @@
+<div class="body-content-wpr">
+    <div class="page-content-overlay"></div>
+    <div class="order-srch-form-wpr order-page">
+        <form>
+            <div class="order-srch-row">
+                <input type="text" name="search" value="{{ search }}" placeholder="{{ lang('general.search.placeholder') }}">
+                <button type="submit">Search</button>
+            </div>
+        </form>
+    </div>
+    {% if types %}
+    <div class="update_main">
+        <div class="update_lists_wrappr update-page">
+            <ul class="update_lists">
+                {% for typeItem in types %}
+                    <li class="{% if typeItem.key == type.key %} active{% endif %}"><a href="{{ page['url'] }}{% if typeItem.key != 'all' %}{{ '/' ~ typeItem.key }}{% endif %}">{{ typeItem.label }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>{% endif %}
+        <h1 class="page-hdng">Updates</h1>
+        <div class="update_rw_main">
+            <div class="row new-row update_rw">
+
+                {% for update in updatesList %}
+                    <div class="col-lg-4 col-sm-6 update_col">
+                        <div class="update_card_innr">
+                            <div class="update_card_wrppr">
+                                <div class="update_card_info">
+                                    <div class="update_card_row_outter">
+                                        <div class="update_card_row">
+                                            <div class="update_card_title_col">
+                                                <p>Service ID</p>
+                                            </div>
+                                            <div class="update_card_data">
+                                                <p><span class="yellow_txt">#{{ update['service_id'] }}</span></p>
+                                            </div>
+                                        </div>
+                                        <div class="update_card_row">
+                                            <div class="update_card_title_col">
+                                                <p>Service</p>
+                                            </div>
+                                            <div class="update_card_data">
+                                                <p>{{ update['service'] }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="update_card_row">
+                                            <div class="update_card_title_col">
+                                                <p>Date</p>
+                                            </div>
+                                            <div class="update_card_data">
+                                                <p class="time_info"><span>{{ update['date'] }}</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <span class="card_status_btn
+                                        {% if 'Rate decreased' in update['update'] %}
+                                        red
+                                        {% elseif 'Rate increased' in update['update'] %}
+                                        yellow
+                                        {% elseif 'Service enabled' in update['update'] %}
+                                        green
+                                        {% elseif 'Service disabled' in update['update'] %}
+                                        red
+                                        {% elseif 'New service' in update['update'] %}
+                                        blue
+                                        {% endif %}">{{ update['update'] }}</span>
+                                </div>
+                                <div class="update_cardBtn_wppr">
+                                    <a href="/?service={{ update['service_id'] }}" class="updateCard_btn">
+                                        <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M5.40902 11.246L3.87402 4H16.5C17.151 4 17.628 4.611 17.47 5.243L16.122 10.635C15.917 11.454 15.221 12.056 14.381 12.14L7.56502 12.822C6.54902 12.923 5.62002 12.244 5.40902 11.246Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M3.874 4L3.224 1H1.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M15.109 16.267C14.907 16.267 14.743 16.431 14.745 16.633C14.745 16.835 14.909 16.999 15.111 16.999C15.313 16.999 15.477 16.835 15.477 16.633C15.476 16.431 15.312 16.267 15.109 16.267" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M6.697 16.267C6.495 16.267 6.331 16.431 6.333 16.633C6.331 16.836 6.496 17 6.698 17C6.9 17 7.064 16.836 7.064 16.634C7.064 16.431 6.9 16.267 6.697 16.267" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        Purchase</a>
+                                </div>
+                            </div> </div>
+                    </div>
+                {% endfor %}
+
+
+            </div>
+        </div>
+    </div>
+
+    {% if pagination['count'] > 50 %}
+        <div class="support_pagination">
+            <ul>
+                {% if pagination['current'] != 1 %}
+                    <li>
+                        <a href="{{ page['url'] }}/{{ pagination['last'] }}" class="prev_arrw">
+                            <svg width="10" height="18" viewBox="0 0 10 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8.75 1.5L1.25 9L8.75 16.5" stroke="#FFB60E" stroke-width="1.5" stroke-linecap="square"/>
+                            </svg>
+                        </a>
+                    </li>
+                {% endif %}
+
+                {% set r, l = 3, 3 %}
+
+                {% if pagination['current'] == 1 %}
+                    {% set r = 6 %}
+                {% endif %}
+
+                {% if pagination['current'] == 2 %}
+                    {% set r = 5 %}
+                {% endif %}
+
+                {% if pagination['current'] >= pagination['pages'] %}
+                    {% set l = 5 %}
+                {% endif %}
+                {% for i in 1..ceil(pagination['pages']) %}
+                    {% if i >= (pagination['current']-l) and i <= (pagination['current']+r) %}
+                        <li {% if i == pagination['current'] %} class="active"{% endif %}><a href="{{ page['url'] }}/{{i}}">{{i}}</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% if pagination['current'] < pagination['pages'] %}
+                    <li>
+                        <a href="{{ page['url'] }}/{{ pagination['next'] }}" class="next_arrw">
+                            <svg width="10" height="18" viewBox="0 0 10 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1.25 16.5L8.75 9L1.25 1.5" stroke="#FFB60E" stroke-width="1.5" stroke-linecap="square"/>
+                            </svg>
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    {% endif %}
+</div>

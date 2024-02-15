@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="well">
+                <h4>{{ lang('2fa.title') }}</h4>
+                <p>{{ lang('2fa.sent') }}</p>
+                <form {% if site['rtl'] %} class="rtl-form" {% endif %} method="post" action="{{ page['url'] }}">
+                    <div class="form-group">
+                        <label for="code" class="control-label">{{ lang('2fa.code') }}</label>
+                        <input type="text" autocomplete="off" class="form-control" id="code" name="code">
+                    </div>
+                    <input type="hidden" name="_csrf" value="{{csrftoken}}">
+                    <button type="submit" class="btn btn-primary">{{ lang('2fa.continue') }}</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

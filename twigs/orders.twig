@@ -1,0 +1,266 @@
+<div class="body-content-wpr">
+    <div class="page-content-overlay"></div>
+    <div class="order-srch-form-wpr order-page">
+        <form>
+            <div class="order-srch-row">
+                <input type="text" placeholder="Search">
+                <button type="submit">Search</button>
+            </div>
+        </form>
+    </div>
+    <div class="update_lists_wrappr">
+        <ul class="update_lists">
+            <li {% if 'all' == status %}class="active"{% endif %}><a href="{{ page['url'] }}">{{ lang('orders.all') }}</a></li>
+            <li {% if 'pending' == status %}class="active"{% endif %}><a href="{{ page['url'] }}/pending">{{ lang('orders.status.pending') }}</a></li>
+            <li {% if 'inprogress' == status %}class="active"{% endif %}><a href="{{ page['url'] }}/inprogress">{{ lang('orders.status.inprogress') }}</a></li>
+            <li {% if 'completed' == status %}class="active"{% endif %}><a href="{{ page['url'] }}/completed">{{ lang('orders.status.completed') }}</a></li>
+            <li {% if 'partial' == status %}class="active"{% endif %}><a href="{{ page['url'] }}/partial">{{ lang('orders.status.partial') }}</a></li>
+            <li {% if 'processing' == status %}class="active"{% endif %}><a href="{{ page['url'] }}/processing">{{ lang('orders.status.processing') }}</a></li>
+            <li {% if 'canceled' == status %}class="active"{% endif %}><a href="{{ page['url'] }}/canceled">{{ lang('orders.status.canceled') }}</a></li>
+        </ul>
+    </div>
+    <h1 class="page-hdng order-page">Order</h1>
+    <div class="cmn-table-wpr">
+        <table class="cmn-table order-table">
+            <thead>
+            <tr>
+                <th>{{ lang('orders.id') }}</th>
+                <th>{{ lang('orders.service') }}</th>
+                <th>{{ lang('orders.link') }}</th>
+                <th>{{ lang('orders.charge') }}</th>
+                <th>{{ lang('orders.status') }}</th>
+                <th>Action</th>
+                <th>Reorder</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for order in orderList %}
+                <tr>
+                    <td data-heading="Order ID">#{{ order['id'] }}</td>
+                    <td data-heading="Service">
+            <span class="serive-date">
+              {{ order['date'] }}
+            </span>
+                        {{ order['service_id'] }} - {{ order['service'] }}
+                    </td>
+                    <td data-heading="Link">
+                        {# <a href="#recomend-modal" data-fancybox="" class="table-link">{{ order['link'] }}</a>#}
+                        <a href="{{ order['link'] }}" target="_blank" class="table-link">{{ order['link'] }}</a>
+                    </td>
+                    <td data-heading="Charge"><span class="service-charge">{{ order['charge'] }}</span></td>
+                    <td data-heading="Status">
+            <span class="status-tag ylw {{ order['status'] }}">
+              {{ order['status'] }}</span>
+                    </td>
+                    <td data-heading="Action">
+                        <div class="info-btn">
+                            <a href="#ordr_details_modal" data-fancybox="" class="info-btn-icon" data-ids="{{ order['id'] }}" data-link="{{ order['link'] }}" data-status="{{ order['status'] }}" data-charge="{{ order['charge'] }}" data-service="{{ order['service'] }}" data-start="{{ order['start_count'] }}" data-service_id="" data-quantity="{{ order['quantity'] }}" data-remain="{{ order['remains'] }}">
+                                <img src="https://cdn.mypanel.link/idhwx8/dou5b15qhnizzmgd.png" alt="">
+                            </a>
+                            {% if task == 1 %}
+                                {% if order['refilling'] == 1 %}
+                                    <span class="status">{{ lang('orders.refilling') }}</span>
+                                {% else %}
+                                    {% if order['refill'] == 1 %}
+                                        <a href="{{ page['url'] }}/{{ order['id'] }}/refill" class="refill-btn">{{ lang('orders.button.refill') }}</a>
+
+                                    {% endif %}
+                                    {% if order['refillAvailableTime'] %}
+                                        <span class="status">
+                <a href="#url" class="refill-btn">{{ lang('orders.button.refill') }}</a>
+                <div class="info-txt-wpr">
+                  <div class="info-txt-wpr-in">
+                    <p>
+                      {{ order['refillAvailableTime'] }}
+                    </p>
+                  </div>
+                </div>
+              </span>
+                                    {% endif %}
+                                    {% if order['cancel'] == 1 %}
+                                        <a href="{{ page['url'] }}/{{ order['id'] }}/cancel" class="refill-btn">{{ lang('orders.button.cancel') }}</a>{% endif %}
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                    </td>
+                    <td data-heading="Reorder">
+                        <a href="/?service={{ order['service_id'] }}" class="reordr-btn">
+                            <img src="https://cdn.mypanel.link/idhwx8/62el8xil7fa5pcus.png" alt="">
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    {% if pagination['count'] > 50 %}
+        <div class="support_pagination">
+            <ul>
+                {% if pagination['current'] != 1 %}
+                    <li>
+                        <a href="{{ page['url'] }}/{{ pagination['last'] }}" class="prev_arrw">
+                            <svg width="10" height="18" viewBox="0 0 10 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8.75 1.5L1.25 9L8.75 16.5" stroke="#FFB60E" stroke-width="1.5" stroke-linecap="square"/>
+                            </svg>
+                        </a>
+                    </li>
+                {% endif %}
+
+                {% set r, l = 3, 3 %}
+
+                {% if pagination['current'] == 1 %}
+                    {% set r = 6 %}
+                {% endif %}
+
+                {% if pagination['current'] == 2 %}
+                    {% set r = 5 %}
+                {% endif %}
+
+                {% if pagination['current'] >= pagination['pages'] %}
+                    {% set l = 5 %}
+                {% endif %}
+                {% for i in 1..ceil(pagination['pages']) %}
+                    {% if i >= (pagination['current']-l) and i <= (pagination['current']+r) %}
+                        <li {% if i == pagination['current'] %} class="active"{% endif %}><a href="{{ page['url'] }}/{{i}}">{{i}}</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% if pagination['current'] < pagination['pages'] %}
+                    <li>
+                        <a href="{{ page['url'] }}/{{ pagination['next'] }}" class="next_arrw">
+                            <svg width="10" height="18" viewBox="0 0 10 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1.25 16.5L8.75 9L1.25 1.5" stroke="#FFB60E" stroke-width="1.5" stroke-linecap="square"/>
+                            </svg>
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    {% endif %}
+</div>
+<!-- (order page) order details modal start -->
+<div class="custom-modal-wpr ordr_details_popUp" id="ordr_details_modal" style="display: none;">
+    <div class="modal-wpr">
+        <div class="modal-hdr">
+            <h2 class="modal-hdng">Order Detail</h2>
+            <button type="button" data-fancybox-close class="fancybox-close-btn">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.33252 1.33261L14.6659 14.6659" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14.6659 1.33261L1.33252 14.6659" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="popup_order_main">
+                <div class="popup_order_rw">
+                    <div class="popup_order_col">
+                        <p><span class="popUp_table_title">ID:</span></p>
+                    </div>
+                    <div class="popup_order_col">
+                        <p id="order_id">#6485439</p>
+                    </div>
+                </div>
+                <div class="popup_order_rw">
+                    <div class="popup_order_col">
+                        <p><span class="popUp_table_title">Date:</span></p>
+                    </div>
+                    <div class="popup_order_col">
+                        <p id="order_date">2023-04-22 15:47:21</p>
+                    </div>
+                </div>
+                <div class="popup_order_rw">
+                    <div class="popup_order_col">
+                        <p><span class="popUp_table_title">Service:</span></p>
+                    </div>
+                    <div class="popup_order_col">
+                        <p><a href="#" id="order_service">949 - Instagram Views + Impressions + Reach | Max 1M | Real or Tv | Day 1M</a></p>
+                    </div>
+                </div>
+                <div class="popup_order_rw">
+                    <div class="popup_order_col">
+                        <p><span class="popUp_table_title">Link:</span></p>
+                    </div>
+                    <div class="popup_order_col">
+                        <p><a href="#" id="order_link">https://www.instagram.com/reel/CrVnRCJDIDSJ-/?hsgdfi=YsMyKJHD2JH=</a></p>
+                    </div>
+                </div>
+                <div class="popup_order_rw">
+                    <div class="popup_order_col">
+                        <p><span class="popUp_table_title">Start count:</span></p>
+                    </div>
+                    <div class="popup_order_col">
+                        <p id="order_start">1 250</p>
+                    </div>
+                </div>
+                <div class="popup_order_rw">
+                    <div class="popup_order_col">
+                        <p><span class="popUp_table_title">Quantity:</span></p>
+                    </div>
+                    <div class="popup_order_col">
+                        <p id="order_quantity">12 000</p>
+                    </div>
+                </div>
+                <div class="popup_order_rw">
+                    <div class="popup_order_col">
+                        <p><span class="popUp_table_title">Remains:</span></p>
+                    </div>
+                    <div class="popup_order_col">
+                        <p id="order_remains">0</p>
+                    </div>
+                </div>
+                <div class="popup_order_rw">
+                    <div class="popup_order_col">
+                        <p><span class="popUp_table_title">Status:</span></p>
+                    </div>
+                    <div class="popup_order_col">
+                        <p><span class="green_txt" id="order_status">Completed</span></p>
+                    </div>
+                </div>
+                <div class="popup_order_rw">
+                    <div class="popup_order_col">
+                        <p><span class="popUp_table_title">Charge:</span></p>
+                    </div>
+                    <div class="popup_order_col">
+                        <p id="order_charge">0.06</p>
+                    </div>
+                </div>
+            </div>
+            <div class="btn_wppr">
+                <a href="/tickets" class="cmn_blue_btn">Notify Support</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- order details modal end -->
+<script type="text/javascript" src="https://cdn.mypanel.link/libs/jquery/1.12.4/jquery.min.js">
+</script>
+<script>
+
+    $('.info-btn-icon').click(function(){
+
+        var order_id = $(this).data("ids");
+        var order_service_id = $(this).data("service_id");
+        var order_service = $(this).data("service");
+        var order_link = $(this).data("link");
+        var order_charge = $(this).data("charge");
+        var order_start = $(this).data("start");
+        var order_quantity = $(this).data("quantity");
+        var order_remain = $(this).data("remain");
+        var order_status = $(this).data("status");
+
+
+        $("#order_id").html(order_id);
+        $("#order_service").html(order_service_id+" - "+order_service);
+        $("#order_link").html(order_link);
+        $("#order_charge").html(order_charge);
+        $("#order_start").html(order_start);
+        $("#order_quantity").html(order_quantity);
+        $("#order_remain").html(order_remain);
+        $("#order_status").html(order_status);
+
+
+
+
+    });
+</script>

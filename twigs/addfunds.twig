@@ -1,0 +1,570 @@
+{% set paymentimg = 'https://yourpanelassets.com/projects/naizop/img/new%20design/img/' %}
+<div class="body-content-wpr">
+    <div class="page-content-overlay"></div>
+    <h1 class="page-hdng">Add Funds</h1>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="order-form-wpr">
+                <h2 class="fund-title-wrap">
+                    <span class="fund-title">Payment method</span>
+                    <span class="fund-title-info" data-toggle="modal" data-target="#payment-detail">
+            How it works?
+            <i class="fal fa-question-circle"></i>
+          </span>
+                </h2>
+
+                <form class="fund-frm {% if site['rtl'] %}rtl-form{% endif %}" method="post" action="">
+                    <div class="addfund-form-wpr">
+                        {% if success %}
+                            <div class="alert alert-dismissible alert-success {% if site['rtl'] %} rtl-alert {% endif %}">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                {{ successText }}
+                            </div>
+                        {% endif %}
+                        {% if error %}
+                            <div class="alert alert-dismissible alert-danger {% if site['rtl'] %} rtl-alert {% endif %}">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                {{ errorText }}
+                            </div>
+                        {% endif %}
+                        <ul class="fund-list">
+                            <li>
+                                <span class="fund-list-txt active all" data-id="all">ALL</span>
+                            </li>
+                            <li>
+                                <span class="fund-list-txt card" data-id="card">CARD</span>
+                            </li>
+                            <li>
+                                <span class="fund-list-txt crypto" data-id="crypto">CRYPTO</span>
+                            </li>
+                            <li>
+                                <span class="fund-list-txt banks" data-id="banks">BANKS</span>
+                            </li>
+
+                            <li>
+                                <span class="fund-list-txt others" data-id="others">OTHERS</span>
+                            </li>
+                        </ul>
+                        <div class="fund-item">
+                            {% set paymentnum = '0' %}
+                            {% for payment in paymentsList %}
+                                {% set paymentnum = paymentnum + 1 %}
+                                <div class="form-check" data-name="{{ payment['name'] }}" data-id="{{ payment['id'] }}">
+                                    <input class="form-check-input" type="radio" name="fundpayment" id="exampleRadios1"
+                                           value="option1">
+                                    <label class="form-check-label" for="exampleRadios1">
+                                        <span class="payment-num">#{{ paymentnum }}</span>
+                                        {% if payment['id']=='48175' %}
+                                            <span class="payment-icon">
+                    {# <img class="img-fluid"
+                            src="https://cdn4.mypanel.link/0a268b/ktoki94kky67h4x5.webp">#}
+                    <img class="img-fluid"
+                         src="https://cdn4.mypanel.link/0a268b/6s3b9jkkm4dw0nil.svg">
+                  </span>
+                                            <span class="payment-txt">Cards</span>
+                                        {% elseif payment['id']=='135139' %}
+                                            <span class="payment-icon">
+                    {# <img class="img-fluid"
+                            src="https://cdn4.mypanel.link/0a268b/o77s7sbfn3lb5fzh.webp">#}
+                    <img class="img-fluid"
+                         src="https://cdn4.mypanel.link/0a268b/h0hk262wk6xlt7ue.svg">
+                  </span>
+                                            <span class="payment-txt">Cards</span>
+                                        {% elseif payment['id']=='83034' %}
+                                            <span class="payment-icon">
+                    <img class="img-fluid"
+                         src="https://cdn4.mypanel.link/0a268b/h0hk262wk6xlt7ue.svg">
+                  </span>
+                                            <span class="payment-txt">Cards</span>
+                                        {% elseif payment['id']=='15799' %}
+                                            <span class="payment-icon">
+                    {# <img class="img-fluid"
+                            src="https://cdn4.mypanel.link/0a268b/zco5om7fthgfkf7p.webp">#}
+                    <img class="img-fluid"
+                         src="https://cdn4.mypanel.link/0a268b/jy6ewx555h2kg965.svg">
+                  </span>
+                                            <span class="payment-txt">Crypto</span>
+                                        {% elseif payment['id']=='132868' %}
+                                            <span class="payment-icon">
+                    {#<img class="img-fluid"
+                           src="https://cdn4.mypanel.link/0a268b/c1qblcm8kbowxuci.webp">#}
+                    <img class="img-fluid"
+                         src="https://cdn4.mypanel.link/0a268b/bch0np8uwupr610i.svg">
+                  </span>
+                                            <span class="payment-txt">Crypto</span>
+                                        {% elseif payment['id']=='15802' %}
+                                            <span class="payment-icon">
+                    {# <img class="img-fluid"
+                            src="https://cdn4.mypanel.link/0a268b/46m08da5ng1oqmn2.webp">#}
+                    <img class="img-fluid"
+                         src="https://cdn4.mypanel.link/0a268b/npicxae7llbwj07y.svg">
+                  </span>
+                                            <span class="payment-txt">PayOp</span>
+                                        {% elseif payment['id']=='19522' %}
+                                            <span class="payment-icon">
+                    {#<img class="img-fluid"
+                           src="https://cdn4.mypanel.link/0a268b/6xiawq9jwcp17clp.webp">#}
+                    <img class="img-fluid"
+                         src="https://cdn4.mypanel.link/0a268b/9dy3paw7orowe5bj.svg">
+                  </span>
+                                            <span class="payment-txt">Payeer</span>
+                                        {% elseif payment['id']=='47389' %}
+                                            <span class="payment-icon">
+                    {#<img class="img-fluid"
+                           src="https://cdn4.mypanel.link/0a268b/ys34xtg2itzttxi8.webp">#}
+                    <img class="img-fluid"
+                         src="https://cdn4.mypanel.link/0a268b/psia1jafbfd53bum.svg">
+                  </span>
+                                            <span class="payment-txt">Wise</span>
+                                        {% elseif payment['id']=='19521' %}
+                                            <span class="payment-icon">
+                    {# <img class="img-fluid"
+                            src="https://cdn4.mypanel.link/0a268b/9xqsxdiqn6yjaf50.webp">#}
+                    <img class="img-fluid"
+                         src="https://cdn4.mypanel.link/0a268b/c8d7ck1fbbi1qbgr.svg">
+                  </span>
+                                            <span class="payment-txt">Perfect Money</span>
+                                        {% elseif payment['id']=='136329' %}
+                                            <span class="payment-icon">
+                    {#<img class="img-fluid"
+                           src="https://cdn4.mypanel.link/0a268b/ti74mkco54j4udiu.webp">#}
+                    <img class="img-fluid"
+                         src="https://cdn4.mypanel.link/0a268b/lyq27mrrdkc8s5mc.svg">
+                  </span>
+                                            <span class="payment-txt">Bank Havale</span>
+                                        {% else %}
+                                            <img class="img-fluid" src="https://cdn4.mypanel.link/0a268b/jn9l19goil5lslzu.png">
+                                        {% endif %}
+                                    </label>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group" style="display:none;">
+                            <label for="method" class="control-label">{{ lang('addfunds.method') }}</label>
+                            <select class="form-control" id="method" name="AddFoundsForm[type]" id="order_type">
+                                {% for payment in paymentsList %}
+                                    <option value="{{ payment['id'] }}" {% if currentPayment==payment['id'] %} selected{%
+                                        endif %}>{{ payment['name'] }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="support_col affiliate_field_grp support_frm_grp amout-wpr">
+                            <div class="affiliate_field_grp support_frm_grp amout-wpr">
+                                <div class="form-group fields1">
+                                    <label for="amount">{{ lang('addfunds.amount') }}</label>
+                                    <div class="affiliate_field_innr">
+                                        <input type="text" name="AddFoundsForm[amount]" id="amount">
+                                    </div>
+                                </div>
+                                <div class="form-group fields1 afterbonusyouget">
+                                    <label class="control-label">
+                                        <span id="amount_label">After Bonus You Get</span>
+                                    </label>
+                                    <div class="affiliate_field_innr">
+                                        <input id="fundbonus" type="text" class="form-control" readonly="">
+                                    </div>
+                                </div>
+                                <div class="custom-amnt">
+                                    <ul>
+                                        <li>
+                                            <a class="set_amount" href="#" data-amount="15">$15</a>
+                                        </li>
+                                        <li>
+                                            <a class="set_amount" href="#" data-amount="25">$25</a>
+                                        </li>
+                                        <li>
+                                            <a class="set_amount" href="#" data-amount="50">$50</a>
+                                        </li>
+                                        <li>
+                                            <a class="set_amount" href="#" data-amount="100">$100</a>
+                                        </li>
+                                        <li>
+                                            <a class="set_amount" href="#" data-amount="250">$250</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            {% if site['cpf_field'] %}
+                                <div class="form-group">
+                                    <label for="cpf" class="control-label">{{ lang('addfunds.cpf') }}</label>
+                                    <input type="text" class="form-control" name="AddFoundsForm[cpf]" id="cpf">
+                                </div>
+                            {% endif %}
+
+                            {# {% if site['cpf_field'] %}
+              <div class="form-group">
+                <label for="cpf" class="control-label">{{ lang('addfunds.cpf')
+                  }}</label>
+                <input type="text" class="form-control" name="AddFoundsForm[cpf]" id="cpf">
+              </div>
+              {% endif %}
+                            #}
+                            <div class="supprt_submitBtn_wpr">
+                                <button type="submit" class="cmn-blue-btn">
+                                    <span class="cmn-blue-btn-icon"><i class="fas fa-plus"></i></span>
+                                    <span class="cmn-blue-btn-txt">{{ lang('addfunds.button.pay') }}</span>
+                                    <span class="cmn-blue-btn-fund"></span>
+                                </button>
+                                <input type="hidden" name="_csrf" value="{{ csrftoken }}">
+                                <p class="double-check">DOUBLE CHECK BEFORE PAYING</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="bonus-system-wrap">
+                <h2 class="bonus-system-title">Bonus system</h2>
+                <p class="bonus-system-txt">Deposit a certain amount and get a percentage bonus!</p>
+                <ul class="bonus-system-ul bonus-system-ul1">
+                    <li>
+                        <div class="bonus-system-box bonus-system-box1">
+                            <div class="bonus-left">
+                                <span class="bonus-system-num">+5%</span>
+                            </div>
+                            <div class="bonus-right">
+                                <p class="bonus-box-txt">From</p>
+                                <h3 class="bonus-box-title">100$</h3>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bonus-system-box bonus-system-box2">
+                            <div class="bonus-left">
+                                <span class="bonus-system-num">+7.5%</span>
+                            </div>
+                            <div class="bonus-right">
+                                <p class="bonus-box-txt">From</p>
+                                <h3 class="bonus-box-title">250$</h3>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bonus-system-box bonus-system-box3">
+                            <div class="bonus-left">
+                                <span class="bonus-system-num">+10%</span>
+                            </div>
+                            <div class="bonus-right">
+                                <p class="bonus-box-txt">From</p>
+                                <h3 class="bonus-box-title">500$</h3>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bonus-system-box bonus-system-box4">
+                            <div class="bonus-left">
+                                <span class="bonus-system-num">+12.5%</span>
+                            </div>
+                            <div class="bonus-right">
+                                <p class="bonus-box-txt">From</p>
+                                <h3 class="bonus-box-title">750$</h3>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="bonus-system-ul bonus-system-ul2">
+                    <li>
+                        <div class="bonus-system-box bonus-system-box1">
+                            <div class="bonus-left">
+                                <span class="bonus-system-num">+15%</span>
+                            </div>
+                            <div class="bonus-right">
+                                <p class="bonus-box-txt">From</p>
+                                <h3 class="bonus-box-title">1000$</h3>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bonus-system-box bonus-system-box2">
+                            <div class="bonus-left">
+                                <span class="bonus-system-num">+20%</span>
+                            </div>
+                            <div class="bonus-right">
+                                <p class="bonus-box-txt">From</p>
+                                <h3 class="bonus-box-title">5.000$</h3>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bonus-system-box bonus-system-box3">
+                            <div class="bonus-left">
+                                <span class="bonus-system-num">+25%</span>
+                            </div>
+                            <div class="bonus-right">
+                                <p class="bonus-box-txt">From</p>
+                                <h3 class="bonus-box-title">10.000$</h3>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bonus-system-box bonus-system-box4">
+                            <div class="bonus-left">
+                                <span class="bonus-system-num">+30%</span>
+                            </div>
+                            <div class="bonus-right">
+                                <p class="bonus-box-txt">From</p>
+                                <h3 class="bonus-box-title">55.000$</h3>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal payment-detail-modal fade" id="payment-detail" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">How It Works?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="payment-detail-slider-wrapper">
+                    <div class="payment-detail-slider">
+                        <div>
+                            <div class="payment-detail-illustration"><img
+                                        src="https://i.imgur.com/IGXpc6A.png" class="img-fluid modal_img"
+                                        alt="" width="50%"></div>
+                            <h3 class="payment-detail-slide-title">Step 1: Fill Out Info:</h3>
+                            <p class="payment-detail-slide-txt">Choose your preferred method, fill out the required info,
+                                enter the amount in USD, and click “Pay”.</p>
+                            <p class="payment-detail-slide-txt"><b>Note:</b> Wise Transfer is different. Please click the
+                                payment method <b>#8 Wise</b> icon and read the complete instructions to pay with your bank.
+                            </p>
+                        </div>
+                        <div>
+                            <div class="payment-detail-illustration"><img
+                                        src="https://i.imgur.com/gmTVqoS.png" class="img-fluid modal_img"
+                                        alt="" width="50%"></div>
+                            <h3 class="payment-detail-slide-title">Step 2: Proceed and Pay:</h3>
+                            <p class="payment-detail-slide-txt">Payment processor site will appear. Proceed with the payment
+                                according to your selected payment processor and complete the deposit.</p>
+                        </div>
+                        <div>
+                            <div class="payment-detail-illustration"><img
+                                        src="https://i.imgur.com/KQfVeNU.png" class="img-fluid modal_img"
+                                        alt="" width="50%"></div>
+                            <h3 class="payment-detail-slide-title">Step 3: Receive Your Funds: </h3>
+                            <p class="payment-detail-slide-txt">The deposited balance will appear in your Naizop wallet in
+                                less than 10 minutes.</p>
+                            <p class="payment-detail-slide-txt"><b>Note:</b> If Payment doesn’t reflect in your wallet
+                                within 24 hours, contact Naizop support and the issue will be swiftly resolved.</p>
+                        </div>
+                    </div>
+                    <div class="slider1-nav"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--------Payment history start---------->
+
+<div class="custom-modal-outer payments-popup_history" style="display: none;">
+    <div class="custom-modal-overlay"></div>
+    <div class="custom-modal-in change-img-modal-in">
+        <div class="modal-cntnt-wpr">
+            <div class="tips-modal-hdr">
+                <h3>Payment History</h3>
+                <button type="button" class="loginClose_btn modal-close-btn">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1.33252 1.33261L14.6659 14.6659" stroke="white" stroke-width="1.5"
+                              stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M14.6659 1.33261L1.33252 14.6659" stroke="white" stroke-width="1.5"
+                              stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="tips-modal-form-wpr">
+
+
+
+
+                <div class="body-content-wpr">
+                    <div class="page-content-overlay"></div>
+                    <div class="affiliate_field_grp support_main_wpr your-ticket">
+                        <div class="table-responsive">
+                            <table class="table cmn-table your-ticket-table payment-history-table">
+                                <thead>
+                                <tr>
+                                    <th>{{ lang('addfunds.id') }}</th>
+                                    <th>{{ lang('addfunds.method') }}</th>
+                                    <th>{{ lang('addfunds.date') }}</th>
+                                    <th>{{ lang('addfunds.amount') }}</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for payment in paymentList %}
+                                    <tr>
+                                        <td data-heading="Order ID">{{ payment['id'] }}</td>
+                                        <td data-heading="Subject">{{ payment['method'] }}</td>
+                                        <td data-heading="Last update">
+                                            <p class="time_info">{{ payment['date'] }}</p>
+                                        </td>
+                                        <td data-heading="Status">
+                                            {% if payment['original_amount'] %}
+                                                <span data-toggle="tooltip" data-placement="left"
+                                                      title="{{ payment['original_amount'] }}&nbsp;{{ payment['original_currency'] }}">≈
+                        {{ payment['amount'] }}</span>
+                                            {% else %}
+                                                {{ payment['amount'] }}
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        {% if pagination['count'] > 50 %}
+                            <div class="nav-pills">
+                                <ul class="pagination {% if site['rtl'] %} rtl-pagination {% endif %}">
+                                    {% if pagination['current'] != 1 %}
+                                        <li>
+                                            <a href="{{ page['url'] }}/{{ pagination['last'] }}" aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                            </a>
+                                        </li>
+                                    {% endif %}
+
+                                    {% set r, l = 3, 3 %}
+
+                                    {% if pagination['current'] == 1 %}
+                                        {% set r = 6 %}
+                                    {% endif %}
+
+                                    {% if pagination['current'] == 2 %}
+                                        {% set r = 5 %}
+                                    {% endif %}
+
+                                    {% if pagination['current'] >= pagination['pages'] %}
+                                        {% set l = 5 %}
+                                    {% endif %}
+
+                                    {% for i in 1..ceil(pagination['pages']) %}
+                                        {% if i >= (pagination['current']-l) and i <= (pagination['current']+r) %} <li{% if
+                                            i==pagination['current'] %} class="active" {% endif %}>
+                                            <a href="{{ page['url'] }}/{{i}}">{{i}}</a></li>
+                                        {% endif %}
+                                    {% endfor %}
+
+                                    {% if pagination['current'] < pagination['pages'] %} <li>
+                                        <a href="{{ page['url'] }}/{{ pagination['next'] }}" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--------Payment history end---------->
+<script type="text/javascript" src="https://cdn4.mypanel.link/libs/jquery/1.12.4/jquery.min.js">
+</script>
+<script>
+
+    $(".set_amount").click(function () {
+
+        var set_amounts = $(this).data("amount");
+        $("#amount").val(set_amounts);
+        console.log('amoutselect');
+    });
+
+
+    var bitcoin_img = "https://cdn4.mypanel.link/idhwx8/rqymimss6asiahsa.png";
+    var crypto_img = "https://cdn4.mypanel.link/idhwx8/8zigrcosdswifpex.png";
+    var payop_img = "https://cdn4.mypanel.link/idhwx8/ncjqddmn2srzzsa5.png";
+    var payeer_img = "https://cdn4.mypanel.link/idhwx8/04xrl30i280mo7ce.png";
+    var perfectmoney_img = "https://cdn4.mypanel.link/idhwx8/c7wwhj1j1s105h0u.png";
+
+
+
+
+
+</script>
+
+<script>
+    //$(document).on('change', '#select2-method-container', function(){
+    $(document).ready(function () {
+        $('.form-control').on('change', function () {
+            $('.custom-amnt').show();
+            $('.supprt_submitBtn_wpr').show();
+            $('.afterbonusyouget').show();
+            if ($(this).val() === '83034') {
+                //PrimePayments
+                $('.fund-content-wrap').removeClass('active');
+                $('.fund-content-wrap.primepayment').addClass('active');
+                console.log($('#method').val());
+            } else if ($(this).val() === '135139') {
+                //anypay
+                $('.fund-content-wrap').removeClass('active');
+                $('.fund-content-wrap.anypay').addClass('active');
+                console.log($('#method').val());
+            } else if ($(this).val() === '15802') {
+                // payop
+                $('.fund-content-wrap').removeClass('active');
+                $('.fund-content-wrap.payop').addClass('active');
+                console.log($('#method').val());
+            } else if ($(this).val() === '15799') {
+                // Coinbase
+                $('.fund-content-wrap').removeClass('active');
+                $('.fund-content-wrap.coinbase').addClass('active');
+            } else if ($(this).val() === '132868') {
+                // Cryptomus
+                $('.fund-content-wrap').removeClass('active');
+                $('.fund-content-wrap.cryptomus').addClass('active');
+            } else if ($(this).val() === '19522') {
+                // payeer
+                $('.fund-content-wrap').removeClass('active');
+                $('.fund-content-wrap.payeer').addClass('active');
+            } else if ($(this).val() === '19521') {
+                // PerfectMoney
+                $('.fund-content-wrap').removeClass('active');
+                $('.fund-content-wrap.perfectmoney').addClass('active');
+            } else if ($(this).val() === '48175') {
+                // Paytr
+                $('.fund-content-wrap').removeClass('active');
+                $('.fund-content-wrap.paytr').addClass('active');
+            } else if ($(this).val() === '47389') {
+                // Wise
+                $('.fund-content-wrap').removeClass('active');
+                $('.fund-content-wrap.wise').addClass('active');
+                $('.custom-amnt').hide();
+                $('.supprt_submitBtn_wpr').hide();
+                $('.afterbonusyouget').hide();
+            } else if ($(this).val() === '136329') {
+                // turkey
+                $('.fund-content-wrap').removeClass('active');
+                $('.fund-content-wrap.turkey').addClass('active');
+            }
+        });
+    });
+</script>
+
+<script>
+    $(".hdng-wrap .page-hdng").click(function () {
+        $('.hdng-wrap .page-hdng').removeClass('active');
+        $(this).addClass('active');
+        $('.addfund-row-wpr').toggleClass('hide');
+    });
+</script>

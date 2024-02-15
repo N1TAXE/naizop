@@ -1,0 +1,65 @@
+<div class="body-content-wpr mass-order">
+    <div class="page-content-overlay"></div>
+    <h1 class="page-hdng">Mass Order</h1>
+
+    <div class="notification-wrap">
+        {% if 1 == success %}
+            <div class="wtch-vdo-wpr">
+                <div class="notification-msg">
+                    <h4>{{lang('massorder.message.success')}}</h4>
+                    <p>
+                        {{lang('massorder.orders')}}: {{order['success']}}<br>
+                        {{lang('massorder.errors')}}: {{order['error']}}<br>
+                    </p>
+                    <a href="{{ order['link'] }}" target="_blank" class="ylw-btn">{{ lang('massorder.button.details') }}</a>
+                </div>
+                <button type="button" class="vdo-wpr-cls-btn">
+                    <img src="https://cdn.mypanel.link/idhwx8/l44m2d1t94p327qr.png" alt="">
+                </button>
+            </div>
+        {%endif%}
+        {% if error %}
+            <div class="wtch-vdo-wpr {% if site['rtl'] %} rtl-alert {% endif %}">
+                {% if order['link'] %}
+                    <div class="notification-msg">
+                        <h4>{{ errorText }}</h4>
+                        <p>
+                            {{lang('massorder.orders')}}: {{order['success']}}<br>
+                            {{lang('massorder.errors')}}: {{order['error']}}<br>
+                        </p>
+                    </div>
+                    <a href="{{ order['link'] }}" target="_blank" class="ylw-btn">{{ lang('massorder.button.details') }}</a>
+                {% else %}
+                    <p>
+                        {{ errorText }}
+                    </p>
+                {% endif %}
+                <button type="button" class="vdo-wpr-cls-btn">
+                    <img src="https://cdn.mypanel.link/idhwx8/l44m2d1t94p327qr.png" alt="">
+                </button>
+            </div>
+        {% endif %}
+    </div>
+    <div class="order-form-wpr">
+
+        <form {% if site['rtl'] %}class="rtl-form"{% endif %} method="post" action="{{ page['url'] }}">
+            <div class="form-group ig2">
+                <label for="links" class="control-label">{{ lang('massorder.label') }}</label>
+                {#
+                <div class="wtch-vdo-wpr">
+                  <p>
+                      How Does Mass Order Work? Let's watch the video!
+                  </p>
+                  <a href="#url" class="ylw-btn">Watch the video</a>
+              </div>
+                #}
+                <textarea class="form-control" name="MassOrderForm[orders]" rows="15" id="links" placeholder="{{ lang('massorder.placeholder') }}"></textarea>
+            </div>
+            <div class="sbmt-btn-wpr">
+                <input type="hidden" name="_csrf" value="{{csrftoken}}">
+                <button type="submit" class="btn btn-primary btn-block">{{ lang('massorder.button') }}</button>
+            </div>
+        </form>
+    </div>
+
+</div>

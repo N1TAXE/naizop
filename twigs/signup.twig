@@ -1,0 +1,236 @@
+<style>
+    footer .folow-title {
+        font-size: 25px !important ;
+        font-weight: 700 !important;
+        color: #fff !important;
+        font-family: 'Rubik' !important;
+        position: relative !important;
+    }
+
+    .Quick-link,
+    .ftr-services {
+        padding-left: 0 !important;
+    }
+
+    .row.ftr-bottom.text-center .follow-us ul {
+        justify-content: center !important;
+        margin-top: 0 !important;
+        margin-bottom: 0;
+    }
+
+    .row.ftr-bottom.text-center .follow-us {
+        margin-top: 0 !important;
+    }
+    .login_frmBtn_wrap .btn.btn-primary {
+        height: 50px;
+        width: 100%;
+        border-radius: 30px;
+        background: -o-linear-gradient(left, #85F7E2 20%, #FFB60E 130%);
+        background: -webkit-gradient(linear, left top, right top, color-stop(20%, #85F7E2), color-stop(130%, #FFB60E));
+        background: linear-gradient(to right, #85F7E2 20%, #FFB60E 130%);
+        font-size: 20px;
+        font-weight: 700;
+        color: #070B20;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        outline: none;
+        -webkit-transition: .5s all;
+        -o-transition: .5s all;
+        transition: .5s all;
+        border: none;
+        margin-bottom: 10px;
+        padding: 0;
+    }
+</style>
+
+<div class="signup-sec">
+    {# <div class="bg-overlay">
+    <img src="https://cdn.mypanel.link/idhwx8/amw1ip096qc48dza.webp" data-src="https://cdn.mypanel.link/idhwx8/amw1ip096qc48dza.webp" class="lazyload" alt="" width="1440px" height="1377px">
+  </div> #}
+    <div class="signup-cntnt">
+        <div class="container">
+            <div class="signup-row row new-row">
+                <div class="col-xs-12 col-md-6 signup-lft-col">
+                    <div class="banner-cntnt">
+                        <h1>Start Getting Real Results Today!</h1>
+                        <h2 style="color: #FFB60E;">NAIZOP</h2>
+                        <p>
+                            is the <strong>most reliable</strong> social media service on the market with <span>{{ totals['ordersAll']|number_format(0, '.', ',') }}</span> orders until now
+                        </p>
+                        <div class="banner-point-txt">
+                            <ul>
+                                <li>Unbelievably Low Prices</li>
+                                <li>Guaranteed Services—Up to Lifetime Guarantee</li>
+                                <li>Free Bonus Balance—Up to 30% of payment</li>
+                            </ul>
+                        </div>
+                        <div class="banner-btn-wpr">
+                            <a href="#" class="grd-btn">
+                                Get started now
+                                <img src="https://cdn.mypanel.link/0a268b/gaqy3bgq1wc5jys8.webp" data-src="https://cdn.mypanel.link/0a268b/gaqy3bgq1wc5jys8.webp" class="lazyload" width="171px" height="17px" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-6 signup-rht-col">
+                    <div class="signup-right-cntnt">
+                        <h2 class="cmn_login_heading">Registration</h2>
+                        <div class="rgstr-form-wpr">
+                            {#
+                            <form {% if site['rtl'] %}class="rtl-form" {% endif %} action="/signup" method="post">
+                              {% if error %}
+                              <div class="notification-wrap {% if site['rtl'] %} rtl-alert {% endif %}">
+                                <div class="wtch-vdo-wpr ">
+                                  <button type="button" class="vdo-wpr-cls-btn">
+                                    <img src="https://cdn.mypanel.link/idhwx8/l44m2d1t94p327qr.png" alt="">
+                                  </button>
+                                  <p>{{ errorMessage }}</p>
+                                </div>
+                              </div>
+                              {% endif %}
+                              {% if success %}
+                              <div class="notification-wrap {% if site['rtl'] %} rtl-alert {% endif %}">
+                                <div class="wtch-vdo-wpr ">
+                                  <button type="button" class="vdo-wpr-cls-btn">
+                                    <img src="https://cdn.mypanel.link/idhwx8/l44m2d1t94p327qr.png" alt="">
+                                  </button>
+                                  <p>{{ successText }}</p>
+                                </div>
+                              </div>
+                              {% endif %}
+                              <!-- {% for field in fields %}
+                              <div class="login_frm_wrp">
+                                <label for="{{ field.code }}" class="control-label">{{ lang(field.label) }}</label>
+                                <input type="{{ field.type }}" class="form-control" id="{{ field.code }}" value="{{ field.value }}"
+                                  name="RegistrationForm[{{ field.code }}]">
+                              </div>
+                              {% endfor %}
+
+                              <div class="login_frm_wrp">
+                                <label>{{ lang('signup.username') }}</label>
+                                <input type="text" id="username" value="{{ data['login'] }}"
+                                  name="RegistrationForm[login]" placeholder="Enter your username...">
+                              </div>
+                              <div class="login_frm_wrp">
+                                <label>{{ lang('signup.email') }}</label>
+                                <input type="email" id="email" value="{{ data['email'] }}"
+                                  name="RegistrationForm[email]" placeholder="Enter your e-mail...">
+                              </div>
+                              <div class="login_frm_wrp">
+                                <label>{{ lang('signup.password') }}</label>
+                                <input type="password" placeholder="Enter your password..." id="password"
+                                  name="RegistrationForm[password]">
+                              </div>
+                              <div class="login_frm_wrp">
+                                <label>{{ lang('signup.confirm') }}</label>
+                                <input type="password" placeholder="Confirm your password..." id="confirm"
+                                  name="RegistrationForm[password_again]">
+                              </div>
+                               -->
+
+                              <!-- STATIC CODE START -->
+                              <div class="login_frm_wrp">
+                                <label for="username">Username</label>
+                                <input type="text" id="username" value="{{ data['login'] }}"
+                                       name="RegistrationForm[login]" placeholder="Enter your username...">
+                              </div>
+                              <div class="login_frm_wrp">
+                                <label  for="email">E-mail Address</label>
+                                <input type="email" id="email" value="{{ data['email'] }}"
+                                       name="RegistrationForm[email]" placeholder="Enter your e-mail...">
+                              </div>
+                              <div class="login_frm_wrp">
+                                <label for="password">Password</label>
+                                <input type="password" placeholder="Enter your password..." id="password"
+                                       name="RegistrationForm[password]">
+                              </div>
+                              <div class="login_frm_wrp">
+                                <label for="confirm">Confirm password</label>
+                                <input type="password" placeholder="Confirm your password..." id="confirm"
+                                       name="RegistrationForm[password_again]">
+                              </div>
+                              <div class="frm_checkBx_wrp">
+                                <label>
+                                  <input type="checkbox"/>
+                                  <span>I have read and agreed with <a href="#url" target="_blank">Terms of Service</a></span>
+                                </label>
+                              </div>
+                              <!-- STATIC CODE END -->
+
+                              <!-- {% if check_agreement %}
+                              <div class="frm_checkBx_wrp">
+                                <label>
+                                  <input type="checkbox" name="RegistrationForm[termsofservice]" />
+                                  <span>{{ lang('signup.accept_terms_text') }} <a href="{{ page_url('terms') }}" target="_blank">{{
+                                      lang('terms.signup_checkbox') }}</a></span>
+                                </label>
+                              </div>
+                              {% endif %}
+                              {% if site['captcha'] %}
+                              {{ captchaCode }}
+                              {% endif %} -->
+                              <div class="login_frmBtn_wrap">
+                                <input type="hidden" name="_csrf" value="{{csrftoken}}">
+
+                                <input type="submit" value="{{ lang('signup.button') }}" />
+                              </div>
+                            </form>
+                            #}
+                            <form {% if site['rtl'] %}class="rtl-form"{% endif %} action="" method="post">
+
+                                {% if error %}
+                                    <div class="notification-wrap ">
+                                        <div class="wtch-vdo-wpr ">
+                                            <button type="button" class="vdo-wpr-cls-btn">
+                                                <img src="https://cdn.mypanel.link/idhwx8/l44m2d1t94p327qr.png" alt="">
+                                            </button>
+                                            <p>{{ errorMessage }}</p>
+                                        </div>
+                                    </div>
+                                {% endif %}
+
+                                {% if success %}
+                                    <div class="notification-wrap ">
+                                        <div class="wtch-vdo-wpr ">
+                                            <button type="button" class="vdo-wpr-cls-btn">
+                                                <img src="https://cdn.mypanel.link/idhwx8/l44m2d1t94p327qr.png" alt="">
+                                            </button>
+                                            <p>{{ successText }}</p>
+                                        </div>
+                                    </div>
+                                {% endif %}
+
+                                {% for field in fields %}
+                                    <div class="login_frm_wrp">
+                                        <label for="{{ field.code }}" class="control-label">{{ lang(field.label) }}</label>
+                                        <input type="{{ field.type }}" class="form-control" id="{{ field.code }}" value="{{ field.value }}" name="RegistrationForm[{{ field.code }}]">
+                                    </div>
+                                {% endfor %}
+
+                                {% if site['captcha'] %}
+                                    {{ captchaCode }}
+                                {% endif %}
+
+
+                                {% if check_agreement %}
+                                    <div class="frm_checkBx_wrp">
+                                        <label>
+                                            <input type="checkbox" name="RegistrationForm[termsofservice]">
+                                            <span>{{ lang('signup.accept_terms_text') }} <a href="{{ page_url('terms') }}" target="_blank">{{ lang('terms.signup_checkbox') }}</a></span>
+                                        </label>
+                                    </div>
+                                {% endif %}
+
+                                <div class="login_frmBtn_wrap">
+                                    <input type="hidden" name="_csrf" value="{{csrftoken}}">
+                                    <button type="submit" class="btn btn-primary">{{ lang('signup.button') }}</button>
+                                </div>
+                                {# <span class="pull-right pull-right-middle">{{ lang('signup.text') }} <a href="{{ page_url('signin') }}">{{ lang('signin.title') }}</a></span>#}
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

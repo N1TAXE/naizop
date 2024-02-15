@@ -1,0 +1,488 @@
+<div class="body-content-wpr">
+    <div class="page-content-overlay"></div>
+    <div class="cming_soon_main">
+        <div class="coming_sn_head">
+            <h1>Coming Soon</h1>
+            <p>This page is under construction. We can let you know when it is ready</p>
+        </div>
+        <div class="cmingsn_countdn_outter">
+            <div class="cmingsn_countdn_wrap">
+                <div class="each_cmingsn_count_col">
+                    <div class="each_cmingsn_count">
+                        <div id="days_count">--</div> <span>days</span>
+                    </div>
+                    <div class="each_dot">:</div>
+                </div>
+                <div class="each_cmingsn_count_col">
+                    <div class="each_cmingsn_count">
+                        <div id="hours_count">--</div> <span>hours</span>
+                    </div>
+                    <div class="each_dot">:</div>
+                </div>
+                <div class="each_cmingsn_count_col">
+                    <div class="each_cmingsn_count">
+                        <div id="minutes_count">--</div> <span>minutes</span>
+                    </div>
+                    <div class="each_dot">:</div>
+                </div>
+                <div class="each_cmingsn_count_col">
+                    <div class="each_cmingsn_count">
+                        <div id="secs_counts">--</div> <span>seconds</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cmingsn_notify_wrap">
+            <form>
+                <input type="email" placeholder="Your email">
+                <div class="notifyBtn_wrap">
+                    <input type="submit" value="Notify Me">
+                </div>
+            </form>
+            <a href="#" class="backHome_btn">Return to home</a>
+        </div>
+    </div>
+</div>
+
+
+
+{#
+<div class="body-content-wpr">
+                    <div class="page-content-overlay"></div>
+                      <h1 class="page-hdng">VIP Rewards</h1>
+                      <div class="vip_prgrm_main">
+                          <h2>Welcome to our VIP program!</h2>
+                          <div class="vip_prgrm_innr">
+                              <div class="vip_img_wpr">
+                                  <div class="vip_img">
+                                      <a href="#rank_modal" data-fancybox="">
+                                          <img src="https://cdn.mypanel.link/idhwx8/b6hso3bc6l9uzeeb.png" alt="">
+                                      </a>
+                                  </div>
+                                  <span class="upload_icon"><img src="https://cdn.mypanel.link/idhwx8/xzgagnkmzbw5pdes.png" alt=""></span>
+                              </div>
+                              <div class="vip_reward_table_wpr">
+                                  <table>
+                                      <thead>
+                                          <tr>
+                                              <th>YOUR RANK</th>
+                                              <th>BALANCE</th>
+                                              <th>NEXT RANK</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                          <tr>
+                                              <td>
+                                                {% if user['spent'] >= 50000 %}
+                                                VIP
+                                                {% elseif user['spent'] >= 15000 %}
+                                                Diamond
+                                                {% elseif user['spent'] >= 5000 %}
+                                                Platinum
+                                                {% elseif user['spent'] >= 2500 %}
+                                                Gold
+                                                {% elseif user['spent'] >= 1000 %}
+                                                Silver
+                                                {% elseif user['spent'] >= 100 %}
+                                                Bronze
+                                                {% else %}
+                                                New
+                                                {% endif %}
+                                                </td>
+                                              <td>{{ user['balance_formatted'] }}</td>
+                                              <td>
+                                              {% if user['spent'] <= 100 %}
+                                                Bronze
+                                                {% elseif user['spent'] <= 1000 %}
+                                                Silver
+                                                {% elseif user['spent'] <= 2500 %}
+                                                Gold
+                                                {% elseif user['spent'] <= 5000 %}
+                                                Platinum
+                                                {% elseif user['spent'] <= 15000 %}
+                                                Diamond
+                                                {% elseif user['spent'] <= 50000 %}
+                                                VIP
+                                                {% endif %}
+                                                <span>($100)</span></td>
+                                          </tr>
+                                      </tbody>
+                                  </table>
+                              </div>
+                              <div class="vipReward_btn_wpr">
+                                  <a href="/tickets" class="cmn_blue_btn">Redeem $</a>
+                                  <a href="/tickets">Redeem history</a>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="vip_progress_wrppr">
+                          <div class="task-progress">
+                              <div class="vip_progress_head_wpr">
+                                  <div class="vip_progress_head">
+                                      <i><img src="https://cdn.mypanel.link/idhwx8/xzgagnkmzbw5pdes.png" alt=""></i>
+                                      <span>{% if user['spent'] >= 50000 %}
+                                                VIP
+                                                {% elseif user['spent'] >= 15000 %}
+                                                Diamond
+                                                {% elseif user['spent'] >= 5000 %}
+                                                Platinum
+                                                {% elseif user['spent'] >= 2500 %}
+                                                Gold
+                                                {% elseif user['spent'] >= 1000 %}
+                                                Silver
+                                                {% elseif user['spent'] >= 100 %}
+                                                Bronze
+                                                {% else %}
+                                                New
+                                                {% endif %}</span>
+                                  </div>
+                                  <span class="gray_txt">{% if user['spent'] >= 50000 %}100{% elseif user['spent'] >= 15000 %}
+                            84{% elseif user['spent'] >= 5000 %}
+                            70{% elseif user['spent'] >= 2500 %}
+                            56{% elseif user['spent'] >= 1000 %}
+                            42{% elseif user['spent'] >= 100 %}
+                            28{% else %}14{% endif %}% progress to {% if user['spent'] >= 50000 %}
+                                                VIP
+                                                {% elseif user['spent'] >= 15000 %}
+                                                Diamond
+                                                {% elseif user['spent'] >= 5000 %}
+                                                Platinum
+                                                {% elseif user['spent'] >= 2500 %}
+                                                Gold
+                                                {% elseif user['spent'] >= 1000 %}
+                                                Silver
+                                                {% elseif user['spent'] >= 100 %}
+                                                Bronze
+                                                {% else %}
+                                                New
+                                                {% endif %}
+                                            </span>
+                                  <div class="vip_progress_head">
+                                      <span>{% if user['spent'] >= 50000 %}
+                                                VIP
+                                                {% elseif user['spent'] >= 15000 %}
+                                                Diamond
+                                                {% elseif user['spent'] >= 5000 %}
+                                                Platinum
+                                                {% elseif user['spent'] >= 2500 %}
+                                                Gold
+                                                {% elseif user['spent'] >= 1000 %}
+                                                Silver
+                                                {% elseif user['spent'] >= 100 %}
+                                                Bronze
+                                                {% else %}
+                                                New
+                                                {% endif %}</span>
+                                      <i><img src="https://cdn.mypanel.link/idhwx8/erp7tmil5kfxqyiz.png" alt=""></i>
+                                  </div>
+                              </div>
+                              <progress class="progress" max="100" value="{% if user['spent'] >= 50000 %}100{% elseif user['spent'] >= 15000 %}
+                            84{% elseif user['spent'] >= 5000 %}
+                            70{% elseif user['spent'] >= 2500 %}
+                            56{% elseif user['spent'] >= 1000 %}
+                            42{% elseif user['spent'] >= 100 %}
+                            28{% else %}14{% endif %}"></progress>
+                          </div>
+                          <a href="#" class="updateCard_btn">View All Levels</a>
+                      </div>
+                      <div class="vip_allTab_main">
+
+                          <div class="vip_allTab_list">
+                              <ul>
+                                  <li>
+                                      <a href="#url">
+                                          <span class="icon-wpr">
+                                              <img src="https://cdn.mypanel.link/idhwx8/xzgagnkmzbw5pdes.png" alt="">
+                                          </span>
+                                          New
+                                      </a>
+                                  </li>
+                                  <li>
+                                      <a href="#url" class="active">
+                                          <span class="icon-wpr">
+                                              <img src="https://cdn.mypanel.link/idhwx8/0men92i5dclw25j2.png" alt="">
+                                          </span>
+                                          Bronze
+                                      </a>
+                                  </li>
+                                  <li>
+                                      <a href="#url">
+                                          <span class="icon-wpr">
+                                              <img src="https://cdn.mypanel.link/idhwx8/43w1x0o9qde5ka7r.png" alt="">
+                                          </span>
+                                          Silver
+                                      </a>
+                                  </li>
+                                  <li>
+                                      <a href="#url">
+                                          <span class="icon-wpr">
+                                              <img src="https://cdn.mypanel.link/idhwx8/cabit7gcxbj0jm9h.png" alt="">
+                                          </span>
+                                          Gold
+                                      </a>
+                                  </li>
+                                  <li>
+                                      <a href="#url">
+                                          <span class="icon-wpr">
+                                              <img src="https://cdn.mypanel.link/idhwx8/9pa8c9zt8xznub3w.png" alt="">
+                                          </span>
+                                          Platinum
+                                      </a>
+                                  </li>
+                                  <li>
+                                      <a href="#url">
+                                          <span class="icon-wpr">
+                                              <img src="https://cdn.mypanel.link/idhwx8/7351s4fqhjxm0ner.png" alt="">
+                                          </span>
+                                          Diamond
+                                      </a>
+                                  </li>
+                                  <li>
+                                      <a href="#url">
+                                          <span class="icon-wpr">
+                                              <img src="https://cdn.mypanel.link/idhwx8/2b09l5nty61ckhyr.png" alt="">
+                                          </span>
+                                          VIP
+                                      </a>
+                                  </li>
+                                  <li>
+                                      <a href="#url">
+                                          <span class="icon-wpr">
+                                              <img src="https://cdn.mypanel.link/idhwx8/hzi9y7aicuhb79q5.png" alt="">
+                                          </span>
+                                          VIP III
+                                      </a>
+                                  </li>
+                              </ul>
+                          </div>
+                          <div class="vip_allTab_content">
+                              <div class="vip_allTab_cmn vip_allTab_item vip_allTab_top">
+                                  <div class="custom-tooltip-wpr left">
+                                      <a href="javascript:void(0)" class="query_icon custom-tooltip-btn" data-toggle="popover" data-trigger="hover" data-container="body" data-placement="auto left" type="button" data-html="true" id="logout">
+                                          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                              <path fill-rule="evenodd" clip-rule="evenodd" d="M9 16.5V16.5C4.8575 16.5 1.5 13.1425 1.5 9V9C1.5 4.8575 4.8575 1.5 9 1.5V1.5C13.1425 1.5 16.5 4.8575 16.5 9V9C16.5 13.1425 13.1425 16.5 9 16.5Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                              <path d="M8.99998 10.0415V9.83318C8.99998 9.15234 9.42081 8.78318 9.84248 8.49984C10.2541 8.22234 10.6666 7.86068 10.6666 7.19401C10.6666 6.27318 9.92081 5.52734 8.99998 5.52734C8.07915 5.52734 7.33331 6.27318 7.33331 7.19401" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                              <path d="M8.99915 12.3333C8.88415 12.3333 8.79082 12.4267 8.79165 12.5417C8.79165 12.6567 8.88498 12.75 8.99998 12.75C9.11498 12.75 9.20832 12.6567 9.20832 12.5417C9.20832 12.4267 9.11498 12.3333 8.99915 12.3333" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                          </svg>
+                                      </a>
+                                      <div class="custom-tooltip-cntnt-wpr">
+                                          <div class="custom-tooltip-cntnt">
+                                              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tenetur numquam pariatur ullam autem deleniti aliquam, ea voluptate repudiandae accusamus alias suscipit hic quibusdam delectus voluptas eum. Nihil, aspernatur unde.</p>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="vip_allTab_txt">
+                                      <i><img src="https://cdn.mypanel.link/idhwx8/erp7tmil5kfxqyiz.png" alt=""></i>
+                                      <span>You must spend $100 to unlock Bronze</span>
+                                  </div>
+                                  <div class="unlockBtn_wrap">
+                                      <!-- Add class "locked" to disable the button -->
+                                      <a href="javascript:void(0)" class="unlock_btn">Unlock</a>
+                                      <!-- add class "hide" to hide the text -->
+                                      <span>Not claimble yet $30</span>
+                                  </div>
+                              </div>
+                              <div class="row new-row vip_allTab_rw">
+                                  <div class="col-xs-12 col-lg-3 col-sm-6 vip_allTab_col">
+                                      <div class="vip_allTab_cmn vip_allTabInnr_itm">
+                                          <div class="custom-tooltip-wpr">
+                                              <a href="javascript:void(0)" class="query_icon custom-tooltip-btn" data-toggle="popover" data-trigger="hover" data-container="body" data-placement="auto left" type="button" data-html="true" id="logout">
+                                                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                      <path fill-rule="evenodd" clip-rule="evenodd" d="M9 16.5V16.5C4.8575 16.5 1.5 13.1425 1.5 9V9C1.5 4.8575 4.8575 1.5 9 1.5V1.5C13.1425 1.5 16.5 4.8575 16.5 9V9C16.5 13.1425 13.1425 16.5 9 16.5Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                      <path d="M8.99998 10.0415V9.83318C8.99998 9.15234 9.42081 8.78318 9.84248 8.49984C10.2541 8.22234 10.6666 7.86068 10.6666 7.19401C10.6666 6.27318 9.92081 5.52734 8.99998 5.52734C8.07915 5.52734 7.33331 6.27318 7.33331 7.19401" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                      <path d="M8.99915 12.3333C8.88415 12.3333 8.79082 12.4267 8.79165 12.5417C8.79165 12.6567 8.88498 12.75 8.99998 12.75C9.11498 12.75 9.20832 12.6567 9.20832 12.5417C9.20832 12.4267 9.11498 12.3333 8.99915 12.3333" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                  </svg>
+                                              </a>
+                                              <div class="custom-tooltip-cntnt-wpr">
+                                                  <div class="custom-tooltip-cntnt">
+                                                      <p>24/7 Ticket Support (customers who have spent $100 or more) will automatically unlock 24/7 ticket support. You will know you have achieved this status when the Gold coloured bar has been activated.</p>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <p>24/7 Ticket Support</p>
+                                      </div>
+                                  </div>
+                                  <div class="col-xs-12 col-lg-3 col-sm-6 vip_allTab_col">
+                                      <div class="vip_allTab_cmn vip_allTabInnr_itm">
+                                          <div class="custom-tooltip-wpr">
+                                              <a href="javascript:void(0)" class="query_icon custom-tooltip-btn" data-toggle="popover" data-trigger="hover" data-container="body" data-placement="auto left" type="button" data-html="true" id="logout">
+                                                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                      <path fill-rule="evenodd" clip-rule="evenodd" d="M9 16.5V16.5C4.8575 16.5 1.5 13.1425 1.5 9V9C1.5 4.8575 4.8575 1.5 9 1.5V1.5C13.1425 1.5 16.5 4.8575 16.5 9V9C16.5 13.1425 13.1425 16.5 9 16.5Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                      <path d="M8.99998 10.0415V9.83318C8.99998 9.15234 9.42081 8.78318 9.84248 8.49984C10.2541 8.22234 10.6666 7.86068 10.6666 7.19401C10.6666 6.27318 9.92081 5.52734 8.99998 5.52734C8.07915 5.52734 7.33331 6.27318 7.33331 7.19401" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                      <path d="M8.99915 12.3333C8.88415 12.3333 8.79082 12.4267 8.79165 12.5417C8.79165 12.6567 8.88498 12.75 8.99998 12.75C9.11498 12.75 9.20832 12.6567 9.20832 12.5417C9.20832 12.4267 9.11498 12.3333 8.99915 12.3333" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                  </svg>
+                                              </a>
+                                              <div class="custom-tooltip-cntnt-wpr">
+                                                  <div class="custom-tooltip-cntnt">
+                                                      <p>Early notification on new services (customers who have spent $100 or more) will automatically unlock access to a page that provides Early notification on new services. You will know you have achieved this status when the Gold coloured bar has been activated. In order to gain access to the page, please contact us via support.</p>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <p>Early notification on new services</p>
+                                      </div>
+                                  </div>
+                                  <div class="col-xs-12 col-lg-3 col-sm-6 vip_allTab_col">
+                                      <div class="vip_allTab_cmn vip_allTabInnr_itm">
+                                          <div class="custom-tooltip-wpr">
+                                              <a href="javascript:void(0)" class="query_icon custom-tooltip-btn" data-toggle="popover" data-trigger="hover" data-container="body" data-placement="auto left" type="button" data-html="true" id="logout">
+                                                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                      <path fill-rule="evenodd" clip-rule="evenodd" d="M9 16.5V16.5C4.8575 16.5 1.5 13.1425 1.5 9V9C1.5 4.8575 4.8575 1.5 9 1.5V1.5C13.1425 1.5 16.5 4.8575 16.5 9V9C16.5 13.1425 13.1425 16.5 9 16.5Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                      <path d="M8.99998 10.0415V9.83318C8.99998 9.15234 9.42081 8.78318 9.84248 8.49984C10.2541 8.22234 10.6666 7.86068 10.6666 7.19401C10.6666 6.27318 9.92081 5.52734 8.99998 5.52734C8.07915 5.52734 7.33331 6.27318 7.33331 7.19401" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                      <path d="M8.99915 12.3333C8.88415 12.3333 8.79082 12.4267 8.79165 12.5417C8.79165 12.6567 8.88498 12.75 8.99998 12.75C9.11498 12.75 9.20832 12.6567 9.20832 12.5417C9.20832 12.4267 9.11498 12.3333 8.99915 12.3333" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                  </svg>
+                                              </a>
+                                              <div class="custom-tooltip-cntnt-wpr">
+                                                  <div class="custom-tooltip-cntnt">
+                                                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tenetur numquam pariatur ullam autem deleniti aliquam, ea voluptate repudiandae accusamus alias suscipit hic quibusdam delectus voluptas eum. Nihil, aspernatur unde.</p>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <p>Priority ticket support</p>
+                                      </div>
+                                  </div>
+                                  <div class="col-xs-12 col-lg-3 col-sm-6 vip_allTab_col">
+                                      <div class="vip_allTab_cmn vip_allTabInnr_itm">
+                                          <div class="custom-tooltip-wpr">
+                                              <a href="javascript:void(0)" class="query_icon custom-tooltip-btn" data-toggle="popover" data-trigger="hover" data-container="body" data-placement="auto left" type="button" data-html="true" id="logout">
+                                                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                      <path fill-rule="evenodd" clip-rule="evenodd" d="M9 16.5V16.5C4.8575 16.5 1.5 13.1425 1.5 9V9C1.5 4.8575 4.8575 1.5 9 1.5V1.5C13.1425 1.5 16.5 4.8575 16.5 9V9C16.5 13.1425 13.1425 16.5 9 16.5Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                      <path d="M8.99998 10.0415V9.83318C8.99998 9.15234 9.42081 8.78318 9.84248 8.49984C10.2541 8.22234 10.6666 7.86068 10.6666 7.19401C10.6666 6.27318 9.92081 5.52734 8.99998 5.52734C8.07915 5.52734 7.33331 6.27318 7.33331 7.19401" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                      <path d="M8.99915 12.3333C8.88415 12.3333 8.79082 12.4267 8.79165 12.5417C8.79165 12.6567 8.88498 12.75 8.99998 12.75C9.11498 12.75 9.20832 12.6567 9.20832 12.5417C9.20832 12.4267 9.11498 12.3333 8.99915 12.3333" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                  </svg>
+                                              </a>
+                                              <div class="custom-tooltip-cntnt-wpr">
+                                                  <div class="custom-tooltip-cntnt">
+                                                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tenetur numquam pariatur ullam autem deleniti aliquam, ea voluptate repudiandae accusamus alias suscipit hic quibusdam delectus voluptas eum. Nihil, aspernatur unde.</p>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <p>Support available via Instagram</p>
+                                      </div>
+                                  </div>
+                                  <div class="col-xs-12 col-lg-3 col-sm-6 vip_allTab_col">
+                                      <div class="vip_allTab_cmn vip_allTabInnr_itm">
+                                          <div class="custom-tooltip-wpr">
+                                              <a href="javascript:void(0)" class="query_icon custom-tooltip-btn" data-toggle="popover" data-trigger="hover" data-container="body" data-placement="auto left" type="button" data-html="true" id="logout">
+                                                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                      <path fill-rule="evenodd" clip-rule="evenodd" d="M9 16.5V16.5C4.8575 16.5 1.5 13.1425 1.5 9V9C1.5 4.8575 4.8575 1.5 9 1.5V1.5C13.1425 1.5 16.5 4.8575 16.5 9V9C16.5 13.1425 13.1425 16.5 9 16.5Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                      <path d="M8.99998 10.0415V9.83318C8.99998 9.15234 9.42081 8.78318 9.84248 8.49984C10.2541 8.22234 10.6666 7.86068 10.6666 7.19401C10.6666 6.27318 9.92081 5.52734 8.99998 5.52734C8.07915 5.52734 7.33331 6.27318 7.33331 7.19401" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                      <path d="M8.99915 12.3333C8.88415 12.3333 8.79082 12.4267 8.79165 12.5417C8.79165 12.6567 8.88498 12.75 8.99998 12.75C9.11498 12.75 9.20832 12.6567 9.20832 12.5417C9.20832 12.4267 9.11498 12.3333 8.99915 12.3333" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                  </svg>
+                                              </a>
+                                              <div class="custom-tooltip-cntnt-wpr">
+                                                  <div class="custom-tooltip-cntnt">
+                                                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tenetur numquam pariatur ullam autem deleniti aliquam, ea voluptate repudiandae accusamus alias suscipit hic quibusdam delectus voluptas eum. Nihil, aspernatur unde.</p>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <p>Support available via Telegram</p>
+                                      </div>
+                                  </div>
+                                  <div class="col-xs-12 col-lg-3 col-sm-6 vip_allTab_col">
+                                      <div class="vip_allTab_cmn vip_allTabInnr_itm">
+                                          <div class="custom-tooltip-wpr">
+                                              <a href="javascript:void(0)" class="query_icon custom-tooltip-btn" data-toggle="popover" data-trigger="hover" data-container="body" data-placement="auto left" type="button" data-html="true" id="logout">
+                                                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                      <path fill-rule="evenodd" clip-rule="evenodd" d="M9 16.5V16.5C4.8575 16.5 1.5 13.1425 1.5 9V9C1.5 4.8575 4.8575 1.5 9 1.5V1.5C13.1425 1.5 16.5 4.8575 16.5 9V9C16.5 13.1425 13.1425 16.5 9 16.5Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                      <path d="M8.99998 10.0415V9.83318C8.99998 9.15234 9.42081 8.78318 9.84248 8.49984C10.2541 8.22234 10.6666 7.86068 10.6666 7.19401C10.6666 6.27318 9.92081 5.52734 8.99998 5.52734C8.07915 5.52734 7.33331 6.27318 7.33331 7.19401" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                      <path d="M8.99915 12.3333C8.88415 12.3333 8.79082 12.4267 8.79165 12.5417C8.79165 12.6567 8.88498 12.75 8.99998 12.75C9.11498 12.75 9.20832 12.6567 9.20832 12.5417C9.20832 12.4267 9.11498 12.3333 8.99915 12.3333" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                  </svg>
+                                              </a>
+                                              <div class="custom-tooltip-cntnt-wpr">
+                                                  <div class="custom-tooltip-cntnt">
+                                                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tenetur numquam pariatur ullam autem deleniti aliquam, ea voluptate repudiandae accusamus alias suscipit hic quibusdam delectus voluptas eum. Nihil, aspernatur unde.</p>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <p>$250 Monthly lottery</p>
+                                      </div>
+                                  </div>
+                                  <div class="col-xs-12 col-lg-3 col-sm-6 vip_allTab_col">
+                                      <div class="vip_allTab_cmn vip_allTabInnr_itm">
+                                          <div class="custom-tooltip-wpr">
+                                              <a href="javascript:void(0)" class="query_icon custom-tooltip-btn" data-toggle="popover" data-trigger="hover" data-container="body" data-placement="auto left" type="button" data-html="true" id="logout">
+                                                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                      <path fill-rule="evenodd" clip-rule="evenodd" d="M9 16.5V16.5C4.8575 16.5 1.5 13.1425 1.5 9V9C1.5 4.8575 4.8575 1.5 9 1.5V1.5C13.1425 1.5 16.5 4.8575 16.5 9V9C16.5 13.1425 13.1425 16.5 9 16.5Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                      <path d="M8.99998 10.0415V9.83318C8.99998 9.15234 9.42081 8.78318 9.84248 8.49984C10.2541 8.22234 10.6666 7.86068 10.6666 7.19401C10.6666 6.27318 9.92081 5.52734 8.99998 5.52734C8.07915 5.52734 7.33331 6.27318 7.33331 7.19401" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                      <path d="M8.99915 12.3333C8.88415 12.3333 8.79082 12.4267 8.79165 12.5417C8.79165 12.6567 8.88498 12.75 8.99998 12.75C9.11498 12.75 9.20832 12.6567 9.20832 12.5417C9.20832 12.4267 9.11498 12.3333 8.99915 12.3333" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                  </svg>
+                                              </a>
+                                              <div class="custom-tooltip-cntnt-wpr">
+                                                  <div class="custom-tooltip-cntnt">
+                                                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tenetur numquam pariatur ullam autem deleniti aliquam, ea voluptate repudiandae accusamus alias suscipit hic quibusdam delectus voluptas eum. Nihil, aspernatur unde.</p>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <p>Loyalty 2% payment bonus</p>
+                                      </div>
+                                  </div>
+                                  <div class="col-xs-12 col-lg-3 col-sm-6 vip_allTab_col">
+                                      <div class="vip_allTab_cmn vip_allTabInnr_itm">
+                                          <div class="custom-tooltip-wpr">
+                                              <a href="javascript:void(0)" class="query_icon custom-tooltip-btn" data-toggle="popover" data-trigger="hover" data-container="body" data-placement="auto left" type="button" data-html="true" id="logout">
+                                                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                      <path fill-rule="evenodd" clip-rule="evenodd" d="M9 16.5V16.5C4.8575 16.5 1.5 13.1425 1.5 9V9C1.5 4.8575 4.8575 1.5 9 1.5V1.5C13.1425 1.5 16.5 4.8575 16.5 9V9C16.5 13.1425 13.1425 16.5 9 16.5Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                      <path d="M8.99998 10.0415V9.83318C8.99998 9.15234 9.42081 8.78318 9.84248 8.49984C10.2541 8.22234 10.6666 7.86068 10.6666 7.19401C10.6666 6.27318 9.92081 5.52734 8.99998 5.52734C8.07915 5.52734 7.33331 6.27318 7.33331 7.19401" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                      <path d="M8.99915 12.3333C8.88415 12.3333 8.79082 12.4267 8.79165 12.5417C8.79165 12.6567 8.88498 12.75 8.99998 12.75C9.11498 12.75 9.20832 12.6567 9.20832 12.5417C9.20832 12.4267 9.11498 12.3333 8.99915 12.3333" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                  </svg>
+                                              </a>
+                                              <div class="custom-tooltip-cntnt-wpr">
+                                                  <div class="custom-tooltip-cntnt">
+                                                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque tenetur numquam pariatur ullam autem deleniti aliquam, ea voluptate repudiandae accusamus alias suscipit hic quibusdam delectus voluptas eum. Nihil, aspernatur unde.</p>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <p>Support handled by the admins</p>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+#}
+
+{#
+<script>
+const countDownDate = new Date("Nov 2, 2023 15:37:25").getTime();
+
+  const vipRewardsTimer = setInterval(() => {
+  let now = new Date().getTime();
+  let distance = countDownDate - now;
+  let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.querySelector('#days_count').innerHTML = days;
+    document.querySelector('#hours_count').innerHTML = hours;
+    document.querySelector('#minutes_count').innerHTML = minutes;
+    document.querySelector('#secs_counts').innerHTML = seconds;
+
+
+
+}, 1000);
+</script>
+#}
+<script>
+    const countDownDate = new Date("Jan 5, 2024 24:00:0").getTime();
+
+    const vipRewardsTimer = setInterval(() => {
+        let now = new Date().getTime();
+        let distance = countDownDate - now;
+        let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        if(distance > 0){
+            document.querySelector('#days_count').innerHTML = days;
+            document.querySelector('#hours_count').innerHTML = hours;
+            document.querySelector('#minutes_count').innerHTML = minutes;
+            document.querySelector('#secs_counts').innerHTML = seconds;
+        }else{
+            document.querySelector('#days_count').innerHTML = '0';
+            document.querySelector('#hours_count').innerHTML = '0';
+            document.querySelector('#minutes_count').innerHTML = '0';
+            document.querySelector('#secs_counts').innerHTML = '0';
+        }
+    }, 1000);
+</script>

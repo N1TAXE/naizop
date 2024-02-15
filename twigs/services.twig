@@ -1,0 +1,431 @@
+<div class="body-content-wpr service-page">
+    <div class="page-content-overlay"></div>
+    <div class="service-cntnt-sec main-content">
+        <div class="container">
+            <div class="content">
+                {#<form class="search-box">
+        <div class="row">
+          <div class="search-input col-md-10">
+            <input type="text" class="form-control" placeholder="{{ lang('general.search.placeholder') }}" data-search-service="#service-table">
+            <label for="search"></label>
+            <div class="btn-group">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-filter-serch-btn="true">
+                <span>Service Filter:</span> <span data-filter-active-category="true">All</span><span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                {% if serviceCategoryList is empty %}
+                {% else %}
+                <li><a href="#" data-filter-category-id="All">{{ lang('services.all') }}</a></li>
+                {% endif %}
+
+                {% for category in serviceCategoryList %}
+                {% if category.name %}
+                <li><a href="#" data-filter-category-id="{{ category.id }}" data-filter-category-name="{{ category.name }}">{{ category['name'] }}</a></li>
+                {% endif %}
+                {% endfor %}
+
+              </ul>
+            </div>
+          </div>
+          <div class="search-button col-md-2">
+            <button type="submit">Search</button>
+          </div>
+        </div>
+        </form>#}
+                <form class="search-box">
+                    <div class="row">
+                        <div class="search-input col-md-10">
+                            <input id="ser_search" type="text" placeholder="{{ lang('general.search.placeholder') }}" data-search-service="#service-table">
+                            <label for="search"></label>
+                            {# <div class="btn-group">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-filter-serch-btn="true">
+                <span>Service Filter:</span> <span data-filter-active-category="true">All</span><span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                {% if serviceCategoryList is empty %}
+                {% else %}
+                <li>
+                  <a href="#" data-filter-category-id="All">{{ lang('services.all') }}</a>
+                </li>
+                {% endif %}
+
+                {% for category in serviceCategoryList %}
+                {% if category.name %}
+                <li>
+                  <a href="#" data-filter-category-id="{{ category.id }}" data-filter-category-name="{{ category.name }}">{{ category['name'] }}</a>
+                </li>
+                {% endif %}
+                {% endfor %}
+
+              </ul>
+              </div>#}
+                            <div class="btn-group">
+                                <button class="btn btn-defualt dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span>Service Filter:</span>
+                                    <span data-filter-active-category="true">All</span>
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    {% if serviceCategoryList is empty %}
+                                    {% else %}
+                                        <li>
+                                            <a class="dropdown-item" href="#" data-filter-category-id="All">{{ lang('services.all') }}</a>
+                                        </li>
+                                    {% endif %}
+                                    {% if user.favorite_services %}
+                                        <li>
+                                            <a class="dropdown-item" href="#" data-filter-category-id="favorites" data-filter-category-name="{{ lang('services.favorite') }}">
+                                                <span class="fas fa-star"></span>
+                                                <span>{{ lang('services.favorite') }}</span>
+                                            </a>
+                                        </li>
+                                    {% endif %}
+                                    {% for category in serviceCategoryList %}
+                                        {% if category.name %}
+                                            <li>
+                                                <a class="dropdown-item" href="#" data-filter-category-id="{{ category.id }}" data-filter-category-name="{{ category.name }}">
+                                                    {% if category['icon'] %}
+                                                        {% set categoryIcon = category['icon'] %}
+                                                        {% if categoryIcon['icon_type'] == 'icon' %}
+                                                            <span class="{{ categoryIcon['icon'] }}"></span>
+                                                        {% elseif categoryIcon['icon_type'] == 'emoji' %}
+                                                            <span>{{ categoryIcon['icon'] }}</span>
+                                                        {% elseif categoryIcon['icon_type'] == 'image' %}
+                                                            <img src="{{ categoryIcon['url'] }}" alt="{{ category['name'] }}" class="img-responsive btn-group-vertical" style="max-width: calc(1em + 6px); max-height: calc(1em + 6px);">
+                                                        {% endif %}
+                                                    {% endif %}
+                                                    <span>{{ category['name'] }}</span>
+                                                </a>
+                                            </li>
+                                        {% endif %}
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="search-button col-md-2">
+                            <button type="submit">Search</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="row">
+                    <div class="col-md-12 services">
+                        <h2>All Services</h2>
+                        <div class="service-list">
+                            <span data-services-filter="">All</span>
+                            <span class="instagram" data-services-filter="instagram">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14.978 0H6.35532C2.85098 0 0 2.85098 0 6.35532V14.978C0 18.4824 2.85098 21.3333 6.35532 21.3333H14.978C18.4824 21.3333 21.3333 18.4824 21.3333 14.978V6.35532C21.3333 2.85098 18.4823 0 14.978 0ZM19.1872 14.978C19.1872 17.3027 17.3027 19.1872 14.978 19.1872H6.35532C4.03067 19.1872 2.14613 17.3027 2.14613 14.978V6.35532C2.14613 4.03063 4.03067 2.14613 6.35532 2.14613H14.978C17.3027 2.14613 19.1872 4.03063 19.1872 6.35532V14.978Z" fill="url(#paint0_linear_54_8886)"/>
+                  <path d="M10.6667 5.14905C7.62434 5.14905 5.14917 7.62422 5.14917 10.6666C5.14917 13.7089 7.62434 16.1841 10.6667 16.1841C13.7091 16.1841 16.1843 13.709 16.1843 10.6666C16.1843 7.62418 13.7091 5.14905 10.6667 5.14905ZM10.6667 14.038C8.80473 14.038 7.2953 12.5286 7.2953 10.6666C7.2953 8.8046 8.80477 7.29518 10.6667 7.29518C12.5287 7.29518 14.0382 8.8046 14.0382 10.6666C14.0382 12.5286 12.5287 14.038 10.6667 14.038Z" fill="url(#paint1_linear_54_8886)"/>
+                  <path d="M16.1949 6.51265C16.9251 6.51265 17.517 5.92072 17.517 5.19053C17.517 4.46034 16.9251 3.86841 16.1949 3.86841C15.4647 3.86841 14.8728 4.46034 14.8728 5.19053C14.8728 5.92072 15.4647 6.51265 16.1949 6.51265Z" fill="url(#paint2_linear_54_8886)"/>
+                  <defs>
+                    <linearGradient id="paint0_linear_54_8886" x1="10.6667" y1="21.2712" x2="10.6667" y2="0.1657" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#E09B3D"/>
+                      <stop offset="0.3" stop-color="#C74C4D"/>
+                      <stop offset="0.6" stop-color="#C21975"/>
+                      <stop offset="1" stop-color="#7024C4"/>
+                    </linearGradient>
+                    <linearGradient id="paint1_linear_54_8886" x1="10.6667" y1="21.2712" x2="10.6667" y2="0.165641" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#E09B3D"/>
+                      <stop offset="0.3" stop-color="#C74C4D"/>
+                      <stop offset="0.6" stop-color="#C21975"/>
+                      <stop offset="1" stop-color="#7024C4"/>
+                    </linearGradient>
+                    <linearGradient id="paint2_linear_54_8886" x1="16.1949" y1="21.2712" x2="16.1949" y2="0.165697" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#E09B3D"/>
+                      <stop offset="0.3" stop-color="#C74C4D"/>
+                      <stop offset="0.6" stop-color="#C21975"/>
+                      <stop offset="1" stop-color="#7024C4"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </span>
+                            <span class="twitter" data-services-filter="twitter">
+                <svg width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M16 1.5C15.4 1.8 14.8 1.9 14.1 2C14.8 1.6 15.3 1 15.5 0.2C14.9 0.6 14.2 0.8 13.4 1C12.8 0.4 11.9 0 11 0C8.9 0 7.3 2 7.8 4C5.1 3.9 2.7 2.6 1 0.6C0.1 2.1 0.6 4 2 5C1.5 5 1 4.8 0.5 4.6C0.5 6.1 1.6 7.5 3.1 7.9C2.6 8 2.1 8.1 1.6 8C2 9.3 3.2 10.3 4.7 10.3C3.5 11.2 1.7 11.7 0 11.5C1.5 12.4 3.2 13 5 13C11.1 13 14.5 7.9 14.3 3.2C15 2.8 15.6 2.2 16 1.5Z" fill="white"/>
+                </svg>
+              </span>
+                            <span class="telegram" data-services-filter="telegram">
+                <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1.09992 5.7083C5.39487 3.83705 8.25885 2.60341 9.69185 2.00738C13.7834 0.30558 14.6335 0.00996027 15.1877 9.46359e-05C15.3095 -0.00194823 15.582 0.0282562 15.7586 0.171489C15.9076 0.292432 15.9486 0.455809 15.9683 0.570476C15.9879 0.685143 16.0123 0.946358 15.9929 1.15046C15.7712 3.48009 14.8118 9.13349 14.3237 11.7427C14.1172 12.8468 13.7105 13.217 13.3168 13.2532C12.4613 13.3319 11.8116 12.6878 10.9829 12.1446C9.68624 11.2946 8.95369 10.7654 7.69503 9.93601C6.24042 8.97744 7.18338 8.4506 8.01236 7.58959C8.22931 7.36426 11.999 3.93546 12.0719 3.62441C12.0811 3.58551 12.0895 3.44051 12.0034 3.36394C11.9172 3.28737 11.7901 3.31355 11.6983 3.33438C11.5683 3.36389 9.4968 4.73307 5.48389 7.4419C4.89591 7.84565 4.36333 8.04237 3.88616 8.03207C3.36012 8.0207 2.34822 7.73463 1.59598 7.49011C0.673328 7.19019 -0.0599784 7.03162 0.00387615 6.52227C0.0371355 6.25697 0.402482 5.98564 1.09992 5.7083Z" fill="white"/>
+                </svg>
+              </span>
+                            <span class="youtube" data-services-filter="youtube">
+                <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15.6 1.7C15.4 1 14.9 0.5 14.2 0.3C13 1.78814e-07 7.89999 0 7.89999 0C7.89999 0 2.90001 1.78814e-07 1.60001 0.3C0.900006 0.5 0.399997 1 0.199997 1.7C-3.05474e-06 3 0 5.6 0 5.6C0 5.6 3.03984e-06 8.2 0.300003 9.5C0.500003 10.2 0.999997 10.7 1.7 10.9C2.9 11.2 8 11.2 8 11.2C8 11.2 13 11.2 14.3 10.9C15 10.7 15.5 10.2 15.7 9.5C16 8.2 16 5.6 16 5.6C16 5.6 16 3 15.6 1.7ZM6.39999 8V3.2L10.6 5.6L6.39999 8Z" fill="white"/>
+                </svg>
+              </span>
+                            <span class="tiktok" data-services-filter="tiktok">
+                <svg width="13" height="15" viewBox="0 0 13 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8.92682 9.81V4.45292C9.95825 5.19332 11.2244 5.63111 12.5901 5.63111V3.58441C11.8005 3.41715 11.107 2.98999 10.5949 2.40265C9.76972 1.86519 9.17581 1.00378 8.98729 0H7.05967L7.05611 10.561C7.01346 11.7428 6.03894 12.6932 4.84755 12.6932C4.10777 12.6932 3.45693 12.3266 3.05149 11.7713C2.34729 11.3975 1.86361 10.6607 1.86361 9.81C1.86361 8.5891 2.85588 7.59598 4.07576 7.59598C4.30338 7.59598 4.52388 7.63512 4.73016 7.6992V5.63468C2.11257 5.69164 0 7.84157 0 10.4792C0 11.7535 0.494356 12.9139 1.30168 13.7824C2.08767 14.3341 3.04793 14.6616 4.07932 14.6616C6.75027 14.6616 8.92682 12.4832 8.92682 9.81Z" fill="white"/>
+                </svg>
+              </span>
+                            <span class="facebook" data-services-filter="facebook">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M16 8C16 3.6 12.4 0 8 0C3.6 0 0 3.6 0 8C0 12 2.9 15.3 6.7 15.9V10.3H4.7V8H6.7V6.2C6.7 4.2 7.9 3.1 9.7 3.1C10.6 3.1 11.5 3.3 11.5 3.3V5.3H10.5C9.5 5.3 9.2 5.9 9.2 6.5V8H11.4L11 10.3H9.1V16C13.1 15.4 16 12 16 8Z" fill="white"/>
+                </svg>
+              </span>
+                            <span class="spotify" data-services-filter="spotify">
+                <svg width="22" height="15" viewBox="0 0 22 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M16.72 14.3816C16.4864 14.3816 16.252 14.2656 16.0184 14.148C13.7968 12.8624 11.1072 12.1608 8.1848 12.1608C6.5472 12.1608 4.9104 12.3936 3.3904 12.7448C3.1568 12.7448 2.8056 12.8616 2.6888 12.8616C2.104 12.8616 1.7536 12.3928 1.7536 11.9256C1.7536 11.3416 2.104 10.9896 2.572 10.8744C4.4424 10.4056 6.3136 10.1728 8.3008 10.1728C11.5752 10.1728 14.6152 10.9896 17.1872 12.512C17.5376 12.7448 17.772 12.9792 17.772 13.5632C17.6552 14.032 17.1872 14.3816 16.72 14.3816ZM18.3568 10.4056C18.0064 10.4056 17.7728 10.2904 17.5384 10.1728C15.084 8.6528 11.692 7.716 7.8344 7.716C5.9632 7.716 4.2096 7.9504 2.9232 8.3024C2.572 8.4176 2.4552 8.4176 2.2216 8.4176C1.52 8.4176 1.052 7.8336 1.052 7.2488C1.052 6.5472 1.4032 6.196 1.9872 5.9632C3.7408 5.496 5.4952 5.1448 7.9504 5.1448C11.9264 5.1448 15.7848 6.0808 18.8248 7.9504C19.292 8.1832 19.5264 8.652 19.5264 9.1192C19.5264 9.8216 19.0584 10.4056 18.3568 10.4056ZM20.228 5.7304C19.8776 5.7304 19.76 5.6136 19.4096 5.4976C16.6032 3.86 12.3944 2.924 8.3016 2.924C6.1968 2.924 4.092 3.1584 2.2216 3.6256C1.9872 3.6256 1.7536 3.7424 1.4032 3.7424C0.5848 3.8592 0 3.1584 0 2.3392C0 1.5208 0.468 1.0536 1.052 0.936C3.2736 0.2344 5.612 0 8.3016 0C12.7448 0 17.4216 0.936 20.9296 2.9232C21.3968 3.1576 21.7472 3.6248 21.7472 4.3264C21.6312 5.1448 21.0456 5.7304 20.228 5.7304Z" fill="white"/>
+                </svg>
+              </span>
+                            <span class="vk" data-services-filter="vk">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 7.68C0 4.05867 0 2.25067 1.12 1.12C2.256 0 4.064 0 7.68 0H8.32C11.9413 0 13.7493 0 14.88 1.12C16 2.256 16 4.064 16 7.68V8.32C16 11.9413 16 13.7493 14.88 14.88C13.744 16 11.936 16 8.32 16H7.68C4.05867 16 2.25067 16 1.12 14.88C0 13.744 0 11.936 0 8.32V7.68Z" fill="#0077FF"/>
+                  <path d="M8.51206 11.5253C4.86406 11.5253 2.78406 9.02935 2.69873 4.86935H4.5334C4.59206 7.92001 5.93606 9.21068 7.00273 9.47735V4.86935H8.7254V7.49868C9.77606 7.38668 10.8854 6.18668 11.2587 4.86401H12.9761C12.836 5.54869 12.5563 6.19713 12.1544 6.76883C11.7525 7.34053 11.2369 7.8232 10.6401 8.18668C11.3062 8.51821 11.8944 8.98719 12.366 9.56268C12.8376 10.1382 13.1819 10.8071 13.3761 11.5253H11.4827C11.0774 10.2613 10.0641 9.28001 8.7254 9.14668V11.5253H8.5174H8.51206Z" fill="white"/>
+                </svg>
+              </span>
+                            <span class="odno" data-services-filter="odno">
+                <svg width="11" height="19" viewBox="0 0 11 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M10.3138 4.84525C10.3138 7.51447 8.13777 9.69047 5.46843 9.69047C2.77024 9.69047 0.594224 7.51447 0.594224 4.84525C0.594224 2.17601 2.77024 0 5.46843 0C8.13777 0 10.3138 2.17601 10.3138 4.84525ZM7.47044 4.84525C7.47044 3.74275 6.57097 2.84332 5.46843 2.84332C4.33697 2.84332 3.4375 3.74275 3.46657 4.84525C3.46657 5.94777 4.36603 6.84713 5.46843 6.84713C6.57097 6.84713 7.47044 5.94777 7.47044 4.84525Z" fill="white"/>
+                  <path d="M10.2267 12.5049C9.35631 13.0561 8.39884 13.4333 7.41244 13.6654L10.1687 16.3346C10.7199 16.8859 10.7199 17.7853 10.1687 18.3366C9.61751 18.8878 8.71804 18.8878 8.16684 18.3366L5.4975 15.6673L2.82831 18.3366C2.53816 18.5977 2.19 18.7427 1.81283 18.7427C1.43565 18.7427 1.08749 18.6267 0.797357 18.3366C0.246087 17.7853 0.246087 16.8859 0.797357 16.3346L3.49564 13.6363C2.50914 13.4042 1.5517 13.0271 0.681301 12.4758C0.0139828 12.0697 -0.18911 11.1993 0.188063 10.5319C0.623277 9.8646 1.49368 9.6906 2.16099 10.0967C4.1339 11.3443 6.71604 11.3443 8.68898 10.0967C9.35631 9.66153 10.2558 9.8646 10.6619 10.5319C11.0971 11.1993 10.894 12.0986 10.2267 12.5049Z" fill="white"/>
+                </svg>
+              </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="service-table">
+                    <div class="col-md-12">
+                        <!--category-->
+                        {% for category in serviceCategoryList %}
+                        {% if category['name'] %}
+                        <div class="collapse-table " data-filter-table-category-id="{{ category.id }}">
+                            <div class="ct-head">
+                                <div class="icon">
+                                    {% if category['icon'] %}
+                                        {% set categoryIcon = category['icon'] %}
+                                        {% if categoryIcon['icon_type'] == 'icon' %}
+                                            <span class="{{ categoryIcon['icon'] }}"></span>
+                                        {% elseif categoryIcon['icon_type'] == 'emoji' %}
+                                            <span>{{ categoryIcon['icon'] }}</span>
+                                        {% elseif categoryIcon['icon_type'] == 'image' %}
+                                            <img src="{{ categoryIcon['url'] }}" alt="{{ category['name'] }}" class="img-responsive btn-group-vertical" style="max-width: calc(1em + 6px); max-height: calc(1em + 6px);">
+                                        {% endif %}
+                                    {% endif %}
+                                </div>
+                                <div class="title">{{ category['name'] }}</div>
+                                <div class="tags">
+                                    {% if '[Guaranteed]' in category['name'] %}
+                                        <span>Guaranteed</span>
+                                    {% elseif "[ Recommended ]" in category['name'] %}
+                                        <span>Recommended</span>
+                                    {% elseif [Targeted] in category['name'] %}
+                                        <span>Targeted</span>
+                                    {% elseif "[Not Guaranteed]" in category['name'] %}
+                                        <span>Not Guaranteed</span>
+
+
+                                    {% endif %}
+
+                                    <span>
+                    {% set count = 0 %}
+                                        {% for service in category['services'] %}
+                                            {% set count = count + 1 %}
+                                        {% endfor %}
+
+                                        {{ count }}
+                  </span>
+                                </div>
+                                <button class="collapse-button">
+                                    <svg width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4 5L8 1.63913e-07H0L4 5Z" fill="white"/>
+                                    </svg>
+                                </button>
+                            </div> {% endif %}
+                            <div class="table-container">
+                                <table>
+                                    {#
+                                    <thead>
+                                      <tr>
+                                        <th>Ser. ID</th>
+                                        <th>Service Name</th>
+                                        <th>Price</th>
+                                        <th>Average Time</th>
+                                        <th>Min - Max. Order</th>
+                                        <th>Action</th>
+                                      </tr>
+                                    </thead>
+                                    #}
+                                    <thead>
+                                    <tr>
+                                        <th>{{ lang('services.id') }}</th>
+                                        <th>{{ lang('services.name') }}</th>
+                                        <th>{{ lang('services.rate') }}</th>
+                                        {% if site['average_time'] %}
+                                            <th>{{ lang('services.average_time') }}</th>
+                                        {% endif %}
+                                        <th>{{ lang('services.min') }} - {{ lang('services.max') }}</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    <!--service-->
+                                    {% for service in category['services'] %}
+                                        <tr data-filter-table-category-id="{{ category.id }}">
+                                            <td class="ser_id" content="Ser. ID" data-filter-table-service-id="{{ service.id }}"><div class="has-star">
+                                                    {% if user.favorite_services %}
+
+                                                        <span role="button" {% if service.favorite %}class="favorite-active"{% endif %} data-favorite-service-id="{{ service.id }}">
+                          <span data-favorite-icon class="{% if service.favorite %}fas fa-star{% else %}far fa-star{% endif %}"></span>
+                        </span>
+
+                                                    {% endif %}
+
+
+
+
+                                                    #{{ service['id'] }}</div></td>
+                                            <td class="service-name" content="Service Name" data-filter-table-service-name="true">{{ service['name'] }}</td>
+                                            <td content="Price"><mark>{% if converted %}
+                                                        <span data-toggle="tooltip" data-placement="top" title="{{ service.original_rate }}">{{ service.rate }}</span>
+                                                    {% else %}
+                                                        {{ service.rate }}
+                                                    {% endif %}</mark>/1.000</td>
+                                            <td content="Average Time">{{ service['average_time'] }}</td>
+                                            <td content="Min - Max. Order">{{ service['min'] }} - {{ service['max'] }}</td>
+                                            <td content="Action">
+                                                <div class="buttons">
+                                                    <a href="#" class="view" data-id="{{ service['id'] }}" data-min="{{ service['min'] }}" data-max="{{ service['max'] }}" data-name="{{ service['name'] }}" data-time="{{ service['average_time'] }}"><span style="display: none;"><span id="{{ service['id'] }}">{{ service['description'] }}</span></span></a>
+                                                    {% if user['auth'] %}
+                                                        <a href="#" class="purchase" data-id="{{ service['id'] }}">Purchase</a>					  {% endif %}
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    <!--service-->
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>{% endfor %}<!--category-->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="service-popup service-page">
+    <div class="service-popup-content">
+        <h2>Service details</h2>
+        <div class="popup_order_main">
+            <div class="popup_order_rw hdng">
+                <div class="popup_order_col">
+                    <p><span class="popUp_table_title">Section</span></p>
+                </div>
+                <div class="popup_order_col">
+                    <p>Value</p>
+                </div>
+            </div>
+            <div class="popup_order_rw">
+                <div class="popup_order_col">
+                    <p><span class="popUp_table_title">{{ lang('services.name') }}</span></p>
+                </div>
+                <div class="popup_order_col">
+                    <p id="desc_service_name">-</p>
+                </div>
+            </div>
+            {% if site['average_time'] %}
+                <div class="popup_order_rw">
+                    <div class="popup_order_col">
+                        <p><span class="popUp_table_title">{{ lang('services.average_time') }}</span></p>
+                    </div>
+                    <div class="popup_order_col">
+                        <p id="desc_service_time">-</p>
+                    </div>
+                </div>
+            {% endif %}
+            <div class="popup_order_rw">
+                <div class="popup_order_col">
+                    <p><span class="popUp_table_title">{{ lang('services.min') }}/{{ lang('services.max') }}</span></p>
+                </div>
+                <div class="popup_order_col">
+                    <p id="desc_service_min">-</p>
+                </div>
+            </div>
+            {% if serviceDescription %}
+                <div class="popup_order_rw">
+                    <div class="popup_order_col">
+                        <p><span class="popUp_table_title">{{ lang('services.description') }}</span></p>
+                    </div>
+                    <div class="popup_order_col">
+                        <div class="popup-txt" id="desc_service_desc">-
+
+                        </div>
+
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    <div class="close"><svg width="21" height="21" viewBox="0 0 21 21" fill="#ffffff" xmlns="http://www.w3.org/2000/svg"><path d="M3.33679 3.33679L16.6701 16.6701" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M16.6701 3.33679L3.33679 16.6701" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+</div>
+
+<div class="service-popup-overlay service-page"></div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+
+        $('.collapse-table button.collapse-button').click(function(e){
+            e.preventDefault();
+            $(this).parents('.collapse-table').toggleClass('open');
+        });
+
+        $('.service-popup-overlay, .service-popup .close').click(function(){
+            $('.collapse-table tbody tr').removeClass('active');
+            $('body').toggleClass('service-popup-open');
+        });
+
+        $('.collapse-table tbody tr td.service-name').click(function(){
+            $(this).parent().addClass('active').siblings().removeClass('active');
+            $('body').toggleClass('service-popup-open');
+        });
+
+        $('.collapse-table tbody tr td .star').click(function(){
+            $(this).toggleClass('active').siblings().removeClass('active');
+        });
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mypanel.link/libs/jquery/1.12.4/jquery.min.js">
+</script>
+
+<script>
+    $('.service-list span').click(function(){
+
+        var dataFilter=$(this).data("services-filter");
+        console.log(dataFilter);
+        var value = dataFilter;
+        $(".collapse-table").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+
+    $('.purchase').click(function(){
+
+        var serv_id = $(this).data("id");
+        window.location.href = 'https://naizop.com?service='+serv_id;
+    });
+
+    $('.view').click(function(){
+
+        var serv_id = $(this).data("id");
+        var serv_min = $(this).data("min");
+        var serv_max = $(this).data("max");
+        var serv_name = $(this).data("name");
+        var serv_desc = document.getElementById(serv_id);
+        var serv_time = $(this).data("time");
+        var min_max = serv_min+"/"+serv_max;
+        $("#desc_service_name").html(serv_name);
+        $("#desc_service_desc").html(serv_desc);
+        $("#desc_service_time").html(serv_time);
+        $("#desc_service_min").html(min_max);
+
+
+        $(this).parent().addClass('active').siblings().removeClass('active');
+        $('body').toggleClass('service-popup-open');
+    });
+
+</script>

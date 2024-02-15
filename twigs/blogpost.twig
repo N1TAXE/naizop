@@ -1,0 +1,225 @@
+<style>
+    .sidebar .blog-content {
+        padding: 24px 26px;
+        border-radius: 0 0 24px 24px;
+    }
+    .sidebar .blog-item {
+        border-radius: 20px 20px 24px 24px;
+    }
+    .guest .blogg {
+        padding-top: 105px;
+    }
+    .sidebar .blog-image-wrap img {
+        border-radius: 20px 20px 0 0;
+    }
+    .post-content p a {
+        font-family: Rubik;
+        font-size: 18px;
+        line-height: 21px;
+        text-decoration-line: underline;
+        color: #F6DC5A;
+    }
+    .blog-image-wrap {
+        padding: 15px;
+        background-color: #131133;
+        border-radius: 20px 20px 0 0;
+    }
+    .sidebar .blog-image-wrap {
+        padding: 0;
+    }
+    .blog-item {
+        display: block;
+        margin-bottom: 19px;
+        background-color: #191639;
+        border-radius: 20px 20px 0 0;
+    }
+    .blog-content {
+        padding: 15px 35px;
+    }
+    .post-title {
+        font-size: 20px;
+        color: #fff;
+        margin-bottom: 10px;
+        margin-top: 0;
+        font-weight: 500;
+        font-family: Rubik,sans-serif;
+        text-shadow: 0 0 16px rgba(255, 255, 255, 0.72);
+    }
+    .blog-content p {
+        color: #9D9DAB;
+        font-size: 14.95px;
+        font-weight: 400;
+    }
+    .btn.btn-read svg {
+        margin-left: 8px;
+    }
+    .btn.btn-read {
+        color: #4A8EFF;
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        border: 1px solid #4A8EFF;
+        border-radius: 50px;
+        padding: 8px 15px;
+        margin-left: auto;
+        margin-right: 0;
+        max-width: 130px;
+        display: block;
+        font-family: Rubik,sans-serif;
+    }
+    .blog-content h3 {
+        font-size: 14px;
+        font-weight: 700;
+        color: #64648A;
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-family: Rubik,sans-serif;
+    }
+    .blog-content h4 {
+        font-size: 14.95px;
+        color: #64648A;
+    }
+    .post-image-wrap {
+        position: relative;
+        padding: 0 0 10px 0;
+        border-radius: 24px;
+        background-size: cover !important;
+        background-blend-mode: overlay;
+        background-repeat: no-repeat !important;
+        margin-bottom: 70px;
+        height: 311px;
+    }
+    .post-image-wrap h3 {
+        font-size: 14.92px;
+        color: #64648A;
+        margin-top: -114px;
+        margin-bottom: 10px;
+        margin-left: 20px;
+        font-weight: 400;
+        font-family: Rubik;
+    }
+    .post-image-wrap h1 {
+        font-size: 32px;
+        color: #fff;
+        margin-left: 20px;
+        margin-bottom: 10px;
+        margin-top: -74px;
+        font-weight: 500;
+        font-family: Rubik,sans-serif;
+        text-shadow: 0 0 16px rgba(255, 255, 255, 0.72);
+    }
+    .post-content,
+    .post-content p {
+        font-size: 18px;
+        font-weight: 400;
+        color: #9D9DAB;
+        font-family: Rubik,sans-serif;
+    }
+    .post-wrap .post-content h3,
+    .post-wrap .post-content h2 {
+        font-size: 24px;
+        color: #fff;
+        font-weight: 500;
+        text-shadow: 0 0 16px rgba(255, 255, 255, 0.72);
+        margin-top: 70px;
+    }
+    @media(max-width:550px){
+        .blog-content {
+            padding: 15px 20px;
+        }
+        .post-image-wrap {
+            margin-bottom: 15px;
+        }
+        .post-wrap .post-content h3 {
+            margin-top: 25px;
+        }
+        .sidebar {
+            margin-top: 60px;
+        }
+    }
+
+</style>
+<div class="blogg">
+    <div class="{% if user['auth'] %}container-fluid{% else %}container{% endif %}">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="post-wrap">
+                    {% if post['image'] %}
+                        <div class="post-image-wrap" style="background: url('{{ post['image'] }}'), linear-gradient(360deg, rgba(7, 5, 28, 0.52) 0%, rgba(7, 5, 28, 0.92) 100%);">
+                            <img src="{{ post['image'] }}" alt="{{ post['title'] }}" class="img-responsive" style="opacity:0;height: 311px;">
+                            <!-- <h3>6 June 2021</h3> -->
+                            <h1>{{ post['title'] }}</h1>
+                        </div>
+                    {% endif %}
+                    <div class="post-content">{{ post['content'] }}</div>
+                </div>
+            </div>
+            <div class="col-lg-4 sidebar">
+                <div class="blog-item">
+                    <div class="blog-image-wrap">
+                        <img class="img-responsive" src="https://cdn.mypanel.link/0a268b/osyhs4d18fb5ypsu.png" alt="What are Child Panels and how do they differ from regular SMM Panel?">
+                    </div>
+                    <div class="blog-content">
+                        <h3>SOCIAL MEDIA UPDATES</h3>
+                        <h2 class="post-title">YouTube Algorithm: Your Guide to Success</h2>
+                        <p>Tips for promoting your brand , Buy likes on Instagram posts, 8 Benefits of Facebook "Likes"</p>
+                        <div class="row">
+                            {# <div class="col-xs-5">
+              <h4>6 June 2021</h4>
+            </div> #}
+                            <div class="col-xs-12">
+                                <a href="/blog/youtube-algorithm-your-guide-to-success" class="btn btn-read" style="margin-left: 0;">Read more<svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M11.8301 5.23644L7.35732 8.93751C7.35732 8.93751 6.82667 9.49863 6.82667 8.89C6.82667 8.27913 6.82667 6.80462 6.82667 6.80462C6.82667 6.80462 6.46768 6.80462 5.91911 6.80462C4.34421 6.80462 1.48213 6.80462 0.317764 6.80462C0.317764 6.80462 5.45712e-06 6.88709 5.47806e-06 6.40798C5.49906e-06 5.92754 5.59135e-06 3.81616 5.60638e-06 3.47241C5.62137e-06 3.12955 0.265327 3.13672 0.265327 3.13672C1.39967 3.13672 4.35855 3.13672 5.87967 3.13672C6.37356 3.13672 6.69356 3.13672 6.69356 3.13672C6.69356 3.13672 6.69356 1.95488 6.69356 1.2109C6.69356 0.469609 7.2493 1.02804 7.2493 1.02804C7.2493 1.02804 11.4286 4.1765 11.8678 4.61392C12.1856 4.93392 11.8301 5.23644 11.8301 5.23644Z" fill="#4A8EFF"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-item">
+                    <div class="blog-image-wrap">
+                        <img class="img-responsive" src="https://cdn.mypanel.link/0a268b/3cmg46tgeel948yn.jpg" alt="What are Child Panels and how do they differ from regular SMM Panel?">
+                    </div>
+                    <div class="blog-content">
+                        <h3>SOCIAL MEDIA UPDATES</h3>
+                        <h2 class="post-title">Tips for promoting your brand on YouTube</h2>
+                        <p>YouTube Algorithm: Your Guide , 3 ways to Buy YouTube Subscriber, How to Buy Instagram Followers</p>
+                        <div class="row">
+                            {# <div class="col-xs-5">
+              <h4>6 June 2021</h4>
+            </div> #}
+                            <div class="col-xs-12">
+                                <a href="/blog/tips-for-promoting-your-brand-on-youtube" class="btn btn-read" style="margin-left: 0;">Read more<svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M11.8301 5.23644L7.35732 8.93751C7.35732 8.93751 6.82667 9.49863 6.82667 8.89C6.82667 8.27913 6.82667 6.80462 6.82667 6.80462C6.82667 6.80462 6.46768 6.80462 5.91911 6.80462C4.34421 6.80462 1.48213 6.80462 0.317764 6.80462C0.317764 6.80462 5.45712e-06 6.88709 5.47806e-06 6.40798C5.49906e-06 5.92754 5.59135e-06 3.81616 5.60638e-06 3.47241C5.62137e-06 3.12955 0.265327 3.13672 0.265327 3.13672C1.39967 3.13672 4.35855 3.13672 5.87967 3.13672C6.37356 3.13672 6.69356 3.13672 6.69356 3.13672C6.69356 3.13672 6.69356 1.95488 6.69356 1.2109C6.69356 0.469609 7.2493 1.02804 7.2493 1.02804C7.2493 1.02804 11.4286 4.1765 11.8678 4.61392C12.1856 4.93392 11.8301 5.23644 11.8301 5.23644Z" fill="#4A8EFF"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-item">
+                    <div class="blog-image-wrap">
+                        <img class="img-responsive" src="https://cdn.mypanel.link/0a268b/tjxqrsgb8nd2zyz7.jpg" alt="What are Child Panels and how do they differ from regular SMM Panel?">
+                    </div>
+                    <div class="blog-content">
+                        <h3>SOCIAL MEDIA UPDATES</h3>
+                        <h2 class="post-title">Buy likes on Instagram posts. </h2>
+                        <p>Digital marketing affects billions of consumers and millions of companies that register on a daily basis. This huge audience on the Internet makes</p>
+                        <div class="row">
+                            {# <div class="col-xs-5">
+              <h4>6 June 2021</h4>
+            </div> #}
+                            <div class="col-xs-12">
+                                <a href="/blog/buy-likes-on-instagram-posts" class="btn btn-read" style="margin-left: 0;">Read more<svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M11.8301 5.23644L7.35732 8.93751C7.35732 8.93751 6.82667 9.49863 6.82667 8.89C6.82667 8.27913 6.82667 6.80462 6.82667 6.80462C6.82667 6.80462 6.46768 6.80462 5.91911 6.80462C4.34421 6.80462 1.48213 6.80462 0.317764 6.80462C0.317764 6.80462 5.45712e-06 6.88709 5.47806e-06 6.40798C5.49906e-06 5.92754 5.59135e-06 3.81616 5.60638e-06 3.47241C5.62137e-06 3.12955 0.265327 3.13672 0.265327 3.13672C1.39967 3.13672 4.35855 3.13672 5.87967 3.13672C6.37356 3.13672 6.69356 3.13672 6.69356 3.13672C6.69356 3.13672 6.69356 1.95488 6.69356 1.2109C6.69356 0.469609 7.2493 1.02804 7.2493 1.02804C7.2493 1.02804 11.4286 4.1765 11.8678 4.61392C12.1856 4.93392 11.8301 5.23644 11.8301 5.23644Z" fill="#4A8EFF"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>

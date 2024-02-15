@@ -1,0 +1,64 @@
+<div class="container">
+    {% if panelsList %}
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="well well-float">
+                    {% if error %}
+                        <div class="alert alert-dismissible alert-danger {% if site['rtl'] %} rtl-alert {% endif %}">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            {{ errorMessage }}
+                        </div>
+                    {% endif %}
+                    {% if success %}
+                        <div class="alert alert-dismissible alert-success {% if site['rtl'] %} rtl-alert {% endif %}">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            {{ successMessage }}
+                        </div>
+                    {% endif %}
+                    {% if renew %}
+                        <div class="alert alert-danger" role="alert">
+                            <div class="pull-right">
+                                <a href="{{ renewUrl }}" class="btn btn-xs btn-default" id="child-panels-renew">{{ lang('child_panel.button.renew') }}</a>
+                            </div>
+                            {{ renewMessage }}
+                        </div>
+                    {% endif %}
+                    {% if restore %}
+                        <div class="alert alert-danger" role="alert">
+                            <div class="text-right">
+                                <a href="{{ restoreUrl }}" class="btn btn-xs btn-default" id="child-panels-restore">{{ lang('child_panel.button.restore') }}</a>
+                            </div>
+                        </div>
+                    {% endif %}
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>{{ lang('child_panel.domain') }}</th>
+                            <th>{{ lang('child_panel.status') }}</th>
+                            <th>{{ lang('child_panel.created') }}</th>
+                            <th>{{ lang('child_panel.expiry') }}</th>
+                            <th class="col-md-1"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for panel in panelsList %}
+                            <tr>
+                                <td>{{ panel['domain'] }}</td>
+                                <td>{{ panel['status'] }}</td>
+                                <td nowrap>{{ panel['created'] }}</td>
+                                <td nowrap>{{ panel['expiry'] }}</td>
+                                <td nowrap>
+                                    {% if panel['admin'] %}
+                                        <a href="{{ panel['admin_url'] }}" class="btn btn-xs btn-default"
+                                           target="_blank">{{ lang('child_panel.button.admin') }}</a>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+</div>

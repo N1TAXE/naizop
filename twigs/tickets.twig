@@ -1,0 +1,513 @@
+<style>
+    #ticketsuccess .modal-dialog,
+    #ticketsuccess .modal-content,
+    #ticketerror .modal-dialog,
+    #ticketerror .modal-content{
+        border: 0 !important;
+        box-shadow: none !important;
+    }
+    #ticketsuccess .modal-content,
+    #ticketerror .modal-content {
+        background-color: #101314;
+    }
+    #ticketsuccess .modal-body,
+    #ticketerror .modal-body {
+        padding: 0 !important;
+    }
+    .modal-backdrop.fade.in {
+        background-color: rgba(0, 0, 0, .35);
+        opacity: 1;
+    }
+    #ticketsuccess .modal-body .modal-wpr,
+    #ticketerror .modal-body .modal-wpr {
+        background-color: #2c3337;
+        border-radius: 10px;
+    }
+    #ticketsuccess.success_popUp.in,
+    #ticketerror.success_popUp.in {
+        margin: auto;
+        overflow: unset;
+        display: flex !important;
+        align-content: center;
+        align-items: center;
+    }
+</style>
+
+<div class="body-content-wpr">
+    <div class="page-content-overlay"></div>
+    <h1 class="page-hdng">Support</h1>
+    <div class="affiliate_field_grp support_main_wpr new-ticket">
+        <h2>New Ticket</h2>
+        <div class="support_frm_wpr">
+            <form {% if site['rtl'] %}class="rtl-form" {% endif %} method="post" action=""
+                  id="ticketsend">
+                <div class="alert alert-dismissible alert-danger ticket-danger {% if site['rtl'] %} rtl-alert {% endif %}"
+                     style="display: none">
+                    <button type="button" class="close">&times;</button>
+                    <div></div>
+                </div>
+                <div class="row new-row support_rw">
+                    <div class="col-xs-12 col-md-6 support_col">
+                        <div class="affiliate_field_grp support_frm_grp">
+                            <label>{{ lang('tickets.subject') }}</label>
+
+                            <div class="custom-select2 support-select">
+                                <select class="form-control subject" id="id_select2_example" required="required">
+                                    <option value="Order"
+                                            data-img_src="https://cdn.mypanel.link/idhwx8/3yopci5q0ndi5f07.png">
+                                        Order
+                                    </option>
+                                    <option value="Payment"
+                                            data-img_src="https://cdn.mypanel.link/idhwx8/dfqyzapicm8ybwya.png">
+                                        Payment
+                                    </option>
+                                    <option value="Request"
+                                            data-img_src="https://cdn.mypanel.link/idhwx8/2rhu0go3khyc65rj.png">
+                                        Request
+                                    </option>
+                                    <option value="Service Request"
+                                            data-img_src="https://cdn.mypanel.link/idhwx8/ebtrhc7xq0ngmiq0.png">
+                                        Request service
+                                    </option>
+                                    <option value="Bug"
+                                            data-img_src="https://cdn.mypanel.link/idhwx8/fh55jkhbck8b3b8x.png">
+                                        Bug Report
+                                    </option>
+                                    <option value="Other"
+                                            data-img_src="https://cdn.mypanel.link/idhwx8/fh55jkhbck8b3b8x.png">
+                                        other
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- Order -->
+                        <div style="display: nobne;"
+                             class="Order all affiliate_field_grp support_frm_grp">
+                            <label>Request</label>
+                            <div class="custom-select2 support-select">
+                                <select class="form-control request" id="id_select3_example">
+                                    <option value="Refill">Refill</option>
+                                    <option value="Speed Up">Speed Up</option>
+                                    <option value="Speed Up">Restart</option>
+                                    <option value="Cancel">Cancel</option>
+                                    <option value="not-started">Not Started</option>
+                                    <option value="mark-done">Mark as completed without Done</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="Order all affiliate_field_grp support_frm_grp">
+                            <label>Order ID:</label>
+                            <span class="support_sub">For multiple orders, please separate them using
+                comma. (example: 12345, 431122, 8934743)</span>
+                            <div class="affiliate_field_innr">
+                                <input type="text" id="ordernumbers" placeholder="Enter ID...">
+                            </div>
+                        </div>
+                        <!-- /Order -->
+                        <!-- Payment -->
+                        <div class="Payment all affiliate_field_grp support_frm_grp">
+                            <label>Payment Method</label>
+                            <div class="custom-select2 support-select">
+                                <select class="form-control request2" id="id_select4_example">
+                                    <option value="Method 1">Visa/MasterCard/JCB Cards/TROY Cards/American Express (Powered by PayTr)</option>
+                                    <option value="Method 2">Visa/MasterCard/AdvCash (Powered by AnyPay)
+                                    <option value="Method 3">Visa/MasterCard (Powered by PrimePayments)</option>
+                                    <option value="Method 4">Crypto (Through Coinbase)</option>
+                                    <option value="Method 5">Crypto/Credit Card (Powered by Cryptomus)</option>
+                                    <option value="Method 6">Credit Card/UnionPay/PIX/UPI/Skrill/Paytm/Bank Transfer (Powered by PayOp)</option>
+                                    <option value="Method 7">Payeer/Crypto/AdvCash/QIWI (Powered by Payeer)</option>
+                                    <option value="Method 8">Visa/MasterCard/Bank Transfer (To our Wise.com Account) </option>
+                                    <option value="Method 8">Pay with Perfect Money / Crypto (Through PerfectMoney)</option>
+                                    <option value="Method 8">Turkey Bank Havale/EFT 1</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="Payment all affiliate_field_grp support_frm_grp">
+                            <label>Payment ID:</label>
+                            <div class="affiliate_field_innr">
+                                <input id="payment_id" type="text" placeholder="Enter Payment ID...">
+                            </div>
+                        </div>
+                        <div class="Payment all affiliate_field_grp support_frm_grp">
+                            <label>Email ID:</label>
+                            <div class="affiliate_field_innr">
+                                <input id="email_id" type="text" placeholder="Enter Email ID...">
+                            </div>
+                        </div>
+                        <div class="Payment all affiliate_field_grp support_frm_grp">
+                            <label>Payment Amount:</label>
+                            <div class="affiliate_field_innr">
+                                <input id="payment_amount" type="text" placeholder="Enter Amount...">
+                            </div>
+                        </div>
+                        <!-- /Payment -->
+                        <!-- Request -->
+                        <div class="request-field all affiliate_field_grp support_frm_grp">
+                            <label>Add Service</label>
+                            <div class="affiliate_field_innr">
+                                <input type="text" placeholder="Enter Service Details..." id="add_service">
+                            </div>
+                        </div>
+                        <div class="request-field all affiliate_field_grp support_frm_grp">
+                            <label>Add Feature:</label>
+                            <div class="affiliate_field_innr">
+                                <input type="text" placeholder="Enter Feature..." id="add_feature">
+                            </div>
+                        </div>
+                        <div class="request-field all affiliate_field_grp support_frm_grp">
+                            <label>Add Payment:</label>
+                            <div class="affiliate_field_innr">
+                                <input type="text" placeholder="Enter Payment ID..." id="add_payment">
+                            </div>
+                        </div>
+                        <!-- /Request -->
+                        <!-- Request -->
+                        <div class="bug-field all affiliate_field_grp support_frm_grp">
+                            <label>Select Bug type</label>
+                            <div class="custom-select2 support-select">
+                                <select class="form-control cmn-select2" id="bugtype">
+                                    <option value="Website Bug">Website Bug</option>
+                                    <option value="Service Bug">Service Bug</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- /Request -->
+
+                    </div>
+
+
+                    <div class="col-xs-12 col-md-6 support_col">
+                        <div class="affiliate_field_grp support_frm_grp">
+                            <label>{{ lang('tickets.message') }} <span></span></label>
+                            <div class="affiliate_field_innr">
+                                <textarea id="message" placeholder="Enter message..." required="required"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <div class="tickets-uploader"
+                                     data-rtl="{% if site['rtl'] %}true{% else %}false{% endif %}"
+                                     data-lang-button-attach="{{ lang('tickets.button.attach') }}"
+                                     data-lang-file-format-incorrect="{{ lang('tickets.error.file_format.incorrect') }}"
+                                     data-lang-file-size-incorrect="{{ lang('tickets.error.file_size.incorrect') }}">
+                                </div>
+                            </div>
+
+                        </div>
+                        <input type="hidden" name="_csrf" value="{{csrftoken}}">
+                        <input type="hidden" name="TicketForm[subject]" id="all_subject">
+                        <input type="hidden" name="TicketForm[message]" id="alldata">
+                        <div class="supprt_submitBtn_wpr">
+                            <!-- <input type="submit" value="Submit ticket"> -->
+
+
+                            <a class="submit2" href="#success_modal" data-fancybox>{{
+                                lang('tickets.button') }}</a>
+                            <!-- <input type="submit" value="Submit ticket"> -->
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    {% if ticketList %}
+
+        <div class="affiliate_field_grp support_main_wpr your-ticket">
+            <h2>Your Ticket</h2>
+            <table class="cmn-table your-ticket-table">
+                <thead>
+                <tr>
+                    <th>{{ lang('tickets.id') }}</th>
+                    <th>{{ lang('tickets.subject') }}</th>
+                    <th>Request</th>
+                    <th>{{ lang('tickets.status') }}</th>
+                    <th>{{ lang('tickets.updated') }}</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for ticket in ticketList %}
+                    <tr>
+                        <td data-heading="Order ID">#{{ ticket['id'] }}</td>
+                        {% if ticket['new'] == 1 %}
+                            <td data-heading="Subject"><strong>{{ ticket['theme'] }} - High - PRIORITY</strong>
+                            </td>
+                        {% else %}
+                            <td data-heading="Subject">{{ ticket['theme'] }}</td>
+                        {% endif %}
+                        <td data-heading="Request">
+                            {% if 'Refill' in ticket['theme'] %} Refill
+                            {% elseif 'Speed Up' in ticket['theme'] %} Speed Up
+                            {% elseif 'Restart' in ticket['theme'] %} Restart
+                            {% elseif 'Cancel' in ticket['theme'] %} Cancel
+                            {% elseif 'Other' in ticket['theme'] %} Other
+                            {% else %}-
+                            {% endif %}</td>
+                        <td data-heading="Status"><span class="service-charge">{{ ticket['status'] }}</span>
+                        </td>
+                        <td data-heading="Last update">
+                            <p class="time_info"><span>{{ ticket['time'] }}</span></p>
+                        </td>
+                        <td data-heading="Action"><a href="{{ page_url('viewticket') }}/{{ ticket['id'] }}"
+                                                     class="updateCard_btn">View ticket</a></td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    {% endif %}
+    {% if pagination['count'] > 50 %}
+        <div class="support_pagination">
+            <ul>
+                {% if pagination['current'] != 1 %}
+                    <li>
+                        <a href="{{ page['url'] }}/{{ pagination['last'] }}" class="prev_arrw">
+                            <svg width="10" height="18" viewBox="0 0 10 18" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8.75 1.5L1.25 9L8.75 16.5" stroke="#FFB60E" stroke-width="1.5"
+                                      stroke-linecap="square" />
+                            </svg>
+                        </a>
+                    </li>
+                {% endif %}
+
+                {% set r, l = 3, 3 %}
+
+                {% if pagination['current'] == 1 %}
+                    {% set r = 6 %}
+                {% endif %}
+
+                {% if pagination['current'] == 2 %}
+                    {% set r = 5 %}
+                {% endif %}
+
+                {% if pagination['current'] >= pagination['pages'] %}
+                    {% set l = 5 %}
+                {% endif %}
+                {% for i in 1..ceil(pagination['pages']) %}
+                    {% if i >= (pagination['current']-l) and i <= (pagination['current']+r) %} <li {% if
+                        i==pagination['current'] %} class="active" {% endif %}>{% if i == pagination['current']
+                        %}<span>{% else %}<a href="{{ page['url'] }}/{{i}}">{% endif %}{{i}}{% if i ==
+                                    pagination['current'] %}<span>{% else %}</a>{% endif %}</li>
+                    {% endif %}
+                {% endfor %}
+                {% if pagination['current'] < pagination['pages'] %} <li>
+                    <a href="{{ page['url'] }}/{{ pagination['next'] }}" class="next_arrw">
+                        <svg width="10" height="18" viewBox="0 0 10 18" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1.25 16.5L8.75 9L1.25 1.5" stroke="#FFB60E" stroke-width="1.5"
+                                  stroke-linecap="square" />
+                        </svg>
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    {% endif %}
+
+
+</div>
+
+
+<!-- success modal start -->
+<div class="custom-modal-wpr ordr_details_popUp success_popUp" id="success_modal" style="display: none;">
+    <div class="modal-wpr">
+        <div class="modal-hdr">
+            <button type="button" data-fancybox-close class="fancybox-close-btn">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.33252 1.33261L14.6659 14.6659" stroke="white" stroke-width="1.5"
+                          stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M14.6659 1.33261L1.33252 14.6659" stroke="white" stroke-width="1.5"
+                          stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="success_modal_wpr">
+        <span>
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M57.2034 16.8135L32.0168 42.0001L19.4268 29.4068" stroke="#FFB60E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M62 32C62 48.57 48.57 62 32 62C15.43 62 2 48.57 2 32C2 15.43 15.43 2 32 2C36.8433 2 41.4033 3.17667 45.4533 5.21333" stroke="#FFB60E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+                <h2>Your request was successfully submitted.</h2>
+                <p>While you wait, do any <a href="#">FAQ</a> queries answer your question.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- success modal end -->
+
+{#
+<!-- Modal -->
+<div class="modal fade" id="ticketsuccess" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+#}
+
+<!-- Modal -->
+<div class="modal fade success_popUp" id="ticketsuccess" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="modal-wpr">
+                    <div class="modal-hdr">
+                        <button type="button" class="btn-close fancybox-close-btn" data-bs-dismiss="modal" aria-label="Close">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1.33252 1.33261L14.6659 14.6659" stroke="white" stroke-width="1.5"
+                                      stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M14.6659 1.33261L1.33252 14.6659" stroke="white" stroke-width="1.5"
+                                      stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="success_modal_wpr">
+              <span>
+                <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M57.2034 16.8135L32.0168 42.0001L19.4268 29.4068" stroke="#FFB60E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M62 32C62 48.57 48.57 62 32 62C15.43 62 2 48.57 2 32C2 15.43 15.43 2 32 2C36.8433 2 41.4033 3.17667 45.4533 5.21333" stroke="#FFB60E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+                            <h2>Your request was successfully submitted.</h2>
+                            <p>While you wait, do any <a href="/faq">FAQ</a> queries answer your question.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade success_popUp" id="ticketerror" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="modal-wpr">
+                    <div class="modal-hdr">
+                        <button type="button" class="btn-close fancybox-close-btn" data-bs-dismiss="modal" aria-label="Close">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1.33252 1.33261L14.6659 14.6659" stroke="white" stroke-width="1.5"
+                                      stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M14.6659 1.33261L1.33252 14.6659" stroke="white" stroke-width="1.5"
+                                      stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="success_modal_wpr">
+                            <h2>Please Fill Message Box</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="https://cdn.mypanel.link/libs/jquery/1.12.4/jquery.min.js">
+</script>
+
+
+
+<script>
+
+    function set_fields() {
+        var subject = $("#id_select2_example").val();
+        if (subject == "Order") {
+            $(".all").hide();
+            $(".Order").show();
+        } else if (subject == "Payment") {
+            $(".all").hide();
+            $(".Payment").show();
+
+        } else if (subject == "Request") {
+            $(".all").hide();
+            $(".request-field").show();
+
+        } else if (subject == "Bug") {
+            $(".all").hide();
+            $(".bug-field").show();
+
+        } else {
+            $(".all").hide();
+        }
+
+    }
+
+    $(document).ready(function () {
+        set_fields();
+
+        $('#id_select2_example').change(function () {
+            set_fields();
+        });
+
+
+
+        $('.submit2').click(function (e) {
+            e.preventDefault();
+
+            console.log('working');
+            $TheSubject = $('#id_select2_example').val();
+            $TheRequest = $('.request').val();
+            $TheRequest2 = $('.request2').val();
+            $FinalSubject = $('#id_select2_example').val();
+            if ($TheSubject == 'Order') {
+                $final = 'Order Request: ' + $TheRequest + '\n\nOrder ID: ' + $('#ordernumbers').val() + '\n\n' + $('#message').val();
+                $FinalSubject += ' - ' + $TheRequest;
+            } else if ($TheSubject == 'Payment') {
+                $final = $TheSubject + ': ' + $TheRequest2 + '\n' + 'Transaction ID:' + $('#payment_id').val() + '\n' + 'Email ID:' + $('#email_id').val() + '\n' + 'Amount:' + $('#payment_amount').val() + '\n\n' + $('#message').val();
+                $FinalSubject += ' - ' + $TheRequest2 + ' - ' + $('#payment_id').val().substring(0, 30);
+            }  else if ($TheSubject == 'Request') {
+                $final = $TheSubject + ': ' + '\n' + 'Add Service:' + $('#add_service').val() + '\n' + 'Add Feature:' + $('#add_feature').val() + '\n' + 'Add Payment:' + $('#add_payment').val() + '\n\n' + $('#message').val();
+            } else if ($TheSubject == 'Bug') {
+                $final = $TheSubject + ': ' + '\n' + 'Bug type: ' + $('#bugtype').val() + '\n\n' + $('#message').val();
+            } else {
+                $final = $('#message').val();
+            }
+            $('#alldata').val($final);
+            $('#all_subject').val($FinalSubject);
+
+            var msg = $('#message').val();
+            if (msg.length == 0) {
+                $('#ticketerror').modal('show');
+                $('#ticketerror').addClass('show');
+                $('#ticketerror').addClass('in');
+            } else {
+                $('#ticketsuccess').modal('show');
+                $('#ticketsuccess').addClass('show');
+                $('#ticketsuccess').addClass('in');
+                //submit
+                setTimeout(function() {
+                    $('#ticketsend').submit();
+                }, 1000);
+            }
+
+
+        });
+    });
+
+    $('.btn-close').on( "click", function() {
+        $('#ticketsuccess').modal('hide');
+        $('#ticketerror').modal('hide');
+        $('.modal-backdrop.fade.in').remove();
+    });
+
+</script>

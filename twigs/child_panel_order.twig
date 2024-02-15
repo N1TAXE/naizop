@@ -1,0 +1,69 @@
+<div class="container-fluid fund-form">
+    <div class="row">
+        <div class="col-sm-5">
+            <div class="dash-title-wrap">
+                <h2 class="dash-title">Child Panels</h2>
+                <div id="panel-notes" style="display:none;">{{ lang('child_panel.form.ns.info') }}</div>
+            </div>
+            {% if showForm %}
+                <div class="well2">
+                    <form action="{{ page['url'] }}" method="post">
+                        {% if errorForm %}
+                            <div class="alert alert-dismissible alert-danger {% if site['rtl'] %} rtl-alert {% endif %}">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                {{ errorFormMessage }}
+                            </div>
+                        {% endif %}
+                        <div class="form-group ig2">
+                            <label for="domain" class="control-label">{{ lang('child_panel.form.domain') }}<button type="button" id="tglr" class="btn btn-dash" data-toggle="popover" title="Popover title"><i class="fas fa-exclamation"></i></button></label>
+                            <input type="text" class="form-control" id="domain" name="CreateOrderForm[domain]" value="{{ form['domain'] }}">
+                        </div>
+                        <div class="form-group ig2">
+                            <label class="control-label" for="createorderform-username">{{ lang('child_panel.form.username') }}</label>
+                            <input type="text" id="createorderform-username" class="form-control" name="CreateOrderForm[username]" aria-required="true" value="{{ form['username'] }}">
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group ig2">
+                                    <label class="control-label" for="createorderform-password">{{ lang('child_panel.form.password') }}</label>
+                                    <input type="password" id="createorderform-password" class="form-control" name="CreateOrderForm[password]" aria-required="true">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group ig2">
+                                    <label class="control-label" for="createorderform-password_confirm">{{ lang('child_panel.form.confirm') }}</label>
+                                    <input type="password" id="createorderform-password_confirm" class="form-control" name="CreateOrderForm[password_confirm]" aria-required="true">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group ig2">
+                                    <label for="price" class="control-label">{{ lang('child_panel.form.price') }}</label>
+                                    <input type="text" class="form-control" id="price" value="{{ price }}" readonly>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group ig2">
+                                    <label for="price" class="control-label">{{ lang('child_panel.form.currency') }}:</label>
+                                    <select id="createorderform-currency" class="form-control" name="CreateOrderForm[currency]" aria-required="true">
+                                        {% for currency in currenciesList %}
+                                            <option value="{{ currency['code'] }}" {% if form['currency'] == currency['code'] %} selected{% endif %}>
+                                                {{ currency['name'] }}
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group ig2">
+                            <label for="submit" class="control-label" style="font-weight: 400;text-align: center;font-size: 13px;color: #F6DC5A;margin-bottom: 11px;">DOUBLE CHECK ORDER BEFORE SUBMITTING</label>
+                            <input type="hidden" name="_csrf" value="{{ csrftoken }}">
+                            <button type="submit" class="btn btn-primary btn-block">{{ lang('child_panel.form.submit') }}</button>
+                        </div>
+                    </form>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>

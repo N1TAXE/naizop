@@ -1,0 +1,704 @@
+<style>
+    #order_check .form-group__checkbox {
+        display: flex;
+    }
+    #order_check .form-group__checkbox .form-group__label-title {
+        margin-left: 6px;
+    }
+    .low-balance {
+        display: block !important;
+        margin: 12px auto;
+    }
+</style>
+<div class="body-content-wpr">
+    <div class="page-content-overlay"></div>
+    {#
+    {% if user['balance'] < 2.5 %}
+                               <a class="low-balance" href="/addfunds">
+    <!-- <img class="img-responsive img-fluid" src="https://cdn.mypanel.link/0a268b/8zftds02q2embt06.png"> -->
+    <img class="img-responsive img-fluid" src="https://cdn.mypanel.link/0a268b/5tdeb2j9firze3t9.png">
+    </a>
+  {% endif %}
+    #}
+    <h1 class="page-hdng">Place New Order</h1>
+    {% if error %}
+        <div class="alert alert-dismissible alert-danger {% if site['rtl'] %} rtl-alert {% endif %}">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ errorMessage }}
+        </div>
+    {% endif %}
+
+    {% if 1 == success %}
+
+        <div class="new-order-notf">
+            <button type="button" class="notf-cls-btn">
+                <img src="https://cdn.mypanel.link/idhwx8/l44m2d1t94p327qr.png" alt="">
+            </button>
+            <h2>{{lang('neworder.message.success')}}</h2>
+            <div class="order-dtls">
+                <div class="order-lft-dtls">
+                    <ul>
+                        {#<li>{{lang('neworder.subscription_id')}}: {{order['id']}}</li>#}
+                        <li>Order ID: {{order['id']}}</li>
+                        <li>
+                            {{lang('neworder.service')}}: {{order['service']}}
+                        </li>
+                        <li>
+                            <a href="{{order['link']}}">{{lang('neworder.link')}}: {{order['link']}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="order-rht-dtls">
+                    <ul>
+                        <li>{{lang('neworder.quantity')}}: {{order['quantity']}}</li>
+                        <li>
+                            {{ lang('neworder.charge') }}: {% if order.converted %} <span
+                                    data-toggle="tooltip" data-placement="top"
+                                    title="{{ order.original_charge }}">{{ order['charge'] }}</span> {% else %}
+                                {{ order['charge'] }} {% endif %}
+                        </li>
+                        <li>
+                            {{ lang('neworder.balance') }}: {% if order.converted %} <span
+                                    data-toggle="tooltip" data-placement="top"
+                                    title="{{ order.original_balance }}">{{ order['balance'] }}</span> {% else
+                            %} {{ order['balance'] }} {% endif %}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    {%endif%}
+
+    {% if 2 == success %}
+
+        <div class="new-order-notf">
+            <button type="button" class="notf-cls-btn">
+                <img src="https://cdn.mypanel.link/idhwx8/l44m2d1t94p327qr.png" alt="">
+            </button>
+            <h2>{{lang('neworder.message.success')}}</h2>
+            <div class="order-dtls">
+                <div class="order-lft-dtls">
+                    <ul>
+                        <li>{{lang('neworder.Order_ID')}}: {{order['id']}}</li>
+                        <li>{{lang('neworder.service')}}: {{order['service']}}</li>
+                        <li>{{lang('neworder.username')}}: {{order['link']}}</li>
+                    </ul>
+                </div>
+                <div class="order-rht-dtls">
+                    <ul>
+                        <li>{{lang('neworder.quantity')}}:
+                            {% if order['quantity_min'] == order['quantity_max'] %}
+                                {{order['quantity_max']}}
+                            {% else %}
+                                {{order['quantity_min']}}-{{order['quantity_max']}}
+                            {%endif%}</li>
+                        <li>
+                            {{lang('neworder.new_posts')}}:
+                            {{order['posts']}}
+                        </li>
+                        <li>
+                            {{lang('neworder.old_posts')}}:
+                            {{order['old_posts']}}
+                        </li>
+                        <li>
+                            {{lang('neworder.delay')}}:
+                            {{order['delay']}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    {%endif%}
+    <div class="plc-new-order-wrp">
+        <div class="plc-new-tab-menu">
+            <ul>
+                <li class="active" id="new">
+                    <a href="#allservices" data-toggle="pill">New</a>
+                </li>
+                <li id="fav">
+                    <a href="#favourite" data-toggle="pillx">Favourite</a>
+                </li>
+            </ul>
+        </div>
+        <div class="tab-content plc-new-tab-cntnt">
+            <div id="allservices" class="tab-pane fade in active">
+                <div class="plc-new-tab-dtls">
+                    <div class="wtch-vdo-wpr fav-notify hide">
+                        <p>
+                            You haven't selected any favorited services yet. Visit the services page and mark your favorites by clicking on the star icon next to the service name.
+                        </p>
+                        <a href="/services" class="ylw-btn">Service Page</a>
+                        <button type="button" class="vdo-wpr-cls-btn">
+                            {# <img src="https://cdn.mypanel.link/idhwx8/l44m2d1t94p327qr.png" alt="">#}
+                            <img src="https://cdn.mypanel.link/0a268b/8xfkly3ttpbxthx9.webp" alt="">
+                        </button>
+                    </div>
+                    {# <div class="wtch-vdo-wpr">
+        <p>
+          How Naizop works? Let's watch the video!
+        </p>
+        <a href="#url" class="ylw-btn">Watch the video</a>
+        <button type="button" class="vdo-wpr-cls-btn">
+          <img src="https://cdn.mypanel.link/idhwx8/l44m2d1t94p327qr.png" alt="">
+        </button>
+        </div>#}
+                    <div class="order-srch-form-wpr">
+                        <form action="" method="GET">
+                            <div class="order-srch-row">
+
+
+                                {% if services_search %}
+                                    <div class="form-group srch-order-wpr">
+                                        <div class="search-dropdown" id="new-order-search" style="position: relative;" data-lang-placeholder="{{ lang('general.search.placeholder') }}" {% if site['rtl'] %} data-dir="rtl" {% endif %}>
+                                            <div class="input-wrapper" style="position: relative;">
+
+                                                <button {#style="position: absolute;top: 50%;transform: translateY(-50%);padding: 0px 2px;background: none;border: none;{% if site['rtl'] %}right: 12px;left: auto;{% else %}left: 12px;{% endif %}"#} type="button" class="input-wrapper__prepend">
+                                                    <span class="fas fa-search"></span>
+                                                    {#  <img src="https://cdn.mypanel.link/idhwx8/99aaxgiyfpxllxhx.png" alt="">#}
+                                                </button>
+                                                <input type="text" id="template-input" value="" placeholder="{{ lang('general.search.placeholder') }}" class="form-control
+                                                                                                                                  ">
+
+                                            </div></div>
+                                    </div>
+                                {% endif %}
+                                <button type="submit">Search</button>
+
+                            </div>
+                        </form>
+                    </div>
+
+
+                    <div class="plc-order-form-wpr">
+                        <form {% if site['rtl'] %} class="rtl-form" {% endif %} action="{{ page['url'] }}"
+                                                                                method="post" id="order-form">
+                            <div class="social-pckgs-btns">
+                                <ul>
+                                    <li>
+                                        <a href="#everything" class="social-pckg brand-category" data-id="everything"
+                                           style="background-color: #686E73;">All</a>
+                                    </li>
+                                    <li>
+                                        <a href="#instagram" class="social-pckg brand-category" data-id="instagram"
+                                           style="background-color: #fff;">
+                                            <img src="https://cdn.mypanel.link/0a268b/51rssh0a118rqku9.svg"
+                                                 alt="">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#twitter" class="social-pckg brand-category" data-id="twitter"
+                                           style="background-color: #1DA1F2;">
+                                            <img src="https://cdn.mypanel.link/0a268b/t67l00qd5q5upkqf.svg"
+                                                 alt="">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#telegram" data-id="telegram" class="social-pckg brand-category"
+                                           style="background-color: #0088CC;">
+                                            <img src="https://cdn.mypanel.link/0a268b/ouktkfs3dbf7h8ka.svg"
+                                                 alt="">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#youtube" class="social-pckg brand-category" data-id="youtube"
+                                           style="background-color: #FF0000;">
+                                            <img src="https://cdn.mypanel.link/0a268b/xl8izkm8cmrfcahi.svg"
+                                                 alt="">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#tiktok" class="social-pckg brand-category" data-id="tiktok"
+                                           style="background-color: #000;">
+                                            <img src="https://cdn.mypanel.link/0a268b/1xpiir4tknu3rbqr.svg"
+                                                 alt="">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#facebook" class="social-pckg brand-category" data-id="facebook"
+                                           style="background-color: #1877F2;">
+                                            <img src="https://cdn.mypanel.link/0a268b/1jf7el7uxgqp4z10.svg"
+                                                 alt="">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#spotify" class="social-pckg brand-category" data-id="spotify"
+                                           style="background-color: #8BC34A;">
+                                            <img src="https://cdn.mypanel.link/0a268b/f6r318sopldbye3m.svg"
+                                                 alt="">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#url" class="social-pckg brand-category" data-id="discord"
+                                           style="background-color: #5A65E9;">
+                                            <img src="https://cdn.mypanel.link/0a268b/yrzhl9o4nqsechoh.svg"
+                                                 alt="">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#url" class="social-pckg brand-category" data-id="twitch"
+                                           style="background-color: #8248EE;">
+                                            <img src="https://cdn.mypanel.link/0a268b/ixuda05gntq2k3tt.svg"
+                                                 alt="">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#url" class="social-pckg brand-category" data-id="website"
+                                           style="background-color: #1877F2;">
+                                            <img src="https://cdn.mypanel.link/0a268b/ydhpjnzks7qajxkm.svg"
+                                                 alt="">
+                                        </a>
+                                    </li>
+                                    <!-- <li>
+                                                                            <a href="#vk" class="social-pckg brand-category" data-id="vk"
+                                                                                style="background-color: #fff;">
+                                                                                <img src="https://cdn.mypanel.link/idhwx8/mzhj7pg3etxatpd8.png"
+                                                                                    alt="">
+                                                                            </a>
+                                                                        </li> -->
+                                    <!-- <li>
+                                                                            <a href="#" class="social-pckg brand-category" data-id=""
+                                                                                style="background-color: #FF8800;">
+                                                                                <img src="https://cdn.mypanel.link/idhwx8/qmutzzxjc3r69m6f.png"
+                                                                                    alt="">
+                                                                            </a>
+                                                                        </li> -->
+                                </ul>
+                            </div>
+                            <div class="plc-order-form-row row">
+                                <div class="plc-order-form-lft-col col-lg-7">
+
+                                    <select id="all_cat" style="display:none;">
+                                        {% for category in extended_categories %}
+                                            {% if category.id != "-1" %} <option value="{{ category.id }}" {% if
+                                                category.icon %} data-icon="
+                    {% if category.icon['icon_type'] == 'icon' %}
+                    <span class='{{ category.icon['icon'] }}'></span>
+                    {% elseif category.icon['icon_type'] == 'emoji' %}
+                    <span>{{ category.icon['icon'] }}</span>
+                    {% elseif category.icon['icon_type'] == 'image' %}
+                    <img src='{{ category.icon['url'] }}' alt='{{ category.name }}' class='img-responsive btn-group-vertical'>
+                    {% endif %}
+                    " {% endif %} {% if category.id==data['category'] %} selected {% endif %}>
+                                                {{ category.name }}
+                                            </option>
+                                            {% endif %}
+                                        {% endfor %}
+
+                                    </select>
+
+                                    <select id="fav_cat" style="display:none;"> {% for category in
+                                            extended_categories %}
+                                            {% if category.id == "-1" %} <option value="{{ category.id }}" {% if
+                                                category.icon %} data-icon="
+                    {% if category.icon['icon_type'] == 'icon' %}
+                    <span class='{{ category.icon['icon'] }}'></span>
+                    {% elseif category.icon['icon_type'] == 'emoji' %}
+                    <span>{{ category.icon['icon'] }}</span>
+                    {% elseif category.icon['icon_type'] == 'image' %}
+                    <img src='{{ category.icon['url'] }}' alt='{{ category.name }}' class='img-responsive btn-group-vertical'>
+                    {% endif %}
+                    " {% endif %} {% if category.id==data['category'] %} selected {% endif %}>
+                                                {{ category.name }}
+                                            </option>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </select>
+
+
+
+                                    <div class="form-group">
+                                        <h3 class="form-hdng">
+                                            {{ lang('neworder.category') }}
+                                        </h3>
+                                        <div class="form-group">
+                                            <div class="custom-select2">
+                                                <select class="form-control" id="orderform-category"
+                                                        name="OrderForm[category]" data-select="true"
+                                                        data-select-search="true"
+                                                        data-select-search-placeholder="{{ lang('general.search.placeholder') }}"
+                                                        {% if site['rtl'] %} data-select-dir="rtl" {% endif %}>
+                                                    {% for category in extended_categories %}
+                                                        {% if category.id != "-1" %}
+                                                            <option value="{{ category.id }}" {% if category.icon %}
+                                                                data-icon="
+                                           {% if category.icon['icon_type'] == 'icon' %}
+                                           <span class='{{ category.icon['icon'] }}'></span>
+                                           {% elseif category.icon['icon_type'] == 'emoji' %}
+                                           <span>{{ category.icon['icon'] }}</span>
+                                           {% elseif category.icon['icon_type'] == 'image' %}
+                                           <img src='{{ category.icon['url'] }}' alt='{{ category.name }}' class='img-responsive btn-group-vertical'>
+                                           {% endif %}
+                                           " {% endif %} {% if category.id==data['category'] %} selected {% endif %}>
+                                                                {{ category.name }}
+                                                            </option>
+                                                        {% endif %}
+                                                    {% endfor %}
+
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <h3 class="form-hdng">
+                                            Service
+                                        </h3>
+                                        <div class="form-group">
+                                            <div class="custom-select2">
+                                                <select class="form-control" id="orderform-service"
+                                                        name="OrderForm[service]" data-select="true"
+                                                        data-select-search="true"
+                                                        data-select-search-placeholder="{{ lang('general.search.placeholder') }}"
+                                                        {% if site['rtl'] %} data-select-dir="rtl" {% endif %}></select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- No need modify it by inspect <div class="form-group">
+                                                                            <h3 class="form-hdng">
+                                                                                Post Link
+                                                                            </h3>
+                                                                            <div class="custom-suggestion-list">
+                                                                                <input type="url" class="post_link"
+                                                                                    placeholder="Enter the link of your post..." data-search>
+
+                                                                                <div id="post_link" class="suggestion-list">
+                                                                                    <ul>
+                                                                                        <li data-filter-item data-filter-value="https://www.instagram.com/naizop">https://www.instagram.com/naizop</li>
+                                                                                        <li data-filter-item data-filter-value="https://www.instagram.com/naizop">https://www.instagram.com/naizop</li>
+                                                                                        <li data-filter-item data-filter-value="https://www.instagram.com/naizop">https://www.instagram.com/naizop</li>
+                                                                                        <li data-filter-item data-filter-value="https://www.instagram.com/naizop">https://www.instagram.com/naizop</li>
+                                                                                        <li data-filter-item data-filter-value="https://www.instagram.com/naizop">https://www.instagram.com/naizop</li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <h3 class="form-hdng">
+                                                                                Likes Quantity
+                                                                            </h3>
+                                                                            <input type="url" placeholder="Enter the link of your post...">
+                                                                        </div> -->
+
+                                    <div id="fields"></div>
+                                    {% if check_agreement %}
+                                        <div class="form-group terms-checkbox">
+                                            <label class="control-label terms">
+                                                <input type="checkbox"  name="OrderForm[termsofservice]" class="terms-accept-checkbox" value="1" id="terms" {{data['termsofservice'] ? 'checked' : ''}}> {{lang('signup.accept_terms_text')}}
+                                                <a  href="{{ page_url('terms') }}" target="_blank">{{ lang('terms.signup_checkbox') }}</a>
+                                            </label>
+                                        </div>
+                                    {%endif%}
+                                </div>
+
+
+                                <div class="plc-order-form-rht-col col-lg-5">
+                                    <div class="form-group">
+                                        <h3 class="form-hdng">
+                                            Description
+                                        </h3>
+                                    </div>
+                                    <div id="service_description" class="dscp-txt">
+                                        <div class="form-group">
+                                            {{service['description']}}
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <input type="text" style="display:none;" id="charge"
+                                   value="{{ order['charge'] }}" readonly>
+                            <div class="form-footer">
+                                <div class="service-cost">
+                                    <h4>Service Cost</h4>
+                                    <div class="price"><span id="new_charge">0</span> for <span
+                                                id="new_quantity">0</span> quantity</div>
+                                </div>
+                                <div class="service-cost">
+                                    <h4>Average Time
+                                        <span class="tooltipp" data-toggle="tooltip" data-placement="top" title="" data-original-title="The average time is based on 10 latest completed orders per 1000 quantity.">
+                    <img src="https://cdn.mypanel.link/idhwx8/ke6k8f6t32w354os.png" alt="">
+                  </span>
+                                    </h4>
+                                    <div class="price" id="avg_time">8 Minutes</div>
+                                </div>
+                                <input type="hidden" name="_csrf" value="{{ csrftoken }}">
+                                <div class="sbmt-btn-wpr">
+                                    <button type="submit" class="ylw-sbmt-btn">Purchase now</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div id="favourite" class="tab-pane fade">
+                <div class="plc-new-tab-dtls">
+                    <div class="order-srch-form-wpr">
+                        <form action="" method="GET">
+                            <div class="order-srch-row">
+                                <input type="text" name="service" placeholder="Search for Service ID">
+                                <button type="submit">Search</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="plc-order-form-wpr">
+                        <form {% if site['rtl'] %} class="rtl-form" {% endif %} action="{{ page['url'] }}"
+                                                                                method="post" id="order-form">
+                            <div class="social-pckgs-btns">
+                                <ul>
+                                    <li>
+                                        <a href="#everything" class="social-pckg brand-category" data-id="everything"
+                                           style="background-color: #686E73;">All</a>
+                                    </li>
+                                    <li>
+                                        <a href="#instagram" class="social-pckg brand-category" data-id="instagram"
+                                           style="background-color: #fff;">
+                                            <img src="https://cdn.mypanel.link/0a268b/51rssh0a118rqku9.svg"
+                                                 alt="">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#twitter" class="social-pckg brand-category" data-id="twitter"
+                                           style="background-color: #1DA1F2;">
+                                            <img src="https://cdn.mypanel.link/0a268b/pm8kdo4siajbnkgs.png"
+                                                 alt="">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#telegram" data-id="telegram" class="social-pckg brand-category"
+                                           style="background-color: #0088CC;">
+                                            <img src="https://cdn.mypanel.link/idhwx8/znrt8y01tt0bkd5a.png"
+                                                 alt="">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#youtube" class="social-pckg brand-category" data-id="youtube"
+                                           style="background-color: #FF0000;">
+                                            <img src="https://cdn.mypanel.link/0a268b/q6qjy8l5pchuc76d.png"
+                                                 alt="">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#tiktok" class="social-pckg brand-category" data-id="tiktok"
+                                           style="background-color: #000;">
+                                            <img src="https://cdn.mypanel.link/0a268b/p4nqrtyq1hhi983s.png"
+                                                 alt="">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#facebook" class="social-pckg brand-category" data-id="facebook"
+                                           style="background-color: #1877F2;">
+                                            <img src="https://cdn.mypanel.link/0a268b/ln02gpot441ifqua.png"
+                                                 alt="">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#spotify" class="social-pckg brand-category" data-id="spotify"
+                                           style="background-color: #8BC34A;">
+                                            <img src="https://cdn.mypanel.link/0a268b/q5hlthifwnr26ta9.png"
+                                                 alt="">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#url" class="social-pckg brand-category" data-id="discord"
+                                           style="background-color: #5A65E9;">
+                                            <img src="https://cdn.mypanel.link/0a268b/0q8ncxub2d9iocjh.png"
+                                                 alt="">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#url" class="social-pckg brand-category" data-id="twitch"
+                                           style="background-color: #8248EE;">
+                                            <img src="https://cdn.mypanel.link/0a268b/0q8ncxub2d9iocjh.png"
+                                                 alt="">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#url" class="social-pckg brand-category" data-id="webtraffic"
+                                           style="background-color: #1877F2;">
+                                            <img src="https://cdn.mypanel.link/0a268b/ail4crzd2moawfwr.png"
+                                                 alt="">
+                                        </a>
+                                    </li>
+                                    <!-- <li>
+                                                                            <a href="#vk" class="social-pckg brand-category" data-id="vk"
+                                                                                style="background-color: #fff;">
+                                                                                <img src="https://cdn.mypanel.link/idhwx8/mzhj7pg3etxatpd8.png"
+                                                                                    alt="">
+                                                                            </a>
+                                                                        </li> -->
+                                    <!-- <li>
+                                                                            <a href="#" class="social-pckg brand-category" data-id=""
+                                                                                style="background-color: #FF8800;">
+                                                                                <img src="https://cdn.mypanel.link/idhwx8/qmutzzxjc3r69m6f.png"
+                                                                                    alt="">
+                                                                            </a>
+                                                                        </li> -->
+                                </ul>
+                            </div>
+                            <div class="plc-order-form-row row">
+                                <div class="plc-order-form-lft-col col-lg-7">
+
+                                    <select id="all_cat" style="display:none;">
+                                        {% for category in extended_categories %}
+                                            {% if category.id != "-1" %}
+                                                <option value="{{ category.id }}" {% if
+                                                    category.icon %} data-icon="
+                                                      {% if category.icon['icon_type'] == 'icon' %}
+                                                      <span class='{{ category.icon['icon'] }}'></span>
+                                                      {% elseif category.icon['icon_type'] == 'emoji' %}
+                                                      <span>{{ category.icon['icon'] }}</span>
+                                                      {% elseif category.icon['icon_type'] == 'image' %}
+                                                      <img src='{{ category.icon['url'] }}' alt='{{ category.name }}' class='img-responsive btn-group-vertical'>
+                                                      {% endif %}
+                                                      " {% endif %} {% if category.id==data['category'] %} selected {% endif %}>
+                                                    {{ category.name }}
+                                                </option>
+                                            {% endif %}
+                                        {% endfor %}
+
+                                    </select>
+
+                                    <select id="fav_cat" style="display:none;"> {% for category in
+                                            extended_categories %}
+                                            {% if category.id == "-1" %}
+                                                <option value="{{ category.id }}" {% if
+                                                    category.icon %} data-icon="
+                                                      {% if category.icon['icon_type'] == 'icon' %}
+                                                      <span class='{{ category.icon['icon'] }}'></span>
+                                                      {% elseif category.icon['icon_type'] == 'emoji' %}
+                                                      <span>{{ category.icon['icon'] }}</span>
+                                                      {% elseif category.icon['icon_type'] == 'image' %}
+                                                      <img src='{{ category.icon['url'] }}' alt='{{ category.name }}' class='img-responsive btn-group-vertical'>
+                                                      {% endif %}
+                                                      " {% endif %} {% if category.id==data['category'] %} selected {% endif %}>
+                                                    {{ category.name }}
+                                                </option>
+                                            {% else %}
+                                                <option value="nothing" selected>Please Goto Service Page</option>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </select>
+
+
+
+                                    <div class="form-group">
+                                        <h3 class="form-hdng">
+                                            Category
+                                        </h3>
+                                        <div class="form-group">
+                                            <div class="custom-select2">
+                                                <select class="form-control orderform-category" id="orderform-category"
+                                                        name="OrderForm[category]" data-select="true"
+                                                        data-select-search="true"
+                                                        data-select-search-placeholder="{{ lang('general.search.placeholder') }}"
+                                                        {% if site['rtl'] %} data-select-dir="rtl" {% endif %}>
+                                                    {% for category in extended_categories %}
+                                                        {% if category.id != "-1" %}
+                                                            <option value="{{ category.id }}" {% if category.icon %}
+                                                                data-icon="
+                                           {% if category.icon['icon_type'] == 'icon' %}
+                                           <span class='{{ category.icon['icon'] }}'></span>
+                                           {% elseif category.icon['icon_type'] == 'emoji' %}
+                                           <span>{{ category.icon['icon'] }}</span>
+                                           {% elseif category.icon['icon_type'] == 'image' %}
+                                           <img src='{{ category.icon['url'] }}' alt='{{ category.name }}' class='img-responsive btn-group-vertical'>
+                                           {% endif %}
+                                           " {% endif %} {% if category.id==data['category'] %} selected {% endif %}>
+                                                                {{ category.name }}
+                                                            </option>
+                                                        {% endif %}
+                                                    {% endfor %}
+
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <h3 class="form-hdng">
+                                            Service
+                                        </h3>
+                                        <div class="form-group">
+                                            <div class="custom-select2">
+                                                <select class="form-control" id="orderform-service"
+                                                        name="OrderForm[service]" data-select="true"
+                                                        data-select-search="true"
+                                                        data-select-search-placeholder="{{ lang('general.search.placeholder') }}"
+                                                        {% if site['rtl'] %} data-select-dir="rtl" {% endif %}></select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- No need modify it by inspect <div class="form-group">
+                                                                            <h3 class="form-hdng">
+                                                                                Post Link
+                                                                            </h3>
+                                                                            <div class="custom-suggestion-list">
+                                                                                <input type="url" class="post_link"
+                                                                                    placeholder="Enter the link of your post..." data-search>
+
+                                                                                <div id="post_link" class="suggestion-list">
+                                                                                    <ul>
+                                                                                        <li data-filter-item data-filter-value="https://www.instagram.com/naizop">https://www.instagram.com/naizop</li>
+                                                                                        <li data-filter-item data-filter-value="https://www.instagram.com/naizop">https://www.instagram.com/naizop</li>
+                                                                                        <li data-filter-item data-filter-value="https://www.instagram.com/naizop">https://www.instagram.com/naizop</li>
+                                                                                        <li data-filter-item data-filter-value="https://www.instagram.com/naizop">https://www.instagram.com/naizop</li>
+                                                                                        <li data-filter-item data-filter-value="https://www.instagram.com/naizop">https://www.instagram.com/naizop</li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <h3 class="form-hdng">
+                                                                                Likes Quantity
+                                                                            </h3>
+                                                                            <input type="url" placeholder="Enter the link of your post...">
+                                                                        </div> -->
+
+                                    <div id="fields"></div>
+                                </div>
+
+
+                                <div class="plc-order-form-rht-col col-lg-5">
+                                    <div class="form-group">
+                                        <h3 class="form-hdng">
+                                            Description
+                                        </h3>
+                                    </div>
+                                    <div id="service_description" class="dscp-txt">
+                                        <div class="form-group">
+                                            {{service['description']}}
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <input type="text" style="display:none;" id="charge"
+                                   value="{{ order['charge'] }}" readonly>
+                            <div class="form-footer">
+                                <div class="service-cost">
+                                    <h4>Service Cost</h4>
+                                    <div class="price"><span id="new_charge">0</span> for <span
+                                                id="new_quantity">0</span> quantity</div>
+                                </div>
+                                <div class="service-cost">
+                                    <h4>Average Time <span class="tooltipp"><img
+                                                    src="https://cdn.mypanel.link/idhwx8/1i70353c37wzy38x.png"
+                                                    alt=""></span></h4>
+                                    <div class="price" id="avg_time">8 Minutes</div>
+                                </div>
+                                <input type="hidden" name="_csrf" value="{{ csrftoken }}">
+                                <div class="sbmt-btn-wpr">
+                                    <button type="submit" class="ylw-sbmt-btn">Purchase now</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

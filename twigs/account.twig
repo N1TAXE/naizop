@@ -1,0 +1,494 @@
+<div class="body-content-wpr account-page">
+    <div class="page-content-overlay"></div>
+    <h1 class="page-hdng">Account</h1>
+    <div class="account-cntnt-wpr">
+        <div class="user-account-wpr">
+            <div class="user-account-in">
+                <div class="user-img-update-form">
+                    <form>
+                        <label for="user_img">
+                            <input type="file" id="user_img_file" accept="image/*">
+                            <span class="edit_img">Edit photo is coming soon</span>
+                            <img src="https://cdn.mypanel.link/idhwx8/ef8imr329a1e9k1o.png"
+                                 id="profile_img" alt="">
+                            <!-- It is progress bar of image upload -->
+                            <div class="user-img-progress" id="progress" style="display:none;">
+                                <span>68%</span>
+                                <progress class="progress" max="100" id="prog" value="68"></progress>
+                            </div>
+                        </label>
+                    </form>
+                </div>
+                <div class="user-account-details">
+                    <h2 class="user-name">{{ user['username'] }}</h2>
+                    <p class="joined-date">{{ user['balance_formatted'] }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="notification-wrap">
+            {% if error %}
+                <div class="wtch-vdo-wpr {% if site['rtl'] %} rtl-alert {% endif %}">
+                    <p>
+                        {{ errorText }}
+                    </p>
+                    <button type="button" class="vdo-wpr-cls-btn">
+                        <img src="https://cdn.mypanel.link/idhwx8/l44m2d1t94p327qr.png" alt="">
+                    </button>
+                </div>
+            {% endif %}
+            {% if success %}
+                <div class="wtch-vdo-wpr {% if site['rtl'] %} rtl-alert {% endif %}">
+                    <p>
+                        {{ successText }}
+                    </p>
+                    <button type="button" class="vdo-wpr-cls-btn">
+                        <img src="https://cdn.mypanel.link/idhwx8/l44m2d1t94p327qr.png" alt="">
+                    </button>
+                </div>
+            {% endif %}
+        </div>
+        <div class="account-form-row row new-row">
+            <div class="col-xs-12 col-sm-6 account-forl-col">
+                <div class="account-form-wpr">
+                    <h3 class="account-form-hdng">Email</h3>
+                    <div class="form-group">
+                        <form><label for="email" class="control-label">Current Email</label>
+                            <input type="text" class="form-control" id="email" value="{{ user['email'] }}" readonly></form>
+                    </div>
+                    <div class="account-form-sbmt-btn-wpr text-center">
+                        <button class="change-email-btn cmn_blue_btn" id="changeEmailLink">
+                            {{ lang('confirmemail.button.change') }}
+                        </button>
+                    </div>
+
+                    <h3 class="account-form-hdng">Password</h3>
+                    <form class="pass-reset-form" method="post" action="">
+                        <div class="form-group">
+                            <label>{{ lang('account.password.current') }}</label>
+                            <input type="password" placeholder="Enter current password..." id="current"
+                                   name="SettingsFrom[current_password]">
+                        </div>
+                        <div class="form-group">
+                            <label>{{ lang('account.password.new') }}</label>
+                            <input type="password" placeholder="Enter new password..." id="new"
+                                   name="SettingsFrom[password]">
+                        </div>
+                        <div class="form-group">
+                            <label>{{ lang('account.password.confirm') }}</label>
+                            <input type="password" placeholder="Enter confirm new password..."
+                                   id="confirm" name="SettingsFrom[confirm_password]">
+                        </div>
+                        <div class="account-form-sbmt-btn-wpr">
+                            <input type="hidden" name="_csrf" value="{{csrftoken}}">
+                            <button type="submit">{{ lang('account.password.button') }}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 account-forl-col">
+                <div class="account-form-wpr">
+
+                    <div id="2fa-approve-error-block"
+                         style="{% if twofactorauth.error %} display: block; {% else %} display: none; {% endif %}"
+                         class="alert alert-dismissible alert-danger {% if site['rtl'] %} rtl-alert {% endif %}">
+                        <button type="button" class="close">&times;</button>
+                        <span id="2fa-error-text">{{ twofactorauth.error }}</span>
+                    </div>
+
+
+                    <h3 class="account-form-hdng">{{ lang('2fa.title') }}
+                        {% if not twofactorauth.activated %}
+                            {{ lang('account.2fa.enabled') }}
+                        {% endif %}</h3>
+
+                    <!-- 2FA Form generate code -->
+                    <form id="2fa-generate-form"
+                          method="post" {% if site['rtl'] %} class="rtl-form" {% endif %}
+                          action="{{ twofactorauth.url.generate }}"
+                          style="{% if twofactorauth.active_code %} display: none; {% else %} display: block; {% endif %}">
+                        <p>{{ lang('account.2fa.description') }}</p>
+                        <input type="hidden" name="enabled" value="{{ twofactorauth.activated }}">
+                        <input type="hidden" name="_csrf" value="{{ csrftoken }}">
+                        <button id="2fa-generate" type="submit" class="cmn_blue_btn">
+                            {% if twofactorauth.activated %}
+                                {{ lang('account.2fa.enable') }}
+                            {% else %}
+                                {{ lang('account.2fa.disable') }}
+                            {% endif %}
+                        </button>
+                    </form>
+
+                    <!-- 2FA Form approve code -->
+                    <form id="2fa-approve-form" method="post" {% if site['rtl'] %} class="rtl-form"{% endif %}
+                          action="{{ twofactorauth.url.approve }}"
+                          style="{% if twofactorauth.active_code %} display: block; {% else %} display: none; {% endif %}">
+                        <p>{{ lang('2fa.sent') }}</p>
+                        <div class="form-group">
+                            <label for="code" class="control-label">{{ lang('2fa.code') }}</label>
+                            <input type="text" id="code" name="code" class="form-control">
+                        </div>
+                        <input type="hidden" name="enabled" value="{{ twofactorauth.activated }}">
+                        <input type="hidden" name="_csrf" value="{{ csrftoken }}">
+                        <button id="2fa-approve" type="submit" class="cmn_blue_btn">
+                            {% if twofactorauth.activated %}
+                                {{ lang('account.2fa.enable') }}
+                            {% else %}
+                                {{ lang('account.2fa.disable') }}
+                            {% endif %}
+                        </button>
+                    </form>
+                    <br/>
+
+
+                    <h3 class="account-form-hdng">Time zone & API Key</h3>
+
+                    <form class="time-zone-form" {% if site['rtl'] %}class="rtl-form" {% endif %}
+                          action="" method="post">
+                        <div class="form-group">
+                            <label>{{ lang('account.timezone') }}</label>
+
+                            <div class="custom-select2 support-select">
+                                <select class="form-control" id="id_select4_example"
+                                        name="SettingsFrom[timezone]">
+                                    {% for timezone,label in timezones %}
+                                        <option value="{{ timezone }}" {% if timezone==user['timezone']
+                                        %}selected{% endif %}>{{ label }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <input type="hidden" name="_csrf" value="{{ csrftoken }}">
+                        <div class="account-form-sbmt-btn-wpr">
+                            <button type="submit">{{ lang('account.save') }}</button>
+                        </div>
+                    </form>
+                    <form class="pass-reset-form" {% if site['rtl'] %}class="rtl-form" {% endif %}
+                          action="{{ page['url'] }}/newkey" method="post">
+                        <div class="form-group">
+                            <label>{{ lang('account.api_key') }}</label>
+                            {% if user['is_generated_apikey'] %}
+                                <div class="api-input-wpr">
+                                    <input type="text" id="api_keyd" value="{{ user['apikey'] }}" readonly>
+                                    <!-- https://cdn.mypanel.link/idhwx8/1i70353c37wzy38x.png -->
+                                    <div class="custom-tooltip-wpr left">
+                                        <a href="javascript:void(0)" class="query_icon custom-tooltip-btn"
+                                           data-toggle="popover" data-trigger="hover" data-container="body"
+                                           data-placement="auto left" type="button" data-html="true"
+                                           id="logout">
+                                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                      d="M9 16.5V16.5C4.8575 16.5 1.5 13.1425 1.5 9V9C1.5 4.8575 4.8575 1.5 9 1.5V1.5C13.1425 1.5 16.5 4.8575 16.5 9V9C16.5 13.1425 13.1425 16.5 9 16.5Z"
+                                                      stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                                      stroke-linejoin="round"></path>
+                                                <path
+                                                        d="M8.99998 10.0415V9.83318C8.99998 9.15234 9.42081 8.78318 9.84248 8.49984C10.2541 8.22234 10.6666 7.86068 10.6666 7.19401C10.6666 6.27318 9.92081 5.52734 8.99998 5.52734C8.07915 5.52734 7.33331 6.27318 7.33331 7.19401"
+                                                        stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                                        stroke-linejoin="round"></path>
+                                                <path
+                                                        d="M8.99915 12.3333C8.88415 12.3333 8.79082 12.4267 8.79165 12.5417C8.79165 12.6567 8.88498 12.75 8.99998 12.75C9.11498 12.75 9.20832 12.6567 9.20832 12.5417C9.20832 12.4267 9.11498 12.3333 8.99915 12.3333"
+                                                        stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                                        stroke-linejoin="round"></path>
+                                            </svg>
+                                        </a>
+                                        <div class="custom-tooltip-cntnt-wpr">
+                                            <div class="custom-tooltip-cntnt">
+                                                <p>The key is hidden for security reasons</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <small class="help-block">{{ lang('account.api_key.date') }} {{
+                                    user['apikey_created'] }}</small>
+                            {% endif %}
+                        </div>
+                        <input type="hidden" name="_csrf" value="{{ csrftoken }}">
+                        <div class="account-form-sbmt-btn-wpr">
+                            <button type="submit">{{ lang('account.generate_key') }}</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Reset Password Modal start -->
+<div class="custom-modal-outer change-photo-popup" style="display: none">
+    <div class="custom-modal-overlay"></div>
+    <div class="custom-modal-in change-img-modal-in">
+        <div class="modal-cntnt-wpr">
+            <div class="change-img-cntnt">
+                <button type="button" class="loginClose_btn modal-close-btn">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1.33252 1.33261L14.6659 14.6659" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                              stroke-linejoin="round"></path>
+                        <path d="M14.6659 1.33261L1.33252 14.6659" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                              stroke-linejoin="round"></path>
+                    </svg>
+                </button>
+                <h3>Change you photo</h3>
+                <div class="change-img-wpr">
+              <span>
+                <img id="preview_img" src="https://cdn.mypanel.link/idhwx8/dxz7db1hfu9iwzxb.png" alt="">
+              </span>
+                </div>
+                <button type="button" class="cmn_blue_btn img-save-btn">Save</button>
+                <label class="file-upload-btn" for="img-upload-input">
+
+                    <span id="img-upload-input" class="cmn_blue_btn img-up-btn">Upload another photo</span>
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Change email -->
+{#
+<div class="modal fade" tabindex="-1" role="dialog" id="changeEmailModal" data-backdrop="static">
+  <div class="modal-dialog " role="document">
+    <form id="changeEmailForm" class="modal-cntnt-wpr{% if site['rtl'] %} rtl-form{% endif %}" method="post" action="">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">{{ lang('confirmemail.change_email.title') }}</h4>
+      </div>
+      <div class="modal-body">
+        <div id="changeEmailError" class="error-summary alert alert-dismissible alert-danger hidden{% if site['rtl'] %} rtl-alert {% endif %}"></div>
+        <div class="form-group">
+          <label for="current-email">{{ lang('confirmemail.change_email.current_email') }}</label>
+          <span class="form-control" id="current-email" disabled>{{ user['email'] }}</span>
+        </div>
+        <div class="form-group">
+          <label for="new-email">{{ lang('confirmemail.change_email.new_email') }}</label>
+          <input type="email" class="form-control" id="new-email" name="ChangeEmailForm[email]">
+        </div>
+        <div class="form-group">
+          <label for="current-password">{{ lang('confirmemail.change_email.current_password') }}</label>
+          <input type="password" class="form-control" id="current-password" name="ChangeEmailForm[password]">
+        </div>
+        <input type="hidden" name="_csrf" value="{{ csrftoken }}">
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" id="changeEmailSubmitBtn">{{ lang('confirmemail.change_email.submit') }}</button>
+      </div>
+    </form>
+  </div>
+</div>
+#}
+
+<!------Custom modal---------->
+<div class="custom-modal-outer change-email-popup"  style="display: none;">
+    <div class="custom-modal-overlay"></div>
+    <div class="custom-modal-in change-img-modal-in">
+        <div class="modal-cntnt-wpr">
+            <div class="tips-modal-hdr">
+                <h3>{{ lang('confirmemail.change_email.title') }}</h3>
+                <button type="button" class="loginClose_btn modal-close-btn">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1.33252 1.33261L14.6659 14.6659" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                              stroke-linejoin="round"></path>
+                        <path d="M14.6659 1.33261L1.33252 14.6659" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                              stroke-linejoin="round"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="tips-modal-form-wpr">
+                <div class="body-content-wpr">
+                    <div class="page-content-overlay"></div>
+                    <form id="changeEmailForm" class="modal-cntnt-wpr{% if site['rtl'] %} rtl-form{% endif %}" method="post" action="">
+                        <div id="changeEmailError" class="error-summary alert alert-dismissible alert-danger hidden{% if site['rtl'] %} rtl-alert {% endif %}"></div>
+                        <div class="form-group">
+                            <label for="current-email">{{ lang('confirmemail.change_email.current_email') }}</label>
+                            <input type="text" class="form-control" id="current-email" value="{{ user['email'] }}" readonly="">
+                        </div>
+                        <div class="form-group">
+                            <label for="new-email">{{ lang('confirmemail.change_email.new_email') }}</label>
+                            <input type="email" class="form-control" id="new-email" name="ChangeEmailForm[email]">
+                        </div>
+                        <div class="form-group">
+                            <label for="current-password">{{ lang('confirmemail.change_email.current_password') }}</label>
+                            <input type="password" class="form-control" id="current-password" name="ChangeEmailForm[password]">
+                        </div>
+                        <input type="hidden" name="_csrf" value="{{ csrftoken }}">
+
+                        <button type="submit" class="cmn_blue_btn" id="changeEmailSubmitBtn">{{ lang('confirmemail.change_email.submit') }}</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Reset Password Modal end -->
+
+<script type="text/javascript" src="https://cdn.mypanel.link/libs/jquery/1.12.4/jquery.min.js">
+</script>
+
+
+
+
+
+<script>
+
+    $(document).ready(function () {
+
+        $('#user_img_file').change(function () {
+
+
+            $("#progress").show();
+
+            const formData = new FormData();
+
+
+
+            var user = "preview";
+            var userid = "0000";
+            var domain = "naizop.com";
+            var dataUrl = "https://uploads.addonsupply.in/";
+
+
+            formData.append('username', user);
+
+            formData.append('domain', domain);
+
+            formData.append('user_id', userid);
+
+            formData.append('file', document.getElementById("user_img_file").files[0]);
+
+
+            fetch('https://uploads.addonsupply.in/', {
+                method: 'POST',
+                body: formData,
+            })
+                .then((res) => res.json())
+                .then(data => {
+
+
+
+
+                    if (data.success) {
+
+
+                        $('.change-photo-popup').toggle();
+
+                        document.getElementById('preview_img').setAttribute('src', data.img_link);
+
+                        $("#progress").hide();
+
+                    }
+                })
+                .catch((err) => console.log(err));
+
+
+
+        });
+
+        $("#img-upload-input").click(function(){
+            $('.modal-close-btn').trigger('click');
+            $('#user_img_file').trigger('click');
+
+        });
+
+
+        $(".img-save-btn").click(function(){
+
+            const formData2 = new FormData();
+
+
+
+            var user2 = "{{ user['username'] }}";
+            var userid2 = "{{ user['id'] }}";
+            var domain2 = "naizop.com";
+            var dataUrl2 = "https://uploads.addonsupply.in/";
+
+
+            formData2.append('username', user2);
+
+            formData2.append('domain', domain2);
+
+            formData2.append('user_id', userid2);
+
+            formData2.append('file', document.getElementById("user_img_file").files[0]);
+
+
+            fetch('https://uploads.addonsupply.in/', {
+                method: 'POST',
+                body: formData2,
+            })
+                .then((res2) => res2.json())
+                .then(data2 => {
+
+
+
+
+                    if (data2.success) {
+
+
+
+
+                        document.getElementById('preview_img').setAttribute('src', data2.img_link);
+                        document.getElementById('profile_img').setAttribute('src', data2.img_link);
+                        document.getElementById('profileImg').setAttribute('src', data2.img_link);
+
+                        document.getElementById('profileImg2').setAttribute('src', data2.img_link);
+                        $('.modal-close-btn').trigger('click');
+
+
+                    }
+                })
+                .catch((err) => console.log(err2));
+
+
+
+        });
+
+
+        setTimeout(function () {
+
+
+
+            const formData2 = new FormData();
+
+            let pro_user = "{{ user['username'] }}";
+
+            let proUser_id = "{{ user['id']  }}";
+
+            let domain = "naizop.com";
+
+
+
+
+            formData2.append('username', pro_user);
+
+            formData2.append('domain', domain);
+
+            formData2.append('user_id', proUser_id);
+
+
+            fetch('https://img.addonsupply.in/profile/image/', {
+                method: 'POST',
+                body: formData2,
+            }).then((res) => res.json())
+                .then((data) => {
+                    if (data.success) {
+                        document.getElementById('profile_img').setAttribute('src', data.img_url);
+
+
+                    } else {
+                        // error
+
+                    }
+                })
+                .catch((err) => alert(err));
+        }, 10)
+
+
+    });
+
+
+
+</script>
+

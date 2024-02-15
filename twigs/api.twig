@@ -1,0 +1,106 @@
+<div class="body-content-wpr api-page">
+    <div class="page-content-overlay"></div>
+    <h1 class="page-hdng">API</h1>
+    <div class="main-content">
+        <div class="content">
+            <div class="card">
+                <form action="">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="">HTTP Method</label>
+                            <input
+                                    readonly
+                                    type="text"
+                                    placeholder="POST"
+                                    value="POST"
+                            />
+                        </div>
+                        <div class="col-md-6">
+                            <label for="">API URL</label>
+                            <input
+                                    readonly
+                                    type="text"
+                                    placeholder="API URL"
+                                    value="{{site['protocol']}}://{{site['domain']}}/api/v2"
+                            />
+                        </div>
+                    </div>
+                    <div class="row">
+                        {% if user['auth'] %}
+                            <div class="col-md-6">
+                                <label for="">API Key</label>
+                                <input
+                                        readonly
+                                        type="text"
+                                        placeholder="Get an API key on Account page"
+                                        value=""
+                                />
+                            </div>
+                        {% endif %}
+                        <div class="col-md-6">
+                            <label for="">Response format</label>
+                            <input
+                                    readonly
+                                    type="text"
+                                    value="JSON"
+                                    placeholder="Response format"
+                            />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            {% for method,methodDetails in methods %}
+
+                <div class="card">
+                    <h4>{{methodDetails['title']}}</h4>
+                    <div class="space-xs-20"></div>
+                    <form action="">
+                        {% if 'add' == method %} {% if methodDetails['types']|length
+                            > 1 %}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <select name="" id="service_type">
+                                        {% for type,label in methodDetails['types'] %}
+                                            <option value="{{type}}">{{label}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        {% endif %} {% for type,parameters in
+                            methodDetails['parameters'] %}
+                            <div id="type_{{type}}" class="row">
+                                {% for parameter,label in parameters %}
+                                    <div class="col-md-6">
+                                        <label for="">{{parameter}}</label>
+                                        <input readonly type="text" value="{{label}}" />
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% endfor %} {% else %}
+                            <div class="row">
+                                {% for parameter,label in methodDetails['parameters'] %}
+                                    <div class="col-md-6">
+                                        <label for="">{{parameter}}</label>
+                                        <input readonly type="text" value="{{label}}" />
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="">Example Response</label>
+                                <pre>
+                                        {{methodDetails['examples']}}
+                                        </pre
+                                        >
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            {% endfor %}
+            <a href="/example.txt" class="get-started-bt" target="_blank"
+            >Example of PHP code</a
+            >
+        </div>
+    </div>
+</div>
