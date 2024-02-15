@@ -55,7 +55,7 @@ a {
   text-decoration: none;
 }
 
-body, html {
+body.guest {
   background: #080707;
   font-family: "Inter", sans-serif;
   font-style: normal;
@@ -186,6 +186,7 @@ body, html {
   color: white;
   border-radius: 32px;
   transition: color ease 0.3s, border ease 0.3s, background ease 0.3s;
+  cursor: pointer;
 }
 
 .btn-md {
@@ -533,6 +534,7 @@ body, html {
 }
 .benefits-content-column {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 16px;
   align-self: stretch;
@@ -543,20 +545,39 @@ body, html {
   }
 }
 .benefits-content-column-cart {
+  position: relative;
   display: flex;
   padding: 24px;
   flex-direction: column;
   align-items: flex-start;
   gap: 16px;
-  flex: 1 1 0;
   align-self: stretch;
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.07);
   background: rgba(255, 255, 255, 0.07) url("../../images/benefits-cart-bg.svg");
   backdrop-filter: blur(64px);
+  transition: background ease 0.3s;
+  overflow: hidden;
 }
-.benefits-content-column-cart:hover {
+@media screen and (min-width: 768px) {
+  .benefits-content-column-cart {
+    flex: 1 1 0;
+  }
+}
+.benefits-content-column-cart:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
   background: radial-gradient(378.77% 373.42% at -54.69% 174.26%, #FFF 0%, #85F7E2 47.4%, #FFB60E 100%), #1F2329;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity ease 0.3s;
+}
+.benefits-content-column-cart:hover:before {
+  opacity: 1;
 }
 .benefits-content-column-cart:hover:hover .benefits-content-column-cart__title {
   color: #080707;
@@ -581,6 +602,7 @@ body, html {
   width: 32px;
   height: 32px;
   fill: white;
+  transition: fill ease 0.3s;
 }
 .benefits-content-column-cart__title {
   align-self: stretch;
@@ -589,25 +611,31 @@ body, html {
   font-size: 24px;
   color: white;
   line-height: 150%;
+  transition: color ease 0.3s;
+  white-space: pre-line;
 }
 @media all and (max-width: 768px) {
   .benefits-content-column-cart__title {
     display: flex;
     justify-content: center;
     text-align: center;
+    width: 100%;
+    white-space: nowrap;
   }
 }
 .benefits-content-column-cart .line {
-  width: 240px;
   height: 1px;
   opacity: 0.25;
   background: #FFF;
+  transition: background-color ease 0.3s;
+  width: 100%;
 }
 .benefits-content-column-cart__description {
   font-size: 16px;
   color: #DAE9FF;
   font-weight: 400;
   line-height: 150%;
+  transition: color ease 0.3s;
 }
 
 .started {
@@ -644,6 +672,8 @@ body, html {
   font-size: 16px;
   font-weight: 500;
   line-height: 150%;
+  max-width: 648px;
+  text-align: center;
 }
 .started-content-up-column {
   display: flex;
@@ -652,6 +682,7 @@ body, html {
   align-self: stretch;
 }
 .started-content-up-column-cart {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -659,6 +690,11 @@ body, html {
   gap: 16px;
   flex: 1 0 0;
   border-right: 1px solid rgba(255, 255, 255, 0.05);
+  transition: background-color ease 0.3s;
+  padding: 24px 0;
+}
+.started-content-up-column-cart:hover {
+  background: rgba(255, 255, 255, 0.05);
 }
 .started-content-up-column-cart:last-child {
   border-right: none;
@@ -759,13 +795,35 @@ body, html {
   flex-direction: column;
   align-items: center;
   gap: 16px;
-  flex: 1 0 0;
   align-self: stretch;
   border-right: 1px solid #080707;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(12px);
+  overflow: hidden;
 }
-@media all and (max-width: 1200px) {
+.works-content-main-column-cart:before {
+  content: "";
+  position: absolute;
+  width: 110%;
+  height: 106px;
+  flex-shrink: 0;
+  border-radius: 326px;
+  filter: blur(125px);
+  bottom: -32px;
+}
+.works-content-main-column-cart.yellow:before {
+  background: #DC812D;
+}
+.works-content-main-column-cart.green:before {
+  background: #2DDC88;
+}
+.works-content-main-column-cart.pink:before {
+  background: #C32DDC;
+}
+.works-content-main-column-cart.blue:before {
+  background: #2D53DC;
+}
+@media all and (max-width: 768px) {
   .works-content-main-column-cart {
     justify-content: center;
   }
@@ -773,7 +831,7 @@ body, html {
 .works-content-main-column-cart:first-child {
   border-radius: 20px 0 0 20px;
 }
-@media all and (max-width: 1200px) {
+@media all and (max-width: 768px) {
   .works-content-main-column-cart:first-child {
     border-radius: 20px 20px 0 0;
   }
@@ -782,7 +840,7 @@ body, html {
   border-right: none;
   border-radius: 0 20px 20px 0;
 }
-@media all and (max-width: 1200px) {
+@media all and (max-width: 768px) {
   .works-content-main-column-cart:last-child {
     border-radius: 0 0 20px 20px;
   }
@@ -1024,6 +1082,7 @@ body, html {
   height: 1364px;
   background: url("/assets/images/cta_bg.webp") no-repeat center/cover;
   z-index: -1;
+  pointer-events: none;
 }
 .info-content {
   display: flex;
@@ -1121,12 +1180,18 @@ body, html {
 }
 .faq-content-questions-left-item, .faq-content-questions-right-item {
   display: flex;
-  padding: 16px;
   justify-content: space-between;
   align-items: center;
   align-self: stretch;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.05);
+  height: auto;
+  max-height: 56px;
+  overflow: hidden;
+  transition: max-height ease 0.3s;
+}
+.faq-content-questions-left-item summary, .faq-content-questions-right-item summary {
+  padding: 16px;
 }
 .faq-content-questions-left-item-left, .faq-content-questions-right-item-left {
   display: flex;
@@ -1169,10 +1234,11 @@ body, html {
 }
 .faq-content-questions-left-item-description, .faq-content-questions-right-item-description {
   display: flex;
-  padding-left: 12px;
+  padding: 0 16px 16px 26px;
   align-items: flex-start;
   gap: 10px;
   align-self: stretch;
+  transition: height ease 0.3s;
 }
 .faq-content-questions-left-item-description__text, .faq-content-questions-right-item-description__text {
   display: flex;
@@ -1187,8 +1253,8 @@ body, html {
   line-height: 150%;
 }
 
-details[open] summary {
-  margin-bottom: 16px;
+details[open] {
+  max-height: 320px;
 }
 details[open] summary .faq-content-questions-left-item-left-right svg, details[open] summary .faq-content-questions-right-item-left-right svg {
   transform: rotate(180deg);
@@ -1383,6 +1449,10 @@ details[open] summary .faq-content-questions-left-item-left-right svg, details[o
   font-weight: 400;
   line-height: 16px;
   opacity: 0.5;
+}
+
+.owl-stage-outer {
+  overflow: unset !important;
 }
 
 /*# sourceMappingURL=styles.css.map */
