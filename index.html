@@ -59,6 +59,11 @@
                     <a href="#" class="btn btn-md btn-header btn-bordered">Sign In</a>
                     <a href="#" class="btn btn-md btn-header btn-blue">Sign Up</a>
                 </div>
+                <div class="burger-menu">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
             </div>
         </div>
     </header>
@@ -289,7 +294,7 @@
                         <div class="reviews-content-column-cart-titles">
                             <div class="reviews-content-column-cart-titles__title">12,000+ customers</div>
                             <div class="reviews-content-column-cart-titles__description">
-                                Our customer base is growing<br> exponentially every passing day.
+                                Our customer base is growing exponentially every passing day.
                             </div>
                         </div>
                     </div>
@@ -302,7 +307,7 @@
                         <div class="reviews-content-column-cart-titles">
                             <div class="reviews-content-column-cart-titles__title">10M+ posts & reels</div>
                             <div class="reviews-content-column-cart-titles__description">
-                                Helping brands and agencies take social<br> media publishing up a notch.
+                                Helping brands and agencies take social media publishing up a notch.
                             </div>
                         </div>
                     </div>
@@ -315,7 +320,7 @@
                         <div class="reviews-content-column-cart-titles">
                             <div class="reviews-content-column-cart-titles__title">4.5 rated</div>
                             <div class="reviews-content-column-cart-titles__description">
-                                Naizop is rated highly on G2 – the largest<br> review site in the world.
+                                Naizop is rated highly on G2 – the largest review site in the world.
                             </div>
                         </div>
                     </div>
@@ -892,6 +897,15 @@
     <script>
         AOS.init();
         console.log('test')
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const burgerMenu = document.querySelector(".burger-menu");
+            const headerNav = document.querySelector(".header-nav");
+            burgerMenu.addEventListener("click", function() {
+                headerNav.classList.toggle("show");
+            });
+        });
     </script>
 </body>
 </html>
