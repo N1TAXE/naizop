@@ -278,11 +278,21 @@ body, html {
   justify-content: space-between;
   height: 512px;
 }
+@media all and (max-width: 768px) {
+  .main-content {
+    justify-content: center;
+  }
+}
 .main-content__left {
   display: flex;
   flex-direction: column;
   gap: 40px;
   width: 50%;
+}
+@media all and (max-width: 768px) {
+  .main-content__left {
+    align-items: center;
+  }
 }
 .main-content__right {
   position: relative;
@@ -298,6 +308,17 @@ body, html {
   top: -130px;
   pointer-events: none;
 }
+@media all and (max-width: 1024px) {
+  .main-content__right {
+    width: 25%;
+    height: 50%;
+  }
+}
+@media all and (max-width: 768px) {
+  .main-content__right {
+    display: none;
+  }
+}
 .main-title {
   display: flex;
   flex-direction: column;
@@ -312,6 +333,11 @@ body, html {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: "Space Grotesk", sans-serif;
+}
+@media all and (max-width: 768px) {
+  .main-title h2 {
+    font-size: 44px;
+  }
 }
 .main-title p {
   color: #FFF;
@@ -351,6 +377,13 @@ body, html {
   transition: fill ease 0.3s;
 }
 
+@media all and (max-width: 768px) {
+  .stats {
+    display: flex;
+    justify-content: center;
+    padding: 0 25px;
+  }
+}
 .stats-content {
   position: relative;
   display: flex;
@@ -373,6 +406,11 @@ body, html {
   height: 100%;
   background: url("/assets/images/pattern.svg") no-repeat;
   pointer-events: none;
+}
+@media all and (max-width: 768px) {
+  .stats-content {
+    padding: 25px 0;
+  }
 }
 .stats-content li {
   display: flex;
@@ -414,6 +452,11 @@ body, html {
   align-self: stretch;
   padding: 64px 0 0;
 }
+@media all and (max-width: 768px) {
+  .benefits-content {
+    padding: 0 25px;
+  }
+}
 .benefits-content__title {
   margin-bottom: 32px;
 }
@@ -422,6 +465,11 @@ body, html {
   align-items: center;
   gap: 16px;
   align-self: stretch;
+}
+@media all and (max-width: 768px) {
+  .benefits-content-column {
+    flex-direction: column;
+  }
 }
 .benefits-content-column-cart {
   display: flex;
@@ -453,6 +501,11 @@ body, html {
 .benefits-content-column-cart:hover:hover svg {
   fill: #080707;
 }
+@media all and (max-width: 768px) {
+  .benefits-content-column-cart {
+    align-items: center;
+  }
+}
 .benefits-content-column-cart svg {
   width: 32px;
   height: 32px;
@@ -465,6 +518,13 @@ body, html {
   font-size: 24px;
   color: white;
   line-height: 150%;
+}
+@media all and (max-width: 768px) {
+  .benefits-content-column-cart__title {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
 }
 .benefits-content-column-cart .line {
   width: 240px;
@@ -599,6 +659,11 @@ body, html {
   gap: 64px;
   align-self: stretch;
 }
+@media all and (max-width: 1200px) {
+  .works-content {
+    padding: 0 25px;
+  }
+}
 .works-content-main {
   display: flex;
   flex-direction: column;
@@ -623,6 +688,11 @@ body, html {
   border-right: 1px solid #080707;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(12px);
+}
+@media all and (max-width: 1200px) {
+  .works-content-main-column-cart {
+    justify-content: center;
+  }
 }
 .works-content-main-column-cart:first-child {
   border-radius: 20px 0 0 20px;
@@ -651,6 +721,12 @@ body, html {
 .works-content-main-column-cart img {
   height: 208px;
   align-self: stretch;
+}
+@media all and (max-width: 1200px) {
+  .works-content-main-column-cart img {
+    height: 50%;
+    width: 100%;
+  }
 }
 
 .reviews {
@@ -907,6 +983,11 @@ body, html {
   position: relative;
   z-index: 1;
 }
+@media all and (max-width: 768px) {
+  .faq {
+    padding: 0 25px;
+  }
+}
 .faq-content {
   display: flex;
   flex-direction: column;
@@ -922,12 +1003,23 @@ body, html {
   gap: 16px;
   align-self: stretch;
 }
+@media all and (max-width: 768px) {
+  .faq-content-questions {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 .faq-content-questions-left, .faq-content-questions-right {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 16px;
   flex: 1 0 0;
+}
+@media all and (max-width: 768px) {
+  .faq-content-questions-left, .faq-content-questions-right {
+    width: 100%;
+  }
 }
 .faq-content-questions-left-item, .faq-content-questions-right-item {
   display: flex;
@@ -1000,7 +1092,7 @@ body, html {
 details[open] summary {
   margin-bottom: 16px;
 }
-details[open] summary .faq-content-questions-left-item-left-right svg {
+details[open] summary .faq-content-questions-left-item-left-right svg, details[open] summary .faq-content-questions-right-item-left-right svg {
   transform: rotate(180deg);
 }
 

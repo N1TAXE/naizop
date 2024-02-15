@@ -244,11 +244,17 @@ body, html {
     align-items: flex-start;
     justify-content: space-between;
     height: 512px;
+    @media all and (max-width: 768px) {
+      justify-content: center;
+    }
     &__left {
       display: flex;
       flex-direction: column;
       gap: 40px;
       width: 50%;
+      @media all and (max-width: 768px) {
+        align-items: center;
+      }
     }
     &__right {
       position: relative;
@@ -262,6 +268,13 @@ body, html {
         width: 869px;
         top: -130px;
         pointer-events: none;
+      }
+      @media all and (max-width: 1024px) {
+        width: 25%;
+        height: 50%;
+      }
+      @media all and (max-width: 768px) {
+        display: none;
       }
     }
   }
@@ -280,6 +293,9 @@ body, html {
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       font-family: 'Space Grotesk', sans-serif;
+      @media all and (max-width: 768px) {
+        font-size: 44px;
+      }
     }
 
     p {
@@ -324,6 +340,11 @@ body, html {
 }
 
 .stats {
+  @media all and (max-width: 768px) {
+    display: flex;
+    justify-content: center;
+    padding: 0 25px;
+  }
   &-content {
     position: relative;
     display: flex;
@@ -345,6 +366,9 @@ body, html {
       height: 100%;
       background: url('/assets/images/pattern.svg') no-repeat;
       pointer-events: none;
+    }
+    @media all and (max-width: 768px) {
+      padding: 25px 0;
     }
     li {
       display: flex;
@@ -388,6 +412,9 @@ body, html {
     align-items: center;
     align-self: stretch;
     padding: 64px 0 0;
+    @media all and (max-width: 768px){
+      padding: 0 25px;
+    }
     &__title{
       margin-bottom: 32px;
     }
@@ -396,6 +423,9 @@ body, html {
       align-items: center;
       gap: 16px;
       align-self: stretch;
+      @media all and (max-width: 768px){
+        flex-direction: column;
+      }
 
       &-cart{
         display: flex;
@@ -426,6 +456,9 @@ body, html {
             fill: #080707;
           }
         }
+        @media all and (max-width: 768px){
+          align-items: center;
+        }
         svg{
           width: 32px;
           height: 32px;
@@ -438,6 +471,11 @@ body, html {
           font-size: 24px;
           color: white;
           line-height: 150%;
+          @media all and (max-width: 768px){
+            display: flex;
+            justify-content: center;
+            text-align: center;
+          }
         }
         .line{
           width: 240px;
@@ -572,6 +610,9 @@ body, html {
     align-items: center;
     gap: 64px;
     align-self: stretch;
+    @media all and (max-width: 1200px){
+      padding: 0 25px;
+    }
     &-main{
       display: flex;
       flex-direction: column;
@@ -583,6 +624,9 @@ body, html {
         justify-content: center;
         align-items: flex-start;
         align-self: stretch;
+        @media all and (max-width: 1200px){
+          //flex-direction: column;
+        }
         &-cart{
           display: flex;
           padding: 40px 32px 24px 32px;
@@ -594,12 +638,21 @@ body, html {
           border-right: 1px solid #080707;
           background: rgba(255, 255, 255, 0.05);
           backdrop-filter: blur(12px);
+          @media all and (max-width: 1200px){
+            justify-content: center;
+          }
           &:first-child{
             border-radius: 20px 0 0 20px ;
+            @media all and (max-width: 1200px){
+              //border-radius: 20px 20px 0 0 ;
+            }
           }
           &:last-child{
             border-right: none;
             border-radius: 0 20px 20px 0;
+            @media all and (max-width: 1200px){
+              //border-radius: 0 0 20px 20px;
+            }
           }
           &__title{
             align-self: stretch;
@@ -621,6 +674,10 @@ body, html {
           img{
             height: 208px;
             align-self: stretch;
+            @media all and (max-width: 1200px){
+              height: 50%;
+              width: 100%;
+            }
           }
         }
       }
@@ -879,6 +936,9 @@ body, html {
 .faq {
   position: relative;
   z-index: 1;
+  @media all and (max-width: 768px){
+    padding: 0 25px;
+  }
 
   &-content {
     display: flex;
@@ -894,6 +954,10 @@ body, html {
       align-items: flex-start;
       gap: 16px;
       align-self: stretch;
+      @media all and (max-width: 768px){
+        flex-direction: column;
+        align-items: center;
+      }
 
       &-left, &-right {
         display: flex;
@@ -901,6 +965,9 @@ body, html {
         align-items: flex-start;
         gap: 16px;
         flex: 1 0 0;
+        @media all and (max-width: 768px){
+          width: 100%;
+        }
 
         &-item {
           display: flex;
@@ -985,7 +1052,7 @@ body, html {
 }
   details[open] summary{
     margin-bottom: 16px;
-    .faq-content-questions-left-item-left-right{
+    .faq-content-questions-left-item-left-right, .faq-content-questions-right-item-left-right{
       svg{
         transform: rotate(180deg)
       }
