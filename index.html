@@ -326,7 +326,7 @@
                     </div>
                 </div>
                 <div class="reviews-content-container">
-                    <ul class="reviews-content-container-list">
+                    <ul id="swiper-container" class="reviews-content-container-list">
                         <li class="reviews-content-container-list-item">
                             <div class="reviews-content-container-list-item-content">
                                 <div class="reviews-content-container-list-item-content-up">
@@ -898,14 +898,6 @@
         AOS.init();
         console.log('test')
     </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const burgerMenu = document.querySelector(".burger-menu");
-            const headerNav = document.querySelector(".header-nav");
-            burgerMenu.addEventListener("click", function() {
-                headerNav.classList.toggle("show");
-            });
-        });
-    </script>
+    <script src="./assets/js/burger.js"></script>
 </body>
 </html>
