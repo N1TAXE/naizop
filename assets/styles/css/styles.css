@@ -55,12 +55,23 @@ a {
   text-decoration: none;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+html {
+  position: relative;
+  overflow-x: hidden;
+}
+
 body.guest {
   background: #080707;
   font-family: "Inter", sans-serif;
   font-style: normal;
   min-height: 100vh;
   overflow-x: hidden;
+  min-width: 360px;
+  box-sizing: border-box;
 }
 
 .container {
@@ -110,6 +121,12 @@ body.guest {
   align-items: center;
   justify-content: center;
 }
+@media screen and (max-width: 768px) {
+  .header-logotype {
+    width: 32px;
+    height: 32px;
+  }
+}
 .header-nav {
   display: flex;
   align-items: center;
@@ -148,6 +165,14 @@ body.guest {
   display: flex;
   align-items: center;
   gap: 16px;
+}
+@media screen and (max-width: 768px) {
+  .header-buttons {
+    gap: 8px;
+  }
+  .header-buttons a {
+    font-size: 12px;
+  }
 }
 
 @media all and (max-width: 768px) {
@@ -303,6 +328,21 @@ body.guest {
   overflow: hidden;
   width: max-content;
 }
+@media screen and (max-width: 768px) {
+  .main-email {
+    width: 100%;
+    flex-direction: column;
+  }
+  .main-email a {
+    width: 100%;
+  }
+  .main-email .main-input {
+    width: 100%;
+  }
+  .main-email .main-input input {
+    width: 100%;
+  }
+}
 .main-input {
   position: relative;
 }
@@ -426,6 +466,11 @@ body.guest {
   font-style: normal;
   font-weight: 400;
   line-height: 16px;
+}
+@media screen and (max-width: 768px) {
+  .main-features {
+    flex-direction: column;
+  }
 }
 .main-features li {
   display: flex;
@@ -681,6 +726,11 @@ body.guest {
   align-items: center;
   align-self: stretch;
 }
+@media screen and (max-width: 768px) {
+  .started-content-up-column {
+    flex-direction: column;
+  }
+}
 .started-content-up-column-cart {
   position: relative;
   display: flex;
@@ -692,6 +742,12 @@ body.guest {
   border-right: 1px solid rgba(255, 255, 255, 0.05);
   transition: background-color ease 0.3s;
   padding: 24px 0;
+}
+@media screen and (max-width: 768px) {
+  .started-content-up-column-cart {
+    border-right: unset;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
 }
 .started-content-up-column-cart:hover {
   background: rgba(255, 255, 255, 0.05);
@@ -904,6 +960,12 @@ body.guest {
   align-items: center;
   align-self: stretch;
 }
+@media screen and (max-width: 768px) {
+  .reviews-content-column {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
 .reviews-content-column-cart {
   display: flex;
   flex-direction: column;
@@ -962,7 +1024,6 @@ body.guest {
 }
 .reviews-content-container-list {
   position: absolute;
-  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1023,6 +1084,7 @@ body.guest {
   width: 262.286px;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 .reviews-content-container-list-item-customer-info {
   display: flex;
@@ -1121,6 +1183,11 @@ body.guest {
   align-items: flex-start;
   gap: 32px;
 }
+@media screen and (max-width: 768px) {
+  .info-content-text {
+    flex-direction: column;
+  }
+}
 .info-content-text-item {
   display: flex;
   align-items: center;
@@ -1189,7 +1256,7 @@ body.guest {
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.05);
   height: auto;
-  max-height: 56px;
+  max-height: 64px;
   overflow: hidden;
   transition: max-height ease 0.3s;
 }
@@ -1469,6 +1536,16 @@ details[open] summary .faq-content-questions-left-item-left-right svg, details[o
   font-weight: 400;
   line-height: 16px;
   opacity: 0.5;
+}
+
+.owl-carousel .owl-stage-outer {
+  /* override */
+  overflow: initial !important;
+}
+
+#bodyContent {
+  /* override */
+  overflow: hidden;
 }
 
 /*# sourceMappingURL=styles.css.map */
