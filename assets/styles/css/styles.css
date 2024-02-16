@@ -146,6 +146,12 @@ body.guest {
   gap: 16px;
   z-index: 1;
 }
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  z-index: 1;
+}
 .header-logotype {
   width: 56px;
   height: 56px;
@@ -223,9 +229,6 @@ body.guest {
 @media screen and (max-width: 768px) {
   .header-buttons {
     gap: 8px;
-  }
-  .header-buttons.desktop {
-    display: none;
   }
   .header-buttons a {
     font-size: 12px;
@@ -675,6 +678,11 @@ body.guest {
     flex: 1 1 0;
   }
 }
+@media screen and (max-width: 768px) {
+  .benefits-content-column-cart {
+    width: 100%;
+  }
+}
 .benefits-content-column-cart:before {
   content: "";
   position: absolute;
@@ -1006,11 +1014,6 @@ body.guest {
   position: relative;
   z-index: 1;
 }
-@media all and (max-width: 768px) {
-  .reviews {
-    padding: 25px;
-  }
-}
 .reviews-content {
   margin-bottom: 64px;
   display: flex;
@@ -1082,7 +1085,6 @@ body.guest {
 .reviews-content-container {
   position: relative;
   display: flex;
-  padding: 0 40px;
   justify-content: space-between;
   align-items: center;
   align-self: stretch;

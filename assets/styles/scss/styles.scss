@@ -85,6 +85,12 @@ body.guest {
     gap: 16px;
     z-index: 1;
   }
+  &-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    z-index: 1;
+  }
 
   &-logotype {
     width: 56px;
@@ -160,9 +166,6 @@ body.guest {
     align-items: center;
     gap: 16px;
     @media screen and (max-width: 768px) {
-      &.desktop {
-        display: none;
-      }
       gap: 8px;
       a {
         font-size: 12px;
@@ -597,6 +600,9 @@ body.guest {
         @media screen and (min-width: 768px) {
           flex: 1 1 0;
         }
+        @media screen and (max-width: 768px) {
+          width: 100%;
+        }
         align-self: stretch;
         border-radius: 20px;
         border: 1px solid rgba(255, 255, 255, 0.07);
@@ -925,9 +931,6 @@ body.guest {
 .reviews{
   position: relative;
   z-index: 1;
-  @media all and (max-width: 768px){
-    padding: 25px;
-  }
   &-content{
     margin-bottom: 64px;
     display: flex;
@@ -996,7 +999,6 @@ body.guest {
     &-container{
       position: relative;
       display: flex;
-      padding: 0 40px;
       justify-content: space-between;
       align-items: center;
       align-self: stretch;
@@ -1010,7 +1012,6 @@ body.guest {
         border-radius: 20px;
         &-item{
           display: flex;
-          //width: 320px;
           padding: 40px 32px 24px 32px;
           flex-direction: column;
           align-items: center;
