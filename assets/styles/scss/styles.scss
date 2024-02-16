@@ -889,6 +889,7 @@ body.guest {
       }
     }
     &-container{
+      position: relative;
       display: flex;
       padding: 0 40px;
       justify-content: space-between;
@@ -896,6 +897,8 @@ body.guest {
       align-self: stretch;
       border-radius: 20px;
       &-list{
+        position: absolute;
+        width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -1306,16 +1309,28 @@ details[open] {
                 align-items: center;
                 align-self: stretch;
 
+                &:hover {
+                  p {
+                    color: white;
+                  }
+                  svg {
+                    fill: white;
+                  }
+                }
+
                 p {
                   color: #686E73;
                   font-size: 16px;
                   font-weight: 500;
                   line-height: 16px;
+                  transition: color ease .3s;
                 }
 
                 svg {
+                  fill: #686E73;
                   width: 8.5px;
                   height: 8.5px;
+                  transition: fill ease .3s;
                 }
               }
             }
@@ -1348,10 +1363,19 @@ details[open] {
             opacity: 0.25;
           }
 
+          &-link {
+            &:hover {
+              svg {
+                fill: white;
+              }
+            }
+          }
+
           svg {
             width: 24px;
             height: 24px;
             fill: #495059;
+            transition: fill ease .3s;
           }
         }
 
@@ -1359,7 +1383,6 @@ details[open] {
           display: flex;
           flex-direction: column;
           align-items: flex-end;
-          gap: 16px;
 
           &-up, &-down {
             display: flex;
@@ -1375,12 +1398,20 @@ details[open] {
               justify-content: center;
               align-items: center;
               gap: 10px;
-
-              svg {
-                width: 36px;
-                height: 11px;
-                flex-shrink: 0;
-              }
+            }
+          }
+          &-up {
+            svg {
+              width: 36px;
+              height: 11px;
+              flex-shrink: 0;
+            }
+          }
+          &-down {
+            svg {
+              width: 24px;
+              height: 24px;
+              flex-shrink: 0;
             }
           }
         }
@@ -1409,7 +1440,4 @@ details[open] {
       }
     }
   }
-}
-.owl-stage-outer {
-  overflow: unset !important;
 }

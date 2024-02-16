@@ -952,6 +952,7 @@ body.guest {
   max-width: 236px;
 }
 .reviews-content-container {
+  position: relative;
   display: flex;
   padding: 0 40px;
   justify-content: space-between;
@@ -960,6 +961,8 @@ body.guest {
   border-radius: 20px;
 }
 .reviews-content-container-list {
+  position: absolute;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1361,15 +1364,24 @@ details[open] summary .faq-content-questions-left-item-left-right svg, details[o
   align-items: center;
   align-self: stretch;
 }
+.footer-content-top-left-column-explore-links-item:hover p, .footer-content-top-left-column-services-links-item:hover p {
+  color: white;
+}
+.footer-content-top-left-column-explore-links-item:hover svg, .footer-content-top-left-column-services-links-item:hover svg {
+  fill: white;
+}
 .footer-content-top-left-column-explore-links-item p, .footer-content-top-left-column-services-links-item p {
   color: #686E73;
   font-size: 16px;
   font-weight: 500;
   line-height: 16px;
+  transition: color ease 0.3s;
 }
 .footer-content-top-left-column-explore-links-item svg, .footer-content-top-left-column-services-links-item svg {
+  fill: #686E73;
   width: 8.5px;
   height: 8.5px;
+  transition: fill ease 0.3s;
 }
 .footer-content-top-right {
   display: flex;
@@ -1397,16 +1409,19 @@ details[open] summary .faq-content-questions-left-item-left-right svg, details[o
   text-transform: uppercase;
   opacity: 0.25;
 }
+.footer-content-top-right-social-link:hover svg {
+  fill: white;
+}
 .footer-content-top-right-social svg {
   width: 24px;
   height: 24px;
   fill: #495059;
+  transition: fill ease 0.3s;
 }
 .footer-content-top-right-payments {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 16px;
 }
 .footer-content-top-right-payments-up, .footer-content-top-right-payments-down {
   display: flex;
@@ -1423,9 +1438,14 @@ details[open] summary .faq-content-questions-left-item-left-right svg, details[o
   align-items: center;
   gap: 10px;
 }
-.footer-content-top-right-payments-up-icon svg, .footer-content-top-right-payments-down-icon svg {
+.footer-content-top-right-payments-up svg {
   width: 36px;
   height: 11px;
+  flex-shrink: 0;
+}
+.footer-content-top-right-payments-down svg {
+  width: 24px;
+  height: 24px;
   flex-shrink: 0;
 }
 .footer-content-bottom {
@@ -1449,10 +1469,6 @@ details[open] summary .faq-content-questions-left-item-left-right svg, details[o
   font-weight: 400;
   line-height: 16px;
   opacity: 0.5;
-}
-
-.owl-stage-outer {
-  overflow: unset !important;
 }
 
 /*# sourceMappingURL=styles.css.map */
