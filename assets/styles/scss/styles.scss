@@ -333,6 +333,7 @@ body.guest {
     @media all and (max-width: 768px) {
       justify-content: center;
       margin-bottom: 32px;
+      flex-direction: column;
     }
     &__left {
       display: flex;
@@ -363,7 +364,13 @@ body.guest {
         height: 50%;
       }
       @media all and (max-width: 768px) {
-        display: none;
+        height: 208px;
+        width: 100%;
+        img {
+          width: 100%;
+          bottom: -16px;
+          z-index: -1;
+        }
       }
     }
   }
@@ -386,6 +393,7 @@ body.guest {
         font-size: 44px;
         display: flex;
         justify-content: center;
+        text-align: center;
       }
     }
 
@@ -395,6 +403,9 @@ body.guest {
       font-weight: 400;
       line-height: 150%;
       margin: 0;
+      @media screen and (max-width: 768px) {
+        text-align: center;
+      }
       span {
         color: #FFBE27;
         font-size: 18px;

@@ -382,6 +382,7 @@ body.guest {
   .main-content {
     justify-content: center;
     margin-bottom: 32px;
+    flex-direction: column;
   }
 }
 .main-content__left {
@@ -419,7 +420,13 @@ body.guest {
 }
 @media all and (max-width: 768px) {
   .main-content__right {
-    display: none;
+    height: 208px;
+    width: 100%;
+  }
+  .main-content__right img {
+    width: 100%;
+    bottom: -16px;
+    z-index: -1;
   }
 }
 .main-title {
@@ -442,6 +449,7 @@ body.guest {
     font-size: 44px;
     display: flex;
     justify-content: center;
+    text-align: center;
   }
 }
 .main-title p {
@@ -450,6 +458,11 @@ body.guest {
   font-weight: 400;
   line-height: 150%;
   margin: 0;
+}
+@media screen and (max-width: 768px) {
+  .main-title p {
+    text-align: center;
+  }
 }
 .main-title p span {
   color: #FFBE27;
