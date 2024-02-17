@@ -499,7 +499,7 @@ body.guest {
 }
 @media all and (max-width: 768px) {
   .main-title h2 {
-    font-size: 44px;
+    font-size: 34px;
     display: flex;
     justify-content: center;
     text-align: center;
@@ -515,6 +515,7 @@ body.guest {
 @media screen and (max-width: 768px) {
   .main-title p {
     text-align: center;
+    font-size: 14px;
   }
 }
 .main-title p span {
@@ -537,6 +538,7 @@ body.guest {
   .main-features {
     flex-direction: column;
     align-items: flex-start;
+    font-size: 12px;
   }
 }
 .main-features li {
@@ -681,8 +683,14 @@ body.guest {
 @media screen and (max-width: 768px) {
   .benefits-content-column-cart {
     width: 100%;
-    padding: 10px;
+    padding: 15px;
     gap: 8px;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 425px) {
+  .benefits-content-column-cart {
+    align-items: flex-start;
   }
 }
 .benefits-content-column-cart:before {
@@ -714,11 +722,6 @@ body.guest {
 .benefits-content-column-cart:hover:hover svg {
   fill: #080707;
 }
-@media all and (max-width: 768px) {
-  .benefits-content-column-cart {
-    align-items: center;
-  }
-}
 .benefits-content-column-cart svg {
   width: 32px;
   height: 32px;
@@ -748,6 +751,12 @@ body.guest {
     text-align: center;
     width: 100%;
     font-size: 16px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .benefits-content-column-cart__title {
+    justify-content: flex-start;
+    text-align: left;
   }
 }
 .benefits-content-column-cart .line {
@@ -1477,7 +1486,7 @@ body.guest {
 }
 
 details[open] {
-  max-height: 416px;
+  max-height: 537px;
 }
 details[open] summary .faq-content-questions-left-item-left-right svg, details[open] summary .faq-content-questions-right-item-left-right svg {
   transform: rotate(180deg);
