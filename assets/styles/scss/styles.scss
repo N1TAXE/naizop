@@ -332,16 +332,25 @@ body.guest {
     overflow: hidden;
     width: max-content;
     @media screen and (max-width: 768px) {
+      border: unset;
+      border-radius: unset;
       width: 100%;
       flex-direction: column;
+      gap: 10px;
       a {
         width: 100%;
       }
       .main-input {
         width: 100%;
         input {
+          border: 1px solid rgba(255, 255, 255, 0.10);
+          border-radius: 10px;
           width: 100%;
         }
+      }
+      .btn-gradient{
+        border: 1px solid rgba(255, 255, 255, 0.10);
+        border-radius: 10px;
       }
     }
   }
@@ -444,7 +453,7 @@ body.guest {
       -webkit-text-fill-color: transparent;
       font-family: 'Inter', sans-serif;
       @media all and (max-width: 768px) {
-        font-size: 34px;
+        font-size: 40px;
         display: flex;
         justify-content: center;
         text-align: center;

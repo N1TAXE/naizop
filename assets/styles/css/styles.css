@@ -388,8 +388,11 @@ body.guest {
 }
 @media screen and (max-width: 768px) {
   .main-email {
+    border: unset;
+    border-radius: unset;
     width: 100%;
     flex-direction: column;
+    gap: 10px;
   }
   .main-email a {
     width: 100%;
@@ -398,7 +401,13 @@ body.guest {
     width: 100%;
   }
   .main-email .main-input input {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
     width: 100%;
+  }
+  .main-email .btn-gradient {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
   }
 }
 .main-input {
@@ -500,7 +509,7 @@ body.guest {
 }
 @media all and (max-width: 768px) {
   .main-title h2 {
-    font-size: 34px;
+    font-size: 40px;
     display: flex;
     justify-content: center;
     text-align: center;
