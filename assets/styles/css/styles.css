@@ -377,6 +377,11 @@ body.guest {
   background: url("/assets/images/main-bg.webp") no-repeat center/contain;
   z-index: -1;
 }
+@media screen and (max-width: 768px) {
+  .main:before {
+    background: url("/assets/images/main-bg.webp") no-repeat center/cover;
+  }
+}
 .main-email {
   display: flex;
   align-items: center;
