@@ -321,6 +321,9 @@ body.guest {
     height: 848px;
     background: url('/assets/images/main-bg.webp') no-repeat center/contain;
     z-index: -1;
+    @media screen and (max-width: 768px) {
+      background: url('/assets/images/main-bg.webp') no-repeat center/cover;
+    }
   }
 
   &-email {
