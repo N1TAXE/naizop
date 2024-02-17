@@ -377,11 +377,6 @@ body.guest {
   background: url("/assets/images/main-bg.webp") no-repeat center/contain;
   z-index: -1;
 }
-@media screen and (max-width: 768px) {
-  .main:before {
-    background: url("/assets/images/main-bg.webp") no-repeat center/cover;
-  }
-}
 .main-email {
   display: flex;
   align-items: center;
@@ -628,6 +623,7 @@ body.guest {
 @media all and (max-width: 768px) {
   .content-title {
     text-align: center;
+    font-size: 22px;
   }
 }
 
@@ -658,7 +654,8 @@ body.guest {
 }
 @media all and (max-width: 768px) {
   .benefits-content-column {
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
   }
 }
 .benefits-content-column-cart {
@@ -684,6 +681,8 @@ body.guest {
 @media screen and (max-width: 768px) {
   .benefits-content-column-cart {
     width: 100%;
+    padding: 10px;
+    gap: 8px;
   }
 }
 .benefits-content-column-cart:before {
@@ -726,6 +725,12 @@ body.guest {
   fill: white;
   transition: fill ease 0.3s;
 }
+@media all and (max-width: 768px) {
+  .benefits-content-column-cart svg {
+    width: 25px;
+    height: 25px;
+  }
+}
 .benefits-content-column-cart__title {
   align-self: stretch;
   font-family: "Space Grotesk", sans-serif;
@@ -742,7 +747,7 @@ body.guest {
     justify-content: center;
     text-align: center;
     width: 100%;
-    white-space: nowrap;
+    font-size: 16px;
   }
 }
 .benefits-content-column-cart .line {
@@ -752,12 +757,38 @@ body.guest {
   transition: background-color ease 0.3s;
   width: 100%;
 }
+@media all and (max-width: 768px) {
+  .benefits-content-column-cart .line {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 14px;
+  }
+}
+@media all and (max-width: 425px) {
+  .benefits-content-column-cart .line {
+    display: none;
+  }
+}
 .benefits-content-column-cart__description {
   font-size: 16px;
   color: #DAE9FF;
   font-weight: 400;
   line-height: 150%;
   transition: color ease 0.3s;
+}
+@media all and (max-width: 768px) {
+  .benefits-content-column-cart__description {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 14px;
+  }
+}
+@media all and (max-width: 425px) {
+  .benefits-content-column-cart__description {
+    display: none;
+  }
 }
 
 .started {
@@ -772,6 +803,12 @@ body.guest {
   gap: 64px;
   padding: 64px 0;
 }
+@media all and (max-width: 768px) {
+  .started-content {
+    padding: 0 0 32px;
+    gap: 32px;
+  }
+}
 .started-content-up {
   display: flex;
   flex-direction: column;
@@ -779,6 +816,11 @@ body.guest {
   align-items: center;
   gap: 32px;
   align-self: stretch;
+}
+@media all and (max-width: 768px) {
+  .started-content-up {
+    gap: unset;
+  }
 }
 .started-content-up-titles {
   display: flex;
@@ -795,7 +837,11 @@ body.guest {
   font-weight: 500;
   line-height: 150%;
   max-width: 648px;
-  text-align: center;
+}
+@media screen and (max-width: 768px) {
+  .started-content-up-titles__subtitle {
+    font-size: 12px;
+  }
 }
 .started-content-up-column {
   display: flex;
@@ -1032,6 +1078,12 @@ body.guest {
   gap: 64px;
   align-self: stretch;
 }
+@media all and (max-width: 768px) {
+  .reviews-content {
+    gap: 32px;
+    margin-bottom: 32px;
+  }
+}
 .reviews-content-column {
   display: flex;
   justify-content: center;
@@ -1234,6 +1286,12 @@ body.guest {
   align-self: stretch;
   margin-bottom: 64px;
 }
+@media all and (max-width: 768px) {
+  .info-content {
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+}
 .info-content-titles {
   display: flex;
   flex-direction: column;
@@ -1247,6 +1305,11 @@ body.guest {
   font-weight: 500;
   line-height: 150%;
   max-width: 324px;
+}
+@media all and (max-width: 768px) {
+  .info-content-titles__description {
+    font-size: 12px;
+  }
 }
 .info-content-titles__description span {
   color: #FFB60E;
@@ -1300,6 +1363,12 @@ body.guest {
   align-self: stretch;
   margin-bottom: 64px;
 }
+@media all and (max-width: 768px) {
+  .faq-content {
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+}
 .faq-content-questions {
   display: flex;
   justify-content: center;
@@ -1333,7 +1402,7 @@ body.guest {
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.05);
   height: auto;
-  max-height: 64px;
+  max-height: 112px;
   overflow: hidden;
   transition: max-height ease 0.3s;
 }
@@ -1408,7 +1477,7 @@ body.guest {
 }
 
 details[open] {
-  max-height: 320px;
+  max-height: 416px;
 }
 details[open] summary .faq-content-questions-left-item-left-right svg, details[open] summary .faq-content-questions-right-item-left-right svg {
   transform: rotate(180deg);
