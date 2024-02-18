@@ -49,6 +49,8 @@ body.guest {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-out;
+  position: relative;
+  z-index: 2;
   .header-buttons {
     width: 100%;
     gap: 32px;
@@ -127,6 +129,9 @@ body.guest {
       display: flex;
       @media screen and (max-width: 768px) {
         width: 100%;
+        &:nth-child(6){
+          margin-bottom: 15px;
+        }
       }
       a {
         @media screen and (max-width: 768px) {
