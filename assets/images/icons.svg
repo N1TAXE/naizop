@@ -349,4 +349,8 @@
             </linearGradient>
         </defs>
     </svg>
+
+    <svg fill="inherit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="ellipse">
+        <circle cx="16" cy="16" r="15" fill="#24E476" stroke="#12133F" stroke-width="2"/>
+    </svg>
 </svg>

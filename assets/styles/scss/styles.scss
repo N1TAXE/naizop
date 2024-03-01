@@ -1,6 +1,5 @@
 @import "reset";
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import "fonts";
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Jost&family=Raleway:wght@100&family=Roboto&display=swap');
 html {
   position: relative;
@@ -8,7 +7,7 @@ html {
 }
 body.guest {
   background: #080707;
-  font-family: 'Inter', sans-serif;
+  font-family: 'GT Walsheim Pro', sans-serif;
   font-style: normal;
   min-height: 100vh;
   overflow-x: hidden;
@@ -49,6 +48,8 @@ body.guest {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-out;
+  position: relative;
+  z-index: 2;
   .header-buttons {
     width: 100%;
     gap: 32px;
@@ -73,7 +74,7 @@ body.guest {
   justify-content: space-between;
   position: relative;
   z-index: 3;
-  
+
   @media all and (max-width: 768px) {
     align-items: center;
     padding: 10px 25px;
@@ -127,6 +128,9 @@ body.guest {
       display: flex;
       @media screen and (max-width: 768px) {
         width: 100%;
+        &:nth-child(6){
+          margin-bottom: 15px;
+        }
       }
       a {
         @media screen and (max-width: 768px) {
@@ -135,8 +139,8 @@ body.guest {
           padding: 8px 0;
           text-transform: uppercase;
           font-size: 12px;
-          font-family: "Inter" , sans-serif;
-          font-weight: 800;
+          font-family: "GT Walsheim Pro", sans-serif;
+          //font-weight: 800;
         }
         display: flex;
         align-items: center;
@@ -148,9 +152,9 @@ body.guest {
 
         color: #707476;
         font-size: 18px;
-        font-weight: 900;
+        font-weight: bold;
         line-height: 16px;
-        font-family: "Space Grotesk" , sans-serif;
+        font-family: "GT Walsheim Pro" , sans-serif;
 
         &.active,
         &:hover{
@@ -315,15 +319,13 @@ body.guest {
   &:before {
     position: absolute;
     content: '';
-    top: 0;
-    left: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 100%;
     height: 848px;
-    background: url('/assets/images/main-bg.webp') no-repeat center/contain;
+    background: url('/assets/images/main-bg.webp') no-repeat center/cover;
     z-index: -1;
-    @media screen and (max-width: 768px) {
-      background: url('/assets/images/main-bg.webp') no-repeat center/cover;
-    }
   }
 
   &-email {
@@ -334,16 +336,25 @@ body.guest {
     overflow: hidden;
     width: max-content;
     @media screen and (max-width: 768px) {
+      border: unset;
+      border-radius: unset;
       width: 100%;
       flex-direction: column;
+      gap: 10px;
       a {
         width: 100%;
       }
       .main-input {
         width: 100%;
         input {
+          border: 1px solid rgba(255, 255, 255, 0.10);
+          border-radius: 10px;
           width: 100%;
         }
+      }
+      .btn-gradient{
+        border: 1px solid rgba(255, 255, 255, 0.10);
+        border-radius: 10px;
       }
     }
   }
@@ -446,7 +457,7 @@ body.guest {
       -webkit-text-fill-color: transparent;
       font-family: 'Inter', sans-serif;
       @media all and (max-width: 768px) {
-        font-size: 44px;
+        font-size: 42px;
         display: flex;
         justify-content: center;
         text-align: center;
@@ -461,6 +472,7 @@ body.guest {
       margin: 0;
       @media screen and (max-width: 768px) {
         text-align: center;
+        font-size: 14px;
       }
       span {
         color: #FFBE27;
@@ -493,6 +505,99 @@ body.guest {
       fill: #FFBE27;
     }
   }
+
+  &-rating{
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    &-left{
+      position: relative;
+      display: flex;
+      align-items: center;
+      &-item{
+        position: absolute;
+        width: 32px;
+        height: 32px;
+        border-radius: 32px;
+        border: 2px solid #12133F;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img{
+          width: 28px;
+          height: 28px;
+        }
+        &:nth-child(1){
+          top: 0;
+          left: 0;
+        }
+        &:nth-child(2){
+          top: 0;
+          left: 16px;
+        }
+        &:nth-child(3){
+          top: 0;
+          left: 32px;
+        }
+        &:nth-child(4){
+          top: 0;
+          left: 48px;
+        }
+        &:nth-child(5){
+          position: relative;
+          top: 0;
+          left: 64px;
+          width: 32px;
+          height: 32px;
+          flex-shrink: 0;
+          border-radius: unset;
+          border: unset;
+          svg{
+            width: 32px;
+            height: 32px;
+            fill: #24E476;
+            stroke-width: 2px;
+            stroke: #12133F;
+          }
+          p{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0;
+            color: #080707;
+            font-size: 10px;
+            font-weight: 700;
+            line-height: 16px;
+          }
+        }
+      }
+    }
+    &-right{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 4px;
+      &-stars{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        svg{
+          width: 12px;
+          height: 12px;
+          fill: #24E476;
+        }
+      }
+      p{
+        color: #FFF;
+        font-size: 10px;
+        font-weight: 500;
+        line-height: 16px;
+      }
+    }
+  }
 }
 
 .icon {
@@ -516,7 +621,7 @@ body.guest {
     border: 1px solid rgba(255, 255, 255, 0.07);
     background: rgba(255, 255, 255, 0.07);
     backdrop-filter: blur(64px);
-    font-family: "Space Grotesk", sans-serif;
+    font-family: "GT Walsheim Pro", sans-serif;
     &:before {
       position: absolute;
       content: '';
@@ -560,12 +665,13 @@ body.guest {
 }
 
 .content-title{
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "GT Walsheim Pro", sans-serif;
   font-weight: 700;
   font-size: 32px;
   color: #fff;
   @media all and (max-width: 768px){
     text-align: center;
+    font-size: 22px;
   }
 }
 
@@ -590,7 +696,9 @@ body.guest {
       gap: 16px;
       align-self: stretch;
       @media all and (max-width: 768px){
-        flex-direction: column;
+        //flex-direction: column;
+        display: grid;
+        grid-template-columns: repeat(2, 2fr);
       }
 
       &-cart{
@@ -605,6 +713,12 @@ body.guest {
         }
         @media screen and (max-width: 768px) {
           width: 100%;
+          padding: 15px;
+          gap: 8px;
+          align-items: center;
+        }
+        @media screen and (max-width: 425px) {
+          align-items: flex-start;
         }
         align-self: stretch;
         border-radius: 20px;
@@ -646,18 +760,19 @@ body.guest {
             fill: #080707;
           }
         }
-        @media all and (max-width: 768px){
-          align-items: center;
-        }
         svg{
           width: 32px;
           height: 32px;
           fill: white;
           transition: fill ease .3s;
+          @media all and (max-width: 768px){
+            width: 25px;
+            height: 25px;
+          }
         }
         &__title{
           align-self: stretch;
-          font-family: "Space Grotesk", sans-serif;
+          font-family: "GT Walsheim Pro", sans-serif;
           font-weight: 700;
           font-size: 24px;
           color: white;
@@ -669,7 +784,12 @@ body.guest {
             justify-content: center;
             text-align: center;
             width: 100%;
-            white-space: nowrap;
+            font-size: 16px;
+            //white-space: nowrap;
+          }
+          @media screen and (max-width: 425px) {
+            justify-content: flex-start;
+            text-align: left;
           }
         }
         .line{
@@ -678,6 +798,15 @@ body.guest {
           background: #FFF;
           transition: background-color ease .3s;
           width: 100%;
+          @media all and (max-width: 768px){
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            font-size: 14px;
+          }
+          @media all and (max-width: 425px){
+            display: none;
+          }
         }
         &__description{
           font-size: 16px;
@@ -685,6 +814,15 @@ body.guest {
           font-weight: 400;
           line-height: 150%;
           transition: color ease .3s;
+          @media all and (max-width: 768px){
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            font-size: 14px;
+          }
+          @media all and (max-width: 425px){
+            display: none;
+          }
         }
       }
     }
@@ -700,6 +838,10 @@ body.guest {
     align-self: stretch;
     gap: 64px;
     padding: 64px 0;
+    @media all and (max-width: 768px){
+      padding: 0 0 32px;
+      gap: 32px;
+    }
     &-up{
       display: flex;
       flex-direction: column;
@@ -707,6 +849,9 @@ body.guest {
       align-items: center;
       gap: 32px;
       align-self: stretch;
+      @media all and (max-width: 768px){
+        gap: unset;
+      }
       &-titles{
         display: flex;
         flex-direction: column;
@@ -721,7 +866,9 @@ body.guest {
           font-weight: 500;
           line-height: 150%;
           max-width: 648px;
-          text-align: center;
+          @media screen and (max-width: 768px) {
+            font-size: 12px;
+          }
         }
       }
       &-column{
@@ -768,7 +915,7 @@ body.guest {
             &__title{
               color: #FFF;
               text-align: center;
-              font-family: "Space Grotesk", sans-serif;
+              font-family: "GT Walsheim Pro", sans-serif;
               font-size: 16px;
               font-weight: 700;
               line-height: 150%;
@@ -793,7 +940,7 @@ body.guest {
       p{
         color: #FFF;
         text-align: center;
-        font-family: "Space Grotesk", sans-serif;
+        font-family: "GT Walsheim Pro", sans-serif;
         font-size: 16px;
         font-weight: 700;
         line-height: 32px;
@@ -840,6 +987,7 @@ body.guest {
           flex-direction: column;
         }
         &-cart{
+          position: relative;
           display: flex;
           padding: 40px 32px 24px 32px;
           flex-direction: column;
@@ -900,13 +1048,25 @@ body.guest {
               border-radius: 0 0 20px 20px;
             }
           }
+          &__number{
+            position: absolute;
+            left: 16px;
+            top: 16px;
+            width: 64px;
+            color: #FFF;
+            text-align: center;
+            font-size: 104px;
+            font-weight: bold;
+            line-height: 64px;
+            opacity: 0.05;
+          }
           &__title{
             align-self: stretch;
             color: #FFF;
             text-align: center;
-            font-family: "Space Grotesk", sans-serif;
+            font-family: "GT Walsheim Pro", sans-serif;
             font-size: 18px;
-            font-weight: 700;
+            font-weight: bold;
             line-height: 16px;
           }
           &__description{
@@ -946,6 +1106,25 @@ body.guest {
     align-items: center;
     gap: 64px;
     align-self: stretch;
+    @media all and (max-width: 768px) {
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+    &-headlines{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      &__subtitle{
+        color: #FFF;
+        text-align: center;
+        font-family: Inter, sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 150%;
+      }
+    }
     &-column{
       display: flex;
       justify-content: center;
@@ -986,7 +1165,7 @@ body.guest {
           &__title{
             color: #FFF;
             text-align: center;
-            font-family: "Space Grotesk", sans-serif;
+            font-family: "GT Walsheim Pro", sans-serif;
             font-size: 16px;
             font-weight: 700;
             line-height: 16px;
@@ -1040,7 +1219,7 @@ body.guest {
               &__title{
                 flex: 1 0 0;
                 color: #FFF;
-                font-family: "Space Grotesk", sans-serif;
+                font-family: "GT Walsheim Pro", sans-serif;
                 font-size: 18px;
                 font-weight: 700;
                 line-height: 16px;
@@ -1067,7 +1246,6 @@ body.guest {
           }
           &-customer{
             display: flex;
-            width: 262.286px;
             justify-content: space-between;
             align-items: center;
             width: 100%;
@@ -1145,6 +1323,10 @@ body.guest {
     gap: 32px;
     align-self: stretch;
     margin-bottom: 64px;
+    @media all and (max-width: 768px) {
+      gap: 16px;
+      margin-bottom: 32px;
+    }
     &-titles{
       display: flex;
       flex-direction: column;
@@ -1156,7 +1338,10 @@ body.guest {
         font-size: 16px;
         font-weight: 500;
         line-height: 150%;
-        max-width: 324px;;
+        max-width: 324px;
+        @media all and (max-width: 768px) {
+          font-size: 12px;
+        }
         span{
           color: #FFB60E;
           font-size: 16px;
@@ -1207,6 +1392,10 @@ body.guest {
     gap: 32px;
     align-self: stretch;
     margin-bottom: 64px;
+    @media all and (max-width: 768px){
+      gap: 16px;
+      margin-bottom: 32px;
+    }
 
     &-questions {
       display: flex;
@@ -1237,7 +1426,7 @@ body.guest {
           border-radius: 20px;
           background: rgba(255, 255, 255, 0.05);
           height: auto;
-          max-height: 64px;
+          max-height: 112px;
           overflow: hidden;
           transition: max-height ease .3s;
 
@@ -1267,7 +1456,7 @@ body.guest {
 
             &__title {
               color: #FFF;
-              font-family: "Space Grotesk", sans-serif;
+              font-family: "GT Walsheim Pro", sans-serif;
               font-size: 16px;
               font-weight: 700;
               line-height: 16px;
@@ -1326,7 +1515,7 @@ body.guest {
   }
 }
 details[open] {
-  max-height: 320px;
+  max-height: 537px;
   summary{
     .faq-content-questions-left-item-left-right, .faq-content-questions-right-item-left-right{
       svg{
@@ -1385,7 +1574,7 @@ details[open] {
 
           &__title {
             color: #FFF;
-            font-family: "Space Grotesk", sans-serif;
+            font-family: "GT Walsheim Pro", sans-serif;
             font-size: 24px;
             font-weight: 700;
             line-height: 30px;
@@ -1413,7 +1602,7 @@ details[open] {
 
             &__title {
               color: #FFF;
-              font-family: "Space Grotesk", sans-serif;
+              font-family: "GT Walsheim Pro", sans-serif;
               font-size: 24px;
               font-weight: 700;
               line-height: 30px;

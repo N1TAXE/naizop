@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Jost&family=Raleway:wght@100&family=Roboto&display=swap");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -59,6 +57,27 @@ a {
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: "GT Walsheim Pro";
+  src: url("/assets/fonts/GTWalsheimPro-Regular.eot");
+  src: local("GT Walsheim Pro Regular"), local("GTWalsheimPro-Regular"), url("/assets/fonts/GTWalsheimPro-Regular.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/GTWalsheimPro-Regular.woff2") format("woff2"), url("/assets/fonts/GTWalsheimPro-Regular.woff") format("woff"), url("/assets/fonts/GTWalsheimPro-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GT Walsheim Pro";
+  src: url("/assets/fonts/GTWalsheimPro-Bold.eot");
+  src: local("GT Walsheim Pro Bold"), local("GTWalsheimPro-Bold"), url("/assets/fonts/GTWalsheimPro-Bold.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/GTWalsheimPro-Bold.woff2") format("woff2"), url("/assets/fonts/GTWalsheimPro-Bold.woff") format("woff"), url("/assets/fonts/GTWalsheimPro-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GT Walsheim Pro";
+  src: url("/assets/fonts/GTWalsheimPro-Medium.eot");
+  src: local("GT Walsheim Pro Medium"), local("GTWalsheimPro-Medium"), url("/assets/fonts/GTWalsheimPro-Medium.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/GTWalsheimPro-Medium.woff2") format("woff2"), url("/assets/fonts/GTWalsheimPro-Medium.woff") format("woff"), url("/assets/fonts/GTWalsheimPro-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
 html {
   position: relative;
   overflow-x: hidden;
@@ -66,7 +85,7 @@ html {
 
 body.guest {
   background: #080707;
-  font-family: "Inter", sans-serif;
+  font-family: "GT Walsheim Pro", sans-serif;
   font-style: normal;
   min-height: 100vh;
   overflow-x: hidden;
@@ -109,6 +128,8 @@ body.guest {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-out;
+  position: relative;
+  z-index: 2;
 }
 .mobile-menu .header-buttons {
   width: 100%;
@@ -191,6 +212,9 @@ body.guest {
   .header-nav li {
     width: 100%;
   }
+  .header-nav li:nth-child(6) {
+    margin-bottom: 15px;
+  }
 }
 .header-nav li a {
   display: flex;
@@ -201,9 +225,9 @@ body.guest {
   transition: border ease 0.3s, color ease 0.3s;
   color: #707476;
   font-size: 18px;
-  font-weight: 900;
+  font-weight: bold;
   line-height: 16px;
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "GT Walsheim Pro", sans-serif;
 }
 @media screen and (max-width: 768px) {
   .header-nav li a {
@@ -212,8 +236,7 @@ body.guest {
     padding: 8px 0;
     text-transform: uppercase;
     font-size: 12px;
-    font-family: "Inter", sans-serif;
-    font-weight: 800;
+    font-family: "GT Walsheim Pro", sans-serif;
   }
 }
 .header-nav li a.active, .header-nav li a:hover {
@@ -370,17 +393,13 @@ body.guest {
 .main:before {
   position: absolute;
   content: "";
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 100%;
   height: 848px;
-  background: url("/assets/images/main-bg.webp") no-repeat center/contain;
+  background: url("/assets/images/main-bg.webp") no-repeat center/cover;
   z-index: -1;
-}
-@media screen and (max-width: 768px) {
-  .main:before {
-    background: url("/assets/images/main-bg.webp") no-repeat center/cover;
-  }
 }
 .main-email {
   display: flex;
@@ -392,8 +411,11 @@ body.guest {
 }
 @media screen and (max-width: 768px) {
   .main-email {
+    border: unset;
+    border-radius: unset;
     width: 100%;
     flex-direction: column;
+    gap: 10px;
   }
   .main-email a {
     width: 100%;
@@ -402,7 +424,13 @@ body.guest {
     width: 100%;
   }
   .main-email .main-input input {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
     width: 100%;
+  }
+  .main-email .btn-gradient {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
   }
 }
 .main-input {
@@ -504,7 +532,7 @@ body.guest {
 }
 @media all and (max-width: 768px) {
   .main-title h2 {
-    font-size: 44px;
+    font-size: 42px;
     display: flex;
     justify-content: center;
     text-align: center;
@@ -520,6 +548,7 @@ body.guest {
 @media screen and (max-width: 768px) {
   .main-title p {
     text-align: center;
+    font-size: 14px;
   }
 }
 .main-title p span {
@@ -552,6 +581,98 @@ body.guest {
 .main-features svg {
   fill: #FFBE27;
 }
+.main-rating {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+.main-rating-left {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.main-rating-left-item {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  border-radius: 32px;
+  border: 2px solid #12133F;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main-rating-left-item img {
+  width: 28px;
+  height: 28px;
+}
+.main-rating-left-item:nth-child(1) {
+  top: 0;
+  left: 0;
+}
+.main-rating-left-item:nth-child(2) {
+  top: 0;
+  left: 16px;
+}
+.main-rating-left-item:nth-child(3) {
+  top: 0;
+  left: 32px;
+}
+.main-rating-left-item:nth-child(4) {
+  top: 0;
+  left: 48px;
+}
+.main-rating-left-item:nth-child(5) {
+  position: relative;
+  top: 0;
+  left: 64px;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border-radius: unset;
+  border: unset;
+}
+.main-rating-left-item:nth-child(5) svg {
+  width: 32px;
+  height: 32px;
+  fill: #24E476;
+  stroke-width: 2px;
+  stroke: #12133F;
+}
+.main-rating-left-item:nth-child(5) p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  color: #080707;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 16px;
+}
+.main-rating-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4px;
+}
+.main-rating-right-stars {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+.main-rating-right-stars svg {
+  width: 12px;
+  height: 12px;
+  fill: #24E476;
+}
+.main-rating-right p {
+  color: #FFF;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 16px;
+}
 
 .icon {
   width: 16px;
@@ -575,7 +696,7 @@ body.guest {
   border: 1px solid rgba(255, 255, 255, 0.07);
   background: rgba(255, 255, 255, 0.07);
   backdrop-filter: blur(64px);
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "GT Walsheim Pro", sans-serif;
 }
 .stats-content:before {
   position: absolute;
@@ -620,7 +741,7 @@ body.guest {
 }
 
 .content-title {
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "GT Walsheim Pro", sans-serif;
   font-weight: 700;
   font-size: 32px;
   color: #fff;
@@ -628,6 +749,7 @@ body.guest {
 @media all and (max-width: 768px) {
   .content-title {
     text-align: center;
+    font-size: 22px;
   }
 }
 
@@ -658,7 +780,8 @@ body.guest {
 }
 @media all and (max-width: 768px) {
   .benefits-content-column {
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
   }
 }
 .benefits-content-column-cart {
@@ -684,6 +807,14 @@ body.guest {
 @media screen and (max-width: 768px) {
   .benefits-content-column-cart {
     width: 100%;
+    padding: 15px;
+    gap: 8px;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 425px) {
+  .benefits-content-column-cart {
+    align-items: flex-start;
   }
 }
 .benefits-content-column-cart:before {
@@ -715,20 +846,21 @@ body.guest {
 .benefits-content-column-cart:hover:hover svg {
   fill: #080707;
 }
-@media all and (max-width: 768px) {
-  .benefits-content-column-cart {
-    align-items: center;
-  }
-}
 .benefits-content-column-cart svg {
   width: 32px;
   height: 32px;
   fill: white;
   transition: fill ease 0.3s;
 }
+@media all and (max-width: 768px) {
+  .benefits-content-column-cart svg {
+    width: 25px;
+    height: 25px;
+  }
+}
 .benefits-content-column-cart__title {
   align-self: stretch;
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "GT Walsheim Pro", sans-serif;
   font-weight: 700;
   font-size: 24px;
   color: white;
@@ -742,7 +874,13 @@ body.guest {
     justify-content: center;
     text-align: center;
     width: 100%;
-    white-space: nowrap;
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .benefits-content-column-cart__title {
+    justify-content: flex-start;
+    text-align: left;
   }
 }
 .benefits-content-column-cart .line {
@@ -752,12 +890,38 @@ body.guest {
   transition: background-color ease 0.3s;
   width: 100%;
 }
+@media all and (max-width: 768px) {
+  .benefits-content-column-cart .line {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 14px;
+  }
+}
+@media all and (max-width: 425px) {
+  .benefits-content-column-cart .line {
+    display: none;
+  }
+}
 .benefits-content-column-cart__description {
   font-size: 16px;
   color: #DAE9FF;
   font-weight: 400;
   line-height: 150%;
   transition: color ease 0.3s;
+}
+@media all and (max-width: 768px) {
+  .benefits-content-column-cart__description {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 14px;
+  }
+}
+@media all and (max-width: 425px) {
+  .benefits-content-column-cart__description {
+    display: none;
+  }
 }
 
 .started {
@@ -772,6 +936,12 @@ body.guest {
   gap: 64px;
   padding: 64px 0;
 }
+@media all and (max-width: 768px) {
+  .started-content {
+    padding: 0 0 32px;
+    gap: 32px;
+  }
+}
 .started-content-up {
   display: flex;
   flex-direction: column;
@@ -779,6 +949,11 @@ body.guest {
   align-items: center;
   gap: 32px;
   align-self: stretch;
+}
+@media all and (max-width: 768px) {
+  .started-content-up {
+    gap: unset;
+  }
 }
 .started-content-up-titles {
   display: flex;
@@ -795,7 +970,11 @@ body.guest {
   font-weight: 500;
   line-height: 150%;
   max-width: 648px;
-  text-align: center;
+}
+@media screen and (max-width: 768px) {
+  .started-content-up-titles__subtitle {
+    font-size: 12px;
+  }
 }
 .started-content-up-column {
   display: flex;
@@ -848,7 +1027,7 @@ body.guest {
 .started-content-up-column-cart-titles__title {
   color: #FFF;
   text-align: center;
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "GT Walsheim Pro", sans-serif;
   font-size: 16px;
   font-weight: 700;
   line-height: 150%;
@@ -870,7 +1049,7 @@ body.guest {
 .started-content-buttons p {
   color: #FFF;
   text-align: center;
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "GT Walsheim Pro", sans-serif;
   font-size: 16px;
   font-weight: 700;
   line-height: 32px;
@@ -923,6 +1102,7 @@ body.guest {
   }
 }
 .works-content-main-column-cart {
+  position: relative;
   display: flex;
   padding: 40px 32px 24px 32px;
   flex-direction: column;
@@ -984,13 +1164,25 @@ body.guest {
     border-radius: 0 0 20px 20px;
   }
 }
+.works-content-main-column-cart__number {
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  width: 64px;
+  color: #FFF;
+  text-align: center;
+  font-size: 104px;
+  font-weight: bold;
+  line-height: 64px;
+  opacity: 0.05;
+}
 .works-content-main-column-cart__title {
   align-self: stretch;
   color: #FFF;
   text-align: center;
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "GT Walsheim Pro", sans-serif;
   font-size: 18px;
-  font-weight: 700;
+  font-weight: bold;
   line-height: 16px;
 }
 .works-content-main-column-cart__description {
@@ -1031,6 +1223,27 @@ body.guest {
   align-items: center;
   gap: 64px;
   align-self: stretch;
+}
+@media all and (max-width: 768px) {
+  .reviews-content {
+    gap: 32px;
+    margin-bottom: 32px;
+  }
+}
+.reviews-content-headlines {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+.reviews-content-headlines__subtitle {
+  color: #FFF;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 150%;
 }
 .reviews-content-column {
   display: flex;
@@ -1077,7 +1290,7 @@ body.guest {
 .reviews-content-column-cart-titles__title {
   color: #FFF;
   text-align: center;
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "GT Walsheim Pro", sans-serif;
   font-size: 16px;
   font-weight: 700;
   line-height: 16px;
@@ -1133,7 +1346,7 @@ body.guest {
 .reviews-content-container-list-item-content-up__title {
   flex: 1 0 0;
   color: #FFF;
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "GT Walsheim Pro", sans-serif;
   font-size: 18px;
   font-weight: 700;
   line-height: 16px;
@@ -1158,7 +1371,6 @@ body.guest {
 }
 .reviews-content-container-list-item-customer {
   display: flex;
-  width: 262.286px;
   justify-content: space-between;
   align-items: center;
   width: 100%;
@@ -1234,6 +1446,12 @@ body.guest {
   align-self: stretch;
   margin-bottom: 64px;
 }
+@media all and (max-width: 768px) {
+  .info-content {
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+}
 .info-content-titles {
   display: flex;
   flex-direction: column;
@@ -1247,6 +1465,11 @@ body.guest {
   font-weight: 500;
   line-height: 150%;
   max-width: 324px;
+}
+@media all and (max-width: 768px) {
+  .info-content-titles__description {
+    font-size: 12px;
+  }
 }
 .info-content-titles__description span {
   color: #FFB60E;
@@ -1300,6 +1523,12 @@ body.guest {
   align-self: stretch;
   margin-bottom: 64px;
 }
+@media all and (max-width: 768px) {
+  .faq-content {
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+}
 .faq-content-questions {
   display: flex;
   justify-content: center;
@@ -1333,7 +1562,7 @@ body.guest {
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.05);
   height: auto;
-  max-height: 64px;
+  max-height: 112px;
   overflow: hidden;
   transition: max-height ease 0.3s;
 }
@@ -1360,7 +1589,7 @@ body.guest {
 }
 .faq-content-questions-left-item-left__title, .faq-content-questions-right-item-left__title {
   color: #FFF;
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "GT Walsheim Pro", sans-serif;
   font-size: 16px;
   font-weight: 700;
   line-height: 16px;
@@ -1408,7 +1637,7 @@ body.guest {
 }
 
 details[open] {
-  max-height: 320px;
+  max-height: 537px;
 }
 details[open] summary .faq-content-questions-left-item-left-right svg, details[open] summary .faq-content-questions-right-item-left-right svg {
   transform: rotate(180deg);
@@ -1469,7 +1698,7 @@ details[open] summary .faq-content-questions-left-item-left-right svg, details[o
 }
 .footer-content-top-left-logo__title {
   color: #FFF;
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "GT Walsheim Pro", sans-serif;
   font-size: 24px;
   font-weight: 700;
   line-height: 30px;
@@ -1497,7 +1726,7 @@ details[open] summary .faq-content-questions-left-item-left-right svg, details[o
 }
 .footer-content-top-left-column-explore__title, .footer-content-top-left-column-services__title {
   color: #FFF;
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "GT Walsheim Pro", sans-serif;
   font-size: 24px;
   font-weight: 700;
   line-height: 30px;
