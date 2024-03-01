@@ -1,6 +1,5 @@
 @import "reset";
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import "fonts";
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Jost&family=Raleway:wght@100&family=Roboto&display=swap');
 html {
   position: relative;
@@ -8,7 +7,7 @@ html {
 }
 body.guest {
   background: #080707;
-  font-family: 'Inter', sans-serif;
+  font-family: 'GT Walsheim Pro', sans-serif;
   font-style: normal;
   min-height: 100vh;
   overflow-x: hidden;
@@ -140,8 +139,8 @@ body.guest {
           padding: 8px 0;
           text-transform: uppercase;
           font-size: 12px;
-          font-family: "Inter" , sans-serif;
-          font-weight: 800;
+          font-family: "GT Walsheim Pro", sans-serif;
+          //font-weight: 800;
         }
         display: flex;
         align-items: center;
@@ -153,9 +152,9 @@ body.guest {
 
         color: #707476;
         font-size: 18px;
-        font-weight: 900;
+        font-weight: bold;
         line-height: 16px;
-        font-family: "Space Grotesk" , sans-serif;
+        font-family: "GT Walsheim Pro" , sans-serif;
 
         &.active,
         &:hover{
@@ -458,7 +457,7 @@ body.guest {
       -webkit-text-fill-color: transparent;
       font-family: 'Inter', sans-serif;
       @media all and (max-width: 768px) {
-        font-size: 40px;
+        font-size: 42px;
         display: flex;
         justify-content: center;
         text-align: center;
@@ -496,7 +495,6 @@ body.guest {
     @media screen and (max-width: 768px) {
       flex-direction: column;
       align-items: flex-start;
-      font-size: 12px;
     }
     li {
       display: flex;
@@ -505,6 +503,99 @@ body.guest {
     }
     svg {
       fill: #FFBE27;
+    }
+  }
+
+  &-rating{
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    &-left{
+      position: relative;
+      display: flex;
+      align-items: center;
+      &-item{
+        position: absolute;
+        width: 32px;
+        height: 32px;
+        border-radius: 32px;
+        border: 2px solid #12133F;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img{
+          width: 28px;
+          height: 28px;
+        }
+        &:nth-child(1){
+          top: 0;
+          left: 0;
+        }
+        &:nth-child(2){
+          top: 0;
+          left: 16px;
+        }
+        &:nth-child(3){
+          top: 0;
+          left: 32px;
+        }
+        &:nth-child(4){
+          top: 0;
+          left: 48px;
+        }
+        &:nth-child(5){
+          position: relative;
+          top: 0;
+          left: 64px;
+          width: 32px;
+          height: 32px;
+          flex-shrink: 0;
+          border-radius: unset;
+          border: unset;
+          svg{
+            width: 32px;
+            height: 32px;
+            fill: #24E476;
+            stroke-width: 2px;
+            stroke: #12133F;
+          }
+          p{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0;
+            color: #080707;
+            font-size: 10px;
+            font-weight: 700;
+            line-height: 16px;
+          }
+        }
+      }
+    }
+    &-right{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 4px;
+      &-stars{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        svg{
+          width: 12px;
+          height: 12px;
+          fill: #24E476;
+        }
+      }
+      p{
+        color: #FFF;
+        font-size: 10px;
+        font-weight: 500;
+        line-height: 16px;
+      }
     }
   }
 }
@@ -530,7 +621,7 @@ body.guest {
     border: 1px solid rgba(255, 255, 255, 0.07);
     background: rgba(255, 255, 255, 0.07);
     backdrop-filter: blur(64px);
-    font-family: "Space Grotesk", sans-serif;
+    font-family: "GT Walsheim Pro", sans-serif;
     &:before {
       position: absolute;
       content: '';
@@ -574,7 +665,7 @@ body.guest {
 }
 
 .content-title{
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "GT Walsheim Pro", sans-serif;
   font-weight: 700;
   font-size: 32px;
   color: #fff;
@@ -681,7 +772,7 @@ body.guest {
         }
         &__title{
           align-self: stretch;
-          font-family: "Space Grotesk", sans-serif;
+          font-family: "GT Walsheim Pro", sans-serif;
           font-weight: 700;
           font-size: 24px;
           color: white;
@@ -824,7 +915,7 @@ body.guest {
             &__title{
               color: #FFF;
               text-align: center;
-              font-family: "Space Grotesk", sans-serif;
+              font-family: "GT Walsheim Pro", sans-serif;
               font-size: 16px;
               font-weight: 700;
               line-height: 150%;
@@ -849,7 +940,7 @@ body.guest {
       p{
         color: #FFF;
         text-align: center;
-        font-family: "Space Grotesk", sans-serif;
+        font-family: "GT Walsheim Pro", sans-serif;
         font-size: 16px;
         font-weight: 700;
         line-height: 32px;
@@ -896,6 +987,7 @@ body.guest {
           flex-direction: column;
         }
         &-cart{
+          position: relative;
           display: flex;
           padding: 40px 32px 24px 32px;
           flex-direction: column;
@@ -956,13 +1048,25 @@ body.guest {
               border-radius: 0 0 20px 20px;
             }
           }
+          &__number{
+            position: absolute;
+            left: 16px;
+            top: 16px;
+            width: 64px;
+            color: #FFF;
+            text-align: center;
+            font-size: 104px;
+            font-weight: bold;
+            line-height: 64px;
+            opacity: 0.05;
+          }
           &__title{
             align-self: stretch;
             color: #FFF;
             text-align: center;
-            font-family: "Space Grotesk", sans-serif;
+            font-family: "GT Walsheim Pro", sans-serif;
             font-size: 18px;
-            font-weight: 700;
+            font-weight: bold;
             line-height: 16px;
           }
           &__description{
@@ -1006,6 +1110,21 @@ body.guest {
       gap: 32px;
       margin-bottom: 32px;
     }
+    &-headlines{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      &__subtitle{
+        color: #FFF;
+        text-align: center;
+        font-family: Inter, sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 150%;
+      }
+    }
     &-column{
       display: flex;
       justify-content: center;
@@ -1046,7 +1165,7 @@ body.guest {
           &__title{
             color: #FFF;
             text-align: center;
-            font-family: "Space Grotesk", sans-serif;
+            font-family: "GT Walsheim Pro", sans-serif;
             font-size: 16px;
             font-weight: 700;
             line-height: 16px;
@@ -1100,7 +1219,7 @@ body.guest {
               &__title{
                 flex: 1 0 0;
                 color: #FFF;
-                font-family: "Space Grotesk", sans-serif;
+                font-family: "GT Walsheim Pro", sans-serif;
                 font-size: 18px;
                 font-weight: 700;
                 line-height: 16px;
@@ -1337,7 +1456,7 @@ body.guest {
 
             &__title {
               color: #FFF;
-              font-family: "Space Grotesk", sans-serif;
+              font-family: "GT Walsheim Pro", sans-serif;
               font-size: 16px;
               font-weight: 700;
               line-height: 16px;
@@ -1455,7 +1574,7 @@ details[open] {
 
           &__title {
             color: #FFF;
-            font-family: "Space Grotesk", sans-serif;
+            font-family: "GT Walsheim Pro", sans-serif;
             font-size: 24px;
             font-weight: 700;
             line-height: 30px;
@@ -1483,7 +1602,7 @@ details[open] {
 
             &__title {
               color: #FFF;
-              font-family: "Space Grotesk", sans-serif;
+              font-family: "GT Walsheim Pro", sans-serif;
               font-size: 24px;
               font-weight: 700;
               line-height: 30px;
