@@ -312,7 +312,7 @@ body.guest {
 }
 
 .main {
-  padding-top: 120px;
+  padding-top: 64px;
   position: relative;
   @media all and (max-width: 768px){
     padding: 30px 25px 0;
@@ -425,8 +425,8 @@ body.guest {
       height: 100%;
       img {
         position: absolute;
-        width: 869px;
-        top: -130px;
+        width: 774px;
+        top: -84px;
         pointer-events: none;
       }
       @media all and (max-width: 768px) {
