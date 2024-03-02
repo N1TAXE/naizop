@@ -20,7 +20,7 @@ body.guest {
   margin: 0 auto;
   padding: 0 32px;
   @media screen and (max-width: 768px) {
-    padding: 0 16px;
+    padding: 0 24px;
   }
 }
 
@@ -68,6 +68,17 @@ body.guest {
   }
 }
 
+header {
+  position: relative;
+  z-index: 1;
+  @media screen and (max-width: 768px) {
+    .container {
+      background: #101314;
+      padding: 16px 24px;
+    }
+  }
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -77,7 +88,7 @@ body.guest {
 
   @media all and (max-width: 768px) {
     align-items: center;
-    padding: 10px 25px;
+
   }
 
   &-left {
@@ -313,8 +324,8 @@ body.guest {
 .main {
   padding-top: 64px;
   position: relative;
-  @media all and (max-width: 768px){
-    padding: 30px 25px 0;
+  @media screen and (max-width: 768px) {
+    padding-top: 24px;
   }
   &:before {
     position: absolute;
@@ -355,6 +366,24 @@ body.guest {
       .btn-gradient{
         border: 1px solid rgba(255, 255, 255, 0.10);
         border-radius: 10px;
+      }
+    }
+    .main-input {
+      input {
+        color: #DAE9FF;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 16px;
+        &::placeholder {
+          color: #7983A1;
+        }
+      }
+      svg {
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%);
       }
     }
   }
@@ -472,7 +501,6 @@ body.guest {
       margin: 0;
       @media screen and (max-width: 768px) {
         text-align: center;
-        font-size: 14px;
       }
       span {
         color: #FFBE27;
@@ -607,9 +635,6 @@ body.guest {
 }
 
 .stats {
-  @media all and (max-width: 768px) {
-    padding: 0 25px;
-  }
   &-content {
     position: relative;
     display: flex;
@@ -635,6 +660,7 @@ body.guest {
     @media all and (max-width: 768px) {
       padding: 28px 0;
       flex-direction: column;
+      gap: 16px;
     }
     li {
       display: flex;
@@ -686,7 +712,7 @@ body.guest {
     padding: 64px 0 0;
     gap: 32px;
     @media all and (max-width: 768px){
-      padding: 32px 25px;
+      padding: 32px 0;
       gap: 16px;
     }
     &-column{
@@ -969,9 +995,6 @@ body.guest {
     align-items: center;
     gap: 64px;
     align-self: stretch;
-    @media all and (max-width: 1200px){
-      padding: 0 25px;
-    }
     &-main{
       display: flex;
       flex-direction: column;
@@ -1381,9 +1404,6 @@ body.guest {
 .faq {
   position: relative;
   z-index: 1;
-  @media all and (max-width: 1200px){
-    padding: 0 25px;
-  }
 
   &-content {
     display: flex;
@@ -1528,9 +1548,6 @@ details[open] {
   background: #000;
   position: relative;
   z-index: 1;
-  @media all and (max-width: 1200px){
-    padding: 0 25px;
-  }
 
   &-content {
     display: flex;

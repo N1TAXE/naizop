@@ -100,7 +100,7 @@ body.guest {
 }
 @media screen and (max-width: 768px) {
   .container {
-    padding: 0 16px;
+    padding: 0 24px;
   }
 }
 
@@ -148,6 +148,17 @@ body.guest {
   width: 100%;
 }
 
+header {
+  position: relative;
+  z-index: 1;
+}
+@media screen and (max-width: 768px) {
+  header .container {
+    background: #101314;
+    padding: 16px 24px;
+  }
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -158,7 +169,6 @@ body.guest {
 @media all and (max-width: 768px) {
   .header {
     align-items: center;
-    padding: 10px 25px;
   }
 }
 .header-left {
@@ -385,9 +395,9 @@ body.guest {
   padding-top: 64px;
   position: relative;
 }
-@media all and (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .main {
-    padding: 30px 25px 0;
+    padding-top: 24px;
   }
 }
 .main:before {
@@ -432,6 +442,22 @@ body.guest {
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 10px;
   }
+}
+.main-email .main-input input {
+  color: #DAE9FF;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px;
+}
+.main-email .main-input input::placeholder {
+  color: #7983A1;
+}
+.main-email .main-input svg {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 .main-input {
   position: relative;
@@ -548,7 +574,6 @@ body.guest {
 @media screen and (max-width: 768px) {
   .main-title p {
     text-align: center;
-    font-size: 14px;
   }
 }
 .main-title p span {
@@ -680,11 +705,6 @@ body.guest {
   transition: fill ease 0.3s;
 }
 
-@media all and (max-width: 768px) {
-  .stats {
-    padding: 0 25px;
-  }
-}
 .stats-content {
   position: relative;
   display: flex;
@@ -712,6 +732,7 @@ body.guest {
   .stats-content {
     padding: 28px 0;
     flex-direction: column;
+    gap: 16px;
   }
 }
 .stats-content li {
@@ -767,7 +788,7 @@ body.guest {
 }
 @media all and (max-width: 768px) {
   .benefits-content {
-    padding: 32px 25px;
+    padding: 32px 0;
     gap: 16px;
   }
 }
@@ -1077,11 +1098,6 @@ body.guest {
   align-items: center;
   gap: 64px;
   align-self: stretch;
-}
-@media all and (max-width: 1200px) {
-  .works-content {
-    padding: 0 25px;
-  }
 }
 .works-content-main {
   display: flex;
@@ -1510,11 +1526,6 @@ body.guest {
   position: relative;
   z-index: 1;
 }
-@media all and (max-width: 1200px) {
-  .faq {
-    padding: 0 25px;
-  }
-}
 .faq-content {
   display: flex;
   flex-direction: column;
@@ -1647,11 +1658,6 @@ details[open] summary .faq-content-questions-left-item-left-right svg, details[o
   background: #000;
   position: relative;
   z-index: 1;
-}
-@media all and (max-width: 1200px) {
-  .footer {
-    padding: 0 25px;
-  }
 }
 .footer-content {
   display: flex;
